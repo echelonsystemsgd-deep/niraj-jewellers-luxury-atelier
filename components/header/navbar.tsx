@@ -44,32 +44,32 @@ export function Navbar({ onOpenBookingModal }: NavbarProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           {/* Brand Mark */}
-          <Link
-            href="#"
-            className="group flex flex-col focus:outline-none"
-            aria-label="Niraj Jewellers Home"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group flex flex-col focus:outline-none text-left shrink-0"
+            aria-label="Niraj Jewellers Home - Scroll to top"
           >
-            <span className="font-serif text-xl sm:text-2xl md:text-3xl font-semibold tracking-wider text-platinum group-hover:text-gold-400 transition-colors uppercase">
+            <span className="font-serif text-xl sm:text-2xl md:text-3xl font-semibold tracking-wider text-platinum group-hover:text-gold-400 transition-colors uppercase whitespace-nowrap">
               NIRAJ JEWELLERS
             </span>
-            <span className="text-[10px] sm:text-[11px] tracking-[0.25em] text-gold-500/90 font-medium uppercase -mt-0.5 sm:-mt-1 flex items-center gap-1.5">
+            <span className="text-[10px] sm:text-[11px] tracking-[0.25em] text-gold-500/90 font-medium uppercase -mt-0.5 sm:-mt-1 flex items-center gap-1.5 whitespace-nowrap">
               <span>HAYES</span>
               <span className="text-atelier-border">•</span>
               <span>LONDON</span>
               <span className="text-atelier-border">•</span>
               <span>EST. DECADES</span>
             </span>
-          </Link>
+          </button>
 
           {/* Desktop Real-time Status Badge */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center shrink-0">
             <ShowroomStatusBadge />
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center space-x-7 text-xs uppercase tracking-widest text-platinum-muted font-medium">
+          <nav className="hidden xl:flex items-center space-x-6 text-xs uppercase tracking-widest text-platinum-muted font-medium whitespace-nowrap">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -83,7 +83,7 @@ export function Navbar({ onOpenBookingModal }: NavbarProps) {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden sm:flex items-center space-x-3">
+          <div className="hidden sm:flex items-center space-x-3 shrink-0">
             {onOpenBookingModal && (
               <button
                 onClick={onOpenBookingModal}

@@ -11,6 +11,7 @@ import { WholesaleAdvantage } from "@/components/craftsmanship/wholesale-advanta
 import { RepairsBento } from "@/components/repairs/repairs-bento";
 import { HallmarkGuide } from "@/components/trust/hallmark-guide";
 import { ReviewsSection } from "@/components/trust/reviews-section";
+import { FaqSection } from "@/components/faq/faq-section";
 import { ShowroomHub } from "@/components/showroom/showroom-hub";
 import { VipBookingModal } from "@/components/showroom/vip-booking-modal";
 import { MobileDock } from "@/components/mobile/mobile-dock";
@@ -52,6 +53,9 @@ export default function Home() {
 
         {/* Verified Google 5-Star Reviews Showcase */}
         <ReviewsSection />
+
+        {/* 5 Critical Commercial Objections & Guarantees FAQ */}
+        <FaqSection />
 
         {/* Flagship Hayes Showroom Hub & Interactive Hours */}
         <ShowroomHub onOpenBookingModal={() => setBookingModalOpen(true)} />

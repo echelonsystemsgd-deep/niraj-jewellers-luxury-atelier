@@ -17,6 +17,10 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
+    setHasVideoError(false);
+  }, [item?.id]);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };

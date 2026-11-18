@@ -3,9 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nirajjewellers.co.uk"),
-  title: "Niraj Jewellers | Bespoke Goldsmith Atelier & Gold Wholesaler Hayes London",
+  title: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London",
   description:
-    "Direct workshop pricing, bespoke 22ct/18ct Indian bridal jewellery, certified natural & lab diamonds, in-house repairs, and official UK assay hallmarked gold bullion. Hayes, West London.",
+    "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp.",
   keywords: [
     "Niraj Jewellers",
     "Bespoke Indian Bridal Jewellery Hayes",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Niraj Jewellers", url: "https://nirajjewellers.co.uk" }],
   openGraph: {
-    title: "Niraj Jewellers | London Bespoke Goldsmith & Bullion Wholesaler",
+    title: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London",
     description:
-      "Handcrafted 22ct bridal suites, bespoke diamond rings, and in-house repairs. Direct workshop access with Master Jeweller Viky at 136 Uxbridge Road, Hayes.",
+      "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp.",
     url: "https://nirajjewellers.co.uk",
     siteName: "Niraj Jewellers London",
     locale: "en_GB",
@@ -37,8 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Niraj Jewellers | Hayes Bespoke Goldsmith Atelier",
-    description: "Bespoke 22ct bridal suites, wholesale bullion, and in-house repairs in West London.",
+    title: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London",
+    description:
+      "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp.",
     images: ["https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop"],
   },
   alternates: {

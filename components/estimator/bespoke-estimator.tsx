@@ -168,6 +168,7 @@ export function BespokeEstimator() {
               </div>
               <input
                 type="range"
+                aria-label="Indicative Budget Tier Selector"
                 min="0"
                 max={budgetTiers.length - 1}
                 step="1"
