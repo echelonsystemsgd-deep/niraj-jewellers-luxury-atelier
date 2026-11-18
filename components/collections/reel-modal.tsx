@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { X, MessageCircle, Volume2, VolumeX, ShieldCheck, Instagram, Sparkles } from "lucide-react";
+import { X, MessageCircle, Volume2, VolumeX, ShieldCheck, Instagram, Sparkles, Play, Pause, ExternalLink } from "lucide-react";
 import { CollectionItem } from "@/data/collections-data";
 import { buildWhatsAppLink, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
 
@@ -13,11 +13,13 @@ interface ReelModalProps {
 
 export function ReelModal({ item, onClose }: ReelModalProps) {
   const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [hasVideoError, setHasVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     setHasVideoError(false);
+    setIsPlaying(true);
   }, [item?.id]);
 
   useEffect(() => {
@@ -44,6 +46,20 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
       setIsMuted(videoRef.current.muted);
     }
   };
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play().catch(() => {});
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const instagramLink = item.instagramUrl || "https://www.instagram.com/nirajjewellersltd";
 
   return (
     <div
@@ -77,17 +93,30 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
                 loop
                 muted={isMuted}
                 playsInline
+                preload="metadata"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
                 onError={() => setHasVideoError(true)}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover cursor-pointer"
+                onClick={togglePlay}
               />
-              <button
-                onClick={toggleAudio}
-                className="absolute bottom-4 left-4 z-20 p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 text-xs flex items-center gap-1.5 touch-target"
-                aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-              >
-                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                <span className="text-[11px] pr-1">{isMuted ? "Unmute" : "Sound On"}</span>
-              </button>
+              <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
+                <button
+                  onClick={togglePlay}
+                  className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 text-xs flex items-center gap-1.5 touch-target"
+                  aria-label={isPlaying ? "Pause video" : "Play video"}
+                >
+                  {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-white" />}
+                </button>
+                <button
+                  onClick={toggleAudio}
+                  className="p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 text-xs flex items-center gap-1.5 touch-target"
+                  aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+                >
+                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                  <span className="text-[11px] pr-1">{isMuted ? "Unmute" : "Sound"}</span>
+                </button>
+              </div>
             </>
           ) : (
             <div className="relative w-full h-full">
@@ -99,14 +128,33 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
+              {/* Instagram Reel Direct Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+              <div className="absolute inset-x-4 bottom-14 z-20 flex flex-col items-center text-center">
+                <a
+                  href={instagramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/80 hover:bg-black border border-pink-500/40 text-pink-300 hover:text-white text-xs font-medium backdrop-blur-md transition-all shadow-xl hover:scale-105"
+                >
+                  <Instagram className="w-4 h-4 text-pink-400" />
+                  <span>Watch Reel on Instagram (@nirajjewellersltd)</span>
+                  <ExternalLink className="w-3 h-3 text-pink-400/80" />
+                </a>
+              </div>
             </div>
           )}
 
           {/* Social Media Stamp */}
-          <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white text-[11px]">
+          <a
+            href={instagramLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md border border-white/10 text-white hover:text-pink-400 text-[11px] transition-colors"
+          >
             <Instagram className="w-3.5 h-3.5 text-pink-400" />
             <span>@nirajjewellersltd</span>
-          </div>
+          </a>
 
           {/* Hallmark Badge */}
           <div className="absolute bottom-4 right-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-gold-950/80 border border-gold-500/40 text-gold-300 text-[10px] uppercase font-mono tracking-wider">

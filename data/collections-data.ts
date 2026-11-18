@@ -9,6 +9,7 @@ export interface CollectionItem {
   mediaType: "video" | "image";
   thumbnailUrl: string;
   videoUrl?: string;
+  instagramUrl?: string;
   tags: string[];
   specs: {
     weight?: string;
@@ -29,7 +30,8 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     priceNote: "Direct Workshop Consultation • Bespoke Suite",
     mediaType: "video",
     thumbnailUrl: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-wearing-a-gold-necklace-41584-large.mp4",
+    videoUrl: "/videos/reel-bridal-choker.mp4",
+    instagramUrl: "https://www.instagram.com/nirajjewellersltd",
     tags: ["22ct Gold", "Syndicate Polki", "Bridal Suite", "Zambian Emerald"],
     specs: {
       weight: "142.5 grams",
@@ -48,6 +50,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     priceNote: "IGI / GIA Certified • Wholesale Diamond Sourcing",
     mediaType: "image",
     thumbnailUrl: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=crop",
+    instagramUrl: "https://www.instagram.com/nirajjewellersltd",
     tags: ["Solitaire", "GIA Certified", "Platinum", "Oval Diamond"],
     specs: {
       carat: "2.50ct Centre (F/VS1)",
@@ -65,7 +68,8 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     priceNote: "Wholesale Bullion Spot + Craft Premium",
     mediaType: "video",
     thumbnailUrl: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=1200&auto=format&fit=crop",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-jeweler-cleaning-a-gold-ring-41618-large.mp4",
+    videoUrl: "/videos/reel-lion-kada.mp4",
+    instagramUrl: "https://www.instagram.com/nirajjewellersltd",
     tags: ["22ct Solid Gold", "Lion Head", "Kada", "Heirloom"],
     specs: {
       weight: "86.2 grams",
@@ -83,6 +87,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     priceNote: "Bespoke Bridal Commission",
     mediaType: "image",
     thumbnailUrl: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1200&auto=format&fit=crop",
+    instagramUrl: "https://www.instagram.com/nirajjewellersltd",
     tags: ["Rani Haar", "Temple Jewellery", "22ct Gold", "South Sea Pearls"],
     specs: {
       weight: "185.0 grams",
@@ -100,6 +105,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     priceNote: "Certified Natural / Lab-Grown Available",
     mediaType: "image",
     thumbnailUrl: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=crop",
+    instagramUrl: "https://www.instagram.com/nirajjewellersltd",
     tags: ["Emerald Cut", "Trilogy Ring", "18ct Gold", "Platinum"],
     specs: {
       carat: "3.00ct Centre + 0.80ct Sides",
@@ -117,7 +123,8 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     priceNote: "Live Bullion Weight Pricing",
     mediaType: "video",
     thumbnailUrl: "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=1200&auto=format&fit=crop",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-close-up-of-jeweler-inspecting-a-gem-41617-large.mp4",
+    videoUrl: "/videos/reel-curb-chain.mp4",
+    instagramUrl: "https://www.instagram.com/nirajjewellersltd",
     tags: ["Curb Chain", "22ct Gold", "Heavy Gold", "Investment"],
     specs: {
       weight: "115.8 grams",
@@ -135,6 +142,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     priceNote: "Daily Luxury • Custom Lengths Available",
     mediaType: "image",
     thumbnailUrl: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1200&auto=format&fit=crop",
+    instagramUrl: "https://www.instagram.com/nirajjewellersltd",
     tags: ["Mangalsutra", "Modern Bridal", "22ct Gold", "Diamond"],
     specs: {
       carat: "0.85ct Solitaire",
@@ -152,6 +160,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     priceNote: "Pair Commission • Lightweight Ergonomics",
     mediaType: "image",
     thumbnailUrl: "https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=1200&auto=format&fit=crop",
+    instagramUrl: "https://www.instagram.com/nirajjewellersltd",
     tags: ["Jhumkas", "Chandbali", "22ct Gold", "Bridal Earrings"],
     specs: {
       weight: "48.6 grams / pair",
