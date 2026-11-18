@@ -33,15 +33,21 @@ export function Footer() {
             <div className="lg:col-span-2 space-y-4">
               <button
                 onClick={scrollToTop}
-                className="text-left focus:outline-none group"
+                className="group flex items-center gap-3 text-left focus:outline-none"
                 aria-label="Scroll back to top"
               >
-                <span className="font-serif text-2xl font-bold tracking-wider text-white uppercase group-hover:text-gold-400 transition-colors">
-                  NIRAJ JEWELLERS
-                </span>
-                <span className="text-[10px] tracking-[0.25em] text-gold-500 font-medium uppercase block">
-                  HAYES • LONDON • EST. DECADES
-                </span>
+                {/* Luxury Monogram Crest */}
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400/20 via-zinc-900 to-black border border-gold-500/40 flex items-center justify-center shrink-0 shadow-sm group-hover:border-gold-400 transition-colors">
+                  <span className="font-serif font-bold text-base text-gold-300 tracking-tighter">NJ</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-serif text-2xl font-bold tracking-wider text-white uppercase group-hover:text-gold-400 transition-colors">
+                    NIRAJ JEWELLERS
+                  </span>
+                  <span className="text-[10px] tracking-[0.25em] text-gold-500 font-medium uppercase block">
+                    HAYES • LONDON • EST. DECADES
+                  </span>
+                </div>
               </button>
               <p className="text-xs leading-relaxed max-w-sm">
                 London&apos;s trusted bespoke goldsmith atelier and direct bullion dealer. Handcrafted 22ct Asian bridal suites, certified diamond rings, and in-house workshop repairs.

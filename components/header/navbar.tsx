@@ -51,19 +51,25 @@ export function Navbar({ onOpenBookingModal }: NavbarProps) {
           <div className="flex items-center gap-4 shrink-0">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="group flex flex-col focus:outline-none text-left"
+              className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none text-left"
               aria-label="Niraj Jewellers Home - Scroll to top"
             >
-              <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold tracking-wider text-zinc-100 group-hover:text-gold-400 transition-colors uppercase whitespace-nowrap">
-                NIRAJ JEWELLERS
-              </span>
-              <span className="text-[9px] sm:text-[10px] tracking-[0.22em] text-gold-500/90 font-medium uppercase -mt-0.5 flex items-center gap-1.5 whitespace-nowrap">
-                <span>HAYES</span>
-                <span className="text-zinc-600">•</span>
-                <span>LONDON</span>
-                <span className="text-zinc-600">•</span>
-                <span>EST. DECADES</span>
-              </span>
+              {/* Luxury Monogram Crest */}
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-gold-400/20 via-zinc-900 to-black border border-gold-500/40 flex items-center justify-center shrink-0 shadow-sm group-hover:border-gold-400 transition-colors">
+                <span className="font-serif font-bold text-xs sm:text-sm text-gold-300 tracking-tighter">NJ</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold tracking-wider text-zinc-100 group-hover:text-gold-400 transition-colors uppercase whitespace-nowrap">
+                  NIRAJ JEWELLERS
+                </span>
+                <span className="text-[9px] sm:text-[10px] tracking-[0.22em] text-gold-500/90 font-medium uppercase -mt-0.5 flex items-center gap-1.5 whitespace-nowrap">
+                  <span>HAYES</span>
+                  <span className="text-zinc-600">•</span>
+                  <span>LONDON</span>
+                  <span className="text-zinc-600">•</span>
+                  <span>EST. DECADES</span>
+                </span>
+              </div>
             </button>
 
             {/* Live Showroom Micro-Status for Wide Desktops */}

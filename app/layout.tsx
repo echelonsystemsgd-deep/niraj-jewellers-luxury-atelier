@@ -18,6 +18,19 @@ export const metadata: Metadata = {
     "Southall Hayes Gold Jewellers",
   ],
   authors: [{ name: "Niraj Jewellers", url: "https://nirajjewellers.co.uk" }],
+  creator: "Niraj Jewellers",
+  publisher: "Shiva Technology Ltd",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/favicon.svg"],
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London",
     description:
@@ -28,10 +41,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Niraj Jewellers Bespoke 22ct Gold Bridal Suite",
+        alt: "Niraj Jewellers London - Bespoke Goldsmith Atelier & Direct Gold Wholesaler",
       },
     ],
   },
@@ -40,7 +53,7 @@ export const metadata: Metadata = {
     title: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London",
     description:
       "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp.",
-    images: ["https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop"],
+    images: ["/opengraph-image"],
   },
   alternates: {
     canonical: "https://nirajjewellers.co.uk",
@@ -66,9 +79,10 @@ export default function RootLayout({
     "@id": "https://nirajjewellers.co.uk/#jewelrystore",
     name: "Niraj Jewellers",
     legalName: "Shiva Technology Ltd t/a Niraj Jewellers",
+    logo: "https://nirajjewellers.co.uk/logo.svg",
     image: [
-      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=crop",
+      "https://nirajjewellers.co.uk/opengraph-image",
+      "https://nirajjewellers.co.uk/logo.svg",
     ],
     telephone: "+447955565137",
     url: "https://nirajjewellers.co.uk",

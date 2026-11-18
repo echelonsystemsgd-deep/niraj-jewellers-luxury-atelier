@@ -10,7 +10,7 @@ const securityHeaders = [
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https://images.unsplash.com https://*.cdninstagram.com https://maps.googleapis.com",
       "media-src 'self' blob: https://*",
-      "connect-src 'self' https://www.goldapi.io https://open.er-api.com https://api.behold.so https://va.vercel-scripts.com",
+      "connect-src 'self' https://www.goldapi.io https://open.er-api.com https://va.vercel-scripts.com",
       "frame-ancestors 'none'",
     ].join("; "),
   },

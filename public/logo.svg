@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldLinear" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3D6" />
+      <stop offset="35%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#AA771C" />
+      <stop offset="100%" stop-color="#85580F" />
+    </linearGradient>
+    <linearGradient id="goldRing" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#85580F" />
+      <stop offset="50%" stop-color="#F3E5AB" />
+      <stop offset="100%" stop-color="#C5A059" />
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1A1813" />
+      <stop offset="100%" stop-color="#09090B" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGlow)" />
+  <circle cx="256" cy="256" r="236" fill="none" stroke="url(#goldRing)" stroke-width="3" stroke-dasharray="14 6" opacity="0.4" />
+  <circle cx="256" cy="256" r="226" fill="none" stroke="url(#goldLinear)" stroke-width="1.5" opacity="0.75" />
+
+  <!-- Atelier Diamond Crest at Top -->
+  <g transform="translate(256, 120)">
+    <!-- Solitaire Diamond Geometry -->
+    <polygon points="0,-28 22,-8 0,20 -22,-8" fill="none" stroke="url(#goldLinear)" stroke-width="2.5" />
+    <line x1="-22" y1="-8" x2="22" y2="-8" stroke="url(#goldLinear)" stroke-width="1.5" />
+    <line x1="-8" y1="-28" x2="-8" y2="-8" stroke="url(#goldLinear)" stroke-width="1.5" />
+    <line x1="8" y1="-28" x2="8" y2="-8" stroke="url(#goldLinear)" stroke-width="1.5" />
+    <line x1="-8" y1="-8" x2="0" y2="20" stroke="url(#goldLinear)" stroke-width="1.5" />
+    <line x1="8" y1="-8" x2="0" y2="20" stroke="url(#goldLinear)" stroke-width="1.5" />
+    <!-- Radiance Sparkles -->
+    <circle cx="0" cy="-38" r="2" fill="#FFF3D6" />
+    <circle cx="-34" cy="-8" r="1.5" fill="#D4AF37" />
+    <circle cx="34" cy="-8" r="1.5" fill="#D4AF37" />
+  </g>
+
+  <!-- Central Intertwined NJ Monogram (Imperial Serif) -->
+  <g transform="translate(256, 265)">
+    <!-- Letter N -->
+    <path d="M-82,65 L-82,-65 L-54,-65 L10,38 L10,-65 L36,-65 L36,65 L8,65 L-56,-38 L-56,65 Z"
+          fill="url(#goldLinear)"
+          stroke="#09090B"
+          stroke-width="3"
+          stroke-linejoin="round" />
+
+    <!-- Letter J (Intertwined) -->
+    <path d="M46,-65 L72,-65 L72,32 C72,68 48,82 14,82 C-14,82 -32,70 -38,52 L-14,44 C-10,54 0,60 14,60 C32,60 46,50 46,28 Z"
+          fill="url(#goldLinear)"
+          stroke="#09090B"
+          stroke-width="3"
+          stroke-linejoin="round" />
+  </g>
+
+  <!-- Hallmarking Stars & Est Details -->
+  <g fill="url(#goldLinear)" text-anchor="middle">
+    <!-- Star Left & Right -->
+    <polygon points="120,380 123,388 131,388 125,393 127,401 120,396 113,401 115,393 109,388 117,388" />
+    <polygon points="392,380 395,388 403,388 397,393 399,401 392,396 385,401 387,393 381,388 389,388" />
+
+    <!-- Wordmark -->
+    <text x="256" y="394" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="28" font-weight="700" letter-spacing="9" fill="url(#goldLinear)">NIRAJ</text>
+    <text x="256" y="424" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" letter-spacing="8" fill="#A1A1AA">HAYES • LONDON</text>
+  </g>
+</svg>
