@@ -14,7 +14,7 @@ export function HeroSection({ onOpenBookingModal }: HeroSectionProps) {
   });
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center pt-28 pb-16 overflow-hidden bg-obsidian">
+    <section className="relative min-h-[90vh] flex flex-col justify-center pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden bg-obsidian">
       {/* Background Ambient Glow & Light Beams */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-gold-500/10 rounded-full blur-[140px] opacity-70" />
