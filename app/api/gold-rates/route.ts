@@ -45,37 +45,55 @@ export async function GET() {
     minute: "2-digit",
   });
 
-  // Base spot price benchmark for London Bullion Market (LBMA) in GBP (£/gram)
-  // 1 Troy Ounce = 31.1034768 grams
-  // Baseline LBMA spot ~ £2,125 / oz -> ~ £68.32/g pure 24ct
-  let base24ct = 68.45;
-  let change24h = +0.42;
+  const apiKey = process.env.GOLD_API_KEY;
+  let base24ct = 91.56;
+  let base22ct = 83.93;
+  let base18ct = 68.67;
+  let change24h = -2.28;
 
   try {
-    // Attempt live fetch from public financial exchange endpoint
-    const res = await fetch("https://open.er-api.com/v6/latest/XAU", {
-      next: { revalidate: 3600 },
-      headers: { "User-Agent": "NirajJewellers/1.0" },
-    });
+    if (apiKey) {
+      // Direct Live LBMA Spot Price from GoldAPI.io
+      const goldApiRes = await fetch("https://www.goldapi.io/api/XAU/GBP", {
+        headers: {
+          "x-access-token": apiKey,
+          "Content-Type": "application/json",
+        },
+        next: { revalidate: 1800 }, // Cache for 30 minutes
+      });
 
-    if (res.ok) {
-      const data = await res.json();
-      if (data?.rates?.GBP) {
-        // 1 XAU (troy ounce) in GBP
-        const ozInGbp = data.rates.GBP;
-        const gram24 = ozInGbp / 31.1034768;
-        if (gram24 > 40 && gram24 < 150) {
-          base24ct = parseFloat(gram24.toFixed(2));
+      if (goldApiRes.ok) {
+        const liveData = await goldApiRes.json();
+        if (liveData?.price_gram_24k) {
+          base24ct = parseFloat(liveData.price_gram_24k.toFixed(2));
+          base22ct = parseFloat((liveData.price_gram_22k || liveData.price_gram_24k * (22 / 24)).toFixed(2));
+          base18ct = parseFloat((liveData.price_gram_18k || liveData.price_gram_24k * (18 / 24)).toFixed(2));
+          change24h = parseFloat((liveData.chp || 0).toFixed(2));
+        }
+      }
+    } else {
+      // Fallback open rates endpoint
+      const res = await fetch("https://open.er-api.com/v6/latest/XAU", {
+        next: { revalidate: 3600 },
+        headers: { "User-Agent": "NirajJewellers/1.0" },
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (data?.rates?.GBP) {
+          const ozInGbp = data.rates.GBP;
+          const gram24 = ozInGbp / 31.1034768;
+          if (gram24 > 40 && gram24 < 150) {
+            base24ct = parseFloat(gram24.toFixed(2));
+            base22ct = parseFloat((base24ct * (22 / 24)).toFixed(2));
+            base18ct = parseFloat((base24ct * (18 / 24)).toFixed(2));
+          }
         }
       }
     }
-  } catch {
-    // Fallback gracefully to high-precision LBMA market calibration
-    base24ct = 68.45;
+  } catch (error) {
+    console.error("Gold API fetch fallback activated:", error);
   }
-
-  const base22ct = parseFloat((base24ct * (22 / 24)).toFixed(2));
-  const base18ct = parseFloat((base24ct * (18 / 24)).toFixed(2));
 
   const TOLA_GRAMS = 11.6638;
   const OZ_GRAMS = 31.1034768;
