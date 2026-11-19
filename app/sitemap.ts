@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { ARTICLES_DATA } from "@/data/articles-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://nirajjewellers.co.uk";
+  const baseUrl = "https://www.niraj-jewellers.co.uk";
   const now = new Date();
 
   // Core Atelier Subpages

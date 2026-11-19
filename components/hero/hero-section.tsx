@@ -49,14 +49,12 @@ export function HeroSection() {
           </div>
 
           {/* Headline Container with Ambient Royal Crest Watermark */}
-          <div className="relative">
+          <div className="relative isolate">
             {/* Ambient Royal Crest Watermark behind the primary headline */}
             <div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[480px] sm:h-[480px] pointer-events-none select-none -z-10 opacity-[0.15] sm:opacity-[0.14] mix-blend-multiply transition-opacity duration-500"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[600px] md:h-[600px] pointer-events-none select-none z-0 opacity-25 sm:opacity-30 transition-all duration-500"
               style={{
-                transform: `translate3d(-50%, calc(-50% + ${scrollY * 0.15}px), 0)`,
-                WebkitMaskImage: "radial-gradient(circle, black 65%, transparent 95%)",
-                maskImage: "radial-gradient(circle, black 65%, transparent 95%)",
+                transform: `translate3d(-50%, calc(-50% + ${scrollY * 0.12}px), 0)`,
                 willChange: "transform",
               }}
               aria-hidden="true"
@@ -65,14 +63,14 @@ export function HeroSection() {
                 src="/NIRAJ_LOGO9.png"
                 alt=""
                 fill
-                sizes="(max-width: 640px) 300px, 480px"
-                className="object-contain"
+                sizes="(max-width: 640px) 340px, (max-width: 1024px) 520px, 600px"
+                className="object-contain filter drop-shadow-[0_4px_24px_rgba(212,175,55,0.2)]"
                 priority
               />
             </div>
 
             {/* Main Cinematic Headline featuring Vivaldi Flourish */}
-            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-[#141416] leading-[1.12] sm:leading-[1.15]">
+            <h1 className="relative z-10 font-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-[#141416] leading-[1.12] sm:leading-[1.15]">
               London&apos;s Bespoke{" "}
               <span className="font-vivaldi text-[#996515] block sm:inline text-5xl sm:text-7xl md:text-8xl px-1 font-normal">
                 Goldsmith Atelier

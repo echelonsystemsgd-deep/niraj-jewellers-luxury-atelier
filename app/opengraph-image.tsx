@@ -14,8 +14,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "48px 56px",
-          backgroundColor: "#09090B",
-          border: "2px solid #27272A",
+          backgroundColor: "#FAF9F6",
+          border: "2px solid #EADBC8",
           position: "relative",
           fontFamily: "sans-serif",
         }}
@@ -25,7 +25,7 @@ export default function OpenGraphImage() {
           style={{
             position: "absolute",
             inset: "16px",
-            border: "1px solid rgba(212, 175, 55, 0.25)",
+            border: "1px solid rgba(197, 160, 89, 0.35)",
             borderRadius: "12px",
             pointerEvents: "none",
           }}
@@ -38,8 +38,8 @@ export default function OpenGraphImage() {
             alignItems: "center",
             justifyContent: "space-between",
             zIndex: 10,
-            borderBottom: "1px solid #27272A",
-            paddingBottom: "20px",
+            borderBottom: "1px solid #EADBC8",
+            paddingBottom: "18px",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
@@ -49,12 +49,12 @@ export default function OpenGraphImage() {
                 width: 52,
                 height: 52,
                 borderRadius: 12,
-                border: "1.5px solid #D4AF37",
-                backgroundColor: "#141416",
+                border: "1.5px solid #C5A059",
+                backgroundColor: "#FFFFFF",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#FFF3D6",
+                color: "#946A14",
                 fontSize: 24,
                 fontFamily: "serif",
                 fontWeight: 900,
@@ -68,22 +68,22 @@ export default function OpenGraphImage() {
                   fontFamily: "serif",
                   fontSize: 26,
                   fontWeight: 800,
-                  letterSpacing: 2.5,
-                  color: "#FFFFFF",
+                  letterSpacing: 2,
+                  color: "#141416",
                 }}
               >
-                NIRAJ JEWELLERS
+                NIRAJ JEWELLERS LTD
               </span>
               <span
                 style={{
                   fontSize: 11,
-                  fontWeight: 600,
-                  letterSpacing: 4,
-                  color: "#D4AF37",
+                  fontWeight: 700,
+                  letterSpacing: 3.5,
+                  color: "#946A14",
                   marginTop: 2,
                 }}
               >
-                HAYES • LONDON • EST. DECADES
+                HAYES • LONDON • SINCE 1984 • 42 YEARS OF EXCELLENCE
               </span>
             </div>
           </div>
@@ -95,8 +95,8 @@ export default function OpenGraphImage() {
               gap: 12,
               padding: "8px 18px",
               borderRadius: "20px",
-              backgroundColor: "#141416",
-              border: "1px solid rgba(212, 175, 55, 0.35)",
+              backgroundColor: "#FFFFFF",
+              border: "1px solid #EADBC8",
             }}
           >
             <div
@@ -109,7 +109,7 @@ export default function OpenGraphImage() {
             />
             <span
               style={{
-                color: "#E4E4E7",
+                color: "#141416",
                 fontSize: 13,
                 fontWeight: 600,
                 letterSpacing: 0.5,
@@ -127,8 +127,8 @@ export default function OpenGraphImage() {
             flexDirection: "column",
             gap: 14,
             zIndex: 10,
-            maxWidth: 1020,
-            marginTop: "10px",
+            maxWidth: 1040,
+            marginTop: "8px",
           }}
         >
           <div
@@ -136,29 +136,29 @@ export default function OpenGraphImage() {
               display: "flex",
               alignItems: "center",
               gap: 10,
-              color: "#D4AF37",
-              fontSize: 13,
-              letterSpacing: 2.5,
+              color: "#855F0E",
+              fontSize: 12.5,
+              letterSpacing: 2,
               textTransform: "uppercase",
               fontWeight: 700,
             }}
           >
             <span>Master Goldsmiths</span>
-            <span style={{ color: "#52525B" }}>•</span>
+            <span style={{ color: "#C5A059" }}>•</span>
             <span>136 Uxbridge Road</span>
-            <span style={{ color: "#52525B" }}>•</span>
-            <span>Direct Workshop Pricing</span>
-            <span style={{ color: "#52525B" }}>•</span>
+            <span style={{ color: "#C5A059" }}>•</span>
+            <span>54-Piece Curated Vault</span>
+            <span style={{ color: "#C5A059" }}>•</span>
             <span>London Assay Office</span>
           </div>
 
           <span
             style={{
               fontFamily: "serif",
-              fontSize: 52,
+              fontSize: 48,
               lineHeight: 1.15,
               fontWeight: 600,
-              color: "#F4F4F5",
+              color: "#141416",
             }}
           >
             London&apos;s Bespoke Goldsmith Atelier &amp; Gold Wholesaler
@@ -166,13 +166,13 @@ export default function OpenGraphImage() {
 
           <span
             style={{
-              fontSize: 20,
-              color: "#A1A1AA",
+              fontSize: 19,
+              color: "#4A4A52",
               lineHeight: 1.45,
               fontWeight: 400,
             }}
           >
-            Handcrafted 22ct/18ct bridal suites, certified diamond rings &amp; live bullion rates by Niraj Jewellers Ltd. In-house Hayes workshop with zero retail markups.
+            Handcrafted 22ct/18ct bridal suites, certified natural diamonds &amp; live bullion rates since 1984. Complete 54-piece showroom collection on Uxbridge Road, Hayes.
           </span>
         </div>
 
@@ -182,9 +182,9 @@ export default function OpenGraphImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            backgroundColor: "#141416",
-            border: "1px solid #27272A",
-            borderRadius: "10px",
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #EADBC8",
+            borderRadius: "12px",
             padding: "14px 24px",
             zIndex: 10,
           }}
@@ -200,7 +200,7 @@ export default function OpenGraphImage() {
             />
             <span
               style={{
-                color: "#D4AF37",
+                color: "#855F0E",
                 fontSize: 13,
                 fontWeight: 800,
                 letterSpacing: 2,
@@ -211,19 +211,19 @@ export default function OpenGraphImage() {
           </div>
 
           <div style={{ display: "flex", gap: 28, fontSize: 14 }}>
-            <span style={{ color: "#E4E4E7" }}>
-              24ct Pure: <strong style={{ color: "#FFF3D6" }}>£68.50/g</strong>
+            <span style={{ color: "#4A4A52" }}>
+              24ct Pure: <strong style={{ color: "#141416" }}>£68.50/g</strong>
             </span>
-            <span style={{ color: "#E4E4E7" }}>
-              22ct Sovereign: <strong style={{ color: "#D4AF37" }}>£62.80/g</strong>
+            <span style={{ color: "#4A4A52" }}>
+              22ct Sovereign: <strong style={{ color: "#946A14" }}>£62.80/g</strong>
             </span>
-            <span style={{ color: "#E4E4E7" }}>
-              18ct Fine: <strong style={{ color: "#FFF3D6" }}>£51.40/g</strong>
+            <span style={{ color: "#4A4A52" }}>
+              18ct Fine: <strong style={{ color: "#141416" }}>£51.40/g</strong>
             </span>
           </div>
 
           <span style={{ fontSize: 13, color: "#10B981", fontWeight: 700 }}>
-            WhatsApp VIP: +44 7955 565137
+            WhatsApp: 07955 565137
           </span>
         </div>
 
@@ -233,7 +233,7 @@ export default function OpenGraphImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderTop: "1px solid #27272A",
+            borderTop: "1px solid #EADBC8",
             paddingTop: "16px",
             zIndex: 10,
           }}
@@ -241,9 +241,9 @@ export default function OpenGraphImage() {
           <div
             style={{
               display: "flex",
-              gap: 24,
-              fontSize: 13,
-              color: "#A1A1AA",
+              gap: 20,
+              fontSize: 12.5,
+              color: "#5C5C66",
               fontWeight: 500,
             }}
           >
@@ -251,11 +251,11 @@ export default function OpenGraphImage() {
             <span>•</span>
             <span>In-House Hayes Workshop Repairs</span>
             <span>•</span>
-            <span>3D CAD Bridal Commissions</span>
+            <span>In-House 3D CAD Bridal Commissions</span>
           </div>
 
-          <span style={{ fontSize: 13, color: "#D4AF37", letterSpacing: 1, fontWeight: 600 }}>
-            nirajjewellers.co.uk
+          <span style={{ fontSize: 13, color: "#946A14", letterSpacing: 1, fontWeight: 700 }}>
+            www.niraj-jewellers.co.uk
           </span>
         </div>
       </div>

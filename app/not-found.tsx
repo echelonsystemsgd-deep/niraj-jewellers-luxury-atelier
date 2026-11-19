@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { AlchemyCrucible404 } from "@/components/error/alchemy-crucible-404";
 
 export const metadata: Metadata = {
-  title: "404 - Piece Melted Down | Niraj Jewellers London",
+  title: "404 - Piece Melted Down | Niraj Jewellers Ltd London",
   description:
     "The jewellery piece or atelier archive you are seeking has been melted down for re-casting at our Hayes workshop.",
   robots: {

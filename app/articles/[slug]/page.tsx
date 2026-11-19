@@ -39,11 +39,11 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: "Article Not Found | Niraj Jewellers London",
+      title: "Article Not Found | Niraj Jewellers Ltd London",
     };
   }
 
-  const siteUrl = "https://nirajjewellers.co.uk";
+  const siteUrl = "https://www.niraj-jewellers.co.uk";
   const articleUrl = `${siteUrl}/articles/${article.slug}`;
 
   return {
@@ -54,7 +54,7 @@ export async function generateMetadata({
       canonical: articleUrl,
     },
     openGraph: {
-      title: `${article.title} | Niraj Jewellers London`,
+      title: `${article.title} | Niraj Jewellers Ltd London`,
       description: article.metaDescription,
       url: articleUrl,
       type: "article",
@@ -88,7 +88,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
     notFound();
   }
 
-  const siteUrl = "https://nirajjewellers.co.uk";
+  const siteUrl = "https://www.niraj-jewellers.co.uk";
   const articleUrl = `${siteUrl}/articles/${article.slug}`;
 
   const whatsappInquiryLink = buildWhatsAppLink({

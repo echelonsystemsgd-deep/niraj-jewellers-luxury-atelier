@@ -22,7 +22,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/test-404"],
       },
     ],
-    sitemap: "https://nirajjewellers.co.uk/sitemap.xml",
-    host: "https://nirajjewellers.co.uk",
+    sitemap: "https://www.niraj-jewellers.co.uk/sitemap.xml",
+    host: "https://www.niraj-jewellers.co.uk",
   };
 }
