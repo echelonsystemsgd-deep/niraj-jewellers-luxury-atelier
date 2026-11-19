@@ -103,9 +103,9 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4">
-            {/* Column 1: Left Brand Mark (Equal balance with right column) */}
-            <div className="flex items-center gap-3 shrink-0 lg:w-[240px] min-w-0">
+          <div className="flex items-center justify-between gap-4 lg:gap-8">
+            {/* Column 1: Left Brand Mark */}
+            <div className="flex items-center gap-3 shrink-0">
               <Link
                 href="/"
                 className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none text-left"
@@ -115,7 +115,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-gold-400/20 via-zinc-900 to-black border border-gold-500/40 flex items-center justify-center shrink-0 shadow-sm group-hover:border-gold-400 transition-colors">
                   <span className="font-serif font-bold text-xs sm:text-sm text-gold-300 tracking-tighter">NJ</span>
                 </div>
-                <div className="flex flex-col min-w-0">
+                <div className="flex flex-col">
                   <span className="font-serif text-base sm:text-lg lg:text-xl font-bold tracking-wider text-zinc-100 group-hover:text-gold-400 transition-colors uppercase whitespace-nowrap">
                     NIRAJ JEWELLERS
                   </span>
@@ -130,8 +130,8 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               </Link>
             </div>
 
-            {/* Column 2: Center Navigation Links (Mathematically Centered & Symmetrical) */}
-            <nav className="hidden lg:flex items-center justify-center space-x-5 xl:space-x-7 text-[11px] xl:text-xs uppercase tracking-wider font-medium whitespace-nowrap flex-1">
+            {/* Column 2: Center Navigation Links */}
+            <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 text-[11px] xl:text-xs uppercase tracking-wider font-medium whitespace-nowrap">
               {navLinks.map((link) => {
                 const isActive = !isHome && pathname.startsWith(link.route);
                 return (
@@ -153,8 +153,8 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               })}
             </nav>
 
-            {/* Column 3: Right Action Buttons (lg:w-[240px] for True Symmetry with Left Column) */}
-            <div className="flex items-center justify-end space-x-2 sm:space-x-3 shrink-0 lg:w-[240px]">
+            {/* Column 3: Right Action Buttons */}
+            <div className="flex items-center justify-end space-x-2 sm:space-x-3 shrink-0">
               {/* Tablet & Desktop WhatsApp Pill */}
               <a
                 href={whatsappHeroLink}
