@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MapPin, Clock, Car, Train, Phone, MessageCircle, Sparkles, Navigation, ChevronDown, ChevronUp, Mail } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Clock, Car, Train, Phone, MessageCircle, Sparkles, Navigation, ChevronDown, ChevronUp, Mail, ShieldCheck } from "lucide-react";
 import { ShowroomStatusBadge } from "@/components/header/showroom-status";
 import { NIRAJ_MAPS_LINK, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_DISPLAY_PHONE, NIRAJ_EMAIL, buildWhatsAppLink } from "@/lib/whatsapp";
 import { getLondonCurrentDayInfo } from "@/lib/showroom-hours";
@@ -242,6 +243,96 @@ export function ShowroomHub() {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+
+        {/* Authentic Hayes Atelier Bench & Ledger Gallery */}
+        <div className="mt-16 pt-12 border-t border-atelier-border/80">
+          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-gold-400">
+              <ShieldCheck className="w-3.5 h-3.5 text-gold-500" />
+              <span>Authentic In-House Goldsmithing</span>
+            </div>
+            <h3 className="font-serif text-2xl sm:text-3xl font-light text-white">
+              Behind the Benches at 136 Uxbridge Road
+            </h3>
+            <p className="text-xs sm:text-sm text-platinum-muted">
+              Every commission is hand-carved, weighed to the milligram, and finished in our West London atelier.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="group relative rounded-2xl overflow-hidden bg-atelier border border-atelier-border hover:border-gold-500/40 transition-all shadow-xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/60">
+                <Image
+                  src="/images/workshop/goldsmith-bench-order-book-22ct.jpg"
+                  alt="22ct Gold Choker and Jhumkis on Hayes Goldsmith Bench with Order Ledger #12402"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80" />
+                <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm border border-gold-500/30 text-[10px] font-mono text-gold-300">
+                  Goldsmith Ledger #12402
+                </div>
+              </div>
+              <div className="p-4 space-y-1">
+                <h4 className="font-serif text-base font-medium text-white group-hover:text-gold-300 transition-colors">
+                  Hand-Chased 22ct Granulation Choker
+                </h4>
+                <p className="text-xs text-platinum-muted">
+                  Documented gram-by-gram on our workshop bench with matching drop jhumkis.
+                </p>
+              </div>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden bg-atelier border border-atelier-border hover:border-gold-500/40 transition-all shadow-xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/60">
+                <Image
+                  src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
+                  alt="Calcutta Filigree 22ct Gold Bridal Suite on Showroom Tray"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80" />
+                <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm border border-gold-500/30 text-[10px] font-mono text-gold-300">
+                  22ct Calcutta Filigree
+                </div>
+              </div>
+              <div className="p-4 space-y-1">
+                <h4 className="font-serif text-base font-medium text-white group-hover:text-gold-300 transition-colors">
+                  Multi-Tier Collar &amp; Maang Tikka Suite
+                </h4>
+                <p className="text-xs text-platinum-muted">
+                  Intricate South Asian filigree mesh with cabochon emerald accents.
+                </p>
+              </div>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden bg-atelier border border-atelier-border hover:border-gold-500/40 transition-all shadow-xl">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/60">
+                <Image
+                  src="/images/workshop/workshop-bench-velvet-trays.jpg"
+                  alt="Hayes Atelier Workshop Velvet Trays with Finished Gold Suites"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80" />
+                <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm border border-gold-500/30 text-[10px] font-mono text-gold-300">
+                  Uxbridge Road Atelier
+                </div>
+              </div>
+              <div className="p-4 space-y-1">
+                <h4 className="font-serif text-base font-medium text-white group-hover:text-gold-300 transition-colors">
+                  Private Viewing Consultation Trays
+                </h4>
+                <p className="text-xs text-platinum-muted">
+                  Curated bridal suites ready for consultation, scale testing, and hallmarking.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
