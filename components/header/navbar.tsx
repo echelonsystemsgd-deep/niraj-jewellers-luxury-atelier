@@ -180,7 +180,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               {/* Mobile Phone Call Button */}
               <a
                 href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                className="sm:hidden w-9 h-9 rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/50 text-[#996515] flex items-center justify-center shrink-0 transition-colors shadow-sm"
+                className="sm:hidden w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/50 text-[#996515] flex items-center justify-center shrink-0 transition-colors shadow-sm touch-target"
                 aria-label={`Call ${NIRAJ_UK_PHONE}`}
               >
                 <Phone className="w-4 h-4 text-[#996515]" />
@@ -191,7 +191,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 href={whatsappHeroLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="md:hidden w-9 h-9 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center shrink-0 transition-colors shadow-sm"
+                className="md:hidden w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center shrink-0 transition-colors shadow-sm touch-target"
                 aria-label="WhatsApp Concierge"
               >
                 <MessageCircle className="w-4 h-4 fill-white text-transparent" />
@@ -200,7 +200,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               {/* Mobile / Tablet Menu Toggle Button */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-lg text-[#141416] hover:text-[#996515] bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] transition-colors flex items-center justify-center shrink-0 shadow-sm"
+                className="lg:hidden w-11 h-11 min-w-[44px] min-h-[44px] sm:w-12 sm:h-12 rounded-xl text-[#141416] hover:text-[#996515] bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] transition-colors flex items-center justify-center shrink-0 shadow-sm touch-target"
                 aria-label="Open luxury navigation menu"
               >
                 <Menu className="w-5 h-5 text-[#996515]" />
@@ -251,7 +251,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
 
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#D4AF37]/40 bg-[#FAF7F2] hover:bg-[#F4ECE1] text-[#996515] text-xs font-semibold uppercase tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-[#D4AF37]/40 bg-[#FAF7F2] hover:bg-[#F4ECE1] text-[#996515] text-xs font-semibold uppercase tracking-wider transition-colors min-h-[48px] touch-target"
                 aria-label="Close menu"
               >
                 <span>CLOSE</span>

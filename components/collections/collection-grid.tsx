@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, ArrowRight, ShieldCheck, ArrowUpRight, Award, Gem, CheckCircle2, Eye } from "lucide-react";
+import { Sparkles, ArrowRight, ShieldCheck, ArrowUpRight, Award, Eye, CheckCircle2 } from "lucide-react";
 import { COLLECTIONS_DATA, CollectionItem } from "@/data/collections-data";
+import { AtelierVideoCard } from "./atelier-video-card";
 import { ReelModal } from "./reel-modal";
 
 interface CollectionGridProps {
@@ -17,44 +17,61 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
   const [selectedItem, setSelectedItem] = useState<CollectionItem | null>(null);
 
   // Top 3 Masterpieces for Homepage Showcase
-  const topThreeMasterpieces: CollectionItem[] = [
+  const topThreeMasterpieces: CollectionItem[] = useMemo(() => [
     COLLECTIONS_DATA[0], // The Nizam Ruby & Basra Pearl Polki Choker
-    COLLECTIONS_DATA[2], // The Calcutta Filigree 22ct Gold Bridal Suite
-    COLLECTIONS_DATA[3], // The Chandbali Carved Zambian Emerald Melon Choker
-  ];
+    COLLECTIONS_DATA[1], // The Calcutta Filigree 22ct Gold Bridal Suite
+    COLLECTIONS_DATA[2], // The Chandbali Carved Zambian Emerald Melon Choker
+  ], []);
+
+  // Compute category counts dynamically
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {
+      all: COLLECTIONS_DATA.length,
+      bridal: 0,
+      "polki-heritage": 0,
+      "22ct-gold": 0,
+      rings: 0,
+    };
+    COLLECTIONS_DATA.forEach((item) => {
+      if (counts[item.category] !== undefined) {
+        counts[item.category]++;
+      }
+    });
+    return counts;
+  }, []);
 
   const categories = [
-    { id: "all", label: "All Masterpieces (16)" },
-    { id: "bridal", label: "Bridal Suites" },
-    { id: "rings", label: "Bespoke Rings" },
-    { id: "22ct-gold", label: "22ct Gold & Kadas" },
-    { id: "polki-heritage", label: "Polki & Heritage" },
+    { id: "all", label: `All Masterpieces (${categoryCounts.all})` },
+    { id: "bridal", label: `Bridal Suites (${categoryCounts.bridal})` },
+    { id: "polki-heritage", label: `Polki & Heritage (${categoryCounts["polki-heritage"]})` },
+    { id: "22ct-gold", label: `22ct Gold & Kadas (${categoryCounts["22ct-gold"]})` },
+    { id: "rings", label: `Bespoke Rings & CAD (${categoryCounts.rings})` },
   ];
 
-  const filteredItems =
-    activeCategory === "all"
-      ? COLLECTIONS_DATA
-      : COLLECTIONS_DATA.filter((item) => item.category === activeCategory);
+  const filteredItems = useMemo(() => {
+    if (activeCategory === "all") return COLLECTIONS_DATA;
+    return COLLECTIONS_DATA.filter((item) => item.category === activeCategory);
+  }, [activeCategory]);
 
   const displayedItems = isHomepage ? topThreeMasterpieces : filteredItems;
 
   return (
-    <section id="collections" className="py-20 sm:py-28 bg-[#FAF8F5] relative overflow-hidden">
+    <section id="collections" className="py-16 sm:py-24 bg-[#FAF8F5] relative overflow-hidden">
       {/* Ambient background gold glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#DFBF7A]/15 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#C5A059]/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#996515]">
               <Sparkles className="w-3.5 h-3.5" />
               <span>
-                {isHomepage ? "Flagship Atelier Showcase • Top 3 Masterpieces" : "Complete Showroom Vault & Craft Portfolio"}
+                {isHomepage ? "Flagship Atelier Showcase • Top 3 Masterpieces" : "Complete 54-Piece Showroom Vault & Craft Portfolio"}
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-[#141416] tracking-tight">
               Master Goldsmith Craftsmanship
             </h2>
             <p className="font-vivaldi text-2xl sm:text-3xl text-[#996515] font-normal">
@@ -68,32 +85,35 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
           </div>
 
           {/* Social Proof Linkout */}
-          <div className="flex items-center gap-3">
-            <Link
-              href="/collections"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-xs font-semibold text-[#141416] hover:text-[#996515] transition-all shadow-sm group"
-            >
-              <Sparkles className="w-4 h-4 text-[#996515]" />
-              <span>Explore All 16 Pieces</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#8C6212] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-          </div>
+          {isHomepage && (
+            <div className="flex items-center gap-3">
+              <Link
+                href="/collections"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-xs font-semibold text-[#141416] hover:text-[#996515] transition-all shadow-sm group min-h-[48px]"
+              >
+                <Sparkles className="w-4 h-4 text-[#996515]" />
+                <span>Explore All 54 Masterpieces</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#8C6212] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+            </div>
+          )}
         </div>
 
-        {/* Category Tabs for dedicated Collections Page */}
+        {/* Category Tabs for dedicated Collections Page with smooth touch-swipe inertia */}
         {!isHomepage && (
-          <div className="flex items-center gap-2.5 overflow-x-auto pb-4 mb-10 no-scrollbar scroll-smooth">
+          <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-4 mb-10 no-scrollbar scroll-smooth touch-pan-x -mx-4 px-4 sm:mx-0 sm:px-0">
             {categories.map((cat) => {
               const isActive = activeCategory === cat.id;
               return (
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`relative px-5 py-2.5 rounded-full text-xs tracking-wider uppercase whitespace-nowrap transition-all touch-target shrink-0 font-bold shadow-sm ${
+                  className={`relative px-5 py-3 rounded-full text-xs tracking-wider uppercase whitespace-nowrap transition-all shrink-0 font-bold shadow-sm min-h-[48px] touch-target flex items-center justify-center ${
                     isActive
-                      ? "bg-gradient-to-r from-[#996515] to-[#C5A059] text-white shadow-md"
+                      ? "bg-gradient-to-r from-[#996515] to-[#C5A059] text-white shadow-md shadow-[#996515]/20"
                       : "bg-white text-[#4A4A52] hover:text-[#141416] border border-[#E8DEC8] hover:border-[#D4AF37]"
                   }`}
+                  aria-pressed={isActive}
                 >
                   <span>{cat.label}</span>
                 </button>
@@ -102,7 +122,7 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
           </div>
         )}
 
-        {/* Collections Grid with Smooth Entrance Transitions */}
+        {/* Collections Grid with Smooth Transitions */}
         <motion.div
           layout
           className={`grid grid-cols-1 ${
@@ -114,48 +134,42 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
               <motion.div
                 key={item.id}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
+                exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.35, ease: "easeOut" }}
                 onClick={() => setSelectedItem(item)}
                 className="group relative bg-white rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/15 flex flex-col justify-between"
               >
-                {/* Media Container */}
+                {/* Media Container with Video Looping Engine */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
-                  <Image
-                    src={item.thumbnailUrl}
-                    alt={item.title}
-                    fill
-                    sizes={isHomepage ? "(max-width: 768px) 100vw, 33vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"}
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <AtelierVideoCard item={item} />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity pointer-events-none" />
 
                   {/* Metal Purity Tag */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[11px] font-bold text-[#8C6212] shadow-sm">
-                    {item.metalPurity}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[11px] font-bold text-[#8C6212] shadow-sm z-10 pointer-events-none">
+                    {item.metalPurity.split("(")[0].trim()}
                   </div>
 
                   {/* Showcase index badge if on homepage */}
                   {isHomepage && (
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#141416]/80 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] font-semibold text-[#DFBF7A] flex items-center gap-1 shadow-sm">
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#141416]/80 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] font-semibold text-[#DFBF7A] flex items-center gap-1 shadow-sm z-10 pointer-events-none">
                       <Award className="w-3 h-3 text-[#DFBF7A]" />
-                      <span>Showcase #{index + 1}</span>
+                      <span>Showpiece #{index + 1}</span>
                     </div>
                   )}
 
                   {/* Hallmark Stamp */}
-                  <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-[11px] text-white font-medium bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                  <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-[11px] text-white font-medium bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 z-10 pointer-events-none">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#DFBF7A]" />
-                    <span>{item.hallmarkText}</span>
+                    <span className="truncate max-w-[170px]">{item.hallmarkText}</span>
                   </div>
 
                   {/* Inspection View Badge */}
-                  <div className="absolute bottom-3 right-3 p-2 rounded-full bg-white/95 text-[#996515] group-hover:scale-110 transition-transform shadow-md border border-[#E8DEC8]">
-                    <Eye className="w-3.5 h-3.5 text-[#996515]" />
+                  <div className="absolute bottom-3 right-3 p-2.5 rounded-full bg-white/95 text-[#996515] group-hover:scale-110 group-hover:bg-[#996515] group-hover:text-white transition-all shadow-md border border-[#E8DEC8] z-10">
+                    <Eye className="w-4 h-4" />
                   </div>
                 </div>
 
@@ -190,51 +204,23 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
           </AnimatePresence>
         </motion.div>
 
-        {/* Dynamic Moving Carousel / Ticker Strip on Homepage */}
+        {/* Homepage Bottom CTA */}
         {isHomepage && (
-          <>
-            <div className="mt-14 py-4 px-6 rounded-2xl bg-white border border-[#E8DEC8] shadow-sm flex items-center justify-between overflow-hidden">
-              <div className="flex items-center gap-3 shrink-0 pr-6 border-r border-[#EFE8DA]">
-                <Gem className="w-4 h-4 text-[#996515]" />
-                <span className="text-xs font-bold uppercase tracking-wider text-[#141416]">Atelier Guarantee:</span>
-              </div>
-              <div className="flex items-center gap-8 text-xs text-[#4A4A52] overflow-x-auto no-scrollbar whitespace-nowrap pl-6">
-                <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#996515]" />
-                  Zero High-Street Retail Markup
-                </span>
-                <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#996515]" />
-                  Official London Assay Hallmarked
-                </span>
-                <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#996515]" />
-                  Certified Natural Diamonds &amp; Uncut Polki
-                </span>
-                <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#996515]" />
-                  In-House Hayes Workshop Crafting
-                </span>
-              </div>
-            </div>
-
-            {/* Big Call to Action Leading to Full Collection Page */}
-            <div className="mt-12 text-center p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-[#FAF7F2] via-white to-[#FAF7F2] border border-[#E8DEC8] shadow-sm">
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#141416]">
-                Explore the Complete 16-Piece Vault
-              </h3>
-              <p className="text-sm text-[#4A4A52] max-w-xl mx-auto mt-2 mb-6">
-                View our comprehensive collection of solid 22ct gold kadas, antique Jadau Polki choker sets, 3D CAD solitaire engagement rings, and royal bridal haars.
-              </p>
-              <Link
-                href="/collections"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#C5A059] via-[#DFBF7A] to-[#B88E3E] hover:from-[#B88E3E] hover:to-[#996515] text-[#141416] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
-              >
-                <span>View All Collections (16 Masterpieces)</span>
-                <ArrowRight className="w-4 h-4 text-[#141416]" />
-              </Link>
-            </div>
-          </>
+          <div className="mt-14 text-center p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#FAF7F2] via-white to-[#FAF7F2] border border-[#E8DEC8] shadow-sm">
+            <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#141416]">
+              Explore the Complete 54-Piece Vault
+            </h3>
+            <p className="text-sm text-[#4A4A52] max-w-xl mx-auto mt-2 mb-6 leading-relaxed">
+              View our comprehensive digital collection of solid 22ct gold kadas, antique Jadau Polki choker sets, 3D CAD solitaire engagement rings, and royal bridal haars.
+            </p>
+            <Link
+              href="/collections"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#C5A059] via-[#DFBF7A] to-[#B88E3E] hover:from-[#B88E3E] hover:to-[#996515] text-[#141416] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 min-h-[48px]"
+            >
+              <span>View All Collections (54 Masterpieces)</span>
+              <ArrowRight className="w-4 h-4 text-[#141416]" />
+            </Link>
+          </div>
         )}
       </div>
 

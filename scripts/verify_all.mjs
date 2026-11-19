@@ -90,7 +90,7 @@ async function runVerification() {
     }
   }
   if (allWaValid) {
-    console.log(`  [PASS] All ${whatsappLinks.length} WhatsApp links correctly target Master Jeweller Viky (+44 7955 565137) with pre-filled context.`);
+    console.log(`  [PASS] All ${whatsappLinks.length} WhatsApp links correctly target Atelier Concierge (+44 7955 565137) with pre-filled context.`);
   }
 
   // Verify Telephone links

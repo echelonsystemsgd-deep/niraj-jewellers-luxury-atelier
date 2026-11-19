@@ -1,9 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, MessageCircle, Phone, ShieldCheck, Sparkles, Gem, Scale, ArrowRight, Instagram } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  X,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  Gem,
+  Scale,
+  Instagram,
+  Play,
+  Volume2,
+  VolumeX,
+  Maximize2
+} from "lucide-react";
 import { CollectionItem } from "@/data/collections-data";
 import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
 import { useScrollLock } from "@/lib/use-scroll-lock";
@@ -16,9 +29,13 @@ interface ReelModalProps {
 export function ReelModal({ item, onClose }: ReelModalProps) {
   useScrollLock(!!item);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setImageLoaded(false);
+    setIsMuted(true);
   }, [item?.id]);
 
   useEffect(() => {
@@ -31,6 +48,26 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
 
   if (!item) return null;
 
+  const isVideo = item.mediaType === "video" && Boolean(item.videoUrl);
+
+  const toggleSound = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
+  const handleFullscreen = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
+    } else {
+      const el = videoRef.current as HTMLVideoElement & { webkitEnterFullscreen?: () => void };
+      if (typeof el.webkitEnterFullscreen === "function") {
+        el.webkitEnterFullscreen();
+      }
+    }
+  };
+
   const whatsappEnquiryLink = buildWhatsAppLink({
     source: `collection_modal_${item.id}`,
     pieceTitle: item.title,
@@ -41,7 +78,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/60 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/75 backdrop-blur-md animate-in fade-in duration-200"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-piece-title"
@@ -55,39 +92,85 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
         className="relative w-full max-w-4xl max-h-[92vh] flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
+        {/* Close Button with 48px touch target */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/90 hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-[#141416] flex items-center justify-center transition-all shadow-md touch-target"
+          className="absolute top-4 right-4 z-30 w-12 h-12 rounded-full bg-white/95 hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-[#141416] flex items-center justify-center transition-all shadow-md touch-target"
           aria-label="Close piece details"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {/* Left Column: Authentic Photography Showcase */}
-        <div className="relative w-full md:w-1/2 h-72 sm:h-96 md:h-auto min-h-[300px] md:min-h-[500px] bg-[#FAF8F5] flex items-center justify-center p-6 border-b md:border-b-0 md:border-r border-[#E8DEC8] overflow-hidden group">
+        {/* Left Column: Authentic Photography or Video on Infinite Loop */}
+        <div
+          ref={videoContainerRef}
+          className="relative w-full md:w-1/2 h-72 sm:h-96 md:h-auto min-h-[300px] md:min-h-[500px] bg-[#FAF8F5] flex items-center justify-center p-4 sm:p-6 border-b md:border-b-0 md:border-r border-[#E8DEC8] overflow-hidden group"
+        >
           {/* Ambient Warm Glow */}
           <div className="absolute inset-0 bg-gradient-to-tr from-[#DFBF7A]/15 via-transparent to-transparent pointer-events-none" />
 
-          <div className="relative w-full h-full max-h-[440px] rounded-2xl overflow-hidden shadow-md border border-[#E8DEC8]">
-            <Image
-              src={item.thumbnailUrl}
-              alt={item.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className={`object-cover object-center transition-all duration-700 group-hover:scale-105 ${
-                imageLoaded ? "opacity-100" : "opacity-0"
-              }`}
-              onLoad={() => setImageLoaded(true)}
-              priority
-            />
+          <div className="relative w-full h-full max-h-[460px] rounded-2xl overflow-hidden shadow-md border border-[#E8DEC8] bg-black">
+            {isVideo ? (
+              <video
+                ref={videoRef}
+                src={item.videoUrl}
+                poster={item.thumbnailUrl}
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                {...({ "webkit-playsinline": "true" })}
+                controls={false}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <Image
+                src={item.thumbnailUrl}
+                alt={item.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className={`object-cover object-center transition-all duration-700 group-hover:scale-105 ${
+                  imageLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                onLoad={() => setImageLoaded(true)}
+                priority
+              />
+            )}
           </div>
 
           {/* Hallmark Badge Overlay */}
           <div className="absolute bottom-4 left-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/50 shadow-sm text-xs font-semibold text-[#8C6212]">
             <ShieldCheck className="w-4 h-4 text-[#996515]" />
-            <span>{item.hallmarkText}</span>
+            <span className="truncate max-w-[180px]">{item.hallmarkText}</span>
           </div>
+
+          {isVideo && (
+            <>
+              {/* Workshop Video Badge */}
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[10px] font-bold text-white shadow-sm pointer-events-none">
+                <Play className="w-3 h-3 fill-[#DFBF7A] text-[#DFBF7A]" />
+                <span>Workshop Motion</span>
+              </div>
+
+              {/* Sound & Fullscreen Controls for Video with 48px touch targets */}
+              <div className="absolute top-4 right-16 md:right-4 z-20 flex items-center gap-2">
+                <button
+                  onClick={toggleSound}
+                  className="w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 transition-all shadow-md touch-target"
+                  aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+                >
+                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[#DFBF7A]" />}
+                </button>
+                <button
+                  onClick={handleFullscreen}
+                  className="w-10 h-10 rounded-full bg-black/70 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 transition-all shadow-md touch-target"
+                  aria-label="Fullscreen video inspection"
+                >
+                  <Maximize2 className="w-4 h-4" />
+                </button>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Right Column: Piece Specifications & Direct Inquiry */}
@@ -145,7 +228,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
                     </div>
                   </div>
                 )}
-                <div className="flex items-center gap-2 col-span-2">
+                <div className="flex items-center gap-2 col-span-2 pt-1 border-t border-[#EFE8DA]">
                   <Sparkles className="w-4 h-4 text-[#996515] shrink-0" />
                   <div>
                     <span className="text-[10px] text-[#5A5960] block">Craftsmanship</span>
@@ -168,7 +251,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
               href={whatsappEnquiryLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md transform hover:-translate-y-0.5 active:translate-y-0"
+              className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md transform hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
             >
               <MessageCircle className="w-4 h-4 fill-white text-transparent" />
               <span>Enquire on WhatsApp</span>
@@ -177,7 +260,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
             <div className="flex items-center gap-2">
               <a
                 href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] font-semibold text-xs tracking-wider transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] font-semibold text-xs tracking-wider transition-colors min-h-[48px]"
               >
                 <Phone className="w-3.5 h-3.5 text-[#996515]" />
                 <span>Call {NIRAJ_DISPLAY_PHONE}</span>
@@ -187,7 +270,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
                 href="https://www.instagram.com/nirajjewellersltd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 py-3 px-4 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-pink-700 font-semibold text-xs transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 py-3 px-4 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-pink-700 font-semibold text-xs transition-colors min-h-[48px]"
                 title="Follow on Instagram"
               >
                 <Instagram className="w-4 h-4 text-pink-600" />

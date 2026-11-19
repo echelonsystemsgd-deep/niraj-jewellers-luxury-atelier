@@ -18,7 +18,7 @@ export function MobileDock() {
         {/* 1. Call Showroom */}
         <a
           href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8] text-[#141416] hover:text-[#996515] transition-colors touch-target"
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8] text-[#141416] hover:text-[#996515] transition-colors min-h-[48px] touch-target"
         >
           <Phone className="w-4 h-4 text-[#996515] mb-1" />
           <span className="text-[11px] font-semibold tracking-tight">Call Atelier</span>
@@ -29,7 +29,7 @@ export function MobileDock() {
           href={whatsappMobileLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white transition-all shadow-md touch-target font-bold"
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white transition-all shadow-md min-h-[48px] touch-target font-bold"
         >
           <MessageCircle className="w-4 h-4 fill-white text-transparent mb-1" />
           <span className="text-[11px] font-bold tracking-tight">WhatsApp</span>
@@ -40,7 +40,7 @@ export function MobileDock() {
           href={NIRAJ_MAPS_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8] text-[#141416] hover:text-[#996515] transition-colors touch-target"
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8] text-[#141416] hover:text-[#996515] transition-colors min-h-[48px] touch-target"
         >
           <Navigation className="w-4 h-4 text-[#996515] mb-1" />
           <span className="text-[11px] font-semibold tracking-tight">Directions</span>

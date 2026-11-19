@@ -1,9 +1,29 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import { MessageCircle, Sparkles, ShieldCheck, ArrowRight, Award, Compass, Phone } from "lucide-react";
 import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
 
 export function HeroSection() {
+  const [scrollY, setScrollY] = useState(0);
+
+  // Lightweight 60fps scroll listener for 0.15x parallax
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const whatsappHeroLink = buildWhatsAppLink({
     intent: "general",
     customNote: "Hi Niraj Jewellers team, I would like to enquire about commissioning a bespoke jewellery piece at your Hayes atelier.",
@@ -28,14 +48,38 @@ export function HeroSection() {
             <span className="hidden sm:inline text-[#5A5960]">Direct Workshop Access</span>
           </div>
 
-          {/* Main Cinematic Headline featuring Vivaldi Flourish */}
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-[#141416] leading-[1.12] sm:leading-[1.15]">
-            London&apos;s Bespoke{" "}
-            <span className="font-vivaldi text-[#996515] block sm:inline text-5xl sm:text-7xl md:text-8xl px-1 font-normal">
-              Goldsmith Atelier
-            </span>{" "}
-            <span className="block sm:inline">&amp; Direct Gold Wholesaler</span>
-          </h1>
+          {/* Headline Container with Ambient Royal Crest Watermark */}
+          <div className="relative">
+            {/* Ambient Royal Crest Watermark behind the primary headline */}
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[440px] sm:h-[440px] pointer-events-none select-none -z-10 opacity-[0.06] mix-blend-multiply"
+              style={{
+                transform: `translate3d(-50%, calc(-50% + ${scrollY * 0.15}px), 0)`,
+                WebkitMaskImage: "radial-gradient(circle, black 50%, transparent 92%)",
+                maskImage: "radial-gradient(circle, black 50%, transparent 92%)",
+                willChange: "transform",
+              }}
+              aria-hidden="true"
+            >
+              <Image
+                src="/NIRAJ_LOGO9.png"
+                alt=""
+                fill
+                sizes="(max-width: 640px) 280px, 440px"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* Main Cinematic Headline featuring Vivaldi Flourish */}
+            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-[#141416] leading-[1.12] sm:leading-[1.15]">
+              London&apos;s Bespoke{" "}
+              <span className="font-vivaldi text-[#996515] block sm:inline text-5xl sm:text-7xl md:text-8xl px-1 font-normal">
+                Goldsmith Atelier
+              </span>{" "}
+              <span className="block sm:inline">&amp; Direct Gold Wholesaler</span>
+            </h1>
+          </div>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg md:text-xl text-[#4A4A52] max-w-2xl mx-auto font-normal leading-relaxed">
@@ -70,7 +114,10 @@ export function HeroSection() {
               <span>Direct Workshop Line: Speak with our Goldsmith Team within 15 Minutes</span>
             </span>
             <span className="hidden sm:inline text-[#D4AF37]">•</span>
-            <a href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`} className="font-mono font-bold text-[#141416] hover:text-[#996515] underline underline-offset-2 flex items-center gap-1">
+            <a
+              href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
+              className="font-mono font-bold text-[#141416] hover:text-[#996515] underline underline-offset-2 flex items-center gap-1 min-h-[44px] sm:min-h-0 py-1"
+            >
               <Phone className="w-3 h-3 text-[#996515]" />
               <span>{NIRAJ_UK_PHONE}</span>
             </a>

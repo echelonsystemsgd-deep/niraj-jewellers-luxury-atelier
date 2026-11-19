@@ -2,6 +2,8 @@
 
 import { Navbar } from "@/components/header/navbar";
 import { HeroSection } from "@/components/hero/hero-section";
+import { MasterpieceHeroSlider } from "@/components/collections/masterpiece-hero-slider";
+import { InfiniteMotionRibbon } from "@/components/collections/infinite-motion-ribbon";
 import { CollectionGrid } from "@/components/collections/collection-grid";
 import { CadJourney } from "@/components/craftsmanship/cad-journey";
 import { WholesaleAdvantage } from "@/components/craftsmanship/wholesale-advantage";
@@ -20,31 +22,37 @@ export default function Home() {
 
       {/* 2. Main Luxury Experience */}
       <main className="flex-1">
-        {/* 1. Cinematic Hero with Vivaldi Flourish */}
+        {/* 1. Cinematic Hero with Ambient Royal Crest Watermark & Vivaldi Flourish */}
         <HeroSection />
 
-        {/* 2. Curated Flagship Showroom Collections: Top 3 Masterpieces & Video Preview */}
+        {/* 2. Masterpiece Hero Slider: Interactive Top 3 Showpieces with Looping Video & Touch Gestures */}
+        <MasterpieceHeroSlider />
+
+        {/* 3. Infinite Motion Atelier Ribbon: Continuous 60fps Marquee of 12 Living Pieces */}
+        <InfiniteMotionRibbon />
+
+        {/* 4. Curated Flagship Showroom Collections Showcase */}
         <CollectionGrid isHomepage={true} />
 
-        {/* 3. The 4-Step Goldsmith & 3D CAD Journey */}
+        {/* 5. The 4-Step Goldsmith & 3D CAD Journey */}
         <CadJourney />
 
-        {/* 4. In-House Workshop & Same-Day Repair Concierge Bento Grid */}
+        {/* 6. In-House Workshop & Same-Day Repair Concierge Bento Grid */}
         <RepairsBento />
 
-        {/* 5. Direct Bullion & Wholesale Sourcing Advantage */}
+        {/* 7. Direct Bullion & Wholesale Sourcing Advantage */}
         <WholesaleAdvantage />
 
-        {/* 6. Gold Purity & London Assay Office Hallmarking Guide */}
+        {/* 8. Gold Purity & London Assay Office Hallmarking Guide */}
         <HallmarkGuide />
 
-        {/* 7. Flagship Hayes Showroom Hub & Live London Operating Hours */}
+        {/* 9. Flagship Hayes Showroom Hub & Live London Operating Hours */}
         <ShowroomHub />
 
-        {/* 8. Verified Google 5-Star Reviews Showcase */}
+        {/* 10. Verified Google 5-Star Reviews Showcase */}
         <ReviewsSection />
 
-        {/* 9. 5 Critical Commercial Objections & Guarantees FAQ */}
+        {/* 11. 5 Critical Commercial Objections & Guarantees FAQ */}
         <FaqSection />
       </main>
 

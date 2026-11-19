@@ -138,7 +138,7 @@ async function main() {
   const siteWebmanifest = {
     name: "Niraj Jewellers London | Bespoke Goldsmith & Bullion",
     short_name: "Niraj Jewellers",
-    description: "London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler. Handcrafted 22ct/18ct bridal suites, certified diamond rings, and live bullion rates by Master Jeweller Viky.",
+    description: "London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler. Handcrafted 22ct/18ct bridal suites, certified diamond rings, and live bullion rates by our Master Goldsmith team.",
     start_url: "/",
     display: "standalone",
     background_color: "#09090B",
@@ -256,7 +256,7 @@ async function main() {
           Handcrafted 22ct/18ct bridal suites, certified natural diamonds &amp; live bullion rates
         </text>
         <text x="0" y="44" fill="#A1A1AA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="400" font-size="17">
-          by Master Jeweller Viky. In-house Hayes workshop pricing with no retail markups.
+          by our Master Goldsmith team. In-house Hayes workshop pricing with no retail markups.
         </text>
       </g>
 
@@ -275,7 +275,7 @@ async function main() {
           <circle cx="28" cy="23" r="10" fill="#25D366" />
           <path d="M25,20 C25.5,19 27,20 27.5,21 C28,22 27.5,23 27,23.5 C27.5,24.5 28.5,25.5 29.5,26 C30,25.5 31,25 32,25.5 C33,26 32,27.5 31,28 C30,28.5 28,28 26,26 C24,24 23.5,22 24,21 C24.5,20 25,20 25,20 Z" fill="#FFFFFF" />
           <text x="46" y="28" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="12.5" letter-spacing="0.5">
-            WhatsApp Master Viky
+            WhatsApp Atelier
           </text>
         </g>
       </g>
@@ -319,10 +319,10 @@ async function main() {
       <g transform="translate(24, 176)">
         <rect width="352" height="78" rx="10" fill="#141416" stroke="rgba(212, 175, 55, 0.25)" stroke-width="1" />
         <circle cx="36" cy="39" r="22" fill="#27272A" stroke="#D4AF37" stroke-width="1" />
-        <text x="36" y="45" fill="#FFF3D6" font-family="Georgia, serif" font-weight="bold" font-size="18" text-anchor="middle">V</text>
+        <text x="36" y="45" fill="#FFF3D6" font-family="Georgia, serif" font-weight="bold" font-size="18" text-anchor="middle">N</text>
 
         <text x="70" y="32" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13">
-          Principal Jeweller: Viky
+          Principal Jeweller: Master Goldsmith
         </text>
         <text x="70" y="48" fill="#D4AF37" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="11">
           Decades of Fine Goldsmithing in Hayes
