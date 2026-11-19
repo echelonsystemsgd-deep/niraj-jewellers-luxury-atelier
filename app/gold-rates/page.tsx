@@ -7,8 +7,33 @@ import { Coins, Scale, TrendingUp, ShieldCheck, MessageCircle, AlertCircle } fro
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Live Gold Rates & Wholesale Bullion Hayes London | Niraj Jewellers",
-  description: "Live indicative London LBMA spot gold rates for 24ct, 22ct, and 18ct gold. Buy and sell investment gold bullion and trade in scrap gold at wholesale workshop pricing in Hayes.",
+  title: "Live Gold Rates Hayes London (24ct, 22ct, 18ct)",
+  description:
+    "Real-time LBMA gold prices per gram, tola & sovereign. Direct wholesale bullion trading, investment bars & instant scrap gold valuation in Hayes.",
+  alternates: {
+    canonical: "https://nirajjewellers.co.uk/gold-rates",
+  },
+  openGraph: {
+    title: "Live Gold Rates Hayes London (24ct, 22ct, 18ct) | Niraj Jewellers",
+    description:
+      "Real-time LBMA gold rates per gram, tola & ounce. Wholesale bullion trading & instant scrap valuation at 136 Uxbridge Road, Hayes.",
+    url: "https://nirajjewellers.co.uk/gold-rates",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Niraj Jewellers London - Live Gold Rates & Wholesale Bullion",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Live Gold Rates Hayes London | Niraj Jewellers",
+    description:
+      "Real-time LBMA gold prices per gram, tola & sovereign. Direct wholesale bullion trading in Hayes.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function GoldRatesPage() {

@@ -3,8 +3,19 @@ import Link from 'next/link';
 import { ArrowLeft, Shield, Lock, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Niraj Jewellers London',
-  description: 'UK GDPR compliant privacy policy and data governance practices of Niraj Jewellers (Shiva Technology Ltd), Hayes, London.',
+  title: "Privacy Policy",
+  description:
+    "How Niraj Jewellers (Shiva Technology Ltd) protects your personal data, appointment details, and customer information under UK GDPR.",
+  alternates: {
+    canonical: "https://nirajjewellers.co.uk/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Niraj Jewellers London",
+    description:
+      "UK GDPR data protection policies and client confidentiality standards at Niraj Jewellers London.",
+    url: "https://nirajjewellers.co.uk/privacy",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function PrivacyPolicyPage() {

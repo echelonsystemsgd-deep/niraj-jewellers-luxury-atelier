@@ -7,8 +7,33 @@ import { Sparkles, Compass, ShieldCheck, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Bespoke Jewellery & 3D CAD Commissions | Niraj Jewellers London",
-  description: "Commission bespoke 22ct and 18ct bridal jewellery with Master Jeweller Viky. Experience 3D CAD modeling, loose GIA diamond inspection, and in-house gold casting in Hayes.",
+  title: "Bespoke Jewellery & 3D CAD Commissions",
+  description:
+    "Commission bespoke 22ct and 18ct bridal jewellery with Master Jeweller Viky. Experience 3D CAD modeling, loose GIA diamond inspection, and in-house gold casting in Hayes.",
+  alternates: {
+    canonical: "https://nirajjewellers.co.uk/bespoke",
+  },
+  openGraph: {
+    title: "Bespoke Jewellery & 3D CAD Commissions | Niraj Jewellers London",
+    description:
+      "Commission bespoke 22ct/18ct jewellery with Master Jeweller Viky. 3D CAD modeling, loose GIA diamond inspection & direct workshop casting in Hayes.",
+    url: "https://nirajjewellers.co.uk/bespoke",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Niraj Jewellers London - Bespoke Jewellery & 3D CAD Commissions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bespoke Jewellery & 3D CAD Commissions | Niraj Jewellers London",
+    description:
+      "Commission bespoke 22ct and 18ct bridal jewellery with Master Jeweller Viky in Hayes.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function BespokePage() {

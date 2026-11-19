@@ -3,8 +3,19 @@ import Link from 'next/link';
 import { ArrowLeft, Scale, Award, ShieldCheck, Gem } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Atelier Terms & Hallmarking Guarantee | Niraj Jewellers London',
-  description: 'Commercial terms of service, bespoke commission protocols, bullion policies, and UK Hallmarking Act 1973 compliance at Niraj Jewellers.',
+  title: "Terms of Service & Atelier Policies",
+  description:
+    "Commercial terms of service, bespoke commission deposits, hallmark guarantees (London Assay Office), and bullion trading policies at Niraj Jewellers.",
+  alternates: {
+    canonical: "https://nirajjewellers.co.uk/terms",
+  },
+  openGraph: {
+    title: "Terms of Service & Atelier Policies | Niraj Jewellers London",
+    description:
+      "Commercial terms of service, bespoke commission protocols, bullion policies, and UK Hallmarking Act 1973 compliance at Niraj Jewellers.",
+    url: "https://nirajjewellers.co.uk/terms",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function TermsOfServicePage() {

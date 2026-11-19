@@ -5,8 +5,33 @@ import { Footer } from "@/components/footer/footer";
 import { Sparkles, Shield, Award, Gem } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Atelier Collections | Niraj Jewellers London",
-  description: "Explore handcrafted 22ct bridal suites, certified solitaire diamond engagement rings, heavy solid gold kadas, and antique Polki heirlooms by Master Jeweller Viky.",
+  title: "Atelier Collections & Bridal Suites",
+  description:
+    "Explore handcrafted 22ct bridal suites, certified solitaire diamond engagement rings, heavy solid gold kadas, and antique Polki heirlooms by Master Jeweller Viky.",
+  alternates: {
+    canonical: "https://nirajjewellers.co.uk/collections",
+  },
+  openGraph: {
+    title: "Atelier Collections & Bridal Suites | Niraj Jewellers London",
+    description:
+      "Handcrafted 22ct bridal jewellery, certified diamond engagement rings, solid gold kadas & antique Polki heirlooms. In-house workshop direct pricing.",
+    url: "https://nirajjewellers.co.uk/collections",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Niraj Jewellers London - Atelier Collections & Bridal Suites",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Atelier Collections & Bridal Suites | Niraj Jewellers London",
+    description:
+      "Explore handcrafted 22ct bridal suites, certified diamond rings & antique Polki heirlooms.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function CollectionsPage() {

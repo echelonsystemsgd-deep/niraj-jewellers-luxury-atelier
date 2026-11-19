@@ -7,8 +7,33 @@ import { Wrench, ShieldCheck, Clock, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "In-House Jewellery Repairs & Laser Resizing Hayes | Niraj Jewellers",
-  description: "Same-day ring resizing, diamond claw retipping, laser soldering, and ultrasonic restoration carried out on-site in our Hayes workshop by Master Jeweller Viky.",
+  title: "Same-Day In-House Jewellery Repairs Hayes",
+  description:
+    "Same-day ring resizing, laser gold soldering, claw retipping, ultrasonic cleaning & watch servicing at 136 Uxbridge Road workshop. Work done on-site by Master Jeweller Viky.",
+  alternates: {
+    canonical: "https://nirajjewellers.co.uk/repairs",
+  },
+  openGraph: {
+    title: "Same-Day In-House Jewellery Repairs Hayes | Niraj Jewellers",
+    description:
+      "Same-day ring resizing, diamond claw retipping & laser restoration at our 136 Uxbridge Road Hayes workshop. Direct goldsmith service.",
+    url: "https://nirajjewellers.co.uk/repairs",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Niraj Jewellers London - Same-Day In-House Jewellery Repairs Hayes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Same-Day In-House Jewellery Repairs Hayes | Niraj Jewellers",
+    description:
+      "Same-day ring resizing, laser soldering, and diamond claw retipping in Hayes.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RepairsPage() {
