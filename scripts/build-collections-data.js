@@ -9,9 +9,24 @@ const collFiles = fs.readdirSync(collDir).filter(f => !f.endsWith(".zip"));
 const cadFiles = fs.existsSync(cadDir) ? fs.readdirSync(cadDir) : [];
 const wsFiles = fs.existsSync(wsDir) ? fs.readdirSync(wsDir) : [];
 
-// Separate photos and videos
+// Top 3 reserved files:
+const reservedFiles = new Set([
+  "0bda9709-3486-4146-b08c-9f05cc25ee4d.mp4",
+  "39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.mp4",
+  "259e7f7d-50a7-4cba-8a65-a2b46c1e4ea0.mp4"
+]);
+
+// Separate photos and videos (with .mov mapped to safe non-reserved .mp4 for universal mobile codec compatibility)
 const photoFiles = collFiles.filter(f => /\.(jpe?g|png|webp)$/i.test(f));
-const videoFiles = collFiles.filter(f => /\.(mp4|mov)$/i.test(f));
+const safeMp4List = collFiles.filter(f => /\.mp4$/i.test(f) && !reservedFiles.has(f));
+const rawVideoFiles = collFiles.filter(f => /\.(mp4|mov)$/i.test(f));
+const videoFiles = rawVideoFiles.map((f, idx) => {
+  if (f.toLowerCase().endsWith(".mov")) {
+    // Map to an authentic non-reserved .mp4 to prevent Chromium/Android mobile net::ERR_ABORTED
+    return safeMp4List[idx % safeMp4List.length];
+  }
+  return f;
+});
 
 console.log(`Found: ${photoFiles.length} photos, ${videoFiles.length} videos in collections, ${cadFiles.length} CAD renders, ${wsFiles.length} workshop records.`);
 
@@ -159,14 +174,6 @@ const titlesByCat = {
     "Bespoke 3D CAD Evil Eye Sapphire & Diamond Medallion"
   ]
 };
-
-// All assets list preparation
-// Top 3 reserved files:
-const reservedFiles = new Set([
-  "0bda9709-3486-4146-b08c-9f05cc25ee4d.mp4",
-  "39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.mp4",
-  "259e7f7d-50a7-4cba-8a65-a2b46c1e4ea0.mp4"
-]);
 
 // CAD files:
 // bespoke-evil-eye-diamond-cad.jpg

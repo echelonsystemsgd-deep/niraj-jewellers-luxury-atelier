@@ -195,7 +195,7 @@ export function MasterpieceHeroSlider({ onSelectItem }: MasterpieceHeroSliderPro
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
             {/* Visual Media Pane (Video or Image) */}
             <div className="lg:col-span-7 relative bg-black min-h-[340px] sm:min-h-[460px] overflow-hidden group">
-              <AtelierVideoCard item={currentPiece} priority={true} />
+              <AtelierVideoCard item={currentPiece} priority={true} hideMotionBadge={true} />
 
               {/* Hallmark Badge */}
               <div className="absolute bottom-4 left-4 z-10 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/50 shadow-md text-xs font-semibold text-[#8C6212]">

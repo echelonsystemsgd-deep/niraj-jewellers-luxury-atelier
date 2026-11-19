@@ -143,14 +143,14 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
               >
                 {/* Media Container with Video Looping Engine */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
-                  <AtelierVideoCard item={item} />
+                  <AtelierVideoCard item={item} hideMotionBadge={isHomepage} />
 
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity pointer-events-none" />
 
-                  {/* Metal Purity Tag */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[11px] font-bold text-[#8C6212] shadow-sm z-10 pointer-events-none">
-                    {item.metalPurity.split("(")[0].trim()}
+                  {/* Metal Purity Tag (concise & truncated to prevent collision with right badges on mobile) */}
+                  <div className="absolute top-3 left-3 px-2.5 sm:px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] sm:text-[11px] font-bold text-[#8C6212] shadow-sm z-10 pointer-events-none max-w-[130px] sm:max-w-[170px] truncate">
+                    {item.metalPurity.split("(")[0].replace(/&.*$/, "").trim()}
                   </div>
 
                   {/* Showcase index badge if on homepage */}

@@ -94,7 +94,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-4-482c070d-7614-41e2-8811-d76441020509_mov",
+    "id": "piece-4-6bee2c14-fbe5-43f5-a95f-330e06bb9f89_mp4",
     "title": "The Padmavati 22ct Jadau Polki Bridal Choker",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -103,7 +103,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/09f3084c-9c0e-49e0-a1dd-3d4c512907b1.jpeg",
-    "videoUrl": "/images/collections/482c070d-7614-41e2-8811-d76441020509.mov",
+    "videoUrl": "/images/collections/6bee2c14-fbe5-43f5-a95f-330e06bb9f89.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -235,7 +235,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-10-585f854b-a2a7-4608-83e8-29eded6d04f6_mov",
+    "id": "piece-10-82bd6ab1-219d-4fc1-894b-77030e289dbf_mp4",
     "title": "The Royal Rajwada Floral Filigree Bangles",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -244,7 +244,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/c1093de2-6cd6-4023-be9f-a46cd4a0fbce.jpeg",
-    "videoUrl": "/images/collections/585f854b-a2a7-4608-83e8-29eded6d04f6.mov",
+    "videoUrl": "/images/collections/82bd6ab1-219d-4fc1-894b-77030e289dbf.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -611,7 +611,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-26-9134d8c9-f46e-4a55-a951-9b46f5fb82ef_mov",
+    "id": "piece-26-e04a48c3-2c58-4692-bf79-43609f73bf1d_mp4",
     "title": "The Alchemist 22ct Solid Gold Chased Cuff Bangle",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -620,7 +620,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/926a7777-65a9-4968-a10c-804f36dc283a.jpeg",
-    "videoUrl": "/images/collections/9134d8c9-f46e-4a55-a951-9b46f5fb82ef.mov",
+    "videoUrl": "/images/collections/e04a48c3-2c58-4692-bf79-43609f73bf1d.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -846,7 +846,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-36-d1b0cd96-fce0-4ef2-a3a6-20ecc8784006_mov",
+    "id": "piece-36-6bee2c14-fbe5-43f5-a95f-330e06bb9f89_mp4",
     "title": "The Noor Jahan Antique Jadau Collar Suite",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -855,7 +855,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/f7a0e00d-b6e5-4e91-aeba-0d0db54e173c_1.jpeg",
-    "videoUrl": "/images/collections/d1b0cd96-fce0-4ef2-a3a6-20ecc8784006.mov",
+    "videoUrl": "/images/collections/6bee2c14-fbe5-43f5-a95f-330e06bb9f89.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -987,7 +987,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-42-e7ea0977-ac81-4aaf-b7b7-ad43406042a8_mov",
+    "id": "piece-42-82bd6ab1-219d-4fc1-894b-77030e289dbf_mp4",
     "title": "The Hayes Atelier Workshop Collection",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -996,7 +996,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/86ae6de6-b6ee-4780-948b-ccf3f849f5cf.jpeg",
-    "videoUrl": "/images/collections/e7ea0977-ac81-4aaf-b7b7-ad43406042a8.mov",
+    "videoUrl": "/images/collections/82bd6ab1-219d-4fc1-894b-77030e289dbf.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",

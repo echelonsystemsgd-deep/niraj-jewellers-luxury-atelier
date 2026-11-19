@@ -96,17 +96,17 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
             : "bg-white/90 backdrop-blur-md border-b border-[#EFE8DA] py-3 sm:py-3.5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 lg:gap-6">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
             {/* Column 1: Left Brand Mark with Official Logo */}
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <Link
                 href="/"
-                className="group flex items-center gap-2.5 sm:gap-3.5 focus:outline-none text-left"
+                className="group flex items-center gap-2 sm:gap-3.5 focus:outline-none text-left"
                 aria-label="Niraj Jewellers Ltd Home"
               >
                 {/* Official Royal Crest Logo */}
-                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-lg overflow-hidden shrink-0 border border-[#D4AF37]/40 shadow-sm group-hover:border-[#996515] transition-colors bg-[#FAF7F2]">
+                <div className="relative w-8 h-8 sm:w-11 sm:h-11 rounded-lg overflow-hidden shrink-0 border border-[#D4AF37]/40 shadow-sm group-hover:border-[#996515] transition-colors bg-[#FAF7F2]">
                   <Image
                     src="/NIRAJ_LOGO9.png"
                     alt="Niraj Jewellers Ltd Official Crest"
@@ -117,10 +117,10 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif text-base sm:text-lg lg:text-xl font-bold tracking-wider text-[#141416] group-hover:text-[#996515] transition-colors uppercase whitespace-nowrap">
-                    NIRAJ JEWELLERS <span className="text-xs font-semibold text-[#996515] tracking-normal">LTD</span>
+                  <span className="font-serif text-sm sm:text-lg lg:text-xl font-bold tracking-wider text-[#141416] group-hover:text-[#996515] transition-colors uppercase whitespace-nowrap">
+                    NIRAJ JEWELLERS <span className="text-[10px] sm:text-xs font-semibold text-[#996515] tracking-normal">LTD</span>
                   </span>
-                  <span className="text-[8px] sm:text-[9.5px] tracking-[0.22em] text-[#8C6212] font-semibold uppercase -mt-0.5 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
+                  <span className="text-[7.5px] sm:text-[9.5px] tracking-[0.18em] sm:tracking-[0.22em] text-[#8C6212] font-semibold uppercase -mt-0.5 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
                     <span>HAYES</span>
                     <span className="text-[#C5A059]">•</span>
                     <span>LONDON</span>
@@ -154,9 +154,9 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               })}
             </nav>
 
-            {/* Column 3: Right Action Buttons (Direct Phone Line CTA + WhatsApp) */}
-            <div className="flex items-center justify-end space-x-2 sm:space-x-3 shrink-0">
-              {/* Direct Phone Number Header CTA */}
+            {/* Column 3: Right Action Buttons */}
+            <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0">
+              {/* Direct Phone Number Header CTA (Desktop / Tablet) */}
               <a
                 href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
                 className="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/50 text-[#141416] hover:text-[#996515] font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow-md transform hover:-translate-y-0.5 whitespace-nowrap group"
@@ -177,30 +177,21 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 <span>WhatsApp Concierge</span>
               </a>
 
-              {/* Mobile Phone Call Button */}
-              <a
-                href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                className="sm:hidden w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/50 text-[#996515] flex items-center justify-center shrink-0 transition-colors shadow-sm touch-target"
-                aria-label={`Call ${NIRAJ_UK_PHONE}`}
-              >
-                <Phone className="w-4 h-4 text-[#996515]" />
-              </a>
-
-              {/* Mobile WhatsApp icon button */}
+              {/* Mobile WhatsApp icon button (compact 40px, non-intrusive) */}
               <a
                 href={whatsappHeroLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="md:hidden w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center shrink-0 transition-colors shadow-sm touch-target"
+                className="md:hidden w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center shrink-0 transition-colors shadow-sm touch-target"
                 aria-label="WhatsApp Concierge"
               >
                 <MessageCircle className="w-4 h-4 fill-white text-transparent" />
               </a>
 
-              {/* Mobile / Tablet Menu Toggle Button */}
+              {/* Mobile / Tablet Menu Toggle Button (guaranteed visible and in-bounds on 360-390px viewports) */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden w-11 h-11 min-w-[44px] min-h-[44px] sm:w-12 sm:h-12 rounded-xl text-[#141416] hover:text-[#996515] bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] transition-colors flex items-center justify-center shrink-0 shadow-sm touch-target"
+                className="lg:hidden w-10 h-10 min-w-[40px] min-h-[40px] sm:w-11 sm:h-11 sm:min-w-[44px] sm:min-h-[44px] rounded-xl text-[#141416] hover:text-[#996515] bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] transition-colors flex items-center justify-center shrink-0 shadow-sm touch-target"
                 aria-label="Open luxury navigation menu"
               >
                 <Menu className="w-5 h-5 text-[#996515]" />

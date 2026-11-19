@@ -9,9 +9,15 @@ interface AtelierVideoCardProps {
   item: CollectionItem;
   className?: string;
   priority?: boolean;
+  hideMotionBadge?: boolean;
 }
 
-export function AtelierVideoCard({ item, className = "", priority = false }: AtelierVideoCardProps) {
+export function AtelierVideoCard({
+  item,
+  className = "",
+  priority = false,
+  hideMotionBadge = false,
+}: AtelierVideoCardProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -64,10 +70,12 @@ export function AtelierVideoCard({ item, className = "", priority = false }: Ate
         />
 
         {/* Video badge */}
-        <div className="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9px] font-bold uppercase tracking-wider text-white flex items-center gap-1 pointer-events-none">
-          <Play className="w-2.5 h-2.5 fill-[#DFBF7A] text-[#DFBF7A]" />
-          <span>Atelier Motion</span>
-        </div>
+        {!hideMotionBadge && (
+          <div className="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[9px] font-bold uppercase tracking-wider text-white flex items-center gap-1 pointer-events-none">
+            <Play className="w-2.5 h-2.5 fill-[#DFBF7A] text-[#DFBF7A]" />
+            <span>Atelier Motion</span>
+          </div>
+        )}
       </div>
     );
   }
