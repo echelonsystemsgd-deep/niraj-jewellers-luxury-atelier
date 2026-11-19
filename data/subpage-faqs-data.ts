@@ -9,7 +9,7 @@ export const BESPOKE_FAQS: SubpageFaqItem[] = [
     category: "Commission Process",
     question: "How long does a custom 22ct or 18ct bespoke piece take to make?",
     answer:
-      "Standard bespoke pieces take 2 to 3 weeks from approved 3D CAD design to final hallmarked collection. For urgent wedding dates, our on-site Hayes workshop can accommodate rush turnarounds of 5 to 7 working days upon consultation with Master Jeweller Viky.",
+      "Standard bespoke pieces take 2 to 3 weeks from approved 3D CAD design to final hallmarked collection. For urgent wedding dates, our on-site Hayes workshop can accommodate rush turnarounds of 5 to 7 working days upon consultation with our master goldsmiths.",
   },
   {
     category: "Payment & Security",
@@ -36,7 +36,7 @@ export const REPAIRS_FAQS: SubpageFaqItem[] = [
     category: "Turnaround Time",
     question: "Can ring resizing be done on the same day in Hayes?",
     answer:
-      "Yes. Most standard ring resizings in 22ct gold, 18ct white/yellow/rose gold, and platinum are completed in 2 to 4 hours while you wait or have lunch nearby. All repairs are executed on-site at 136 Uxbridge Road by Master Jeweller Viky.",
+      "Yes. Most standard ring resizings in 22ct gold, 18ct white/yellow/rose gold, and platinum are completed in 2 to 4 hours while you wait or have lunch nearby. All repairs are executed on-site at 136 Uxbridge Road by our master goldsmiths.",
   },
   {
     category: "Safety & Gemstones",

@@ -1,11 +1,11 @@
 {
-  "name": "Niraj Jewellers London | Bespoke Goldsmith & Bullion",
-  "short_name": "Niraj Jewellers",
-  "description": "London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler. Handcrafted 22ct/18ct bridal suites, certified diamond rings, and live bullion rates by Master Jeweller Viky.",
+  "name": "Niraj Jewellers Ltd | Bespoke Goldsmith & Bullion London",
+  "short_name": "Niraj Jewellers Ltd",
+  "description": "London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler. Handcrafted 22ct/18ct bridal suites, certified diamond rings, and live bullion rates by Niraj Jewellers Ltd.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#09090B",
-  "theme_color": "#09090B",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
   "icons": [
     {
       "src": "/favicon.svg",

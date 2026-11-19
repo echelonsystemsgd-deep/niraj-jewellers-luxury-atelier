@@ -2,9 +2,7 @@
 
 import { Navbar } from "@/components/header/navbar";
 import { HeroSection } from "@/components/hero/hero-section";
-import { GoldTicker } from "@/components/hero/gold-ticker";
 import { CollectionGrid } from "@/components/collections/collection-grid";
-import { BespokeEstimator } from "@/components/estimator/bespoke-estimator";
 import { CadJourney } from "@/components/craftsmanship/cad-journey";
 import { WholesaleAdvantage } from "@/components/craftsmanship/wholesale-advantage";
 import { RepairsBento } from "@/components/repairs/repairs-bento";
@@ -16,47 +14,41 @@ import { Footer } from "@/components/footer/footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-obsidian text-platinum flex flex-col selection:bg-gold-500 selection:text-obsidian overflow-x-hidden">
-      {/* 1. Header with London Business Hours status */}
+    <div className="relative min-h-screen bg-white text-[#141416] flex flex-col selection:bg-gold-200 selection:text-gold-900 overflow-x-hidden">
+      {/* 1. Header with London Business Hours status & Direct Phone CTA */}
       <Navbar />
 
       {/* 2. Main Luxury Experience */}
       <main className="flex-1">
-        {/* 1. Cinematic Hero */}
+        {/* 1. Cinematic Hero with Vivaldi Flourish */}
         <HeroSection />
 
-        {/* 2. Live Indicative Gold Rate Marquee */}
-        <GoldTicker />
+        {/* 2. Curated Flagship Showroom Collections: Top 3 Masterpieces & Video Preview */}
+        <CollectionGrid isHomepage={true} />
 
-        {/* 3. Curated Showroom Collections & Reels Modal */}
-        <CollectionGrid />
-
-        {/* 4. The 4-Step Goldsmith & 3D CAD Journey */}
+        {/* 3. The 4-Step Goldsmith & 3D CAD Journey */}
         <CadJourney />
 
-        {/* 5. Interactive Bespoke Jewellery Cost & Turnaround Estimator */}
-        <BespokeEstimator />
-
-        {/* 6. In-House Workshop & Same-Day Repair Concierge Bento Grid */}
+        {/* 4. In-House Workshop & Same-Day Repair Concierge Bento Grid */}
         <RepairsBento />
 
-        {/* 7. Direct Bullion & Wholesale Sourcing Advantage */}
+        {/* 5. Direct Bullion & Wholesale Sourcing Advantage */}
         <WholesaleAdvantage />
 
-        {/* 8. Gold Purity & London Assay Office Hallmarking Guide */}
+        {/* 6. Gold Purity & London Assay Office Hallmarking Guide */}
         <HallmarkGuide />
 
-        {/* 9. Flagship Hayes Showroom Hub & Live London Operating Hours */}
+        {/* 7. Flagship Hayes Showroom Hub & Live London Operating Hours */}
         <ShowroomHub />
 
-        {/* 10. Verified Google 5-Star Reviews Showcase */}
+        {/* 8. Verified Google 5-Star Reviews Showcase */}
         <ReviewsSection />
 
-        {/* 11. 5 Critical Commercial Objections & Guarantees FAQ */}
+        {/* 9. 5 Critical Commercial Objections & Guarantees FAQ */}
         <FaqSection />
       </main>
 
-      {/* 3. Luxury Footer */}
+      {/* 3. Luxury Footer with Mercian Wealth Automation Attribution */}
       <Footer />
     </div>
   );

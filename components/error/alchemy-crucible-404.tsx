@@ -58,7 +58,7 @@ export function AlchemyCrucible404() {
     source: "404_alchemist_crucible",
     visitPurpose: "Bespoke Casting Consultation",
     customNote:
-      "Hello Viky, I arrived at the 404 Alchemist Forge on your website. I am looking for a bespoke piece or collection piece to commission.",
+      "Hello, I arrived at the 404 Alchemist Forge on your website. I am looking for a bespoke piece or collection piece to commission.",
   });
 
   // Boost temperature and trigger massive spark shower
@@ -747,8 +747,8 @@ export function AlchemyCrucible404() {
 
             <p className="text-sm sm:text-base text-platinum-muted max-w-2xl leading-relaxed">
               The page, vault archive, or jewellery reference you are looking for
-              has been melted in Master Jeweller Viky&apos;s crucible. In our
-              Hayes atelier, no precious metal is wasted — it is continuously
+              has been melted in our atelier crucible. In our
+              Hayes workshop, no precious metal is wasted — it is continuously
               refined into bespoke bridal suites, certified diamond rings, and
               hallmarked bullion.
             </p>
@@ -804,7 +804,7 @@ export function AlchemyCrucible404() {
               className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-whatsapp hover:bg-whatsapp-dark text-black font-bold text-xs uppercase tracking-wide transition-all shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 min-h-[44px]"
             >
               <MessageCircle className="w-4 h-4 fill-black text-whatsapp" />
-              <span>Ask Viky on WhatsApp</span>
+              <span>WhatsApp Concierge</span>
             </a>
 
             <Link

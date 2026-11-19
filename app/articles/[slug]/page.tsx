@@ -93,7 +93,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
   const whatsappInquiryLink = buildWhatsAppLink({
     source: `article_${article.slug}`,
-    customNote: `Hello Viky, I just read your article "${article.title}" and would like to ask a question.`,
+    customNote: `Hi Niraj Jewellers team, I just read your article "${article.title}" and would like to ask a question.`,
   });
 
   // Linked JSON-LD Graph for this Article
@@ -174,7 +174,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-obsidian text-platinum flex flex-col selection:bg-gold-500 selection:text-obsidian">
+    <div className="min-h-screen bg-white text-[#141416] flex flex-col selection:bg-gold-200 selection:text-gold-900">
       {/* Article Schema Script */}
       <script
         type="application/ld+json"
@@ -225,26 +225,26 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
+            <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight leading-tight">
               {article.title}
             </h1>
 
-            <p className="text-sm sm:text-base text-platinum-muted leading-relaxed">
+            <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
               {article.excerpt}
             </p>
 
             {/* Author Credential Card */}
-            <div className="pt-4 border-t border-atelier-border/80 flex items-center justify-between gap-4">
+            <div className="pt-4 border-t border-[#E8DEC8] flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400/20 via-zinc-900 to-black border border-gold-500/40 flex items-center justify-center font-serif font-bold text-gold-300">
-                  VK
+                <div className="w-10 h-10 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/50 flex items-center justify-center font-serif font-bold text-[#8C6212]">
+                  NJ
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white flex items-center gap-1.5">
+                  <div className="text-sm font-bold text-[#141416] flex items-center gap-1.5">
                     <span>{article.author.name}</span>
-                    <ShieldCheck className="w-4 h-4 text-gold-400" />
+                    <ShieldCheck className="w-4 h-4 text-[#996515]" />
                   </div>
-                  <span className="text-xs text-platinum-muted">
+                  <span className="text-xs text-[#5A5960]">
                     {article.author.role}
                   </span>
                 </div>
@@ -254,7 +254,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 href={whatsappInquiryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-whatsapp/20 hover:bg-whatsapp/30 border border-whatsapp/40 text-whatsapp font-medium text-xs transition-all"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#25D366]/50 text-[#128C7E] font-semibold text-xs transition-all shadow-sm"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>Direct Workbench Question</span>
@@ -334,16 +334,16 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                   </div>
                 )}
 
-                {/* Master Jeweller Viky Quote if present */}
+                {/* Master Goldsmith Quote if present */}
                 {section.quote && (
-                  <blockquote className="my-6 p-6 rounded-2xl bg-obsidian border-l-4 border-gold-500 shadow-md">
+                  <blockquote className="my-6 p-6 rounded-2xl bg-[#FAF7F2] border-l-4 border-[#996515] border border-[#E8DEC8] shadow-sm">
                     <div className="flex items-start gap-3">
-                      <Quote className="w-5 h-5 text-gold-400 shrink-0 mt-1" />
+                      <Quote className="w-5 h-5 text-[#996515] shrink-0 mt-1" />
                       <div>
-                        <p className="font-serif italic text-sm sm:text-base text-white leading-relaxed mb-2">
+                        <p className="font-serif italic text-sm sm:text-base text-[#141416] leading-relaxed mb-2">
                           &ldquo;{section.quote.text}&rdquo;
                         </p>
-                        <footer className="text-xs text-gold-400 font-semibold uppercase tracking-wider">
+                        <footer className="text-xs text-[#8C6212] font-semibold uppercase tracking-wider">
                           — {section.quote.author}, {section.quote.role}
                         </footer>
                       </div>
@@ -356,13 +356,13 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
           {/* In-Article FAQ Accordion Section for AEO & GEO */}
           {article.faqs.length > 0 && (
-            <section className="mt-16 pt-12 border-t border-atelier-border space-y-6">
+            <section className="mt-16 pt-12 border-t border-[#E8DEC8] space-y-6">
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-400">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#996515]">
                   <HelpCircle className="w-3.5 h-3.5" />
                   <span>Article Clarifications &amp; Answers</span>
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-white">
+                <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#141416]">
                   Frequently Asked Questions About This Topic
                 </h3>
               </div>
@@ -371,12 +371,12 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 {article.faqs.map((faq, fIdx) => (
                   <div
                     key={fIdx}
-                    className="p-5 sm:p-6 rounded-2xl bg-atelier/70 border border-atelier-border"
+                    className="p-5 sm:p-6 rounded-2xl bg-[#FAF7F2] border border-[#E8DEC8] shadow-sm"
                   >
-                    <h4 className="font-serif text-base sm:text-lg font-medium text-white mb-2">
+                    <h4 className="font-serif text-base sm:text-lg font-medium text-[#141416] mb-2">
                       {faq.question}
                     </h4>
-                    <p className="text-xs sm:text-sm text-platinum-muted leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#4A4A52] leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -386,27 +386,27 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
           )}
 
           {/* Bottom WhatsApp CTA & Back to Articles */}
-          <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-atelier via-gold-950/20 to-atelier border border-gold-500/40 text-center space-y-4">
-            <h3 className="font-serif text-2xl text-white">
+          <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#FAF7F2] via-white to-[#FAF7F2] border border-[#E8DEC8] text-center space-y-4 shadow-sm">
+            <h3 className="font-serif text-2xl text-[#141416]">
               Have a Specific Goldsmithing or Gold Investment Question?
             </h3>
-            <p className="text-xs sm:text-sm text-platinum-muted max-w-xl mx-auto">
-              Master Jeweller Viky is available directly on WhatsApp to answer technical metallurgical questions, inspect reference photos, or verify live bullion spot rates.
+            <p className="text-xs sm:text-sm text-[#4A4A52] max-w-xl mx-auto">
+              Our master goldsmiths are available directly on WhatsApp to answer technical metallurgical questions, inspect reference photos, or verify live bullion spot rates.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <a
                 href={whatsappInquiryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-whatsapp hover:bg-whatsapp-dark text-black font-semibold text-xs tracking-wider transition-all shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
               >
-                <MessageCircle className="w-4 h-4 fill-black text-whatsapp" />
-                <span>Chat with Viky on WhatsApp</span>
+                <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+                <span>Chat with Atelier Concierge</span>
               </a>
 
               <Link
                 href="/articles"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-medium text-xs tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] text-[#141416] font-semibold text-xs tracking-wider transition-colors shadow-sm"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>All Atelier Articles</span>

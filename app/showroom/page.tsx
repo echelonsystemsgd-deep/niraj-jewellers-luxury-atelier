@@ -2,29 +2,29 @@ import type { Metadata } from "next";
 import { ShowroomClientView } from "@/components/showroom/showroom-client-view";
 
 export const metadata: Metadata = {
-  title: "Hayes Flagship Showroom & Atelier Hub",
+  title: "Hayes Flagship Showroom & Atelier Hub | Niraj Jewellers Ltd London",
   description:
     "Visit our working atelier at 136 Uxbridge Road, Hayes UB4 0JH. Direct diamond viewing, bespoke consultations & free customer parking guidance.",
   alternates: {
-    canonical: "https://nirajjewellers.co.uk/showroom",
+    canonical: "https://www.niraj-jewellers.co.uk/showroom",
   },
   openGraph: {
-    title: "Hayes Flagship Showroom & Atelier Hub | Niraj Jewellers London",
+    title: "Hayes Flagship Showroom & Atelier Hub | Niraj Jewellers Ltd London",
     description:
       "Visit our working atelier at 136 Uxbridge Road, Hayes UB4 0JH. Direct diamond viewing, bespoke consultations & free customer parking.",
-    url: "https://nirajjewellers.co.uk/showroom",
+    url: "https://www.niraj-jewellers.co.uk/showroom",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Niraj Jewellers London - Hayes Flagship Showroom & Atelier Hub",
+        alt: "Niraj Jewellers Ltd London - Hayes Flagship Showroom & Atelier Hub",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hayes Flagship Showroom & Atelier Hub | Niraj Jewellers London",
+    title: "Hayes Flagship Showroom & Atelier Hub | Niraj Jewellers Ltd London",
     description:
       "Visit our working atelier at 136 Uxbridge Road, Hayes UB4 0JH.",
     images: ["/og-image.jpg"],
@@ -42,20 +42,20 @@ export default function ShowroomPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://nirajjewellers.co.uk",
+            item: "https://www.niraj-jewellers.co.uk",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Hayes Flagship Showroom & Atelier",
-            item: "https://nirajjewellers.co.uk/showroom",
+            item: "https://www.niraj-jewellers.co.uk/showroom",
           },
         ],
       },
       {
         "@type": ["JewelryStore", "LocalBusiness"],
-        "@id": "https://nirajjewellers.co.uk/showroom#place",
-        name: "Niraj Jewellers Flagship Showroom & Atelier",
+        "@id": "https://www.niraj-jewellers.co.uk/showroom#place",
+        name: "Niraj Jewellers Ltd Flagship Showroom & Atelier",
         address: {
           "@type": "PostalAddress",
           streetAddress: "136 Uxbridge Road",

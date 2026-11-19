@@ -172,7 +172,7 @@ export default function OpenGraphImage() {
               fontWeight: 400,
             }}
           >
-            Handcrafted 22ct/18ct bridal suites, certified diamond rings &amp; live bullion rates by Master Jeweller Viky. In-house Hayes workshop with zero retail markups.
+            Handcrafted 22ct/18ct bridal suites, certified diamond rings &amp; live bullion rates by Niraj Jewellers Ltd. In-house Hayes workshop with zero retail markups.
           </span>
         </div>
 

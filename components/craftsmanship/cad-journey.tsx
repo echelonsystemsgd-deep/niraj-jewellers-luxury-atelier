@@ -14,7 +14,7 @@ export function CadJourney() {
       imageAlt: "Hayes atelier client consultation trays and bridal suites",
       caption: "Consultation & Trays",
       description:
-        "Meet with Viky at our Hayes showroom or via WhatsApp. Share your aesthetic vision, ring size, metal preference (22ct/18ct/Platinum), and gemstone specifications.",
+        "Meet with our showroom specialists at our Hayes atelier or via WhatsApp. Share your aesthetic vision, ring size, metal preference (22ct/18ct/Platinum), and gemstone specifications.",
       features: ["Complimentary design consultation", "Photo & video reference review", "Transparent gold weight estimate"],
     },
     {
@@ -56,18 +56,21 @@ export function CadJourney() {
   ];
 
   return (
-    <section id="bespoke" className="py-20 sm:py-28 bg-obsidian relative overflow-hidden">
+    <section id="bespoke" className="py-20 sm:py-28 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-400">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#996515]">
             <Sparkles className="w-3.5 h-3.5" />
             <span>The Bespoke Goldsmith Journey</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-light text-white tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
             From Raw Bullion to Royal Heirloom
           </h2>
-          <p className="text-sm sm:text-base text-platinum-muted">
+          <p className="font-vivaldi text-2xl sm:text-3xl text-[#996515] font-normal">
+            Bespoke artistry forged with micron precision
+          </p>
+          <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
             Experience the meticulous 4-step creation process. Every bespoke piece is designed, sculpted, and finished in our West London atelier on Uxbridge Road.
           </p>
         </div>
@@ -79,11 +82,11 @@ export function CadJourney() {
             return (
               <div
                 key={item.step}
-                className="relative bg-atelier p-5 sm:p-6 rounded-2xl border border-atelier-border hover:border-gold-500/40 transition-all duration-300 flex flex-col justify-between group hover:shadow-2xl hover:shadow-gold-500/10"
+                className="relative bg-[#FAF7F2] p-5 sm:p-6 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group hover:shadow-lg shadow-sm"
               >
                 <div>
                   {/* Step Real Visual Preview */}
-                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-5 border border-white/10 bg-black/40 group-hover:border-gold-500/40 transition-colors">
+                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-5 border border-[#E8DEC8] bg-white group-hover:border-[#D4AF37] transition-colors">
                     <Image
                       src={item.image}
                       alt={item.imageAlt}
@@ -91,42 +94,42 @@ export function CadJourney() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/85 backdrop-blur-sm border border-gold-500/30 text-[10px] font-mono text-gold-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-black/80 backdrop-blur-sm border border-[#D4AF37]/40 text-[10px] font-mono font-semibold text-[#DFBF7A]">
                       {item.caption}
                     </div>
                   </div>
 
                   {/* Step number badge */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-2xl font-bold text-gold-500/80 group-hover:text-gold-400 transition-colors">
+                    <span className="font-mono text-2xl font-bold text-[#8C6212] group-hover:text-[#996515] transition-colors">
                       {item.step}
                     </span>
-                    <span className="text-[11px] font-medium text-platinum-muted/80 bg-obsidian px-2.5 py-1 rounded-full border border-atelier-border">
+                    <span className="text-[11px] font-bold text-[#5A5960] bg-white px-3 py-1 rounded-full border border-[#E8DEC8] shadow-sm">
                       {item.duration}
                     </span>
                   </div>
 
                   <div className="space-y-2.5">
-                    <div className="w-9 h-9 rounded-lg bg-gold-950/40 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-1">
+                    <div className="w-9 h-9 rounded-lg bg-white border border-[#D4AF37]/50 flex items-center justify-center text-[#996515] mb-1 shadow-sm">
                       <Icon className="w-4 h-4" />
                     </div>
 
-                    <h3 className="font-serif text-base sm:text-lg font-medium text-white group-hover:text-gold-300 transition-colors">
+                    <h3 className="font-serif text-base sm:text-lg font-medium text-[#141416] group-hover:text-[#996515] transition-colors">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs text-platinum-muted leading-relaxed">
+                    <p className="text-xs text-[#4A4A52] leading-relaxed">
                       {item.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Micro Features */}
-                <ul className="mt-5 pt-4 border-t border-atelier-border/80 space-y-2 text-[11px] text-platinum-muted/90">
+                <ul className="mt-5 pt-4 border-t border-[#E8DEC8] space-y-2 text-[11px] text-[#4A4A52]">
                   {item.features.map((feat, i) => (
-                    <li key={i} className="flex items-center gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <li key={i} className="flex items-center gap-1.5 font-medium">
+                      <Check className="w-3.5 h-3.5 text-[#996515] shrink-0" />
                       <span>{feat}</span>
                     </li>
                   ))}

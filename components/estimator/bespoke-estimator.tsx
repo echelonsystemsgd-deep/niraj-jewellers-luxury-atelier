@@ -75,7 +75,7 @@ export function BespokeEstimator() {
             Configure Your Custom Commission
           </h2>
           <p className="text-sm sm:text-base text-platinum-muted">
-            Select your metal purity, stone preferences, and investment level. We calculate the exact workshop turnaround and compile a direct WhatsApp consultation brief for Viky.
+            Select your metal purity, stone preferences, and investment level. We calculate the exact workshop turnaround and compile a direct WhatsApp consultation brief for our workshop team.
           </p>
         </div>
 
@@ -294,10 +294,10 @@ export function BespokeEstimator() {
               </div>
             </div>
 
-            {/* Viky Quote Reassurance Card */}
-            <div className="p-5 rounded-xl bg-atelier border border-atelier-border text-xs text-platinum-muted space-y-2">
-              <span className="text-gold-400 font-semibold block uppercase tracking-wider">
-                A Note from Master Jeweller Viky:
+            {/* Workshop Reassurance Card */}
+            <div className="p-5 rounded-xl bg-white border border-[#E8DEC8] text-xs text-[#4A4A52] space-y-2 shadow-sm">
+              <span className="text-[#8C6212] font-bold block uppercase tracking-wider">
+                Our Master Goldsmith Guarantee:
               </span>
               <p className="leading-relaxed italic">
                 &quot;Every piece leaves our hands stamped with official UK assay hallmarks. Bring in your sketches or Instagram references; we will craft it right here on Uxbridge Road to your exact millimeter specifications.&quot;

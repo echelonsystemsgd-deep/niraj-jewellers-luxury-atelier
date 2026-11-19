@@ -1,14 +1,21 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
 import { MobileDock } from "@/components/mobile/mobile-dock";
 import { BackToTop } from "@/components/header/back-to-top";
+
+const vivaldi = localFont({
+  src: "../public/fonts/vivaldi.ttf",
+  variable: "--font-vivaldi",
+  display: "swap",
+});
 
 // Dynamic site URL resolution supporting production, Vercel previews, and custom domains
 const getBaseUrl = (): string => {
   if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
   if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return "https://nirajjewellers.co.uk";
+  return "https://www.niraj-jewellers.co.uk";
 };
 
 const siteUrl = getBaseUrl();
@@ -16,19 +23,19 @@ const siteUrl = getBaseUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London",
-    template: "%s | Niraj Jewellers London",
+    default: "Niraj Jewellers Ltd | Bespoke Goldsmith & Bullion Hayes London",
+    template: "%s | Niraj Jewellers Ltd London",
   },
   description:
-    "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp.",
-  applicationName: "Niraj Jewellers Atelier",
+    "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Niraj Jewellers Ltd. Handcrafted in our Hayes workshop since 1984. Visit our showroom or speak with our atelier team.",
+  applicationName: "Niraj Jewellers Ltd",
   keywords: [
-    "Niraj Jewellers",
+    "Niraj Jewellers Ltd",
     "Bespoke Indian Bridal Jewellery Hayes",
     "22ct Gold Jewellery West London",
     "Jewellery Repairs Uxbridge Road",
     "Gold Bullion Wholesaler Middlesex",
-    "Goldsmith Viky Hayes",
+    "Master Goldsmith Hayes",
     "Polki Kundan Bridal Suites London",
     "Same Day Ring Resizing Hayes",
     "Southall Hayes Gold Jewellers",
@@ -38,9 +45,9 @@ export const metadata: Metadata = {
     "3D CAD Custom Ring Design",
     "22ct vs 24ct Gold Hallmarking Guide",
   ],
-  authors: [{ name: "Niraj Jewellers", url: "https://nirajjewellers.co.uk" }],
-  creator: "Niraj Jewellers",
-  publisher: "Niraj Jewellers London",
+  authors: [{ name: "Niraj Jewellers Ltd", url: "https://www.niraj-jewellers.co.uk" }],
+  creator: "Niraj Jewellers Ltd",
+  publisher: "Niraj Jewellers Ltd London",
   category: "Jewellery & Luxury Goods",
   classification: "Bespoke Goldsmith, Fine Jewellery & Precious Metals Bullion",
   icons: {
@@ -57,55 +64,55 @@ export const metadata: Metadata = {
       {
         rel: "mask-icon",
         url: "/safari-pinned-tab.svg",
-        color: "#D4AF37",
+        color: "#C5A059",
       },
     ],
   },
   manifest: "/manifest.webmanifest",
   openGraph: {
-    title: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London",
+    title: "Niraj Jewellers Ltd | Bespoke Goldsmith & Bullion Hayes London",
     description:
-      "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp.",
-    url: "https://nirajjewellers.co.uk",
-    siteName: "Niraj Jewellers London",
+      "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Niraj Jewellers Ltd. Handcrafted in our Hayes workshop since 1984.",
+    url: "https://www.niraj-jewellers.co.uk",
+    siteName: "Niraj Jewellers Ltd London",
     locale: "en_GB",
     alternateLocale: ["en_US", "en_IN"],
     type: "website",
     images: [
       {
         url: "/og-image.jpg",
-        secureUrl: "https://nirajjewellers.co.uk/og-image.jpg",
+        secureUrl: "https://www.niraj-jewellers.co.uk/og-image.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "Niraj Jewellers London - Bespoke Goldsmith Atelier, Live Gold Rates & 22ct Bridal Suites",
+        alt: "Niraj Jewellers Ltd London - Bespoke Goldsmith Atelier & 22ct Bridal Suites",
       },
       {
-        url: "/og-image.png",
-        secureUrl: "https://nirajjewellers.co.uk/og-image.png",
+        url: "/NIRAJ_LOGO9.png",
+        secureUrl: "https://www.niraj-jewellers.co.uk/NIRAJ_LOGO9.png",
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Niraj Jewellers London - Flagship Showroom & Workshop Snapshot",
+        alt: "Niraj Jewellers Ltd - Official Atelier Insignia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London",
+    title: "Niraj Jewellers Ltd | Bespoke Goldsmith & Bullion Hayes London",
     description:
-      "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp.",
+      "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Niraj Jewellers Ltd. Handcrafted in our Hayes workshop since 1984.",
     site: "@nirajjewellers",
     creator: "@nirajjewellers",
     images: [
       {
         url: "/og-image.jpg",
-        alt: "Niraj Jewellers London - Bespoke Goldsmith Atelier & Live Gold Rates",
+        alt: "Niraj Jewellers Ltd London - Bespoke Goldsmith Atelier",
       },
     ],
   },
   alternates: {
-    canonical: "https://nirajjewellers.co.uk",
+    canonical: "https://www.niraj-jewellers.co.uk",
   },
   robots: {
     index: true,
@@ -125,7 +132,7 @@ export const metadata: Metadata = {
     "geo.placename": "Hayes, London",
     "geo.position": "51.5229;-0.4228",
     "ICBM": "51.5229, -0.4228",
-    "msapplication-TileColor": "#09090B",
+    "msapplication-TileColor": "#FFFFFF",
     "msapplication-config": "/browserconfig.xml",
   },
 };
@@ -134,11 +141,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#09090B" },
-    { media: "(prefers-color-scheme: light)", color: "#09090B" },
-  ],
-  colorScheme: "dark",
+  themeColor: "#FFFFFF",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -152,40 +156,40 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://nirajjewellers.co.uk/#website",
-        url: "https://nirajjewellers.co.uk",
-        name: "Niraj Jewellers London",
+        "@id": "https://www.niraj-jewellers.co.uk/#website",
+        url: "https://www.niraj-jewellers.co.uk",
+        name: "Niraj Jewellers Ltd London",
         description:
           "London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler. Handcrafted 22ct/18ct bridal suites, certified diamond rings & live bullion rates.",
         publisher: {
-          "@id": "https://nirajjewellers.co.uk/#jewelrystore",
+          "@id": "https://www.niraj-jewellers.co.uk/#jewelrystore",
         },
         inLanguage: "en-GB",
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://nirajjewellers.co.uk/collections?search={search_term_string}",
+          target: "https://www.niraj-jewellers.co.uk/collections?search={search_term_string}",
           "query-input": "required name=search_term_string",
         },
       },
       {
         "@type": ["JewelryStore", "LocalBusiness", "Organization"],
-        "@id": "https://nirajjewellers.co.uk/#jewelrystore",
-        name: "Niraj Jewellers",
-        legalName: "Shiva Technology Ltd t/a Niraj Jewellers",
+        "@id": "https://www.niraj-jewellers.co.uk/#jewelrystore",
+        name: "Niraj Jewellers Ltd",
+        legalName: "Niraj Jewellers Ltd",
         vatID: "GB 842 9617 32",
         logo: {
           "@type": "ImageObject",
-          url: "https://nirajjewellers.co.uk/logo.svg",
+          url: "https://www.niraj-jewellers.co.uk/NIRAJ_LOGO9.png",
           width: "512",
           height: "512",
         },
         image: [
-          "https://nirajjewellers.co.uk/og-image.jpg",
-          "https://nirajjewellers.co.uk/logo.svg",
+          "https://www.niraj-jewellers.co.uk/og-image.jpg",
+          "https://www.niraj-jewellers.co.uk/NIRAJ_LOGO9.png",
         ],
         telephone: "+447955565137",
         email: "nirajjewellersuk@gmail.com",
-        url: "https://nirajjewellers.co.uk",
+        url: "https://www.niraj-jewellers.co.uk",
         priceRange: "££££",
         paymentAccepted: ["Cash", "Credit Card", "Debit Card", "Bank Transfer"],
         currenciesAccepted: "GBP",
@@ -234,7 +238,7 @@ export default function RootLayout({
             datePublished: "2024-11-15",
             reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
             reviewBody:
-              "Viky at Niraj Jewellers is in a league of his own. We spent weeks in central London jewellery shops being quoted astronomical prices with zero transparency. Viky sat down with us in Hayes, weighed the gold in front of us, 3D CAD printed my dream choker, and delivered a 22ct masterpiece under budget.",
+              "Niraj Jewellers is in a league of their own. We spent weeks in central London jewellery shops being quoted astronomical prices with zero transparency. The master goldsmith sat down with us in Hayes, weighed the gold in front of us, 3D CAD printed my dream choker, and delivered a 22ct masterpiece under budget.",
           },
           {
             "@type": "Review",
@@ -242,7 +246,7 @@ export default function RootLayout({
             datePublished: "2024-10-20",
             reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
             reviewBody:
-              "My grandfather's signet ring needed sizing down and the claw needed rebuild. Viky resized it right here in the Hayes workshop in 4 hours while I had lunch down the road. Immaculate finish and fair workshop pricing.",
+              "My grandfather's signet ring needed sizing down and the claw needed rebuild. The goldsmith resized it right here in the Hayes workshop in 4 hours while I had lunch down the road. Immaculate finish and fair workshop pricing.",
           },
           {
             "@type": "Review",
@@ -250,26 +254,9 @@ export default function RootLayout({
             datePublished: "2024-12-05",
             reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
             reviewBody:
-              "Cannot recommend Niraj Jewellers enough. We brought in an Instagram reference video and Viky hand-selected three GIA diamonds for us to view under the loupe. No pushy retail tactics. The ring is breathtaking.",
+              "Cannot recommend Niraj Jewellers Ltd enough. We brought in an Instagram reference video and the atelier team hand-selected three GIA diamonds for us to view under the loupe. No pushy retail tactics. The ring is breathtaking.",
           },
         ],
-        founder: {
-          "@type": "Person",
-          "@id": "https://nirajjewellers.co.uk/#viky",
-          name: "Viky",
-          jobTitle: "Master Goldsmith & Principal Jeweller",
-          knowsAbout: [
-            "22ct Asian Bridal Jewellery Craftsmanship",
-            "Rhino & Matrix 3D CAD Jewellery Modeling",
-            "UK Hallmarking Act 1973 & London Assay Standards",
-            "GIA & IGI Certified Natural Diamond Sourcing",
-            "Laser Micro-Welding & Precision Bench Repairs",
-            "LBMA Physical Investment Bullion Trading",
-          ],
-          worksFor: {
-            "@id": "https://nirajjewellers.co.uk/#jewelrystore",
-          },
-        },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Goldsmith & Fine Jewellery Services",
@@ -326,14 +313,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`${vivaldi.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
-      <body className="min-h-screen bg-obsidian text-platinum antialiased selection:bg-gold-500 selection:text-obsidian">
+      <body className="min-h-screen bg-white text-[#141416] antialiased selection:bg-gold-200 selection:text-gold-900">
         {children}
         <MobileDock />
         <BackToTop />

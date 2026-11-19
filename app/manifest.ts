@@ -2,15 +2,15 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Niraj Jewellers | Bespoke Goldsmith & Bullion London",
-    short_name: "Niraj Jewellers",
+    name: "Niraj Jewellers Ltd | Bespoke Goldsmith & Bullion London",
+    short_name: "Niraj Jewellers Ltd",
     description:
-      "London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler. Handcrafted 22ct/18ct bridal suites, certified diamond rings, and live bullion rates by Master Jeweller Viky.",
+      "London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler. Handcrafted 22ct/18ct bridal suites, certified diamond rings, and live bullion rates by Niraj Jewellers Ltd.",
     start_url: "/",
     display: "standalone",
     orientation: "portrait",
-    background_color: "#09090B",
-    theme_color: "#09090B",
+    background_color: "#FFFFFF",
+    theme_color: "#FFFFFF",
     icons: [
       {
         src: "/favicon.svg",

@@ -23,8 +23,8 @@ export function ShowroomStatusBadge({ variant = "full", className = "" }: Showro
 
   if (!status) {
     return (
-      <div className={`flex items-center gap-1.5 text-[11px] text-platinum-muted bg-atelier/80 px-2.5 py-1 rounded-full border border-atelier-border ${className}`}>
-        <Clock className="w-3 h-3 text-gold-500 animate-pulse" />
+      <div className={`flex items-center gap-1.5 text-[11px] text-[#5A5960] bg-[#FAF7F2] px-2.5 py-1 rounded-full border border-[#E8DEC8] ${className}`}>
+        <Clock className="w-3 h-3 text-[#996515] animate-pulse" />
         <span>London Showroom</span>
       </div>
     );
@@ -36,8 +36,8 @@ export function ShowroomStatusBadge({ variant = "full", className = "" }: Showro
     <div
       className={`inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-[11px] font-medium border transition-colors ${
         status.isOpen
-          ? "bg-emerald-950/40 border-emerald-500/40 text-emerald-400"
-          : "bg-amber-950/30 border-amber-500/30 text-amber-300"
+          ? "bg-emerald-50 border-emerald-300/80 text-emerald-800 shadow-sm"
+          : "bg-amber-50 border-amber-300/80 text-amber-800 shadow-sm"
       } ${className}`}
       title="136 Uxbridge Road, Hayes UB4 0JH • Mon: 12-5pm, Tue-Sat: 11-5pm"
     >
@@ -49,21 +49,21 @@ export function ShowroomStatusBadge({ variant = "full", className = "" }: Showro
         />
         <span
           className={`relative inline-flex rounded-full h-2 w-2 ${
-            status.isOpen ? "bg-emerald-500" : "bg-amber-500"
+            status.isOpen ? "bg-emerald-600" : "bg-amber-600"
           }`}
         />
       </span>
       {isCompact ? (
         <span className="whitespace-nowrap font-medium">
           {status.isOpen ? "Open Today" : "Showroom Closed"}
-          <span className="text-zinc-500 mx-1.5">•</span>
-          <span className="text-zinc-300">{status.nextEventText.split("(")[0].trim()}</span>
+          <span className="text-[#A19FA8] mx-1.5">•</span>
+          <span className="text-[#2C2A30] font-semibold">{status.nextEventText.split("(")[0].trim()}</span>
         </span>
       ) : (
         <>
           <span className="font-semibold">{status.statusBadge}</span>
-          <span className="hidden sm:inline text-platinum-muted/80">•</span>
-          <span className="hidden sm:inline text-platinum-muted">{status.nextEventText}</span>
+          <span className="hidden sm:inline text-[#A19FA8]">•</span>
+          <span className="hidden sm:inline text-[#4A4A52]">{status.nextEventText}</span>
         </>
       )}
     </div>

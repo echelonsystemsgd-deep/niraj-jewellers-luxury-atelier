@@ -47,7 +47,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
     title: "22ct vs 24ct Gold: UK Hallmarking, Durability & Asian Bridal Jewelry Guide",
     metaTitle: "22ct vs 24ct Gold: UK Hallmarking, Durability & Asian Bridal Suits",
     metaDescription:
-      "Comprehensive goldsmith guide to 22ct (916) vs 24ct (999) gold purity, London Assay Office hallmarks, tensile durability, and South Asian bridal suites by Viky.",
+      "Comprehensive goldsmith guide to 22ct (916) vs 24ct (999) gold purity, London Assay Office hallmarks, tensile durability, and South Asian bridal suites by Niraj Jewellers Ltd.",
     excerpt:
       "Understand why 22ct (916 fineness) is the royal standard for British-Asian bridal jewellery, how UK London Assay Office hallmarks protect your investment, and why 24ct is reserved for investment bullion.",
     category: "Purity & Hallmarks",
@@ -55,8 +55,8 @@ export const ARTICLES_DATA: ArticleItem[] = [
     datePublished: "2026-08-15T09:00:00Z",
     dateModified: "2026-11-19T10:00:00Z",
     author: {
-      name: "Viky",
-      role: "Master Goldsmith & Atelier Director at Niraj Jewellers",
+      name: "Master Goldsmith Atelier",
+      role: "Principal Goldsmith at Niraj Jewellers Ltd",
     },
     coverImage: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop",
     tags: ["22ct Gold", "24ct Gold", "UK Hallmarking Act 1973", "London Assay Office", "Asian Bridal Jewellery", "Purity Guide"],
@@ -98,8 +98,8 @@ export const ARTICLES_DATA: ArticleItem[] = [
         ],
         quote: {
           text: "Never purchase 22ct jewellery on faith alone. In our Hayes workshop, we demonstrate each client's hallmark through an HD jeweler's loupe before any piece leaves our workbench.",
-          author: "Viky",
-          role: "Master Jeweller, Niraj Jewellers Hayes",
+          author: "Master Goldsmith",
+          role: "Niraj Jewellers Ltd Atelier",
         },
       },
       {
@@ -144,8 +144,8 @@ export const ARTICLES_DATA: ArticleItem[] = [
     datePublished: "2026-09-02T10:30:00Z",
     dateModified: "2026-11-19T10:00:00Z",
     author: {
-      name: "Viky",
-      role: "Master Goldsmith & Atelier Director at Niraj Jewellers",
+      name: "Master Goldsmith Atelier",
+      role: "Principal Goldsmith at Niraj Jewellers Ltd",
     },
     coverImage: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=crop",
     tags: ["Bespoke Jewellery", "3D CAD Modeling", "Lost-Wax Casting", "GIA Diamonds", "Handmade Jewellery London"],
@@ -159,7 +159,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
       {
         heading: "1. Stage 1: The Design Consultation & Gemstone Sourcing",
         subtext:
-          "Every bespoke piece begins with an idea—whether a rough paper sketch, an Instagram reference video, or an heirloom stone needing resetting. Master Jeweller Viky analyzes stone proportions, finger ergonomics, and lifestyle durability.",
+          "Every bespoke piece begins with an idea—whether a rough paper sketch, an Instagram reference video, or an heirloom stone needing resetting. Our master goldsmiths analyze stone proportions, finger ergonomics, and lifestyle durability.",
         bullets: [
           "Direct Diamond Inspection: Clients view certified loose diamonds (D–F colour, VVS/VS clarity) under digital loupes.",
           "Precious Metal Selection: Tailoring choices between 22ct Imperial Yellow Gold, 18ct White Gold, or 950 Solid Platinum.",
@@ -177,8 +177,8 @@ export const ARTICLES_DATA: ArticleItem[] = [
         ],
         quote: {
           text: "Bespoke jewellery should never be a leap of faith. 3D CAD modeling ensures you see the exact physical proportions before our casting crucibles are fired.",
-          author: "Viky",
-          role: "Principal Goldsmith",
+          author: "Master Goldsmith",
+          role: "Principal Goldsmith, Niraj Jewellers Ltd",
         },
       },
       {
@@ -218,8 +218,8 @@ export const ARTICLES_DATA: ArticleItem[] = [
     datePublished: "2026-09-18T11:00:00Z",
     dateModified: "2026-11-19T10:00:00Z",
     author: {
-      name: "Viky",
-      role: "Master Goldsmith & Atelier Director at Niraj Jewellers",
+      name: "Master Goldsmith Atelier",
+      role: "Principal Goldsmith at Niraj Jewellers Ltd",
     },
     coverImage: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=crop",
     tags: ["Ring Resizing", "Jewellery Repairs", "Laser Soldering", "Hayes Jewellers", "Same-Day Service"],
@@ -258,7 +258,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
         ],
         quote: {
           text: "When you leave your engagement ring with us, it never leaves our building. You speak directly to the goldsmith doing the work, not an uninformed retail counter clerk.",
-          author: "Viky",
+          author: "Master Goldsmith",
           role: "Principal Goldsmith",
         },
       },
@@ -289,8 +289,8 @@ export const ARTICLES_DATA: ArticleItem[] = [
     datePublished: "2026-09-25T14:00:00Z",
     dateModified: "2026-11-19T10:00:00Z",
     author: {
-      name: "Viky",
-      role: "Master Goldsmith & Atelier Director at Niraj Jewellers",
+      name: "Master Goldsmith Atelier",
+      role: "Principal Goldsmith at Niraj Jewellers Ltd",
     },
     coverImage: "https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=1200&auto=format&fit=crop",
     tags: ["Gold Bullion", "LBMA Rates", "Gold Bars 24ct", "Scrap Gold London", "Sovereigns", "Tax-Free Gold"],
@@ -321,7 +321,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
         ],
         quote: {
           text: "Bullion trading should be as clear as a bank transaction. We display live indicative rates, weigh in front of you, and execute immediate settlements with zero hidden handling fees.",
-          author: "Viky",
+          author: "Master Goldsmith",
           role: "Atelier Director",
         },
       },
