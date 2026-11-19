@@ -46,15 +46,16 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-2-22ct-gold-filigree-bridal-suite_jpg",
+    "id": "piece-2-39b5ba11-da50-4ab0-bc84-3d952b8b2a8d_mp4",
     "title": "The Calcutta Filigree 22ct Gold Bridal Suite",
     "category": "bridal",
     "metalPurity": "22ct Gold (916 Hallmarked)",
     "hallmarkText": "Official UK London Assay Stamped",
     "description": "Handcrafted 22ct gold multi-tier collar necklace featuring micro-filigree floral mesh, suspended royal medallion, and matching cabochon emerald maang tikka.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
-    "mediaType": "image",
+    "mediaType": "video",
     "thumbnailUrl": "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
+    "videoUrl": "/images/collections/39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.mp4",
     "tags": [
       "22ct Gold",
       "Calcutta Filigree",
@@ -93,7 +94,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-4-39b5ba11-da50-4ab0-bc84-3d952b8b2a8d_mp4",
+    "id": "piece-4-482c070d-7614-41e2-8811-d76441020509_mov",
     "title": "The Padmavati 22ct Jadau Polki Bridal Choker",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -102,7 +103,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/09f3084c-9c0e-49e0-a1dd-3d4c512907b1.jpeg",
-    "videoUrl": "/images/collections/39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.mp4",
+    "videoUrl": "/images/collections/482c070d-7614-41e2-8811-d76441020509.mov",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -140,7 +141,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-6-482c070d-7614-41e2-8811-d76441020509_mov",
+    "id": "piece-6-49013294-5782-4d47-97e4-c0f91f0afd9d_mp4",
     "title": "The Maharaja Solid 22ct Hand-Chased Lion Kada",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -149,7 +150,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/22ct-jadau-polki-bridal-choker.jpg",
-    "videoUrl": "/images/collections/482c070d-7614-41e2-8811-d76441020509.mov",
+    "videoUrl": "/images/collections/49013294-5782-4d47-97e4-c0f91f0afd9d.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -187,7 +188,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-8-49013294-5782-4d47-97e4-c0f91f0afd9d_mp4",
+    "id": "piece-8-550a6d34-c1f3-45b7-a527-2a4421c4920d_mp4",
     "title": "The Maharani Three-Strand Emerald Tablet Haar",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -196,7 +197,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/7b225dd5-6728-41fe-b993-ac228fe3782f.jpeg",
-    "videoUrl": "/images/collections/49013294-5782-4d47-97e4-c0f91f0afd9d.mp4",
+    "videoUrl": "/images/collections/550a6d34-c1f3-45b7-a527-2a4421c4920d.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -211,15 +212,15 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-9-goldsmith-bench-order-book-22ct_jpg",
-    "title": "The Royal Rajwada Floral Filigree Bangles",
-    "category": "22ct-gold",
-    "metalPurity": "22ct Solid Bullion Gold (916)",
-    "hallmarkText": "Official London Leopard's Head 916",
+    "id": "piece-9-22ct-gold-filigree-bridal-suite_jpg",
+    "title": "The Syndicate Polki Collar & Chandelier Drops",
+    "category": "polki-heritage",
+    "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
+    "hallmarkText": "London Assay 916 Certified",
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
+    "thumbnailUrl": "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -229,13 +230,13 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "specs": {
       "weight": "66.5 grams",
       "carat": "15.50ct Natural Gems",
-      "metal": "22ct Solid Yellow Gold",
+      "metal": "22ct Gold & 24ct Kundan Foil",
       "craftsmanship": "Hand-Forged on Uxbridge Road"
     }
   },
   {
-    "id": "piece-10-550a6d34-c1f3-45b7-a527-2a4421c4920d_mp4",
-    "title": "The Royal Rajputana Carved Ruby & Polki Kada",
+    "id": "piece-10-585f854b-a2a7-4608-83e8-29eded6d04f6_mov",
+    "title": "The Royal Rajwada Floral Filigree Bangles",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
     "hallmarkText": "Official London Leopard's Head 916",
@@ -243,7 +244,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/c1093de2-6cd6-4023-be9f-a46cd4a0fbce.jpeg",
-    "videoUrl": "/images/collections/550a6d34-c1f3-45b7-a527-2a4421c4920d.mp4",
+    "videoUrl": "/images/collections/585f854b-a2a7-4608-83e8-29eded6d04f6.mov",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -258,7 +259,54 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-11-workshop-bench-velvet-trays_jpg",
+    "id": "piece-11-goldsmith-bench-order-book-22ct_jpg",
+    "title": "The Royal Rajputana Carved Ruby & Polki Kada",
+    "category": "22ct-gold",
+    "metalPurity": "22ct Solid Bullion Gold (916)",
+    "hallmarkText": "Official London Leopard's Head 916",
+    "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
+    "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
+    "mediaType": "image",
+    "thumbnailUrl": "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
+    "tags": [
+      "22ct Gold",
+      "London Assay",
+      "In-House Hayes",
+      "Bespoke Atelier"
+    ],
+    "specs": {
+      "weight": "75.1 grams",
+      "carat": "19.10ct Natural Gems",
+      "metal": "22ct Solid Yellow Gold",
+      "craftsmanship": "Hand-Forged on Uxbridge Road"
+    }
+  },
+  {
+    "id": "piece-12-58ba2f9b-c4f6-4f3d-b060-dacd9a43f88b_mp4",
+    "title": "The Imperial Broad Mesh Polki Choker & Jhumkas",
+    "category": "bridal",
+    "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
+    "hallmarkText": "UK London Assay Office 916",
+    "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
+    "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
+    "mediaType": "video",
+    "thumbnailUrl": "/images/collections/fd9d0bc5-26ce-4998-92bf-50957ffc2210.jpeg",
+    "videoUrl": "/images/collections/58ba2f9b-c4f6-4f3d-b060-dacd9a43f88b.mp4",
+    "tags": [
+      "22ct Gold",
+      "London Assay",
+      "In-House Hayes",
+      "Bespoke Atelier"
+    ],
+    "specs": {
+      "weight": "79.4 grams",
+      "carat": "20.90ct Natural Gems",
+      "metal": "22ct Solid Gold",
+      "craftsmanship": "Hand-Forged on Uxbridge Road"
+    }
+  },
+  {
+    "id": "piece-13-workshop-bench-velvet-trays_jpg",
     "title": "The Devyani Multi-Tier Layered Gold Haar",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -274,61 +322,14 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
       "Bespoke Atelier"
     ],
     "specs": {
-      "weight": "75.1 grams",
-      "carat": "19.10ct Natural Gems",
+      "weight": "83.7 grams",
+      "carat": "22.70ct Natural Gems",
       "metal": "22ct Solid Yellow Gold",
       "craftsmanship": "Hand-Forged on Uxbridge Road"
     }
   },
   {
-    "id": "piece-12-585f854b-a2a7-4608-83e8-29eded6d04f6_mov",
-    "title": "The Imperial Broad Mesh Polki Choker & Jhumkas",
-    "category": "bridal",
-    "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
-    "hallmarkText": "UK London Assay Office 916",
-    "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
-    "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
-    "mediaType": "video",
-    "thumbnailUrl": "/images/collections/fd9d0bc5-26ce-4998-92bf-50957ffc2210.jpeg",
-    "videoUrl": "/images/collections/585f854b-a2a7-4608-83e8-29eded6d04f6.mov",
-    "tags": [
-      "22ct Gold",
-      "London Assay",
-      "In-House Hayes",
-      "Bespoke Atelier"
-    ],
-    "specs": {
-      "weight": "79.4 grams",
-      "carat": "20.90ct Natural Gems",
-      "metal": "22ct Solid Gold",
-      "craftsmanship": "Hand-Forged on Uxbridge Road"
-    }
-  },
-  {
-    "id": "piece-13-09f3084c-9c0e-49e0-a1dd-3d4c512907b1_jpeg",
-    "title": "The Syndicate Polki Collar & Chandelier Drops",
-    "category": "polki-heritage",
-    "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
-    "hallmarkText": "London Assay 916 Certified",
-    "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
-    "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
-    "mediaType": "image",
-    "thumbnailUrl": "/images/collections/09f3084c-9c0e-49e0-a1dd-3d4c512907b1.jpeg",
-    "tags": [
-      "22ct Gold",
-      "London Assay",
-      "In-House Hayes",
-      "Bespoke Atelier"
-    ],
-    "specs": {
-      "weight": "83.7 grams",
-      "carat": "22.70ct Natural Gems",
-      "metal": "22ct Gold & 24ct Kundan Foil",
-      "craftsmanship": "Hand-Forged on Uxbridge Road"
-    }
-  },
-  {
-    "id": "piece-14-58ba2f9b-c4f6-4f3d-b060-dacd9a43f88b_mp4",
+    "id": "piece-14-6bee2c14-fbe5-43f5-a95f-330e06bb9f89_mp4",
     "title": "The Shahi 22ct Hand-Engraved Solid Gold Torc",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -337,7 +338,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_2.jpeg",
-    "videoUrl": "/images/collections/58ba2f9b-c4f6-4f3d-b060-dacd9a43f88b.mp4",
+    "videoUrl": "/images/collections/6bee2c14-fbe5-43f5-a95f-330e06bb9f89.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -352,7 +353,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-15-12829417-6791-4c2c-8ff1-7b92d459aab4_jpeg",
+    "id": "piece-15-09f3084c-9c0e-49e0-a1dd-3d4c512907b1_jpeg",
     "title": "The Sitara Marquise Diamond Cocktail Cluster Ring",
     "category": "rings",
     "metalPurity": "18ct White Gold (750) & 950 Platinum",
@@ -360,7 +361,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4.jpeg",
+    "thumbnailUrl": "/images/collections/09f3084c-9c0e-49e0-a1dd-3d4c512907b1.jpeg",
     "tags": [
       "Certified Diamond",
       "London Assay",
@@ -375,7 +376,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-16-6bee2c14-fbe5-43f5-a95f-330e06bb9f89_mp4",
+    "id": "piece-16-6cda1721-6533-465f-8580-4c317e922745-var_mp4",
     "title": "The Royal Mayur Peacock Motif Polki Maang Tikka",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -384,7 +385,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/6993a897-24d0-4f1f-b8a8-06b2c0001dcb.jpeg",
-    "videoUrl": "/images/collections/6bee2c14-fbe5-43f5-a95f-330e06bb9f89.mp4",
+    "videoUrl": "/images/collections/6cda1721-6533-465f-8580-4c317e922745-var.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -399,7 +400,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-17-12829417-6791-4c2c-8ff1-7b92d459aab4_1_jpeg",
+    "id": "piece-17-12829417-6791-4c2c-8ff1-7b92d459aab4_jpeg",
     "title": "The Russian Emerald & Basra Pearl Polki Choker",
     "category": "polki-heritage",
     "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
@@ -407,7 +408,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4_1.jpeg",
+    "thumbnailUrl": "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -422,7 +423,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-18-6cda1721-6533-465f-8580-4c317e922745-var_mp4",
+    "id": "piece-18-7242ee24-7935-4e43-b60b-1d260db663da_mp4",
     "title": "The Rani Padmavati Diamond Encrusted Kada Pair",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -431,7 +432,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/9e9afd6e-1890-4467-9c3c-99fbdb640e4b.jpeg",
-    "videoUrl": "/images/collections/6cda1721-6533-465f-8580-4c317e922745-var.mp4",
+    "videoUrl": "/images/collections/7242ee24-7935-4e43-b60b-1d260db663da.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -446,7 +447,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-19-1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_jpeg",
+    "id": "piece-19-12829417-6791-4c2c-8ff1-7b92d459aab4_1_jpeg",
     "title": "The Regent Radiant Cut Solitaire Diamond Ring",
     "category": "rings",
     "metalPurity": "18ct Warm Gold (750)",
@@ -454,7 +455,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb.jpeg",
+    "thumbnailUrl": "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4_1.jpeg",
     "tags": [
       "Certified Diamond",
       "London Assay",
@@ -469,7 +470,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-20-7242ee24-7935-4e43-b60b-1d260db663da_mp4",
+    "id": "piece-20-82bd6ab1-219d-4fc1-894b-77030e289dbf_mp4",
     "title": "The Chandrika Polki & Ruby Bridal Passa",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -478,7 +479,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/fc4f5f26-d64e-490e-87dc-23058ec58235_1.jpeg",
-    "videoUrl": "/images/collections/7242ee24-7935-4e43-b60b-1d260db663da.mp4",
+    "videoUrl": "/images/collections/82bd6ab1-219d-4fc1-894b-77030e289dbf.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -493,7 +494,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-21-1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_1_jpeg",
+    "id": "piece-21-1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_jpeg",
     "title": "Grand Chandbali Earrings with Leaf-Carved Emeralds",
     "category": "polki-heritage",
     "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
@@ -501,7 +502,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_1.jpeg",
+    "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -516,7 +517,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-22-82bd6ab1-219d-4fc1-894b-77030e289dbf_mp4",
+    "id": "piece-22-86e9bedc-c2df-4ad8-81f5-a2f038596d60_mp4",
     "title": "The Peacock Crown 22ct Handcrafted Bridal Tikka",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -525,7 +526,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_1.jpeg",
-    "videoUrl": "/images/collections/82bd6ab1-219d-4fc1-894b-77030e289dbf.mp4",
+    "videoUrl": "/images/collections/86e9bedc-c2df-4ad8-81f5-a2f038596d60.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -540,7 +541,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-23-1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_2_jpeg",
+    "id": "piece-23-1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_1_jpeg",
     "title": "The Princess Cut Certified Diamond Eternity Band",
     "category": "rings",
     "metalPurity": "18ct White Gold (750) & 950 Platinum",
@@ -548,7 +549,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_2.jpeg",
+    "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_1.jpeg",
     "tags": [
       "Certified Diamond",
       "London Assay",
@@ -563,7 +564,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-24-86e9bedc-c2df-4ad8-81f5-a2f038596d60_mp4",
+    "id": "piece-24-8748e8f9-eb1c-44d1-ade8-df33908158ad_mp4",
     "title": "The Imperial Kundan Carved Emerald Long Haar",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -572,7 +573,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/64043268-7e68-48e4-8b74-f58fbd5ff884.jpeg",
-    "videoUrl": "/images/collections/86e9bedc-c2df-4ad8-81f5-a2f038596d60.mp4",
+    "videoUrl": "/images/collections/8748e8f9-eb1c-44d1-ade8-df33908158ad.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -587,7 +588,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-25-22ct-jadau-polki-bridal-choker_jpg",
+    "id": "piece-25-1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_2_jpeg",
     "title": "The Mughal Chandbali Earrings with Carved Ruby Drops",
     "category": "polki-heritage",
     "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
@@ -595,7 +596,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/22ct-jadau-polki-bridal-choker.jpg",
+    "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb_2.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -610,7 +611,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-26-8748e8f9-eb1c-44d1-ade8-df33908158ad_mp4",
+    "id": "piece-26-9134d8c9-f46e-4a55-a951-9b46f5fb82ef_mov",
     "title": "The Alchemist 22ct Solid Gold Chased Cuff Bangle",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -619,7 +620,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/926a7777-65a9-4968-a10c-804f36dc283a.jpeg",
-    "videoUrl": "/images/collections/8748e8f9-eb1c-44d1-ade8-df33908158ad.mp4",
+    "videoUrl": "/images/collections/9134d8c9-f46e-4a55-a951-9b46f5fb82ef.mov",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -634,7 +635,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-27-380254d7-cebb-49d0-bf24-5b3fa2b2611f_jpeg",
+    "id": "piece-27-22ct-jadau-polki-bridal-choker_jpg",
     "title": "The Regent Pear-Shaped Diamond Double Halo Ring",
     "category": "rings",
     "metalPurity": "18ct Warm Gold (750)",
@@ -642,7 +643,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/380254d7-cebb-49d0-bf24-5b3fa2b2611f.jpeg",
+    "thumbnailUrl": "/images/collections/22ct-jadau-polki-bridal-choker.jpg",
     "tags": [
       "Certified Diamond",
       "London Assay",
@@ -657,7 +658,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-28-9134d8c9-f46e-4a55-a951-9b46f5fb82ef_mov",
+    "id": "piece-28-933947d1-ad53-4490-8431-206520dc747f_mp4",
     "title": "The Royal Darbar Polki, Ruby & Emerald Choker",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -666,7 +667,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/fc4f5f26-d64e-490e-87dc-23058ec58235.jpeg",
-    "videoUrl": "/images/collections/9134d8c9-f46e-4a55-a951-9b46f5fb82ef.mov",
+    "videoUrl": "/images/collections/933947d1-ad53-4490-8431-206520dc747f.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -681,7 +682,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-29-53301b27-9ad6-4e9c-a621-ab6b9e795fca_jpeg",
+    "id": "piece-29-380254d7-cebb-49d0-bf24-5b3fa2b2611f_jpeg",
     "title": "The Baroda Pearl & Ruby Chandelier Jhumkas",
     "category": "polki-heritage",
     "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
@@ -689,7 +690,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/53301b27-9ad6-4e9c-a621-ab6b9e795fca.jpeg",
+    "thumbnailUrl": "/images/collections/380254d7-cebb-49d0-bf24-5b3fa2b2611f.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -704,7 +705,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-30-933947d1-ad53-4490-8431-206520dc747f_mp4",
+    "id": "piece-30-9bf16584-ce9d-43a3-ac0a-5acb4af1d50b_mp4",
     "title": "The Sovereign 24ct Cast Bullion Ingot Pendant",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -713,7 +714,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb.jpeg",
-    "videoUrl": "/images/collections/933947d1-ad53-4490-8431-206520dc747f.mp4",
+    "videoUrl": "/images/collections/9bf16584-ce9d-43a3-ac0a-5acb4af1d50b.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -728,7 +729,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-31-5ce947fd-b64d-4004-afc4-8ffe1a7847b8_jpeg",
+    "id": "piece-31-53301b27-9ad6-4e9c-a621-ab6b9e795fca_jpeg",
     "title": "The Sunburst Syndicate Polki Statement Ring",
     "category": "rings",
     "metalPurity": "18ct White Gold (750) & 950 Platinum",
@@ -736,7 +737,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/5ce947fd-b64d-4004-afc4-8ffe1a7847b8.jpeg",
+    "thumbnailUrl": "/images/collections/53301b27-9ad6-4e9c-a621-ab6b9e795fca.jpeg",
     "tags": [
       "Certified Diamond",
       "London Assay",
@@ -751,7 +752,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-32-9bf16584-ce9d-43a3-ac0a-5acb4af1d50b_mp4",
+    "id": "piece-32-a320449b-e662-4674-8ff1-7b3c58efe48f_mp4",
     "title": "The Sheesh Mahal Polki Diamond Bridal Matha Patti",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -760,7 +761,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/5ce947fd-b64d-4004-afc4-8ffe1a7847b8.jpeg",
-    "videoUrl": "/images/collections/9bf16584-ce9d-43a3-ac0a-5acb4af1d50b.mp4",
+    "videoUrl": "/images/collections/a320449b-e662-4674-8ff1-7b3c58efe48f.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -775,7 +776,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-33-64043268-7e68-48e4-8b74-f58fbd5ff884_jpeg",
+    "id": "piece-33-5ce947fd-b64d-4004-afc4-8ffe1a7847b8_jpeg",
     "title": "The Imperial Navratan Heritage Medallion Pendant",
     "category": "polki-heritage",
     "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
@@ -783,7 +784,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/64043268-7e68-48e4-8b74-f58fbd5ff884.jpeg",
+    "thumbnailUrl": "/images/collections/5ce947fd-b64d-4004-afc4-8ffe1a7847b8.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -798,7 +799,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-34-a320449b-e662-4674-8ff1-7b3c58efe48f_mp4",
+    "id": "piece-34-c893d288-706d-43a2-bf7d-a67f0fb840c0_mp4",
     "title": "The Maharajah Heritage Filigree Kada Pair",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -807,7 +808,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/8cca104b-0936-4db2-82d0-92750aa40c0d.jpeg",
-    "videoUrl": "/images/collections/a320449b-e662-4674-8ff1-7b3c58efe48f.mp4",
+    "videoUrl": "/images/collections/c893d288-706d-43a2-bf7d-a67f0fb840c0.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -822,7 +823,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-35-6993a897-24d0-4f1f-b8a8-06b2c0001dcb_jpeg",
+    "id": "piece-35-64043268-7e68-48e4-8b74-f58fbd5ff884_jpeg",
     "title": "The Shahnaz Oval Sapphire & Halo Engagement Ring",
     "category": "rings",
     "metalPurity": "18ct Warm Gold (750)",
@@ -830,7 +831,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/6993a897-24d0-4f1f-b8a8-06b2c0001dcb.jpeg",
+    "thumbnailUrl": "/images/collections/64043268-7e68-48e4-8b74-f58fbd5ff884.jpeg",
     "tags": [
       "Certified Diamond",
       "London Assay",
@@ -845,7 +846,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-36-c893d288-706d-43a2-bf7d-a67f0fb840c0_mp4",
+    "id": "piece-36-d1b0cd96-fce0-4ef2-a3a6-20ecc8784006_mov",
     "title": "The Noor Jahan Antique Jadau Collar Suite",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -854,7 +855,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/f7a0e00d-b6e5-4e91-aeba-0d0db54e173c_1.jpeg",
-    "videoUrl": "/images/collections/c893d288-706d-43a2-bf7d-a67f0fb840c0.mp4",
+    "videoUrl": "/images/collections/d1b0cd96-fce0-4ef2-a3a6-20ecc8784006.mov",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -869,7 +870,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-37-7b225dd5-6728-41fe-b993-ac228fe3782f_jpeg",
+    "id": "piece-37-6993a897-24d0-4f1f-b8a8-06b2c0001dcb_jpeg",
     "title": "The Anarkali Fluted Emerald & Basra Pearl Choker",
     "category": "polki-heritage",
     "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
@@ -877,7 +878,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/7b225dd5-6728-41fe-b993-ac228fe3782f.jpeg",
+    "thumbnailUrl": "/images/collections/6993a897-24d0-4f1f-b8a8-06b2c0001dcb.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -892,7 +893,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-38-d1b0cd96-fce0-4ef2-a3a6-20ecc8784006_mov",
+    "id": "piece-38-ddae91d6-81ca-4a58-8eff-963f065d738f_mp4",
     "title": "The Darbar 22ct Heavy Rope-Twist Bridal Chain",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -901,7 +902,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4_1.jpeg",
-    "videoUrl": "/images/collections/d1b0cd96-fce0-4ef2-a3a6-20ecc8784006.mov",
+    "videoUrl": "/images/collections/ddae91d6-81ca-4a58-8eff-963f065d738f.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -916,7 +917,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-39-7b225dd5-6728-41fe-b993-ac228fe3782f_1_jpeg",
+    "id": "piece-39-7b225dd5-6728-41fe-b993-ac228fe3782f_jpeg",
     "title": "Bespoke 3D CAD Marquise Solitaire Eye Pendant",
     "category": "rings",
     "metalPurity": "18ct White Gold (750) & 950 Platinum",
@@ -924,7 +925,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/7b225dd5-6728-41fe-b993-ac228fe3782f_1.jpeg",
+    "thumbnailUrl": "/images/collections/7b225dd5-6728-41fe-b993-ac228fe3782f.jpeg",
     "tags": [
       "Certified Diamond",
       "London Assay",
@@ -939,7 +940,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-40-ddae91d6-81ca-4a58-8eff-963f065d738f_mp4",
+    "id": "piece-40-e04a48c3-2c58-4692-bf79-43609f73bf1d_mp4",
     "title": "The Jodha 22ct Solid Gold Bridal Hasli Necklace",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -948,7 +949,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/53301b27-9ad6-4e9c-a621-ab6b9e795fca.jpeg",
-    "videoUrl": "/images/collections/ddae91d6-81ca-4a58-8eff-963f065d738f.mp4",
+    "videoUrl": "/images/collections/e04a48c3-2c58-4692-bf79-43609f73bf1d.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -963,7 +964,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-41-86ae6de6-b6ee-4780-948b-ccf3f849f5cf_jpeg",
+    "id": "piece-41-7b225dd5-6728-41fe-b993-ac228fe3782f_1_jpeg",
     "title": "The Badshahi Carved Jade & Syndicate Polki Necklace",
     "category": "polki-heritage",
     "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
@@ -971,7 +972,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/86ae6de6-b6ee-4780-948b-ccf3f849f5cf.jpeg",
+    "thumbnailUrl": "/images/collections/7b225dd5-6728-41fe-b993-ac228fe3782f_1.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -986,7 +987,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-42-e04a48c3-2c58-4692-bf79-43609f73bf1d_mp4",
+    "id": "piece-42-e7ea0977-ac81-4aaf-b7b7-ad43406042a8_mov",
     "title": "The Hayes Atelier Workshop Collection",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Bullion Gold (916)",
@@ -995,7 +996,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/86ae6de6-b6ee-4780-948b-ccf3f849f5cf.jpeg",
-    "videoUrl": "/images/collections/e04a48c3-2c58-4692-bf79-43609f73bf1d.mp4",
+    "videoUrl": "/images/collections/e7ea0977-ac81-4aaf-b7b7-ad43406042a8.mov",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -1010,7 +1011,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-43-8cca104b-0936-4db2-82d0-92750aa40c0d_jpeg",
+    "id": "piece-43-86ae6de6-b6ee-4780-948b-ccf3f849f5cf_jpeg",
     "title": "The Gulab Filigree Rose Gold & Diamond Bridal Suite",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
@@ -1018,7 +1019,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/8cca104b-0936-4db2-82d0-92750aa40c0d.jpeg",
+    "thumbnailUrl": "/images/collections/86ae6de6-b6ee-4780-948b-ccf3f849f5cf.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -1033,7 +1034,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-44-e7ea0977-ac81-4aaf-b7b7-ad43406042a8_mov",
+    "id": "piece-44-f06dfa2e-9675-4e79-b953-e4e61bb1b393_mp4",
     "title": "The Taj Mahal Geometric Polki & Pearl Drop Earrings",
     "category": "polki-heritage",
     "metalPurity": "22ct Antique Gold & Uncut Syndicate Polki",
@@ -1042,7 +1043,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/f7a0e00d-b6e5-4e91-aeba-0d0db54e173c.jpeg",
-    "videoUrl": "/images/collections/e7ea0977-ac81-4aaf-b7b7-ad43406042a8.mov",
+    "videoUrl": "/images/collections/f06dfa2e-9675-4e79-b953-e4e61bb1b393.mp4",
     "tags": [
       "22ct Gold",
       "London Assay",
@@ -1057,7 +1058,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-45-926a7777-65a9-4968-a10c-804f36dc283a_jpeg",
+    "id": "piece-45-8cca104b-0936-4db2-82d0-92750aa40c0d_jpeg",
     "title": "Bespoke 3D CAD Evil Eye Sapphire & Diamond Medallion",
     "category": "rings",
     "metalPurity": "18ct Warm Gold (750)",
@@ -1065,7 +1066,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/926a7777-65a9-4968-a10c-804f36dc283a.jpeg",
+    "thumbnailUrl": "/images/collections/8cca104b-0936-4db2-82d0-92750aa40c0d.jpeg",
     "tags": [
       "Certified Diamond",
       "London Assay",
@@ -1080,16 +1081,15 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     }
   },
   {
-    "id": "piece-46-f06dfa2e-9675-4e79-b953-e4e61bb1b393_mp4",
+    "id": "piece-46-926a7777-65a9-4968-a10c-804f36dc283a_jpeg",
     "title": "The Meenakari Reverse-Enameled Royal Bridal Choker",
     "category": "bridal",
     "metalPurity": "22ct Imperial Gold (916 Hallmarked)",
     "hallmarkText": "UK London Assay Office 916",
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
-    "mediaType": "video",
-    "thumbnailUrl": "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4.jpeg",
-    "videoUrl": "/images/collections/f06dfa2e-9675-4e79-b953-e4e61bb1b393.mp4",
+    "mediaType": "image",
+    "thumbnailUrl": "/images/collections/926a7777-65a9-4968-a10c-804f36dc283a.jpeg",
     "tags": [
       "22ct Gold",
       "London Assay",

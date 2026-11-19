@@ -44,8 +44,10 @@ const topShowpieces = [
     priceNote: "Direct Workshop Consultation • In-House Hayes Atelier",
     tags: ["22ct Gold", "Calcutta Filigree", "Bridal Collar", "Maang Tikka", "London Assay"],
     specs: { weight: "162.0 grams", carat: "12.50ct Natural Emeralds", metal: "22ct Antique Finish Gold", craftsmanship: "Master Goldsmith Hayes Atelier" },
-    file: "22ct-gold-filigree-bridal-suite.jpg",
-    folder: "images/workshop"
+    file: "39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.mp4",
+    poster: "22ct-gold-filigree-bridal-suite.jpg",
+    folder: "images/collections",
+    posterFolder: "images/workshop"
   },
   {
     title: "The Chandbali Carved Zambian Emerald Melon Choker",
@@ -162,7 +164,7 @@ const titlesByCat = {
 // Top 3 reserved files:
 const reservedFiles = new Set([
   "0bda9709-3486-4146-b08c-9f05cc25ee4d.mp4",
-  "22ct-gold-filigree-bridal-suite.jpg",
+  "39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.mp4",
   "259e7f7d-50a7-4cba-8a65-a2b46c1e4ea0.mp4"
 ]);
 
@@ -243,7 +245,7 @@ for (const sp of topShowpieces) {
     description: sp.description,
     priceNote: sp.priceNote,
     mediaType: isVideo ? "video" : "image",
-    thumbnailUrl: isVideo ? `/${sp.folder}/${sp.poster}` : `/${sp.folder}/${sp.file}`,
+    thumbnailUrl: isVideo ? `/${sp.posterFolder || sp.folder}/${sp.poster}` : `/${sp.folder}/${sp.file}`,
     videoUrl: isVideo ? `/${sp.folder}/${sp.file}` : undefined,
     tags: sp.tags,
     specs: sp.specs
