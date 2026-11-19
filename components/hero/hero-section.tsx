@@ -52,11 +52,11 @@ export function HeroSection() {
           <div className="relative">
             {/* Ambient Royal Crest Watermark behind the primary headline */}
             <div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[440px] sm:h-[440px] pointer-events-none select-none -z-10 opacity-[0.06] mix-blend-multiply"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[480px] sm:h-[480px] pointer-events-none select-none -z-10 opacity-[0.15] sm:opacity-[0.14] mix-blend-multiply transition-opacity duration-500"
               style={{
                 transform: `translate3d(-50%, calc(-50% + ${scrollY * 0.15}px), 0)`,
-                WebkitMaskImage: "radial-gradient(circle, black 50%, transparent 92%)",
-                maskImage: "radial-gradient(circle, black 50%, transparent 92%)",
+                WebkitMaskImage: "radial-gradient(circle, black 65%, transparent 95%)",
+                maskImage: "radial-gradient(circle, black 65%, transparent 95%)",
                 willChange: "transform",
               }}
               aria-hidden="true"
@@ -65,7 +65,7 @@ export function HeroSection() {
                 src="/NIRAJ_LOGO9.png"
                 alt=""
                 fill
-                sizes="(max-width: 640px) 280px, 440px"
+                sizes="(max-width: 640px) 300px, 480px"
                 className="object-contain"
                 priority
               />
