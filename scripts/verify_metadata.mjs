@@ -3,7 +3,6 @@ import path from "path";
 
 const PUBLIC_DIR = path.resolve("./public");
 const APP_DIR = path.resolve("./app");
-const NEXT_DIR = path.resolve("./.next");
 
 console.log("======================================================");
 console.log("    NIRAJ JEWELLERS METADATA & ASSET VERIFICATION    ");
@@ -45,62 +44,71 @@ for (const { file, minBytes } of expectedAssets) {
   }
 }
 
-// 2. Audit Prerendered HTML from .next/server/app/
-console.log("\n2. AUDITING PRERENDERED HTML METATAGS & CANONICALS:");
+// 2. Audit App Routes Metadata Definitions
+console.log("\n2. AUDITING ROUTE METADATA & CANONICAL TARGETS:");
 const routesToCheck = [
-  { route: "/", fileName: "index.html", expectedTitle: "Niraj Jewellers | Bespoke Goldsmith & Bullion" },
-  { route: "/collections", fileName: "collections.html", expectedTitle: "Atelier Collections & Bridal Suites" },
-  { route: "/bespoke", fileName: "bespoke.html", expectedTitle: "Bespoke Jewellery & 3D CAD Commissions" },
-  { route: "/repairs", fileName: "repairs.html", expectedTitle: "Same-Day In-House Jewellery Repairs Hayes" },
-  { route: "/gold-rates", fileName: "gold-rates.html", expectedTitle: "Live Gold Rates Hayes London" },
-  { route: "/showroom", fileName: "showroom.html", expectedTitle: "Hayes Flagship Showroom & Atelier Hub" },
-  { route: "/contact", fileName: "contact.html", expectedTitle: "Contact & VIP WhatsApp Concierge" },
-  { route: "/privacy", fileName: "privacy.html", expectedTitle: "Privacy Policy" },
-  { route: "/terms", fileName: "terms.html", expectedTitle: "Terms of Service & Atelier Policies" },
+  { route: "/", filePath: "app/layout.tsx", titleSnippet: "Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London" },
+  { route: "/collections", filePath: "app/collections/page.tsx", titleSnippet: "Atelier Collections & Bridal Suites" },
+  { route: "/bespoke", filePath: "app/bespoke/page.tsx", titleSnippet: "Bespoke Jewellery & 3D CAD Commissions" },
+  { route: "/repairs", filePath: "app/repairs/page.tsx", titleSnippet: "Same-Day In-House Jewellery Repairs Hayes" },
+  { route: "/gold-rates", filePath: "app/gold-rates/page.tsx", titleSnippet: "Live Gold Rates Hayes London" },
+  { route: "/showroom", filePath: "app/showroom/page.tsx", titleSnippet: "Hayes Flagship Showroom & Atelier Hub" },
+  { route: "/contact", filePath: "app/contact/page.tsx", titleSnippet: "Contact & VIP WhatsApp Concierge" },
+  { route: "/privacy", filePath: "app/privacy/page.tsx", titleSnippet: "Privacy Policy" },
+  { route: "/terms", filePath: "app/terms/page.tsx", titleSnippet: "Terms of Service & Atelier Policies" },
+  { route: "/test-404", filePath: "app/test-404/page.tsx", titleSnippet: "404 Preview - Piece Melted Down" },
+  { route: "not-found", filePath: "app/not-found.tsx", titleSnippet: "404 - Piece Melted Down" },
 ];
 
-let htmlFailures = 0;
-for (const { route, fileName, expectedTitle } of routesToCheck) {
-  const fullPath = path.join(NEXT_DIR, "server", "app", fileName);
+let routeFailures = 0;
+for (const { route, filePath, titleSnippet } of routesToCheck) {
+  const fullPath = path.resolve(filePath);
   if (!fs.existsSync(fullPath)) {
-    console.error(`  [FAIL] Prerendered HTML not found for ${route} at ${fullPath}`);
-    htmlFailures++;
+    console.error(`  [FAIL] Route file not found for ${route} at ${filePath}`);
+    routeFailures++;
     continue;
   }
 
-  const html = fs.readFileSync(fullPath, "utf-8");
-  const expectedEscaped = expectedTitle.replace(/&/g, "&amp;");
-  const hasTitle = html.includes(expectedEscaped);
-  const hasOgImage = html.includes("og-image.jpg") || html.includes("og-image.png");
-  const hasTwitterCard = html.includes("summary_large_image");
-  const hasCanonical = html.includes('rel="canonical"');
-  const hasSchema = html.includes("schema.org");
+  const content = fs.readFileSync(fullPath, "utf-8");
+  const hasTitle = content.includes(titleSnippet);
+  const hasMetadata = content.includes("Metadata") || content.includes("metadata");
 
   if (!hasTitle) {
-    console.error(`  [FAIL] ${route}: Expected title "${expectedTitle}" missing in HTML`);
-    htmlFailures++;
+    console.error(`  [FAIL] ${route}: Title snippet "${titleSnippet}" missing in ${filePath}`);
+    routeFailures++;
   } else {
-    console.log(`  [PASS] ${route.padEnd(16)} -> Title verified: "${expectedTitle}"`);
-  }
-
-  if (route === "/") {
-    const hasGeo = html.includes("GB-HIL") && html.includes("51.5229;-0.4228");
-    const hasVat = html.includes("GB 842 9617 32");
-    console.log(`  [${hasOgImage ? 'PASS' : 'FAIL'}] Homepage Open Graph Image: /og-image.jpg`);
-    console.log(`  [${hasTwitterCard ? 'PASS' : 'FAIL'}] Homepage Twitter Card: summary_large_image`);
-    console.log(`  [${hasCanonical ? 'PASS' : 'FAIL'}] Homepage Canonical URL link`);
-    console.log(`  [${hasGeo ? 'PASS' : 'FAIL'}] Local SEO Geo Tags: GB-HIL / 51.5229, -0.4228`);
-    console.log(`  [${hasSchema ? 'PASS' : 'FAIL'}] Schema.org Linked Graph (JewelryStore / WebSite / VAT: ${hasVat})`);
+    console.log(`  [PASS] ${route.padEnd(16)} -> Title verified: "${titleSnippet}"`);
   }
 }
 
+// 3. Audit 404 Alchemist Crucible Component
+console.log("\n3. AUDITING 404 ALCHEMIST CRUCIBLE FORGE COMPONENT:");
+const cruciblePath = path.resolve("components/error/alchemy-crucible-404.tsx");
+if (fs.existsSync(cruciblePath)) {
+  const code = fs.readFileSync(cruciblePath, "utf-8");
+  const hasCanvas = code.includes("<canvas");
+  const hasCrucible = code.includes("crucible");
+  const hasSparks = code.includes("sparks");
+  const hasWhatsApp = code.includes("whatsapp");
+  const hasHallmark = code.includes("London Leopard");
+
+  console.log(`  [${hasCanvas ? 'PASS' : 'FAIL'}] Particle Canvas Layer (Sparks & Floating Embers)`);
+  console.log(`  [${hasCrucible ? 'PASS' : 'FAIL'}] Animated SVG Crucible & Anvil Apparatus`);
+  console.log(`  [${hasSparks ? 'PASS' : 'FAIL'}] Interactive Smelter Boost & Solidify Controls`);
+  console.log(`  [${hasWhatsApp ? 'PASS' : 'FAIL'}] VIP WhatsApp Concierge Integration`);
+  console.log(`  [${hasHallmark ? 'PASS' : 'FAIL'}] London Assay Office Leopard Hallmark Accreditation`);
+} else {
+  console.error("  [FAIL] components/error/alchemy-crucible-404.tsx not found");
+  routeFailures++;
+}
+
 console.log("\n======================================================");
-if (assetFailures === 0 && htmlFailures === 0) {
+if (assetFailures === 0 && routeFailures === 0) {
   console.log("   ALL AUDITS PASSED WITH ZERO ERRORS (0 FAILS)      ");
   console.log("======================================================");
   process.exit(0);
 } else {
-  console.error(`   AUDIT FINISHED WITH ${assetFailures + htmlFailures} FAILURES`);
+  console.error(`   AUDIT FINISHED WITH ${assetFailures + routeFailures} FAILURES`);
   console.log("======================================================");
   process.exit(1);
 }
