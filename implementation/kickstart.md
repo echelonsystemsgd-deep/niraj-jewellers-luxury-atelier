@@ -4,7 +4,7 @@
 ---
 
 ### EXECUTIVE SUMMARY & MISSION DIRECTIVE
-**Client:** Niraj Jewellers (Niraj Jewellers UK / Shiva Technology Ltd)  
+**Client:** Niraj Jewellers London (Co. Reg: [Pending Registration])  
 **Principal Master Jeweller:** Viky  
 **Flagship Location:** 136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, London, UK  
 **Direct VIP WhatsApp & Line:** `+44 7955 565137` (International: `+447955565137`)  
@@ -26,9 +26,9 @@ The entire digital experience is mapped to the 7 Stages of the Business Growth M
          │
          ▼
 [ STAGE 2: LEAD CAPTURE ]
-  - 3-Step Interactive Bespoke Jewellery Cost & Turnaround Estimator
+  - 4-Step Interactive Bespoke Jewellery Cost & Turnaround Estimator with Smooth 60fps Slider
   - Curated Video Reels Collection with 1-Tap "Enquire on WhatsApp"
-  - VIP Showroom Private Viewing Booking Modal
+  - Direct 1-Tap WhatsApp Consultation with Master Jeweller Viky
          │
          ▼
 [ STAGE 3: LEAD MANAGEMENT ]

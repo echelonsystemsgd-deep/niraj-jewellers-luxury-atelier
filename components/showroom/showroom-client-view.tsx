@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { SubpageNav } from "@/components/header/subpage-nav";
 import { ShowroomHub } from "@/components/showroom/showroom-hub";
 import { ReviewsSection } from "@/components/trust/reviews-section";
-import { VipBookingModal } from "@/components/showroom/vip-booking-modal";
 import { Footer } from "@/components/footer/footer";
-import { MapPin, Sparkles } from "lucide-react";
+import { MapPin, MessageCircle } from "lucide-react";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export function ShowroomClientView() {
-  const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const whatsappShowroomLink = buildWhatsAppLink({
+    intent: "general",
+    customNote: "Hi Viky, I would like to visit your Hayes showroom at 136 Uxbridge Road. Could you advise on availability?",
+  });
 
   return (
     <div className="min-h-screen bg-obsidian text-platinum flex flex-col">
@@ -30,30 +32,26 @@ export function ShowroomClientView() {
           </p>
 
           <div className="pt-2 flex justify-center">
-            <button
-              onClick={() => setBookingModalOpen(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold-500/50 bg-gold-950/20 hover:bg-gold-500/20 text-gold-300 hover:text-white font-medium text-xs tracking-wider uppercase transition-all shadow-lg hover:scale-105"
+            <a
+              href={whatsappShowroomLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-whatsapp hover:bg-whatsapp-dark text-black font-semibold text-xs tracking-wider uppercase transition-all shadow-lg hover:scale-105"
             >
-              <Sparkles className="w-4 h-4 text-gold-400" />
-              <span>Book a Private VIP Consultation</span>
-            </button>
+              <MessageCircle className="w-4 h-4 fill-black text-whatsapp" />
+              <span>Message Viky Before Visiting</span>
+            </a>
           </div>
         </header>
 
         {/* Showroom Hub Component */}
-        <ShowroomHub onOpenBookingModal={() => setBookingModalOpen(true)} />
+        <ShowroomHub />
 
         {/* Verified Reviews Section */}
         <ReviewsSection />
       </main>
 
       <Footer />
-
-      {/* Booking Modal */}
-      <VipBookingModal
-        isOpen={bookingModalOpen}
-        onClose={() => setBookingModalOpen(false)}
-      />
     </div>
   );
 }

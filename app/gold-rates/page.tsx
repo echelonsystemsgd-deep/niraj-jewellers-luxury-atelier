@@ -40,9 +40,8 @@ export const metadata: Metadata = {
 
 export default function GoldRatesPage() {
   const whatsappBullionLink = buildWhatsAppLink({
-    source: "gold_rates_page",
-    visitPurpose: "Gold Bullion / Scrap Trade-In Consultation",
-    customNote: "Hello Viky, I would like to lock in live gold bullion rates or get a scrap trade-in valuation.",
+    intent: "wholesale",
+    customNote: "I would like to lock in live gold bullion rates or discuss scrap gold trade-in value at your Hayes showroom.",
   });
 
   const goldRatesJsonLd = {

@@ -44,6 +44,8 @@ export function BespokeEstimator() {
   const activeTurnaround =
     pieceTypes.find((p) => p.label === selectedType)?.turnaround || "10–14 Working Days";
 
+  const sliderPercentage = (budgetIndex / (budgetTiers.length - 1)) * 100;
+
   const currentSummary: EstimatorSummary = {
     pieceType: selectedType,
     metal: selectedMetal,
@@ -157,28 +159,68 @@ export function BespokeEstimator() {
             </div>
 
             {/* Step 4: Budget Range */}
-            <div className="space-y-3 pt-4 border-t border-atelier-border">
+            <div className="space-y-4 pt-4 border-t border-atelier-border">
               <div className="flex justify-between items-center">
                 <span className="text-xs font-semibold uppercase tracking-wider text-gold-400">
                   Step 4: Indicative Budget Tier
                 </span>
-                <span className="font-mono text-sm font-bold text-white bg-gold-950/60 px-3 py-1 rounded border border-gold-500/30">
+                <span className="font-mono text-xs sm:text-sm font-bold text-gold-300 bg-gold-950/70 px-3 py-1 rounded-full border border-gold-500/40 shadow-sm transition-all duration-200">
                   {budgetTiers[budgetIndex]}
                 </span>
               </div>
-              <input
-                type="range"
-                aria-label="Indicative Budget Tier Selector"
-                min="0"
-                max={budgetTiers.length - 1}
-                step="1"
-                value={budgetIndex}
-                onChange={(e) => setBudgetIndex(parseInt(e.target.value, 10))}
-                className="w-full accent-gold-500 h-2 bg-obsidian rounded-lg cursor-pointer"
-              />
-              <div className="flex justify-between text-[11px] text-platinum-muted">
+
+              {/* Ultra-Smooth Custom Luxury Slider */}
+              <div className="relative py-2">
+                <input
+                  type="range"
+                  aria-label="Indicative Budget Tier Selector"
+                  min="0"
+                  max={budgetTiers.length - 1}
+                  step="1"
+                  value={budgetIndex}
+                  onChange={(e) => setBudgetIndex(parseInt(e.target.value, 10))}
+                  style={{
+                    background: `linear-gradient(to right, #D4AF37 0%, #D4AF37 ${sliderPercentage}%, #27272A ${sliderPercentage}%, #18181B 100%)`,
+                  }}
+                  className="luxury-slider"
+                />
+
+                {/* Step node markers along track */}
+                <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex justify-between px-1 pointer-events-none">
+                  {budgetTiers.map((_, idx) => (
+                    <span
+                      key={idx}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        idx <= budgetIndex
+                          ? "bg-gold-400 shadow-[0_0_8px_rgba(212,175,55,0.8)] scale-110"
+                          : "bg-zinc-700/80"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Clickable Quick-Select Budget Tier Chips */}
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
+                {budgetTiers.map((tier, idx) => (
+                  <button
+                    key={tier}
+                    type="button"
+                    onClick={() => setBudgetIndex(idx)}
+                    className={`px-2 py-2 rounded-xl text-[11px] font-medium transition-all text-center border ${
+                      budgetIndex === idx
+                        ? "bg-gold-500/20 border-gold-400 text-gold-300 font-bold shadow-md shadow-gold-500/10 scale-[1.02]"
+                        : "bg-obsidian/70 border-atelier-border text-platinum-muted hover:text-white hover:border-zinc-700"
+                    }`}
+                  >
+                    {tier}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex justify-between text-[11px] text-platinum-muted pt-1">
                 <span>Entry Luxury (£1k)</span>
-                <span>Bridal Suites (£5k-£10k)</span>
+                <span className="hidden sm:inline">Bridal Suites (£5k-£10k)</span>
                 <span>Imperial High Atelier (£20k+)</span>
               </div>
             </div>

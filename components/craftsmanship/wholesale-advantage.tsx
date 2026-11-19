@@ -33,8 +33,8 @@ export function WholesaleAdvantage() {
   ];
 
   const compareWhatsApp = buildWhatsAppLink({
-    source: "wholesale_advantage_table",
-    customNote: "Hello Viky, I would like to enquire about wholesale gold rates and bespoke workshop pricing.",
+    intent: "wholesale",
+    customNote: "I'd like to compare direct workshop wholesale pricing for 22ct/18ct gold and certified diamonds against high-street retail quotes.",
   });
 
   return (

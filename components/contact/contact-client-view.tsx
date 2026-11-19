@@ -187,7 +187,7 @@ export function ContactClientView() {
               {/* Registered Corporate Badges */}
               <div className="p-4 rounded-xl bg-obsidian border border-zinc-800 text-[11px] text-zinc-500 space-y-1">
                 <div>
-                  Company Reg: <span className="text-zinc-300 font-mono">{NIRAJ_COMPANY_REG}</span> (Shiva Technology Ltd)
+                  Company Reg: <span className="text-zinc-300 font-mono">{NIRAJ_COMPANY_REG}</span>
                 </div>
                 <div>
                   UK VAT Reg No: <span className="text-gold-400/90 font-mono font-medium">{NIRAJ_VAT_NUMBER}</span>

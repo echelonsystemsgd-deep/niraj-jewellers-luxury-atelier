@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { MobileDock } from "@/components/mobile/mobile-dock";
+import { BackToTop } from "@/components/header/back-to-top";
 
 // Dynamic site URL resolution supporting production, Vercel previews, and custom domains
 const getBaseUrl = (): string => {
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Niraj Jewellers", url: "https://nirajjewellers.co.uk" }],
   creator: "Niraj Jewellers",
-  publisher: "Shiva Technology Ltd t/a Niraj Jewellers",
+  publisher: "Niraj Jewellers London",
   category: "Jewellery & Luxury Goods",
   classification: "Bespoke Goldsmith, Fine Jewellery & Precious Metals Bullion",
   icons: {
@@ -333,6 +335,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-obsidian text-platinum antialiased selection:bg-gold-500 selection:text-obsidian">
         {children}
+        <MobileDock />
+        <BackToTop />
       </body>
     </html>
   );

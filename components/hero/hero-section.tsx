@@ -3,14 +3,10 @@
 import { MessageCircle, Sparkles, ShieldCheck, ArrowRight, Award, Compass } from "lucide-react";
 import { buildWhatsAppLink, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
 
-interface HeroSectionProps {
-  onOpenBookingModal?: () => void;
-}
-
-export function HeroSection({ onOpenBookingModal }: HeroSectionProps) {
+export function HeroSection() {
   const whatsappHeroLink = buildWhatsAppLink({
-    source: "hero_primary_cta",
-    customNote: "Hello Viky, I would like to enquire about creating a bespoke piece at Niraj Jewellers.",
+    intent: "general",
+    customNote: "Hi Viky, I would like to enquire about creating a bespoke piece at Niraj Jewellers.",
   });
 
   return (

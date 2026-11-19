@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { HelpCircle, ChevronDown, MessageCircle, Sparkles } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { SubpageFaqItem } from "@/data/subpage-faqs-data";
@@ -103,11 +104,21 @@ export function SubpageFaq({
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 sm:pb-7 text-xs sm:text-sm text-platinum-muted leading-relaxed border-t border-atelier-border/60 pt-4 animate-in fade-in duration-200">
-                    <p className="text-platinum font-normal">{item.answer}</p>
-                  </div>
-                )}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: [0.04, 0.62, 0.23, 0.98] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-6 sm:px-6 sm:pb-7 text-xs sm:text-sm text-platinum-muted leading-relaxed border-t border-atelier-border/60 pt-4">
+                        <p className="text-platinum font-normal">{item.answer}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

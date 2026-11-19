@@ -35,9 +35,8 @@ export function GoldTicker() {
   };
 
   const bullionWhatsApp = buildWhatsAppLink({
-    source: "gold_rates_ticker",
-    visitPurpose: "Gold Bullion / Scrap Trade-In Consultation",
-    customNote: "Hello Viky, I saw the live indicative gold rates on your site and would like to buy/sell bullion or check live trade-in rates.",
+    intent: "wholesale",
+    customNote: "I am checking your live gold rates and would like to ask about bullion availability (bars/sovereigns) and your current scrap trade-in rates.",
   });
 
   return (

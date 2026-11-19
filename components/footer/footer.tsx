@@ -126,7 +126,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link href="/contact" className="hover:text-gold-400 transition-colors">
-                    Direct VIP Consultation
+                    Direct Atelier Contact
                   </Link>
                 </li>
               </ul>
@@ -233,7 +233,7 @@ export function Footer() {
           {/* Bottom Bar: Copyright & Compliance */}
           <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-platinum-muted/80">
             <div className="flex flex-wrap items-center gap-3 text-center md:text-left">
-              <span>© {new Date().getFullYear()} Niraj Jewellers (Shiva Technology Ltd).</span>
+              <span>© {new Date().getFullYear()} Niraj Jewellers London.</span>
               <span className="hidden sm:inline">•</span>
               <span>Co. Reg: {NIRAJ_COMPANY_REG}</span>
               <span className="hidden sm:inline">•</span>

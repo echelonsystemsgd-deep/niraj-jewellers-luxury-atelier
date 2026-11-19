@@ -39,7 +39,7 @@ export default function TermsOfServicePage() {
             Atelier Terms & Hallmarking Guarantee
           </h1>
           <p className="text-sm text-zinc-500 mt-2">
-            Effective: November 2026 • Niraj Jewellers (Shiva Technology Ltd, Co. No. 04870407)
+            Effective: November 2026 • Niraj Jewellers London (Co. Reg: [Pending Registration])
           </p>
         </header>
 
@@ -117,7 +117,7 @@ export default function TermsOfServicePage() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-zinc-800 flex justify-between items-center text-xs text-zinc-500">
-          <span>&copy; {new Date().getFullYear()} Niraj Jewellers (Shiva Technology Ltd).</span>
+          <span>&copy; {new Date().getFullYear()} Niraj Jewellers London.</span>
           <Link href="/privacy" className="text-gold-400 hover:underline">
             Privacy Policy (UK GDPR) &rarr;
           </Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { X, ShieldCheck, FileText, Lock, Scale, Building2 } from "lucide-react";
 import { NIRAJ_SHOWROOM_ADDRESS, NIRAJ_DISPLAY_PHONE, NIRAJ_EMAIL, NIRAJ_VAT_NUMBER, NIRAJ_COMPANY_REG } from "@/lib/whatsapp";
 import { useScrollLock } from "@/lib/use-scroll-lock";
@@ -27,7 +28,13 @@ export function LegalModal({ isOpen, initialTab = "privacy", onClose }: LegalMod
     >
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-2xl bg-obsidian border border-gold-500/40 rounded-2xl shadow-2xl z-10 flex flex-col max-h-[90vh] overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
+        className="relative w-full max-w-2xl bg-obsidian border border-gold-500/40 rounded-2xl shadow-2xl z-10 flex flex-col max-h-[90vh] overflow-hidden"
+      >
         {/* Header */}
         <div className="p-6 border-b border-atelier-border flex items-center justify-between bg-atelier">
           <div className="flex items-center gap-2 text-white">
@@ -87,7 +94,7 @@ export function LegalModal({ isOpen, initialTab = "privacy", onClose }: LegalMod
                   <span>1. Data Controller Information</span>
                 </h4>
                 <p>
-                  This Privacy Policy outlines how <strong>Shiva Technology Ltd t/a Niraj Jewellers</strong> (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;), registered in England &amp; Wales, collects and protects your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+                  This Privacy Policy outlines how <strong>Niraj Jewellers London</strong> (&quot;we&quot;, &quot;our&quot;, &quot;us&quot;), registered in England &amp; Wales (Co. Reg: [Pending Registration]), collects and protects your personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
                 </p>
                 <p className="mt-1 font-mono text-[11px] text-platinum-muted/80">
                   Registered Address: {NIRAJ_SHOWROOM_ADDRESS} | Telephone: {NIRAJ_DISPLAY_PHONE}
@@ -186,7 +193,7 @@ export function LegalModal({ isOpen, initialTab = "privacy", onClose }: LegalMod
             Close &amp; Return to Atelier
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

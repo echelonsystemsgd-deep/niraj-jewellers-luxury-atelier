@@ -5,7 +5,7 @@ import { ArrowLeft, Shield, Lock, CheckCircle2 } from 'lucide-react';
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Niraj Jewellers (Shiva Technology Ltd) protects your personal data, appointment details, and customer information under UK GDPR.",
+    "How Niraj Jewellers protects your personal data, appointment details, and customer information under UK GDPR.",
   alternates: {
     canonical: "https://nirajjewellers.co.uk/privacy",
   },
@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-serif text-gold-300 font-medium">1. Data Controller Identification</h2>
             <p>
-              This privacy notice outlines how Niraj Jewellers (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), operating under Shiva Technology Ltd (Company No. 04870407), collect, process, and safeguard personal data acquired through our digital atelier (<span className="text-zinc-200">nirajjewellers.co.uk</span>) and our flagship showroom at <span className="text-zinc-200">136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, United Kingdom</span>.
+              This privacy notice outlines how Niraj Jewellers (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), registered in England &amp; Wales (Co. Reg: [Pending Registration]), collect, process, and safeguard personal data acquired through our digital atelier (<span className="text-zinc-200">nirajjewellers.co.uk</span>) and our flagship showroom at <span className="text-zinc-200">136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, United Kingdom</span>.
             </p>
           </section>
 

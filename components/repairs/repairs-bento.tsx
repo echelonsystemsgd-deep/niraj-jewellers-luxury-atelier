@@ -42,9 +42,9 @@ export function RepairsBento() {
           {REPAIR_SERVICES.map((service) => {
             const Icon = getIcon(service.iconName);
             const repairWhatsApp = buildWhatsAppLink({
-              source: `repairs_bento_${service.id}`,
-              visitPurpose: `Jewellery Repair: ${service.title}`,
-              customNote: `Hello Viky, I would like to book an in-house repair for "${service.title}". Turnaround required: ${service.turnaround}.`,
+              intent: "repair",
+              visitPurpose: service.title,
+              customNote: `Turnaround required: ${service.turnaround}. When is the best time to bring it in to your Hayes workshop?`,
             });
 
             return (

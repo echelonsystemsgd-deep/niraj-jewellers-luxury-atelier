@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { X, MessageCircle, Volume2, VolumeX, ShieldCheck, Instagram, Sparkles, Play, Pause, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import { X, MessageCircle, Volume2, VolumeX, ShieldCheck, Instagram, Sparkles, Play, Pause, ExternalLink, Film } from "lucide-react";
 import { CollectionItem } from "@/data/collections-data";
 import { buildWhatsAppLink, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
 import { useScrollLock } from "@/lib/use-scroll-lock";
@@ -72,8 +73,14 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
       {/* Background backdrop click */}
       <div className="absolute inset-0" onClick={onClose} />
 
-      {/* Main Container */}
-      <div className="relative w-full h-full sm:h-auto sm:max-h-[92vh] sm:max-w-4xl bg-obsidian sm:border sm:border-atelier-border sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row z-10">
+      {/* Main Container with Spring Ease */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
+        className="relative w-full h-full sm:h-auto sm:max-h-[92vh] sm:max-w-4xl bg-obsidian sm:border sm:border-atelier-border sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row z-10"
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -243,7 +250,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

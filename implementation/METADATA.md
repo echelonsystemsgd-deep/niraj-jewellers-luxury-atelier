@@ -126,7 +126,7 @@ export const metadataBase = new URL(getBaseUrl());
 - `keywords`: Exhaustive list covering West London, Southall, Hayes, bridal jewelry, gold bullion, Polki, Kundan, diamond resetting, and gold scrap exchange.
 - `authors`: `[{ name: "Niraj Jewellers London", url: "https://nirajjewellers.co.uk" }]`
 - `creator`: `"Niraj Jewellers"`
-- `publisher`: `"Shiva Technology Ltd t/a Niraj Jewellers"`
+- `publisher`: `"Niraj Jewellers London"`
 - `applicationName`: `"Niraj Jewellers Atelier"`
 - `category`: `"Jewellery & Luxury Goods"`
 - `classification`: `"Bespoke Goldsmith, Fine Jewellery & Precious Metals Bullion"`
@@ -207,7 +207,7 @@ Every subpage must have unique, keyword-targeted metadata and canonical tags to 
 | **`/gold-rates`** | Live Gold Rates Hayes London (24ct, 22ct, 18ct) \| Niraj Jewellers | Real-time LBMA gold prices per gram, tola & sovereign. Direct wholesale bullion trading, investment bars & instant scrap gold valuation in Hayes. | `https://nirajjewellers.co.uk/gold-rates` |
 | **`/showroom`** | Hayes Flagship Showroom & Atelier Hub \| Niraj Jewellers London | Visit our working atelier at 136 Uxbridge Road, Hayes UB4 0JH. Direct diamond viewing, bespoke consultations & free customer parking guidance. | `https://nirajjewellers.co.uk/showroom` |
 | **`/contact`** | Contact & VIP WhatsApp Concierge \| Niraj Jewellers London | Connect directly with Master Goldsmith Viky on WhatsApp (+44 7955 565137) or visit 136 Uxbridge Road, Hayes. Instant replies & bespoke consultations. | `https://nirajjewellers.co.uk/contact` |
-| **`/privacy`** | Privacy Policy \| Niraj Jewellers London | How Niraj Jewellers (Shiva Technology Ltd) protects your personal data, appointment details, and customer information under UK GDPR. | `https://nirajjewellers.co.uk/privacy` |
+| **`/privacy`** | Privacy Policy \| Niraj Jewellers London | How Niraj Jewellers protects your personal data, appointment details, and customer information under UK GDPR. | `https://nirajjewellers.co.uk/privacy` |
 | **`/terms`** | Terms of Service & Atelier Policies \| Niraj Jewellers London | Terms of service, bespoke commission deposits, hallmark guarantees (London Assay Office), and bullion trading policies at Niraj Jewellers. | `https://nirajjewellers.co.uk/terms` |
 
 > **Architectural Refactoring Required:**  
@@ -235,8 +235,8 @@ graph TD
    - Declares official site name and URL.
    - Includes `potentialAction` (`SearchAction`) for Google Sitelinks searchbox enablement.
 2. **`Organization` / `JewelryStore` Schema:**
-   - Incorporates official company registration (`Shiva Technology Ltd t/a Niraj Jewellers`).
-   - UK VAT Number: `GB 842 9617 32`.
+   - Incorporates official company registration (Niraj Jewellers London, Co. Reg: `[Pending Registration]`).
+   - UK VAT Number: `[Pending Registration]`.
    - Contact points: Customer Service WhatsApp & Telephone (`+447955565137`) and Email (`nirajjewellersuk@gmail.com`).
    - Official social profiles: Instagram, TikTok.
    - London Assay Office hallmark compliance statement.

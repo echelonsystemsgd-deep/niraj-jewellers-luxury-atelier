@@ -6,11 +6,7 @@ import { ShowroomStatusBadge } from "@/components/header/showroom-status";
 import { NIRAJ_MAPS_LINK, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_DISPLAY_PHONE, NIRAJ_EMAIL, buildWhatsAppLink } from "@/lib/whatsapp";
 import { getLondonCurrentDayInfo } from "@/lib/showroom-hours";
 
-interface ShowroomHubProps {
-  onOpenBookingModal: () => void;
-}
-
-export function ShowroomHub({ onOpenBookingModal }: ShowroomHubProps) {
+export function ShowroomHub() {
   const [hoursOpen, setHoursOpen] = useState(true);
   const [londonInfo, setLondonInfo] = useState<{ dayName: string; formattedTime: string; dateStr: string } | null>(null);
 
@@ -137,15 +133,17 @@ export function ShowroomHub({ onOpenBookingModal }: ShowroomHubProps) {
               </div>
             </div>
 
-            {/* VIP Viewing CTA Bar */}
+            {/* Action Bar */}
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              <button
-                onClick={onOpenBookingModal}
-                className="w-full sm:w-1/2 py-3.5 rounded-xl bg-gold-950/60 hover:bg-gold-950/90 border border-gold-500/50 text-gold-300 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+              <a
+                href={NIRAJ_MAPS_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-1/2 py-3.5 rounded-xl bg-atelier hover:bg-atelier-light border border-gold-500/50 text-gold-300 hover:text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm"
               >
-                <Sparkles className="w-4 h-4 text-gold-400" />
-                <span>Reserve Private Viewing</span>
-              </button>
+                <Navigation className="w-4 h-4 text-gold-400" />
+                <span>Open in Google Maps</span>
+              </a>
 
               <a
                 href={whatsappDirections}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { X, MessageCircle, Copy, Check, Sparkles, ShieldCheck, MapPin } from "lucide-react";
 import { buildWhatsAppLink, NIRAJ_DISPLAY_PHONE, NIRAJ_SHOWROOM_ADDRESS } from "@/lib/whatsapp";
 
@@ -56,13 +57,19 @@ Sent via Niraj Digital Atelier`;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
       role="dialog"
       aria-modal="true"
     >
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-lg bg-obsidian border border-gold-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl z-10 space-y-6">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
+        className="relative w-full max-w-lg bg-obsidian border border-gold-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl z-10 space-y-6"
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -168,7 +175,7 @@ Sent via Niraj Digital Atelier`;
           <MapPin className="w-3.5 h-3.5 text-gold-500" />
           <span>Handcrafted on-site at 136 Uxbridge Road, Hayes UB4 0JH</span>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
