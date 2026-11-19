@@ -5,6 +5,7 @@ import Image from "next/image";
 import { X, MessageCircle, Volume2, VolumeX, ShieldCheck, Instagram, Sparkles, Play, Pause, ExternalLink } from "lucide-react";
 import { CollectionItem } from "@/data/collections-data";
 import { buildWhatsAppLink, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
+import { useScrollLock } from "@/lib/use-scroll-lock";
 
 interface ReelModalProps {
   item: CollectionItem | null;
@@ -12,6 +13,7 @@ interface ReelModalProps {
 }
 
 export function ReelModal({ item, onClose }: ReelModalProps) {
+  useScrollLock(!!item);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [hasVideoError, setHasVideoError] = useState(false);

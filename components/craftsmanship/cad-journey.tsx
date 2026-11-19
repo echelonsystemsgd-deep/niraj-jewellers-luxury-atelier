@@ -43,7 +43,7 @@ export function CadJourney() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-obsidian relative overflow-hidden">
+    <section id="bespoke" className="py-20 sm:py-28 bg-obsidian relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">

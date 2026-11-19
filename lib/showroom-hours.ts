@@ -14,10 +14,35 @@ export interface ShowroomStatus {
   isTodayOpen: boolean;
   closingTime?: string;
   openingTime?: string;
+  currentDayName?: string;
+  currentLondonTime?: string;
+}
+
+export function getLondonCurrentDayInfo(): { dayName: string; formattedTime: string; dateStr: string } {
+  const now = new Date();
+  const dayName = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    weekday: "long",
+  }).format(now);
+
+  const formattedTime = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  }).format(now);
+
+  const dateStr = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(now);
+
+  return { dayName, formattedTime, dateStr };
 }
 
 export function getLondonShowroomStatus(simulatedDate?: Date): ShowroomStatus {
-  // Use Intl to get the current time in Europe/London timezone
   const now = simulatedDate || new Date();
   
   const londonTimeStr = now.toLocaleString("en-GB", {
@@ -28,17 +53,11 @@ export function getLondonShowroomStatus(simulatedDate?: Date): ShowroomStatus {
     minute: "2-digit",
   });
 
-  // e.g. "Tue, 14:30"
   const [weekdayShort, timeStr] = londonTimeStr.split(", ");
   const [hourStr, minuteStr] = (timeStr || "12:00").split(":");
   const currentMinutes = parseInt(hourStr, 10) * 60 + parseInt(minuteStr, 10);
 
-  // Define hours in minutes
-  // Monday: 12:00 (720m) to 17:00 (1020m)
-  // Tue - Sat: 11:00 (660m) to 17:00 (1020m)
-  // Sun: Closed
   const isMon = weekdayShort === "Mon";
-  const isTueToSat = ["Tue", "Wed", "Thu", "Fri", "Sat"].includes(weekdayShort);
   const isSun = weekdayShort === "Sun";
 
   let openTime = 660; // 11:00 AM

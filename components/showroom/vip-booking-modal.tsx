@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { X, Calendar, MessageCircle, Sparkles, MapPin, Clock, Check } from "lucide-react";
 import { buildWhatsAppLink, NIRAJ_DISPLAY_PHONE, NIRAJ_SHOWROOM_ADDRESS } from "@/lib/whatsapp";
+import { useScrollLock } from "@/lib/use-scroll-lock";
 
 interface VipBookingModalProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface VipBookingModalProps {
 }
 
 export function VipBookingModal({ isOpen, onClose }: VipBookingModalProps) {
+  useScrollLock(isOpen);
   const [clientName, setClientName] = useState("");
   const [phone, setPhone] = useState("");
   const [visitDate, setVisitDate] = useState("");

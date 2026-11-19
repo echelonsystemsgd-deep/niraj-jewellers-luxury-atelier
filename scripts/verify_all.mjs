@@ -18,7 +18,20 @@ async function runVerification() {
   console.log('====================================================\n');
 
   // 1. Verify all routes
-  const routes = ['/', '/privacy', '/terms', '/robots.txt', '/sitemap.xml', '/api/gold-rates'];
+  const routes = [
+    '/',
+    '/collections',
+    '/bespoke',
+    '/repairs',
+    '/gold-rates',
+    '/showroom',
+    '/contact',
+    '/privacy',
+    '/terms',
+    '/robots.txt',
+    '/sitemap.xml',
+    '/api/gold-rates',
+  ];
   console.log('1. VERIFYING ALL ROUTES:');
   for (const r of routes) {
     try {

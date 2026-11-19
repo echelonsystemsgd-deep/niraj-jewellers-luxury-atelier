@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Instagram, Phone, MapPin, MessageCircle, ShieldCheck, ArrowUp, Scale } from "lucide-react";
-import { NIRAJ_DISPLAY_PHONE, NIRAJ_SHOWROOM_ADDRESS, buildWhatsAppLink } from "@/lib/whatsapp";
+import { Instagram, Phone, MapPin, MessageCircle, ShieldCheck, ArrowUp, Scale, Mail } from "lucide-react";
+import { NIRAJ_DISPLAY_PHONE, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_EMAIL, NIRAJ_VAT_NUMBER, NIRAJ_COMPANY_REG, buildWhatsAppLink } from "@/lib/whatsapp";
 import { LegalModal, LegalTab } from "@/components/legal/legal-modal";
 
 export function Footer() {
@@ -91,66 +91,71 @@ export function Footer() {
             {/* Quick Links */}
             <div className="space-y-3">
               <h4 className="font-semibold text-white uppercase tracking-wider text-xs">
-                Atelier Collections
+                Atelier Portals
               </h4>
               <ul className="space-y-2 text-xs">
                 <li>
-                  <a href="#collections" className="hover:text-gold-400 transition-colors">
-                    Bespoke Bridal Suites
-                  </a>
+                  <Link href="/collections" className="hover:text-gold-400 transition-colors">
+                    Curated Collections &amp; Reels
+                  </Link>
                 </li>
                 <li>
-                  <a href="#collections" className="hover:text-gold-400 transition-colors">
-                    Solitaire Engagement Rings
-                  </a>
+                  <Link href="/bespoke" className="hover:text-gold-400 transition-colors">
+                    Bespoke Atelier &amp; 3D CAD
+                  </Link>
                 </li>
                 <li>
-                  <a href="#collections" className="hover:text-gold-400 transition-colors">
-                    Solid 22ct Gold Kadas
-                  </a>
+                  <Link href="/repairs" className="hover:text-gold-400 transition-colors">
+                    In-House Goldsmith Repairs
+                  </Link>
                 </li>
                 <li>
-                  <a href="#collections" className="hover:text-gold-400 transition-colors">
-                    Polki &amp; Heritage Sets
-                  </a>
+                  <Link href="/gold-rates" className="hover:text-gold-400 transition-colors">
+                    Live Gold Bullion Rates
+                  </Link>
                 </li>
                 <li>
-                  <a href="#gold-rates" className="hover:text-gold-400 transition-colors">
-                    24ct Investment Bullion
-                  </a>
+                  <Link href="/showroom" className="hover:text-gold-400 transition-colors">
+                    Hayes Flagship Showroom
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-gold-400 transition-colors">
+                    Direct VIP Consultation
+                  </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Services & Workshop */}
+            {/* In-House Services */}
             <div className="space-y-3">
               <h4 className="font-semibold text-white uppercase tracking-wider text-xs">
-                In-House Services
+                Workshop Services
               </h4>
               <ul className="space-y-2 text-xs">
                 <li>
-                  <a href="#repairs" className="hover:text-gold-400 transition-colors">
+                  <Link href="/repairs" className="hover:text-gold-400 transition-colors">
                     Same-Day Ring Resizing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#repairs" className="hover:text-gold-400 transition-colors">
+                  <Link href="/repairs" className="hover:text-gold-400 transition-colors">
                     Diamond Claw Retipping
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#repairs" className="hover:text-gold-400 transition-colors">
-                    Ultrasonic Polishing
-                  </a>
+                  <Link href="/repairs" className="hover:text-gold-400 transition-colors">
+                    Ultrasonic Steam Restoration
+                  </Link>
                 </li>
                 <li>
-                  <a href="#repairs" className="hover:text-gold-400 transition-colors">
-                    Watch Battery &amp; Sizing
-                  </a>
+                  <Link href="/repairs" className="hover:text-gold-400 transition-colors">
+                    Luxury Watch Battery &amp; Sizing
+                  </Link>
                 </li>
                 <li>
-                  <a href="#faq" className="hover:text-gold-400 transition-colors">
-                    Frequently Asked Questions
+                  <a href="/#faq" className="hover:text-gold-400 transition-colors">
+                    Client FAQs &amp; Scale Testing
                   </a>
                 </li>
               </ul>
@@ -159,9 +164,9 @@ export function Footer() {
             {/* Contact & Hours */}
             <div className="space-y-3">
               <h4 className="font-semibold text-white uppercase tracking-wider text-xs">
-                Showroom Contact
+                Showroom Direct
               </h4>
-              <div className="space-y-2 text-xs">
+              <div className="space-y-2.5 text-xs">
                 <p className="flex items-start gap-2">
                   <MapPin className="w-3.5 h-3.5 text-gold-400 shrink-0 mt-0.5" />
                   <span>{NIRAJ_SHOWROOM_ADDRESS}</span>
@@ -170,6 +175,12 @@ export function Footer() {
                   <Phone className="w-3.5 h-3.5 text-gold-400 shrink-0" />
                   <a href="tel:+447955565137" className="hover:text-white font-mono">
                     {NIRAJ_DISPLAY_PHONE}
+                  </a>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5 text-gold-400 shrink-0" />
+                  <a href={`mailto:${NIRAJ_EMAIL}`} className="hover:text-white font-mono truncate">
+                    {NIRAJ_EMAIL}
                   </a>
                 </p>
                 <p className="text-[11px] text-platinum-muted pt-1">
@@ -195,11 +206,17 @@ export function Footer() {
                 Atelier Terms &amp; Hallmarking Guarantee
               </Link>
               <a
-                href="#faq"
+                href="/#faq"
                 className="text-platinum hover:text-gold-400 transition-colors"
               >
                 Client FAQs
               </a>
+              <Link
+                href="/contact"
+                className="text-platinum hover:text-gold-400 transition-colors"
+              >
+                Contact Viky
+              </Link>
             </div>
 
             <div className="flex items-center gap-2 text-gold-400 text-xs">
@@ -209,16 +226,20 @@ export function Footer() {
           </div>
 
           {/* Bottom Bar: Copyright & Compliance */}
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-platinum-muted/80">
-            <div className="flex flex-wrap items-center gap-4 text-center sm:text-left">
-              <span>© {new Date().getFullYear()} Niraj Jewellers (Shiva Technology Ltd). All rights reserved.</span>
+          <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-platinum-muted/80">
+            <div className="flex flex-wrap items-center gap-3 text-center md:text-left">
+              <span>© {new Date().getFullYear()} Niraj Jewellers (Shiva Technology Ltd).</span>
+              <span className="hidden sm:inline">•</span>
+              <span>Co. Reg: {NIRAJ_COMPANY_REG}</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="text-gold-400/90 font-medium">VAT Reg No: {NIRAJ_VAT_NUMBER}</span>
               <span className="hidden sm:inline">•</span>
               <span>136 Uxbridge Road, Hayes UB4 0JH</span>
             </div>
 
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-platinum hover:text-white transition-colors"
+              className="flex items-center gap-1.5 text-platinum hover:text-white transition-colors shrink-0"
               aria-label="Back to top"
             >
               <span>Back to Top</span>

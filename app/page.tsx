@@ -27,38 +27,38 @@ export default function Home() {
 
       {/* 2. Main Luxury Experience */}
       <main className="flex-1">
-        {/* Cinematic Hero */}
+        {/* 1. Cinematic Hero */}
         <HeroSection onOpenBookingModal={() => setBookingModalOpen(true)} />
 
-        {/* Live Indicative Gold Rate Marquee */}
+        {/* 2. Live Indicative Gold Rate Marquee */}
         <GoldTicker />
 
-        {/* Curated Showroom Collections & Reels Modal */}
+        {/* 3. Curated Showroom Collections & Reels Modal */}
         <CollectionGrid />
 
-        {/* Interactive Bespoke Jewellery Cost & Turnaround Estimator */}
-        <BespokeEstimator />
-
-        {/* 4-Step Goldsmith & CAD Journey */}
+        {/* 4. The 4-Step Goldsmith & 3D CAD Journey */}
         <CadJourney />
 
-        {/* Wholesale Bullion & Diamond Sourcing Advantage */}
-        <WholesaleAdvantage />
+        {/* 5. Interactive Bespoke Jewellery Cost & Turnaround Estimator */}
+        <BespokeEstimator />
 
-        {/* In-House Workshop & Repair Concierge Bento Grid */}
+        {/* 6. In-House Workshop & Same-Day Repair Concierge Bento Grid */}
         <RepairsBento />
 
-        {/* Gold Purity & London Assay Office Hallmarking Guide */}
+        {/* 7. Direct Bullion & Wholesale Sourcing Advantage */}
+        <WholesaleAdvantage />
+
+        {/* 8. Gold Purity & London Assay Office Hallmarking Guide */}
         <HallmarkGuide />
 
-        {/* Verified Google 5-Star Reviews Showcase */}
+        {/* 9. Flagship Hayes Showroom Hub & Live London Operating Hours */}
+        <ShowroomHub onOpenBookingModal={() => setBookingModalOpen(true)} />
+
+        {/* 10. Verified Google 5-Star Reviews Showcase */}
         <ReviewsSection />
 
-        {/* 5 Critical Commercial Objections & Guarantees FAQ */}
+        {/* 11. 5 Critical Commercial Objections & Guarantees FAQ */}
         <FaqSection />
-
-        {/* Flagship Hayes Showroom Hub & Interactive Hours */}
-        <ShowroomHub onOpenBookingModal={() => setBookingModalOpen(true)} />
       </main>
 
       {/* 3. Luxury Footer */}

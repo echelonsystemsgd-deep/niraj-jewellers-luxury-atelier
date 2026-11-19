@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { MapPin, Clock, Car, Train, Phone, MessageCircle, Sparkles, Navigation, ChevronDown, ChevronUp } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MapPin, Clock, Car, Train, Phone, MessageCircle, Sparkles, Navigation, ChevronDown, ChevronUp, Mail } from "lucide-react";
 import { ShowroomStatusBadge } from "@/components/header/showroom-status";
-import { NIRAJ_MAPS_LINK, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_DISPLAY_PHONE, buildWhatsAppLink } from "@/lib/whatsapp";
+import { NIRAJ_MAPS_LINK, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_DISPLAY_PHONE, NIRAJ_EMAIL, buildWhatsAppLink } from "@/lib/whatsapp";
+import { getLondonCurrentDayInfo } from "@/lib/showroom-hours";
 
 interface ShowroomHubProps {
   onOpenBookingModal: () => void;
@@ -11,6 +12,15 @@ interface ShowroomHubProps {
 
 export function ShowroomHub({ onOpenBookingModal }: ShowroomHubProps) {
   const [hoursOpen, setHoursOpen] = useState(true);
+  const [londonInfo, setLondonInfo] = useState<{ dayName: string; formattedTime: string; dateStr: string } | null>(null);
+
+  useEffect(() => {
+    setLondonInfo(getLondonCurrentDayInfo());
+    const interval = setInterval(() => {
+      setLondonInfo(getLondonCurrentDayInfo());
+    }, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   const whatsappDirections = buildWhatsAppLink({
     source: "showroom_hub_directions",
@@ -93,6 +103,14 @@ export function ShowroomHub({ onOpenBookingModal }: ShowroomHubProps) {
                   <Phone className="w-3.5 h-3.5 text-platinum" />
                   <span>Call {NIRAJ_DISPLAY_PHONE}</span>
                 </a>
+
+                <a
+                  href={`mailto:${NIRAJ_EMAIL}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-atelier hover:bg-atelier-light border border-atelier-border text-platinum hover:text-white text-xs font-medium transition-all"
+                >
+                  <Mail className="w-3.5 h-3.5 text-gold-400" />
+                  <span>{NIRAJ_EMAIL}</span>
+                </a>
               </div>
             </div>
 
@@ -144,39 +162,78 @@ export function ShowroomHub({ onOpenBookingModal }: ShowroomHubProps) {
           {/* Right Column: Interactive Operating Hours Accordion */}
           <div className="lg:col-span-5 bg-atelier p-7 sm:p-8 rounded-2xl border border-atelier-border shadow-2xl space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-atelier-border">
-              <div className="flex items-center gap-2 text-gold-400">
-                <Clock className="w-5 h-5" />
-                <h3 className="font-serif text-xl font-medium text-white">
-                  Opening Hours
-                </h3>
+              <div className="flex items-center gap-2.5 text-gold-400">
+                <Clock className="w-5 h-5 text-gold-400" />
+                <div>
+                  <h3 className="font-serif text-xl font-medium text-white leading-tight">
+                    Opening Hours
+                  </h3>
+                  {londonInfo && (
+                    <span className="text-[11px] text-zinc-400 font-mono block mt-0.5">
+                      London: <strong className="text-gold-300 font-semibold">{londonInfo.dayName}</strong>, {londonInfo.formattedTime}
+                    </span>
+                  )}
+                </div>
               </div>
-              <button
-                onClick={() => setHoursOpen(!hoursOpen)}
-                className="text-platinum-muted hover:text-white p-1"
-                aria-label="Toggle hours"
-              >
-                {hoursOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              </button>
+              <div className="flex items-center gap-2">
+                {londonInfo && (
+                  <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-medium bg-emerald-950/60 border border-emerald-500/40 text-emerald-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    Live GMT
+                  </span>
+                )}
+                <button
+                  onClick={() => setHoursOpen(!hoursOpen)}
+                  className="text-platinum-muted hover:text-white p-1"
+                  aria-label="Toggle hours"
+                >
+                  {hoursOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
 
             {hoursOpen && (
               <div className="space-y-3">
-                {hoursList.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className={`p-3 rounded-xl border text-xs flex items-center justify-between transition-colors ${
-                      item.day === "Sunday"
-                        ? "bg-amber-950/20 border-amber-900/30 text-amber-200/90"
-                        : "bg-obsidian border-atelier-border text-platinum"
-                    }`}
-                  >
-                    <div>
-                      <span className="font-semibold block">{item.day}</span>
-                      <span className="text-[10px] text-platinum-muted block">{item.note}</span>
+                {hoursList.map((item, idx) => {
+                  const isToday = londonInfo?.dayName === item.day;
+                  const isSunday = item.day === "Sunday";
+
+                  return (
+                    <div
+                      key={idx}
+                      className={`p-3.5 rounded-xl border text-xs flex items-center justify-between transition-all ${
+                        isToday
+                          ? "bg-emerald-950/40 border-emerald-500/60 ring-1 ring-emerald-500/40 shadow-lg text-white"
+                          : isSunday
+                          ? "bg-obsidian/70 border-atelier-border/60 text-zinc-400"
+                          : "bg-obsidian border-atelier-border text-platinum"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        {isToday && (
+                          <span className="px-1.5 py-0.5 rounded text-[9px] font-mono uppercase tracking-wider font-bold bg-emerald-500 text-black shadow-sm">
+                            Today
+                          </span>
+                        )}
+                        <div>
+                          <span className={`font-semibold block ${isToday ? "text-emerald-200" : isSunday ? "text-zinc-400" : "text-white"}`}>
+                            {item.day}
+                          </span>
+                          <span className="text-[10px] text-platinum-muted block">{item.note}</span>
+                        </div>
+                      </div>
+                      <span className={`font-mono font-medium ${
+                        isToday
+                          ? "text-emerald-300 font-bold text-sm"
+                          : isSunday
+                          ? "text-zinc-500"
+                          : "text-gold-400"
+                      }`}>
+                        {item.hours}
+                      </span>
                     </div>
-                    <span className="font-mono font-medium text-gold-400">{item.hours}</span>
-                  </div>
-                ))}
+                  );
+                })}
 
                 {/* Sunday Festive Exceptions Callout */}
                 <div className="p-3.5 rounded-xl bg-gold-950/20 border border-gold-900/40 text-[11px] text-gold-300/90 leading-relaxed">

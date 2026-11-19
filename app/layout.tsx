@@ -79,12 +79,14 @@ export default function RootLayout({
     "@id": "https://nirajjewellers.co.uk/#jewelrystore",
     name: "Niraj Jewellers",
     legalName: "Shiva Technology Ltd t/a Niraj Jewellers",
+    vatID: "GB 842 9617 32",
     logo: "https://nirajjewellers.co.uk/logo.svg",
     image: [
       "https://nirajjewellers.co.uk/opengraph-image",
       "https://nirajjewellers.co.uk/logo.svg",
     ],
     telephone: "+447955565137",
+    email: "nirajjewellersuk@gmail.com",
     url: "https://nirajjewellers.co.uk",
     priceRange: "££££",
     address: {

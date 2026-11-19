@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { TrendingUp, Sparkles, RefreshCw, ArrowUpRight } from "lucide-react";
+import { TrendingUp, TrendingDown, Sparkles, RefreshCw, ArrowUpRight } from "lucide-react";
 import { GoldRateData } from "@/app/api/gold-rates/route";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
@@ -87,9 +87,9 @@ export function GoldTicker() {
             <span className="text-platinum-muted font-medium">24ct Pure Bullion (99.9%):</span>
             <span className="text-gold-300 font-bold font-mono">£{rates.ct24.perGram.toFixed(2)}/g</span>
             <span className="text-platinum-muted/70 text-xs">(£{rates.ct24.perTola.toFixed(2)}/tola)</span>
-            <span className="text-emerald-400 text-xs font-mono flex items-center">
-              <TrendingUp className="w-3 h-3 mr-0.5 inline" />
-              +{rates.ct24.change24h}%
+            <span className={`text-xs font-mono flex items-center ${rates.ct24.change24h >= 0 ? "text-emerald-400" : "text-amber-400"}`}>
+              {rates.ct24.change24h >= 0 ? <TrendingUp className="w-3 h-3 mr-0.5 inline" /> : <TrendingDown className="w-3 h-3 mr-0.5 inline" />}
+              {rates.ct24.change24h >= 0 ? `+${rates.ct24.change24h.toFixed(2)}%` : `${rates.ct24.change24h.toFixed(2)}%`}
             </span>
           </div>
 
@@ -98,9 +98,9 @@ export function GoldTicker() {
             <span className="text-gold-400 font-medium">22ct Hallmark (916):</span>
             <span className="text-white font-bold font-mono">£{rates.ct22.perGram.toFixed(2)}/g</span>
             <span className="text-platinum-muted/70 text-xs">(£{rates.ct22.perTola.toFixed(2)}/tola)</span>
-            <span className="text-emerald-400 text-xs font-mono flex items-center">
-              <TrendingUp className="w-3 h-3 mr-0.5 inline" />
-              +{rates.ct22.change24h}%
+            <span className={`text-xs font-mono flex items-center ${rates.ct22.change24h >= 0 ? "text-emerald-400" : "text-amber-400"}`}>
+              {rates.ct22.change24h >= 0 ? <TrendingUp className="w-3 h-3 mr-0.5 inline" /> : <TrendingDown className="w-3 h-3 mr-0.5 inline" />}
+              {rates.ct22.change24h >= 0 ? `+${rates.ct22.change24h.toFixed(2)}%` : `${rates.ct22.change24h.toFixed(2)}%`}
             </span>
           </div>
 
@@ -109,9 +109,9 @@ export function GoldTicker() {
             <span className="text-platinum-muted font-medium">18ct Luxury Gold (750):</span>
             <span className="text-gold-300 font-bold font-mono">£{rates.ct18.perGram.toFixed(2)}/g</span>
             <span className="text-platinum-muted/70 text-xs">(£{rates.ct18.perTola.toFixed(2)}/tola)</span>
-            <span className="text-emerald-400 text-xs font-mono flex items-center">
-              <TrendingUp className="w-3 h-3 mr-0.5 inline" />
-              +{rates.ct18.change24h}%
+            <span className={`text-xs font-mono flex items-center ${rates.ct18.change24h >= 0 ? "text-emerald-400" : "text-amber-400"}`}>
+              {rates.ct18.change24h >= 0 ? <TrendingUp className="w-3 h-3 mr-0.5 inline" /> : <TrendingDown className="w-3 h-3 mr-0.5 inline" />}
+              {rates.ct18.change24h >= 0 ? `+${rates.ct18.change24h.toFixed(2)}%` : `${rates.ct18.change24h.toFixed(2)}%`}
             </span>
           </div>
 
@@ -126,9 +126,9 @@ export function GoldTicker() {
             <span className="text-platinum-muted font-medium">24ct Pure Bullion (99.9%):</span>
             <span className="text-gold-300 font-bold font-mono">£{rates.ct24.perGram.toFixed(2)}/g</span>
             <span className="text-platinum-muted/70 text-xs">(£{rates.ct24.perTola.toFixed(2)}/tola)</span>
-            <span className="text-emerald-400 text-xs font-mono flex items-center">
-              <TrendingUp className="w-3 h-3 mr-0.5 inline" />
-              +{rates.ct24.change24h}%
+            <span className={`text-xs font-mono flex items-center ${rates.ct24.change24h >= 0 ? "text-emerald-400" : "text-amber-400"}`}>
+              {rates.ct24.change24h >= 0 ? <TrendingUp className="w-3 h-3 mr-0.5 inline" /> : <TrendingDown className="w-3 h-3 mr-0.5 inline" />}
+              {rates.ct24.change24h >= 0 ? `+${rates.ct24.change24h.toFixed(2)}%` : `${rates.ct24.change24h.toFixed(2)}%`}
             </span>
           </div>
 
@@ -136,9 +136,9 @@ export function GoldTicker() {
             <span className="text-gold-400 font-medium">22ct Hallmark (916):</span>
             <span className="text-white font-bold font-mono">£{rates.ct22.perGram.toFixed(2)}/g</span>
             <span className="text-platinum-muted/70 text-xs">(£{rates.ct22.perTola.toFixed(2)}/tola)</span>
-            <span className="text-emerald-400 text-xs font-mono flex items-center">
-              <TrendingUp className="w-3 h-3 mr-0.5 inline" />
-              +{rates.ct22.change24h}%
+            <span className={`text-xs font-mono flex items-center ${rates.ct22.change24h >= 0 ? "text-emerald-400" : "text-amber-400"}`}>
+              {rates.ct22.change24h >= 0 ? <TrendingUp className="w-3 h-3 mr-0.5 inline" /> : <TrendingDown className="w-3 h-3 mr-0.5 inline" />}
+              {rates.ct22.change24h >= 0 ? `+${rates.ct22.change24h.toFixed(2)}%` : `${rates.ct22.change24h.toFixed(2)}%`}
             </span>
           </div>
 
@@ -146,9 +146,9 @@ export function GoldTicker() {
             <span className="text-platinum-muted font-medium">18ct Luxury Gold (750):</span>
             <span className="text-gold-300 font-bold font-mono">£{rates.ct18.perGram.toFixed(2)}/g</span>
             <span className="text-platinum-muted/70 text-xs">(£{rates.ct18.perTola.toFixed(2)}/tola)</span>
-            <span className="text-emerald-400 text-xs font-mono flex items-center">
-              <TrendingUp className="w-3 h-3 mr-0.5 inline" />
-              +{rates.ct18.change24h}%
+            <span className={`text-xs font-mono flex items-center ${rates.ct18.change24h >= 0 ? "text-emerald-400" : "text-amber-400"}`}>
+              {rates.ct18.change24h >= 0 ? <TrendingUp className="w-3 h-3 mr-0.5 inline" /> : <TrendingDown className="w-3 h-3 mr-0.5 inline" />}
+              {rates.ct18.change24h >= 0 ? `+${rates.ct18.change24h.toFixed(2)}%` : `${rates.ct18.change24h.toFixed(2)}%`}
             </span>
           </div>
         </div>

@@ -5,8 +5,11 @@
 
 export const NIRAJ_PHONE_NUMBER = "447955565137";
 export const NIRAJ_DISPLAY_PHONE = "+44 7955 565137";
+export const NIRAJ_EMAIL = "nirajjewellersuk@gmail.com";
 export const NIRAJ_SHOWROOM_ADDRESS = "136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, UK";
 export const NIRAJ_MAPS_LINK = "https://maps.google.com/?q=136+Uxbridge+Road+Hayes+UB4+0JH+UK";
+export const NIRAJ_COMPANY_REG = "04870407";
+export const NIRAJ_VAT_NUMBER = "GB 842 9617 32"; // Shiva Technology Ltd t/a Niraj Jewellers
 
 export interface WhatsAppMessageOptions {
   source?: string;

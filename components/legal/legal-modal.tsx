@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { X, ShieldCheck, FileText, Lock, Scale, Building2 } from "lucide-react";
-import { NIRAJ_SHOWROOM_ADDRESS, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
+import { NIRAJ_SHOWROOM_ADDRESS, NIRAJ_DISPLAY_PHONE, NIRAJ_EMAIL, NIRAJ_VAT_NUMBER, NIRAJ_COMPANY_REG } from "@/lib/whatsapp";
+import { useScrollLock } from "@/lib/use-scroll-lock";
 
 export type LegalTab = "privacy" | "terms";
 
@@ -13,6 +14,7 @@ interface LegalModalProps {
 }
 
 export function LegalModal({ isOpen, initialTab = "privacy", onClose }: LegalModalProps) {
+  useScrollLock(isOpen);
   const [activeTab, setActiveTab] = useState<LegalTab>(initialTab);
 
   if (!isOpen) return null;
