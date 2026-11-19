@@ -95,30 +95,20 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Navigation Portals */}
             <div className="space-y-3">
               <h4 className="font-bold text-[#141416] uppercase tracking-wider text-xs">
-                Atelier Portals
+                Explore Atelier
               </h4>
               <ul className="space-y-2 text-xs">
                 <li>
+                  <Link href="/about" className="hover:text-[#996515] transition-colors">
+                    About Us (Since 1984)
+                  </Link>
+                </li>
+                <li>
                   <Link href="/collections" className="hover:text-[#996515] transition-colors">
-                    Curated Collections &amp; Reels
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/bespoke" className="hover:text-[#996515] transition-colors">
-                    Bespoke Atelier &amp; 3D CAD
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/repairs" className="hover:text-[#996515] transition-colors">
-                    In-House Goldsmith Repairs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gold-rates" className="hover:text-[#996515] transition-colors">
-                    Live Gold Bullion Rates
+                    Curated Collection
                   </Link>
                 </li>
                 <li>
@@ -129,6 +119,11 @@ export function Footer() {
                 <li>
                   <Link href="/showroom" className="hover:text-[#996515] transition-colors">
                     Hayes Flagship Showroom
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faqs" className="hover:text-[#996515] transition-colors">
+                    Frequently Asked Questions
                   </Link>
                 </li>
                 <li>

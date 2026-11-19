@@ -14,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/about`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/collections`,
       lastModified: now,
       changeFrequency: "daily",
@@ -48,6 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date("2026-11-19T10:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/faqs`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/contact`,

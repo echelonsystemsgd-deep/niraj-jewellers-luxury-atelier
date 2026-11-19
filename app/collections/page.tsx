@@ -96,7 +96,7 @@ export default function CollectionsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionsJsonLd) }}
       />
 
-      <SubpageNav currentTitle="Collections & Reels" />
+      <SubpageNav currentTitle="Atelier Collection" />
 
       <main className="flex-1 pt-24 sm:pt-28">
         {/* Editorial Subpage Header */}
@@ -106,7 +106,7 @@ export default function CollectionsPage() {
             <span>Master Goldsmith Portfolio</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#141416] font-normal tracking-tight max-w-4xl mx-auto">
-            Curated Showroom Collections &amp; Craft Reels
+            Curated Showroom Masterpieces
           </h1>
           <p className="font-vivaldi text-2xl sm:text-3xl text-[#996515] font-normal">
             Bespoke bridal heirlooms forged on Uxbridge Road

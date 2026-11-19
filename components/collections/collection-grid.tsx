@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Sparkles, Instagram, ArrowRight, ShieldCheck, ArrowUpRight, Award, Gem, CheckCircle2 } from "lucide-react";
+import { Sparkles, ArrowRight, ShieldCheck, ArrowUpRight, Award, Gem, CheckCircle2, Eye } from "lucide-react";
 import { COLLECTIONS_DATA, CollectionItem } from "@/data/collections-data";
 import { ReelModal } from "./reel-modal";
 
@@ -55,7 +55,7 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
-              Master Goldsmith Craftsmanship in Motion
+              Master Goldsmith Craftsmanship
             </h2>
             <p className="font-vivaldi text-2xl sm:text-3xl text-[#996515] font-normal">
               Hand-forged on Uxbridge Road, Hallmarked by London Assay
@@ -69,16 +69,14 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
 
           {/* Social Proof Linkout */}
           <div className="flex items-center gap-3">
-            <a
-              href="https://www.instagram.com/nirajjewellersltd"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/collections"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-xs font-semibold text-[#141416] hover:text-[#996515] transition-all shadow-sm group"
             >
-              <Instagram className="w-4 h-4 text-pink-600" />
-              <span>@nirajjewellersltd</span>
+              <Sparkles className="w-4 h-4 text-[#996515]" />
+              <span>Explore All 16 Pieces</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#8C6212] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -155,9 +153,9 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
                     <span>{item.hallmarkText}</span>
                   </div>
 
-                  {/* Video Play / View Badge */}
-                  <div className="absolute bottom-3 right-3 p-2 rounded-full bg-white/90 text-[#996515] group-hover:scale-110 transition-transform shadow-md">
-                    <Play className="w-3.5 h-3.5 fill-[#996515]" />
+                  {/* Inspection View Badge */}
+                  <div className="absolute bottom-3 right-3 p-2 rounded-full bg-white/95 text-[#996515] group-hover:scale-110 transition-transform shadow-md border border-[#E8DEC8]">
+                    <Eye className="w-3.5 h-3.5 text-[#996515]" />
                   </div>
                 </div>
 
@@ -179,7 +177,7 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
                     </div>
                     <div className="flex items-center justify-between pt-1">
                       <span className="text-xs font-bold text-[#996515] group-hover:underline">
-                        View Craft Details &amp; Video
+                        View Piece Specifications
                       </span>
                       <span className="text-[#996515] group-hover:translate-x-1.5 transition-transform text-sm font-bold">
                         →
