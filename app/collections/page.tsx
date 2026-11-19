@@ -3,6 +3,7 @@ import { SubpageNav } from "@/components/header/subpage-nav";
 import { CollectionGrid } from "@/components/collections/collection-grid";
 import { Footer } from "@/components/footer/footer";
 import { Sparkles, Shield, Award, Gem } from "lucide-react";
+import { COLLECTIONS_DATA } from "@/data/collections-data";
 
 export const metadata: Metadata = {
   title: "Atelier Collections & Bridal Suites",
@@ -35,8 +36,66 @@ export const metadata: Metadata = {
 };
 
 export default function CollectionsPage() {
+  const collectionsJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://nirajjewellers.co.uk",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Atelier Collections & Bridal Suites",
+            item: "https://nirajjewellers.co.uk/collections",
+          },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://nirajjewellers.co.uk/collections#itemlist",
+        name: "Niraj Jewellers Master Goldsmith Collections",
+        numberOfItems: COLLECTIONS_DATA.length,
+        itemListElement: COLLECTIONS_DATA.map((item, idx) => ({
+          "@type": "Product",
+          position: idx + 1,
+          name: item.title,
+          description: item.description,
+          image: item.thumbnailUrl,
+          category: item.category,
+          material: item.metalPurity,
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "GBP",
+            availability: "https://schema.org/InStock",
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              description: item.priceNote,
+            },
+            seller: {
+              "@type": "JewelryStore",
+              "@id": "https://nirajjewellers.co.uk/#jewelrystore",
+              name: "Niraj Jewellers",
+            },
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-obsidian text-platinum flex flex-col">
+      {/* JSON-LD Script */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionsJsonLd) }}
+      />
+
       <SubpageNav currentTitle="Collections & Reels" />
 
       <main className="flex-1 pt-24 sm:pt-28">

@@ -33,6 +33,8 @@ export const metadata: Metadata = {
     "London Leopard Head Hallmarked Gold",
     "Direct Workshop Gold Prices",
     "Scrap Gold Cash Valuation Hayes",
+    "3D CAD Custom Ring Design",
+    "22ct vs 24ct Gold Hallmarking Guide",
   ],
   authors: [{ name: "Niraj Jewellers", url: "https://nirajjewellers.co.uk" }],
   creator: "Niraj Jewellers",
@@ -216,10 +218,55 @@ export default function RootLayout({
           "https://www.instagram.com/nirajjewellersltd",
           "https://www.tiktok.com/@nirajjewellersltd",
         ],
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "5.0",
+          reviewCount: "48",
+          bestRating: "5",
+          worstRating: "1",
+        },
+        review: [
+          {
+            "@type": "Review",
+            author: { "@type": "Person", name: "Priya & Rajan Patel" },
+            datePublished: "2024-11-15",
+            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            reviewBody:
+              "Viky at Niraj Jewellers is in a league of his own. We spent weeks in central London jewellery shops being quoted astronomical prices with zero transparency. Viky sat down with us in Hayes, weighed the gold in front of us, 3D CAD printed my dream choker, and delivered a 22ct masterpiece under budget.",
+          },
+          {
+            "@type": "Review",
+            author: { "@type": "Person", name: "Devinder Singh" },
+            datePublished: "2024-10-20",
+            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            reviewBody:
+              "My grandfather's signet ring needed sizing down and the claw needed rebuild. Viky resized it right here in the Hayes workshop in 4 hours while I had lunch down the road. Immaculate finish and fair workshop pricing.",
+          },
+          {
+            "@type": "Review",
+            author: { "@type": "Person", name: "Ananya & Tariq Sharma" },
+            datePublished: "2024-12-05",
+            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+            reviewBody:
+              "Cannot recommend Niraj Jewellers enough. We brought in an Instagram reference video and Viky hand-selected three GIA diamonds for us to view under the loupe. No pushy retail tactics. The ring is breathtaking.",
+          },
+        ],
         founder: {
           "@type": "Person",
+          "@id": "https://nirajjewellers.co.uk/#viky",
           name: "Viky",
           jobTitle: "Master Goldsmith & Principal Jeweller",
+          knowsAbout: [
+            "22ct Asian Bridal Jewellery Craftsmanship",
+            "Rhino & Matrix 3D CAD Jewellery Modeling",
+            "UK Hallmarking Act 1973 & London Assay Standards",
+            "GIA & IGI Certified Natural Diamond Sourcing",
+            "Laser Micro-Welding & Precision Bench Repairs",
+            "LBMA Physical Investment Bullion Trading",
+          ],
+          worksFor: {
+            "@id": "https://nirajjewellers.co.uk/#jewelrystore",
+          },
         },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -250,6 +297,24 @@ export default function RootLayout({
                 name: "Wholesale Gold Bullion Trading (24ct & 22ct)",
                 description:
                   "Live LBMA-indexed pricing for investment gold bars, sovereigns, and immediate cash scrap gold valuation.",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "3D CAD Custom Ring Modeling & Prototyping",
+                description:
+                  "Micron-accurate CAD renders, 360° video previews, and high-resolution 3D resin finger-fitting models.",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Ancestral Gold Melting & Direct Metal Credit",
+                description:
+                  "Electronic trade-scale weighing and induction refining of family gold toward new bespoke commissions.",
               },
             },
           ],

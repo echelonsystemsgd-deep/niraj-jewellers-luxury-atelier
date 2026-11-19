@@ -32,5 +32,71 @@ export const metadata: Metadata = {
 };
 
 export default function ShowroomPage() {
-  return <ShowroomClientView />;
+  const showroomJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://nirajjewellers.co.uk",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Hayes Flagship Showroom & Atelier",
+            item: "https://nirajjewellers.co.uk/showroom",
+          },
+        ],
+      },
+      {
+        "@type": ["JewelryStore", "LocalBusiness"],
+        "@id": "https://nirajjewellers.co.uk/showroom#place",
+        name: "Niraj Jewellers Flagship Showroom & Atelier",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "136 Uxbridge Road",
+          addressLocality: "Hayes",
+          addressRegion: "Middlesex, Greater London",
+          postalCode: "UB4 0JH",
+          addressCountry: "GB",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 51.5229,
+          longitude: -0.4228,
+        },
+        hasMap: "https://maps.google.com/?q=136+Uxbridge+Road+Hayes+UB4+0JH",
+        publicAccess: true,
+        telephone: "+447955565137",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Monday",
+            opens: "12:00",
+            closes: "17:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            opens: "11:00",
+            closes: "17:00",
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(showroomJsonLd) }}
+      />
+      <ShowroomClientView />
+    </>
+  );
 }

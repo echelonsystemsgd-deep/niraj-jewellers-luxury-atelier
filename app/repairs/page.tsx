@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import { SubpageNav } from "@/components/header/subpage-nav";
 import { RepairsBento } from "@/components/repairs/repairs-bento";
 import { HallmarkGuide } from "@/components/trust/hallmark-guide";
+import { SubpageFaq } from "@/components/faq/subpage-faq";
+import { REPAIRS_FAQS } from "@/data/subpage-faqs-data";
+import { REPAIR_SERVICES } from "@/data/repairs-data";
 import { Footer } from "@/components/footer/footer";
 import { Wrench, ShieldCheck, Clock, MessageCircle } from "lucide-react";
 import { buildWhatsAppLink, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
@@ -43,8 +46,58 @@ export default function RepairsPage() {
     customNote: "Hello Viky, I need an in-house repair quote for my jewellery. Could you let me know when I can bring it in to your Hayes workshop?",
   });
 
+  const repairsJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://nirajjewellers.co.uk",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "In-House Jewellery Repairs",
+            item: "https://nirajjewellers.co.uk/repairs",
+          },
+        ],
+      },
+      ...REPAIR_SERVICES.map((srv) => ({
+        "@type": "Service",
+        "@id": `https://nirajjewellers.co.uk/repairs#${srv.id}`,
+        name: srv.title,
+        description: srv.summary,
+        provider: {
+          "@type": "JewelryStore",
+          "@id": "https://nirajjewellers.co.uk/#jewelrystore",
+          name: "Niraj Jewellers",
+        },
+        offers: {
+          "@type": "Offer",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "GBP",
+            description: srv.pricingHint,
+          },
+        },
+        serviceOutput: "Restored fine jewellery with London Assay hallmark intact",
+        termsOfService: "Completed on-site at 136 Uxbridge Road, Hayes workshop",
+      })),
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-obsidian text-platinum flex flex-col">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(repairsJsonLd) }}
+      />
+
       <SubpageNav currentTitle="In-House Workshop Repairs" />
 
       <main className="flex-1 pt-24 sm:pt-28">
@@ -85,6 +138,14 @@ export default function RepairsPage() {
 
         {/* London Assay Hallmarking Trust Guide */}
         <HallmarkGuide />
+
+        {/* Contextual Subpage FAQ for Repairs */}
+        <SubpageFaq
+          title="In-House Jewellery Repair FAQs"
+          subtitle="Clear answers on same-day ring resizing, laser pulse welding, gemstone safety, and workshop turnaround."
+          items={REPAIRS_FAQS}
+          pageSlug="repairs"
+        />
       </main>
 
       <Footer />

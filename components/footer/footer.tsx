@@ -115,6 +115,11 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/articles" className="hover:text-gold-400 transition-colors">
+                    Articles &amp; Goldsmith Guides
+                  </Link>
+                </li>
+                <li>
                   <Link href="/showroom" className="hover:text-gold-400 transition-colors">
                     Hayes Flagship Showroom
                   </Link>

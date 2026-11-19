@@ -32,8 +32,9 @@ export function Navbar({ onOpenBookingModal }: NavbarProps) {
     { label: "Bespoke", href: "/bespoke", num: "02", desc: "3D CAD & Custom Commissions" },
     { label: "Repairs", href: "/repairs", num: "03", desc: "In-House Workshop & Same-Day Sizing" },
     { label: "Gold Rates", href: "/gold-rates", num: "04", desc: "Live LBMA Spot & Wholesale Bullion" },
-    { label: "Showroom", href: "/showroom", num: "05", desc: "136 Uxbridge Road, Hayes Hub" },
-    { label: "Contact", href: "/contact", num: "06", desc: "WhatsApp, Phone & Email Direct Lines" },
+    { label: "Articles", href: "/articles", num: "05", desc: "Hallmark Guides, 3D CAD & Bullion Insights" },
+    { label: "Showroom", href: "/showroom", num: "06", desc: "136 Uxbridge Road, Hayes Hub" },
+    { label: "Contact", href: "/contact", num: "07", desc: "WhatsApp, Phone & Email Direct Lines" },
   ];
 
   const whatsappHeroLink = buildWhatsAppLink({

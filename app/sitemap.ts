@@ -1,10 +1,12 @@
 import type { MetadataRoute } from "next";
+import { ARTICLES_DATA } from "@/data/articles-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://nirajjewellers.co.uk";
   const now = new Date();
 
-  return [
+  // Core Atelier Subpages
+  const coreRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: now,
@@ -19,45 +21,61 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/bespoke`,
-      lastModified: now,
+      lastModified: new Date("2026-11-19T10:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/repairs`,
-      lastModified: now,
+      lastModified: new Date("2026-11-19T10:00:00Z"),
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/gold-rates`,
       lastModified: now,
       changeFrequency: "hourly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/articles`,
+      lastModified: new Date("2026-11-19T10:00:00Z"),
+      changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/showroom`,
-      lastModified: now,
+      lastModified: new Date("2026-11-19T10:00:00Z"),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: now,
+      lastModified: new Date("2026-11-19T10:00:00Z"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: now,
+      lastModified: new Date("2026-11-01T00:00:00Z"),
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.4,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: now,
+      lastModified: new Date("2026-11-01T00:00:00Z"),
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.4,
     },
   ];
+
+  // Dynamic High-Authority Articles
+  const articleRoutes: MetadataRoute.Sitemap = ARTICLES_DATA.map((article) => ({
+    url: `${baseUrl}/articles/${article.slug}`,
+    lastModified: new Date(article.dateModified),
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
+  return [...coreRoutes, ...articleRoutes];
 }

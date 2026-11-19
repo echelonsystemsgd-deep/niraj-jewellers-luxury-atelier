@@ -32,5 +32,57 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactClientView />;
+  const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://nirajjewellers.co.uk",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Contact & VIP Concierge",
+            item: "https://nirajjewellers.co.uk/contact",
+          },
+        ],
+      },
+      {
+        "@type": "ContactPage",
+        "@id": "https://nirajjewellers.co.uk/contact#webpage",
+        url: "https://nirajjewellers.co.uk/contact",
+        name: "Contact Niraj Jewellers Atelier London",
+        mainEntity: {
+          "@type": "JewelryStore",
+          "@id": "https://nirajjewellers.co.uk/#jewelrystore",
+          name: "Niraj Jewellers",
+          telephone: "+447955565137",
+          email: "nirajjewellersuk@gmail.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "136 Uxbridge Road",
+            addressLocality: "Hayes",
+            addressRegion: "Middlesex, Greater London",
+            postalCode: "UB4 0JH",
+            addressCountry: "GB",
+          },
+        },
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
+      <ContactClientView />
+    </>
+  );
 }

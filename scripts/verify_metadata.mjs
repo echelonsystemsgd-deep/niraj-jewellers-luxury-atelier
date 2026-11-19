@@ -54,6 +54,8 @@ const routesToCheck = [
   { route: "/gold-rates", filePath: "app/gold-rates/page.tsx", titleSnippet: "Live Gold Rates Hayes London" },
   { route: "/showroom", filePath: "app/showroom/page.tsx", titleSnippet: "Hayes Flagship Showroom & Atelier Hub" },
   { route: "/contact", filePath: "app/contact/page.tsx", titleSnippet: "Contact & VIP WhatsApp Concierge" },
+  { route: "/articles", filePath: "app/articles/page.tsx", titleSnippet: "Atelier Articles & Goldsmith Knowledge Hub" },
+  { route: "/articles/[slug]", filePath: "app/articles/[slug]/page.tsx", titleSnippet: "generateMetadata" },
   { route: "/privacy", filePath: "app/privacy/page.tsx", titleSnippet: "Privacy Policy" },
   { route: "/terms", filePath: "app/terms/page.tsx", titleSnippet: "Terms of Service & Atelier Policies" },
   { route: "/test-404", filePath: "app/test-404/page.tsx", titleSnippet: "404 Preview - Piece Melted Down" },
