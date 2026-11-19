@@ -104,8 +104,8 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
-            {/* Column 1: Left Brand Mark (lg:w-1/4) */}
-            <div className="flex items-center gap-3 shrink-0 lg:w-1/4 min-w-0">
+            {/* Column 1: Left Brand Mark (Equal balance with right column) */}
+            <div className="flex items-center gap-3 shrink-0 lg:w-[240px] min-w-0">
               <Link
                 href="/"
                 className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none text-left"
@@ -130,8 +130,8 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               </Link>
             </div>
 
-            {/* Column 2: Center Navigation Links (flex-1 flex justify-center) */}
-            <nav className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-6 text-[11px] xl:text-xs uppercase tracking-wider font-medium whitespace-nowrap flex-1">
+            {/* Column 2: Center Navigation Links (Mathematically Centered & Symmetrical) */}
+            <nav className="hidden lg:flex items-center justify-center space-x-5 xl:space-x-7 text-[11px] xl:text-xs uppercase tracking-wider font-medium whitespace-nowrap flex-1">
               {navLinks.map((link) => {
                 const isActive = !isHome && pathname.startsWith(link.route);
                 return (
@@ -153,13 +153,8 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               })}
             </nav>
 
-            {/* Column 3: Right Status & Direct WhatsApp Line (lg:w-1/4 flex justify-end) */}
-            <div className="flex items-center justify-end space-x-2 sm:space-x-3 shrink-0 lg:w-1/4">
-              {/* Showroom Status Badge (visible on wide screens) */}
-              <div className="hidden xl:flex items-center">
-                <ShowroomStatusBadge variant="compact" />
-              </div>
-
+            {/* Column 3: Right Action Buttons (lg:w-[240px] for True Symmetry with Left Column) */}
+            <div className="flex items-center justify-end space-x-2 sm:space-x-3 shrink-0 lg:w-[240px]">
               {/* Tablet & Desktop WhatsApp Pill */}
               <a
                 href={whatsappHeroLink}
