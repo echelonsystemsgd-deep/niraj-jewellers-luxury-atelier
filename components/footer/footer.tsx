@@ -259,11 +259,19 @@ export function Footer() {
               <span className="text-[#8C6212] font-semibold">VAT Reg No: {NIRAJ_VAT_NUMBER}</span>
               <span className="hidden sm:inline">•</span>
               <span>136 Uxbridge Road, Hayes UB4 0JH</span>
+              <span className="hidden sm:inline">•</span>
+              <Link
+                href="/admin"
+                rel="nofollow"
+                className="text-[#9A98A0] hover:text-[#996515] transition-colors"
+              >
+                Staff Login
+              </Link>
             </div>
 
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-[#141416] hover:text-[#996515] transition-colors shrink-0 font-medium"
+              className="hidden sm:flex items-center gap-1.5 text-[#141416] hover:text-[#996515] transition-colors shrink-0 font-medium mr-14 md:mr-16"
               aria-label="Back to top"
             >
               <span>Back to Top</span>

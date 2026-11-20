@@ -43,7 +43,8 @@ export function HeroSection() {
           {/* Subtle Tagline Pill */}
           <div className="relative z-10 inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/50 text-[#8C6212] text-[11px] sm:text-xs tracking-wider uppercase font-semibold shadow-sm animate-in fade-in duration-700 max-w-full">
             <Sparkles className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-            <span className="truncate">Master Goldsmiths • 136 Uxbridge Road, Hayes</span>
+            <span className="hidden sm:inline">Master Goldsmiths • 136 Uxbridge Road, Hayes</span>
+            <span className="sm:hidden">Master Goldsmiths • Hayes Atelier</span>
             <span className="hidden sm:inline text-[#D4AF37]/60">•</span>
             <span className="hidden sm:inline text-[#5A5960]">Direct Workshop Access</span>
           </div>
