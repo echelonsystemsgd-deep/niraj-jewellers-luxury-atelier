@@ -106,16 +106,18 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 className="group flex items-center gap-2.5 sm:gap-3.5 focus:outline-none text-left"
                 aria-label="Niraj Jewellers Ltd Home"
               >
-                {/* Official Royal Crest Logo */}
-                <div className="relative w-8 h-8 sm:w-11 sm:h-11 rounded-lg overflow-hidden shrink-0 border border-[#D4AF37]/40 shadow-sm group-hover:border-[#996515] transition-colors bg-[#FAF7F2]">
-                  <Image
-                    src="/NIRAJ_LOGO9.png"
-                    alt="Niraj Jewellers Ltd Official Crest"
-                    fill
-                    sizes="44px"
-                    className="object-contain p-0.5"
-                    priority
-                  />
+                {/* Official Royal Crest Logo with Hammered Gold Accent */}
+                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden shrink-0 border border-hammered-gold shadow-sm group-hover:border-[#996515] transition-all texture-hammered-subtle p-0.5">
+                  <div className="relative w-full h-full rounded-lg overflow-hidden bg-white/90">
+                    <Image
+                      src="/NIRAJ_LOGO9.png"
+                      alt="Niraj Jewellers Ltd Official Crest"
+                      fill
+                      sizes="44px"
+                      className="object-contain p-0.5"
+                      priority
+                    />
+                  </div>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-serif text-sm sm:text-base lg:text-lg font-bold tracking-wider text-[#141416] group-hover:text-[#996515] transition-colors uppercase whitespace-nowrap">

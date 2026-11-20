@@ -91,29 +91,6 @@ export default function AboutPage() {
     ],
   };
 
-  const milestones = [
-    {
-      year: "1984",
-      title: "Founding the Hayes Atelier",
-      desc: "Niraj Jewellers Ltd opened its doors at 136 Uxbridge Road, Hayes, with a dedicated goldsmith bench to serve the growing South Asian diaspora with genuine 22ct bridal gold.",
-    },
-    {
-      year: "1998",
-      title: "Direct Workshop Expansion",
-      desc: "Expanded into high-precision laser welding and ultrasonic restoration, bringing complete end-to-end manufacturing and repairs in-house without third-party outsourcing.",
-    },
-    {
-      year: "2012",
-      title: "3D CAD & Photorealistic Prototyping",
-      desc: "Pioneered computer-aided design (CAD) integration, allowing brides to inspect 360-degree digital prototypes of their wedding sets before casting a single gram of gold.",
-    },
-    {
-      year: "Today",
-      title: "London's Premier Flagship Destination",
-      desc: "Over 40 years of continuous service, thousands of bespoke heirloom commissions, and a trusted reputation as direct wholesale bullion and bridal specialists.",
-    },
-  ];
-
   const pillars = [
     {
       icon: Hammer,
@@ -299,43 +276,50 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 4 Pillars of Excellence */}
-        <section className="bg-white py-20 border-y border-[#E8DEC8] mb-24">
+        {/* 4 Pillars of Excellence with Hammered Gold Accents */}
+        <section className="bg-white py-20 sm:py-28 border-y border-[#E8DEC8] mb-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
+            <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
               <span className="text-xs font-bold uppercase tracking-widest text-[#996515]">
-                Our Guarantees
+                Atelier Standards &amp; Verification
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-[#141416]">
+              <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
                 The Four Pillars of Niraj Jewellers Ltd
               </h2>
-              <p className="text-xs sm:text-sm text-[#4A4A52]">
-                Every heirloom piece leaving our atelier reflects our uncompromising standard of purity, security, and craftsmanship.
+              <p className="text-sm text-[#4A4A52] leading-relaxed">
+                Every heirloom piece leaving our Hayes atelier reflects our uncompromising standard of metallurgical purity, workshop security, and physical proof.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {pillars.map((pillar, pIdx) => {
                 const IconComponent = pillar.icon;
                 return (
                   <div
                     key={pIdx}
-                    className="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E8DEC8] hover:border-[#D4AF37] transition-all hover:shadow-lg space-y-4"
+                    className="p-6 sm:p-7 rounded-2xl bg-[#FAF9F5] border border-[#E8DEC8] hover:border-[#D4AF37] transition-all hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-white border border-[#D4AF37]/50 flex items-center justify-center text-[#996515] shadow-sm">
-                      <IconComponent className="w-6 h-6" />
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 rounded-xl bg-white border border-hammered-gold flex items-center justify-center text-[#996515] shadow-sm texture-hammered-subtle">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#8C6212] block">
+                          {pillar.subtitle}
+                        </span>
+                        <h3 className="font-serif text-xl font-medium text-[#141416] mt-1 group-hover:text-[#996515] transition-colors">
+                          {pillar.title}
+                        </h3>
+                      </div>
+                      <p className="text-xs text-[#5A5960] leading-relaxed">
+                        {pillar.description}
+                      </p>
                     </div>
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#8C6212] block">
-                        {pillar.subtitle}
-                      </span>
-                      <h3 className="font-serif text-lg font-medium text-[#141416] mt-0.5">
-                        {pillar.title}
-                      </h3>
+
+                    <div className="mt-5 pt-4 border-t border-[#EFE8DA] flex items-center gap-1.5 text-[11px] text-[#8C6212] font-semibold">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#996515] shrink-0" />
+                      <span>Verified Atelier Standard</span>
                     </div>
-                    <p className="text-xs text-[#5A5960] leading-relaxed">
-                      {pillar.description}
-                    </p>
                   </div>
                 );
               })}
@@ -343,34 +327,108 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Milestone Timeline */}
+        {/* Generational Journey — Visual Chronological Timeline with Real Photography */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-          <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#996515]">
-              Generational Journey
+              Generational Journey Timeline
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#141416]">
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
               Four Decades of Goldsmithing Milestones
             </h2>
+            <p className="text-sm text-[#4A4A52] leading-relaxed">
+              Trace the evolution of our Hayes atelier from hand-forged 1984 beginnings to advanced 3D CAD bespoke suites.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {milestones.map((ms, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-white border border-[#E8DEC8] shadow-sm space-y-3 relative overflow-hidden"
-              >
-                <div className="font-serif text-3xl font-bold text-[#8C6212]">
-                  {ms.year}
+          {/* Timeline Grid with Images & Connecting Track */}
+          <div className="relative">
+            {/* Desktop connecting rule */}
+            <div
+              className="hidden lg:block absolute top-[120px] left-[10%] right-[10%] h-[1.5px] bg-gradient-to-r from-[#DFBF7A]/40 via-[#996515]/60 to-[#DFBF7A]/40 z-0"
+              aria-hidden="true"
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
+              {[
+                {
+                  year: "1984",
+                  title: "Founding the Hayes Atelier",
+                  desc: "Niraj Jewellers Ltd opened at 136 Uxbridge Road with a traditional goldsmith bench to craft genuine 22ct bridal gold for West London.",
+                  image: "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
+                  imageAlt: "1984 Founding Hayes goldsmith bench and order ledger",
+                  tag: "Founding Benchwork",
+                },
+                {
+                  year: "1998",
+                  title: "In-House Laser Bench Expansion",
+                  desc: "Expanded into high-precision laser welding and ultrasonic restoration, bringing end-to-end manufacturing and repairs in-house without outsourcing.",
+                  image: "/images/workshop/workshop-bench-velvet-trays.jpg",
+                  imageAlt: "Hayes atelier workshop consultation trays and benchcraft",
+                  tag: "Precision Benchwork",
+                },
+                {
+                  year: "2012",
+                  title: "3D CAD & Resin Prototyping",
+                  desc: "Pioneered computer-aided design integration, allowing bridal couples to inspect photorealistic 360° renders and resin prototypes before casting.",
+                  image: "/images/cad/bespoke-evil-eye-sapphire-cad.jpg",
+                  imageAlt: "Photorealistic 3D CAD jewellery rendering",
+                  tag: "Digital Precision",
+                },
+                {
+                  year: "Today",
+                  title: "London's Premier 22ct Destination",
+                  desc: "Over 40 years of continuous service, thousands of bespoke heirloom commissions, and a trusted reputation as direct bullion and bridal specialists.",
+                  image: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
+                  imageAlt: "Handcrafted 22ct gold filigree bridal suite",
+                  tag: "Flagship Masterworks",
+                },
+              ].map((ms, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group"
+                >
+                  <div>
+                    {/* Real Workshop / Process Visual */}
+                    <div className="relative aspect-[16/11] w-full rounded-xl overflow-hidden mb-5 border border-[#E8DEC8] bg-[#FAF7F2] group-hover:border-[#D4AF37] transition-colors">
+                      <Image
+                        src={ms.image}
+                        alt={ms.imageAlt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                      <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-black/80 backdrop-blur-sm border border-[#D4AF37]/40 text-[10px] font-mono font-semibold text-[#DFBF7A]">
+                        {ms.tag}
+                      </div>
+                    </div>
+
+                    {/* Milestone Year & Title */}
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-serif text-2xl sm:text-3xl font-bold text-[#8C6212]">
+                        {ms.year}
+                      </span>
+                      <span className="text-[10px] font-mono text-[#5A5960] uppercase">
+                        Milestone 0{idx + 1}
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif text-base sm:text-lg font-medium text-[#141416] group-hover:text-[#996515] transition-colors mb-2">
+                      {ms.title}
+                    </h3>
+                    <p className="text-xs text-[#5A5960] leading-relaxed">
+                      {ms.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-5 pt-3 border-t border-[#EFE8DA] flex items-center justify-between text-[11px] text-[#8C6212] font-semibold">
+                    <span>Era 0{idx + 1} of 04</span>
+                    <span className="text-[#C5A059] group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
                 </div>
-                <h3 className="font-serif text-base font-semibold text-[#141416]">
-                  {ms.title}
-                </h3>
-                <p className="text-xs text-[#5A5960] leading-relaxed">
-                  {ms.desc}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 

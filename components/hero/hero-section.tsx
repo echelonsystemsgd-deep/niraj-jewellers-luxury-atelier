@@ -32,7 +32,7 @@ export function HeroSection() {
   });
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center pt-32 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-[#FAF9F5]">
+    <section className="relative min-h-[92vh] flex flex-col justify-center pt-32 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-[#FAF9F5] texture-ivory-paper">
       {/* 1. Tactile Archival Paper Micro-Texture & Ambient Gold Radiance */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
         {/* Soft atmospheric warmth */}

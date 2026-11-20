@@ -175,3 +175,53 @@ body {
     background-color: rgba(255, 255, 255, 0.96);
   }
 }
+
+/* ==========================================================================
+   AUTHENTIC GOLDSMITH TRADE MATERIAL TEXTURES
+   Based on traditional hammered 22ct gold, jeweller's velvet, & deckle paper
+   ========================================================================== */
+
+/* 1. Hand-Hammered 22ct Gold Texture (Chased / Pitai Gold Finish) */
+.texture-hammered-gold {
+  background-color: #D4AF37;
+  background-image: 
+    radial-gradient(circle at 20% 25%, rgba(255, 246, 210, 0.8) 0%, transparent 25%),
+    radial-gradient(circle at 75% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 20%),
+    radial-gradient(circle at 40% 70%, rgba(184, 134, 11, 0.7) 0%, transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(153, 101, 21, 0.8) 0%, transparent 30%),
+    radial-gradient(circle at 10% 85%, rgba(223, 191, 122, 0.7) 0%, transparent 25%),
+    linear-gradient(135deg, #B88E3E 0%, #E6CA65 25%, #DFBF7A 50%, #C5A059 75%, #996515 100%);
+  background-size: 100% 100%;
+}
+
+/* Subtle hammered gold surface overlay for cards and badges */
+.texture-hammered-subtle {
+  background: 
+    radial-gradient(ellipse at 15% 20%, rgba(255, 245, 204, 0.45) 0%, transparent 30%),
+    radial-gradient(ellipse at 85% 75%, rgba(184, 134, 11, 0.25) 0%, transparent 35%),
+    linear-gradient(135deg, #FAF7F2 0%, #F5EFEB 50%, #EFE5D8 100%);
+}
+
+/* Hammered Gold Metallic Border */
+.border-hammered-gold {
+  border-color: #D4AF37;
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5),
+    0 1px 2px 0 rgba(184, 134, 11, 0.15);
+}
+
+/* 2. Tactile Archival Ivory Paper Texture */
+.texture-ivory-paper {
+  background-color: #FAF9F5;
+  background-image: radial-gradient(rgba(184, 134, 11, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* 3. Jeweller's Display Pad Velvet Texture */
+.texture-jewellers-velvet {
+  background-color: #121214;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+    radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 16px 16px;
+}
