@@ -259,6 +259,14 @@ export function Footer() {
               <span className="text-[#8C6212] font-semibold">VAT Reg No: {NIRAJ_VAT_NUMBER}</span>
               <span className="hidden sm:inline">•</span>
               <span>136 Uxbridge Road, Hayes UB4 0JH</span>
+              <span className="hidden sm:inline">•</span>
+              <Link
+                href="/admin"
+                rel="nofollow"
+                className="text-[#9A98A0] hover:text-[#996515] transition-colors"
+              >
+                Staff Login
+              </Link>
             </div>
 
             <button

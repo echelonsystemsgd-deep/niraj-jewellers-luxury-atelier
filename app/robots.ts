@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/test-404"],
+        disallow: ["/api/", "/admin/", "/test-404"],
       },
       {
         userAgent: [
@@ -19,7 +19,7 @@ export default function robots(): MetadataRoute.Robots {
           "Amazonbot",
         ],
         allow: "/",
-        disallow: ["/api/", "/test-404"],
+        disallow: ["/api/", "/admin/", "/test-404"],
       },
     ],
     sitemap: "https://www.niraj-jewellers.co.uk/sitemap.xml",
