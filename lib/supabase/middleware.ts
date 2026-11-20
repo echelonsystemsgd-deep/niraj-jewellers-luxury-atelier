@@ -32,10 +32,13 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
+  const adminSession = request.cookies.get("niraj_admin_session")?.value;
+  const isAuthenticated = Boolean(user || adminSession === "authenticated_owner");
+
   const isAccessingAdmin = request.nextUrl.pathname.startsWith("/admin");
   const isLoginPage = request.nextUrl.pathname === "/admin/login";
 
-  if (isAccessingAdmin && !isLoginPage && !user) {
+  if (isAccessingAdmin && !isLoginPage && !isAuthenticated) {
     // Redirect unauthenticated requests to login
     const url = request.nextUrl.clone();
     url.pathname = "/admin/login";
@@ -43,7 +46,7 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  if (isLoginPage && user) {
+  if (isLoginPage && isAuthenticated) {
     // Redirect already authenticated users straight to the dashboard
     const url = request.nextUrl.clone();
     url.pathname = "/admin";

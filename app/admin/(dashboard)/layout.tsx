@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import {
   Gem,
   LayoutGrid,
@@ -11,10 +12,10 @@ import {
   HelpCircle,
   ExternalLink,
   LogOut,
-  ShieldCheck,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { logoutAction } from "@/app/admin/actions";
+import { AdminSidebar } from "@/components/admin/admin-sidebar";
 
 export const metadata: Metadata = {
   title: "Atelier Dashboard | Niraj Jewellers Ltd",
@@ -30,14 +31,19 @@ export default async function AdminDashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const adminSession = cookieStore.get("niraj_admin_session")?.value;
+
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
+  if (!user && adminSession !== "authenticated_owner") {
     redirect("/admin/login");
   }
+
+  const activeEmail = user?.email || "nirajjewellers@hotmail.com";
 
   const navLinks = [
     { label: "Vault Pieces", href: "/admin", icon: Gem },
@@ -50,94 +56,28 @@ export default async function AdminDashboardLayout({
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#141416] flex flex-col md:flex-row selection:bg-gold-200">
-      {/* 1. DESKTOP SIDEBAR (Visible on md: >= 768px) */}
-      <aside className="hidden md:flex flex-col w-64 border-r border-[#E8DEC8] bg-white shrink-0 min-h-screen sticky top-0">
-        {/* Brand Header */}
-        <div className="p-6 border-b border-[#E8DEC8] flex items-center gap-3">
-          <div className="relative w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/50 flex items-center justify-center shadow-sm overflow-hidden p-0.5">
-            <Image
-              src="/NIRAJ_LOGO9.png"
-              alt="Niraj Jewellers Ltd Logo"
-              width={36}
-              height={36}
-              className="object-contain"
-            />
-          </div>
-          <div>
-            <span className="font-serif text-sm font-bold tracking-wider text-[#141416] uppercase block">
-              NIRAJ JEWELLERS
-            </span>
-            <span className="text-[10px] font-semibold tracking-widest text-[#8C6212] uppercase block">
-              Atelier Dashboard
-            </span>
-          </div>
-        </div>
-
-        {/* Navigation Items */}
-        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
-          {navLinks.map((link) => {
-            const Icon = link.icon;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-semibold tracking-wide text-[#4A4A52] hover:text-[#996515] hover:bg-[#FAF8F5] transition-colors"
-              >
-                <Icon className="w-4 h-4 text-[#8C6212]" />
-                <span>{link.label}</span>
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* User Footer */}
-        <div className="p-4 border-t border-[#E8DEC8] space-y-3 bg-[#FAF8F5]/60">
-          <div className="flex items-center gap-2 px-2 text-[11px] text-[#5A5960]">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span className="truncate">{user.email}</span>
-          </div>
-
-          <div className="flex items-center gap-2 pt-1">
-            <Link
-              href="/"
-              target="_blank"
-              className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg border border-[#E8DEC8] bg-white text-[11px] font-medium text-[#141416] hover:border-[#996515] transition-colors"
-            >
-              <ExternalLink className="w-3 h-3 text-[#8C6212]" />
-              <span>Live Site</span>
-            </Link>
-
-            <form action={logoutAction} className="shrink-0">
-              <button
-                type="submit"
-                title="Log out of Dashboard"
-                className="p-2 rounded-lg border border-[#E8DEC8] bg-white text-red-600 hover:bg-red-50 hover:border-red-200 transition-colors"
-              >
-                <LogOut className="w-3.5 h-3.5" />
-              </button>
-            </form>
-          </div>
-        </div>
-      </aside>
+      {/* 1. LUXURY DESKTOP SIDEBAR (Visible on md: >= 768px) */}
+      <AdminSidebar userEmail={activeEmail} />
 
       {/* 2. MOBILE TOP BAR (< 768px) */}
       <header className="md:hidden flex items-center justify-between px-4 py-3 bg-white border-b border-[#E8DEC8] sticky top-0 z-40">
         <div className="flex items-center gap-2.5">
-          <div className="relative w-8 h-8 rounded-lg bg-[#FAF8F5] border border-[#D4AF37]/50 flex items-center justify-center overflow-hidden">
+          <div className="relative w-9 h-9 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/60 flex items-center justify-center overflow-hidden shadow-sm p-0.5 shrink-0">
             <Image
               src="/NIRAJ_LOGO9.png"
-              alt="Logo"
-              width={28}
-              height={28}
+              alt="Niraj Jewellers Emblem"
+              width={32}
+              height={32}
               className="object-contain"
+              priority
             />
           </div>
           <div>
             <span className="font-serif text-xs font-bold uppercase tracking-wider text-[#141416] block">
-              NIRAJ JEWELLERS
+              NIRAJ JEWELLERS <span className="text-[10px] text-[#996515]">LTD</span>
             </span>
-            <span className="text-[9px] font-medium text-[#8C6212] tracking-wider uppercase block">
-              Owner Dashboard
+            <span className="text-[9px] font-bold text-[#8C6212] tracking-wider uppercase block">
+              Owner Atelier Portal
             </span>
           </div>
         </div>

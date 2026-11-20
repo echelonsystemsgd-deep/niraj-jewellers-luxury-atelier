@@ -5,7 +5,7 @@ import { Lock, Shield, Sparkles } from "lucide-react";
 import { loginAction } from "@/app/admin/actions";
 
 export const metadata: Metadata = {
-  title: "Staff Login | Niraj Jewellers Ltd",
+  title: "Staff Login",
   description: "Authorized owner and staff portal for Niraj Jewellers Ltd Hayes London.",
   robots: {
     index: false,

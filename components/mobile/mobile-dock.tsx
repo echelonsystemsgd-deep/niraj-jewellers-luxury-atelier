@@ -1,9 +1,16 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Phone, MessageCircle, Navigation } from "lucide-react";
 import { NIRAJ_MAPS_LINK, NIRAJ_UK_PHONE, buildWhatsAppLink } from "@/lib/whatsapp";
 
 export function MobileDock() {
+  const pathname = usePathname();
+
+  // Hide the public customer mobile dock on all admin pages
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
   const whatsappMobileLink = buildWhatsAppLink({
     source: "mobile_sticky_dock",
     customNote: "Hi Niraj Jewellers team, I am reaching out from your website on mobile to ask about jewellery / gold bullion.",

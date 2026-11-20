@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -32,6 +32,16 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
   const [errorMessage, setErrorMessage] = useState("");
   const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
   const [showPreviewModal, setShowPreviewModal] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && showPreviewModal) {
+        setShowPreviewModal(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showPreviewModal]);
 
   const [formData, setFormData] = useState<PiecePayload>(
     initialData || {
@@ -628,8 +638,17 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
 
       {/* 4. Live Preview Modal with Mobile / Desktop Toggle */}
       {showPreviewModal && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl border border-[#E8DEC8] shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden animate-scaleIn">
+        <div
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Live Visual Preview"
+          onClick={() => setShowPreviewModal(false)}
+        >
+          <div
+            className="bg-white rounded-2xl border border-[#E8DEC8] shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden animate-scaleIn"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="p-4 border-b border-[#E8DEC8] flex items-center justify-between bg-[#FAF8F5]">
               <div className="flex items-center gap-2">
                 <span className="font-serif text-sm font-bold text-[#141416]">
@@ -643,6 +662,7 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
               <div className="flex items-center gap-2">
                 <button
                   type="button"
+                  aria-label="Desktop preview mode"
                   onClick={() => setPreviewMode("desktop")}
                   className={`p-1.5 rounded-lg border ${previewMode === "desktop" ? "bg-[#996515] text-white border-[#996515]" : "bg-white text-[#7A705E] border-[#E8DEC8]"}`}
                 >
@@ -650,6 +670,7 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
                 </button>
                 <button
                   type="button"
+                  aria-label="Mobile preview mode"
                   onClick={() => setPreviewMode("mobile")}
                   className={`p-1.5 rounded-lg border ${previewMode === "mobile" ? "bg-[#996515] text-white border-[#996515]" : "bg-white text-[#7A705E] border-[#E8DEC8]"}`}
                 >
@@ -657,8 +678,9 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
                 </button>
                 <button
                   type="button"
+                  aria-label="Close modal"
                   onClick={() => setShowPreviewModal(false)}
-                  className="text-xs text-[#7A705E] hover:text-black ml-2 font-bold"
+                  className="text-xs text-[#7A705E] hover:text-black ml-2 font-bold px-2 py-1 rounded-md"
                 >
                   ✕ Close
                 </button>
