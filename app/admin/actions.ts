@@ -346,9 +346,16 @@ export async function updateSettingsAction(payload: SettingsPayload) {
   }
 
   // Upsert singleton
-  const { error } = await supabase
+  const { data: existing } = await supabase
     .from("global_settings")
-    .update({
+    .select("id")
+    .limit(1)
+    .maybeSingle();
+
+  let error;
+  if (!existing) {
+    const res = await supabase.from("global_settings").insert({
+      business_name: "Niraj Jewellers Ltd",
       phone_uk: payload.phone_uk,
       phone_intl: payload.phone_intl,
       whatsapp_number: payload.whatsapp_number,
@@ -358,9 +365,26 @@ export async function updateSettingsAction(payload: SettingsPayload) {
       company_reg: payload.company_reg,
       vat_number: payload.vat_number,
       opening_hours: payload.opening_hours,
-      updated_at: new Date().toISOString(),
-    })
-    .not("id", "is", null);
+    });
+    error = res.error;
+  } else {
+    const res = await supabase
+      .from("global_settings")
+      .update({
+        phone_uk: payload.phone_uk,
+        phone_intl: payload.phone_intl,
+        whatsapp_number: payload.whatsapp_number,
+        email: payload.email,
+        showroom_address: payload.showroom_address,
+        maps_url: payload.maps_url,
+        company_reg: payload.company_reg,
+        vat_number: payload.vat_number,
+        opening_hours: payload.opening_hours,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", existing.id);
+    error = res.error;
+  }
 
   if (error) {
     return { error: formatDbError(error.message) };
