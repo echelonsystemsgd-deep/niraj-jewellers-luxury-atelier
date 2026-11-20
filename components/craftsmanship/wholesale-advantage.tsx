@@ -1,119 +1,141 @@
 "use client";
 
-import { Sparkles, Check, X, ShieldCheck, Scale, Award, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle2 } from "lucide-react";
+import { WhatsAppIcon, GoldsmithScalesIcon, GoldsmithLoupeIcon, HallmarkCrownIcon, WorkshopBenchIcon } from "@/components/icons/luxury-icons";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export function WholesaleAdvantage() {
-  const comparison = [
+  const differentiators = [
     {
-      feature: "Gold Pricing Transparency",
-      niraj: "Priced directly by gram weight according to live daily London gold fix + pure craft fee.",
-      highStreet: "Opaque lump-sum pricing with undisclosed retail markups up to 300%.",
+      title: "Direct London Assay Hallmarking",
+      subtitle: "UK Hallmarking Act 1973 Compliance",
+      icon: HallmarkCrownIcon,
+      image: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
+      imageAlt: "Official London Assay Office Leopard's head hallmark verification",
+      description:
+        "Every single piece sold is legally tested and struck with the official London Leopard's Head hallmark at Goldsmiths' Hall, London. Zero unverified imports.",
+      proofPoint: "Official UK Assay Office Legal Guarantee",
     },
     {
-      feature: "Diamond & Gemstone Sourcing",
-      niraj: "Direct wholesale sourcing from Antwerp, Mumbai, and Tel Aviv. GIA/IGI certified at wholesale margins.",
-      highStreet: "Middleman broker chains and high-street boutique commission markups.",
+      title: "Live Bullion Weight Transparency",
+      subtitle: "Priced by Gram & London Fix",
+      icon: GoldsmithScalesIcon,
+      image: "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
+      imageAlt: "Live gold bullion weighing on trade certified scales",
+      description:
+        "We weigh every piece on trade-certified digital scales directly in front of you. Gold is priced honestly by gram weight and live London bullion fix plus an unbundled craft fee.",
+      proofPoint: "Zero Hidden Margins • Weighed Before You",
     },
     {
-      feature: "Workshop Security & Location",
-      niraj: "All craftsmanship & sizing executed on-site at 136 Uxbridge Road. Never leaves our care.",
-      highStreet: "Pieces frequently posted via couriers to distant trade factories.",
+      title: "100% In-House Benchwork",
+      subtitle: "136 Uxbridge Road, Hayes",
+      icon: WorkshopBenchIcon,
+      image: "/images/workshop/workshop-bench-velvet-trays.jpg",
+      imageAlt: "In-house master goldsmith benches at Hayes workshop",
+      description:
+        "Your engagement rings and wedding heirlooms never leave our workshop. All laser soldering, stone setting, and restorative polishing are conducted on-site.",
+      proofPoint: "Zero Third-Party Courier Outsourcing",
     },
     {
-      feature: "Master Goldsmith Access",
-      niraj: "Consult directly with our master goldsmiths via WhatsApp or in person at our Hayes atelier.",
-      highStreet: "Commission-driven floor sales staff with no goldsmithing bench experience.",
-    },
-    {
-      feature: "Assay Office Certification",
-      niraj: "Every single piece legally hallmarked at the London Assay Office under the UK Hallmarking Act.",
-      highStreet: "Varying degrees of hallmarking clarity or foreign hallmarks requiring verification.",
+      title: "Direct Master Goldsmith Access",
+      subtitle: "Artisan-Led Consultations",
+      icon: GoldsmithLoupeIcon,
+      image: "/images/cad/bespoke-evil-eye-sapphire-cad.jpg",
+      imageAlt: "Master goldsmith 3D CAD and diamond loupe consultation",
+      description:
+        "Sit down directly with the master craftsmen forging your piece. Review 3D CAD models, inspect loose GIA/IGI diamonds under 40x magnification, and refine details in real time.",
+      proofPoint: "Direct Craftsman Access • No Floor Sales Pressure",
     },
   ];
 
   const compareWhatsApp = buildWhatsAppLink({
     intent: "wholesale",
-    customNote: "Hi Niraj Jewellers team, I'd like to compare direct workshop wholesale pricing for 22ct/18ct gold and certified diamonds against high-street retail quotes.",
+    customNote: "Hi Niraj Jewellers team, I would like to enquire about bespoke jewellery craftsmanship and transparent gold bullion pricing at your Hayes atelier.",
   });
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-y border-[#E8DEC8] relative">
+    <section className="py-20 sm:py-28 bg-white border-t border-[#E8DEC8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#996515]">
-            <Scale className="w-3.5 h-3.5" />
-            <span>The Direct Workshop Advantage</span>
+            <span>Evidence-Led Craftsmanship</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
-            Why West London Trusts Niraj Jewellers Ltd
+            What Sets Niraj Jewellers Apart
           </h2>
           <p className="font-vivaldi text-2xl sm:text-3xl text-[#996515] font-normal">
-            Direct atelier integrity without high-street retail markups
+            Direct atelier integrity with 100% workshop transparency
           </p>
           <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
-            We operate as both an authentic goldsmithing workshop and licensed gold bullion dealer. That means our clients enjoy transparent pricing and zero middleman markups.
+            Operating as both a working goldsmithing workshop and licensed gold bullion dealer on Uxbridge Road, we hold our standards to verified physical proof.
           </p>
         </div>
 
-        {/* Mobile Swipe Cue */}
-        <div className="md:hidden flex items-center justify-end gap-1 text-[11px] text-[#8C6212] mb-2 font-semibold">
-          <span>← Swipe to compare →</span>
-        </div>
-
-        {/* Comparison Table */}
-        <div className="overflow-x-auto pb-2">
-          <table className="w-full text-left border-collapse min-w-[640px] bg-white rounded-2xl overflow-hidden border border-[#E8DEC8] shadow-sm">
-            <thead>
-              <tr className="border-b border-[#E8DEC8] bg-[#FAF7F2]">
-                <th className="p-4 sm:p-5 text-xs font-bold uppercase tracking-wider text-[#141416] w-1/3">
-                  Craftsmanship Standard
-                </th>
-                <th className="p-4 sm:p-5 text-xs font-bold uppercase tracking-wider text-[#8C6212] bg-[#FAF2E2] w-1/3 border-x border-[#E8DEC8]">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#996515]" />
-                    <span>Niraj Jewellers Ltd</span>
+        {/* 4 Differentiator Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {differentiators.map((diff, idx) => {
+            const Icon = diff.icon;
+            return (
+              <div
+                key={idx}
+                className="bg-[#FAF9F5] p-6 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
+              >
+                <div>
+                  {/* Top Bar with Icon & Subtitle */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-white border border-[#D4AF37]/50 flex items-center justify-center text-[#996515] shadow-sm">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-[11px] font-mono text-[#8C6212] uppercase tracking-wider font-semibold">
+                      {diff.subtitle}
+                    </span>
                   </div>
-                </th>
-                <th className="p-4 sm:p-5 text-xs font-bold uppercase tracking-wider text-[#7A7880] w-1/3">
-                  Traditional High Street Jewellers
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[#EFE8DA] text-xs sm:text-sm">
-              {comparison.map((row, i) => (
-                <tr key={i} className="hover:bg-[#FAF8F5] transition-colors">
-                  <td className="p-4 sm:p-5 font-semibold text-[#141416]">
-                    {row.feature}
-                  </td>
-                  <td className="p-4 sm:p-5 bg-[#FCFAF6] border-x border-[#E8DEC8] text-[#141416] font-medium">
-                    <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>{row.niraj}</span>
+
+                  {/* Title & Description */}
+                  <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#141416] group-hover:text-[#996515] transition-colors mb-2">
+                    {diff.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#5A5960] leading-relaxed mb-5">
+                    {diff.description}
+                  </p>
+
+                  {/* Visual Proof Preview Thumbnail */}
+                  <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden border border-[#E8DEC8] bg-white group-hover:border-[#D4AF37] transition-colors mb-4">
+                    <Image
+                      src={diff.image}
+                      alt={diff.imageAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <div className="absolute bottom-2.5 left-3 flex items-center gap-1.5 text-white text-[11px] font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#DFBF7A]" />
+                      <span>{diff.proofPoint}</span>
                     </div>
-                  </td>
-                  <td className="p-4 sm:p-5 text-[#5A5960]">
-                    <div className="flex items-start gap-2">
-                      <X className="w-4 h-4 text-red-500/70 shrink-0 mt-0.5" />
-                      <span>{row.highStreet}</span>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </div>
+                </div>
+
+                {/* Footer Proof Badge */}
+                <div className="pt-3 border-t border-[#EFE8DA] flex items-center justify-between text-xs text-[#8C6212] font-semibold">
+                  <span>Verified Atelier Standard</span>
+                  <span className="text-[#C5A059] group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Banner Callout below table */}
-        <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#FAF7F2] via-white to-[#FAF7F2] border border-[#D4AF37]/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        {/* Reassurance Consultation Bar */}
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-white border border-[#D4AF37]/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1.5 text-center md:text-left">
-            <h4 className="font-serif text-xl sm:text-2xl text-[#141416] font-medium flex items-center justify-center md:justify-start gap-2">
-              <ShieldCheck className="w-5 h-5 text-[#996515]" />
-              <span>We Weigh &amp; Test Gold in Front of You</span>
+            <h4 className="font-serif text-xl sm:text-2xl text-[#141416] font-medium">
+              We Weigh &amp; Test Gold Directly Before You
             </h4>
             <p className="text-xs sm:text-sm text-[#4A4A52]">
-              Bring any piece into 136 Uxbridge Road for a free electronic purity test and transparent valuation.
+              Visit 136 Uxbridge Road for certified electronic gold purity testing and fair workshop valuations.
             </p>
           </div>
 
@@ -121,10 +143,10 @@ export function WholesaleAdvantage() {
             href={compareWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shrink-0"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shrink-0 min-h-[48px]"
           >
-            <MessageCircle className="w-4 h-4 fill-white text-transparent" />
-            <span>Consult Atelier on Wholesale Pricing</span>
+            <WhatsAppIcon className="w-4 h-4" fill="white" />
+            <span>Consult Atelier on WhatsApp</span>
           </a>
         </div>
       </div>

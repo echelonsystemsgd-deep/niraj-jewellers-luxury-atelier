@@ -79,7 +79,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Regal crescent chandbali choker in 22ct gold, featuring fluted melon-carved Zambian emeralds, open-set uncut Polki diamonds, and delicate briolette drops.",
     "priceNote": "High Jewellery Atelier • Bespoke Piece",
     "mediaType": "video",
-    "thumbnailUrl": "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4.jpeg",
+    "thumbnailUrl": "/images/collections/22ct-jadau-polki-bridal-choker.jpg",
     "videoUrl": "/images/collections/259e7f7d-50a7-4cba-8a65-a2b46c1e4ea0.mp4",
     "tags": [
       "Polki Heritage",
@@ -408,7 +408,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "description": "Handcrafted in our Hayes workshop. Solid gold architecture adorned with certified natural gemstones, hand-chased accents, and official London Assay hallmark guarantees.",
     "priceNote": "Direct Workshop Consultation • In-House Hayes Atelier",
     "mediaType": "image",
-    "thumbnailUrl": "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4.jpeg",
+    "thumbnailUrl": "/images/collections/22ct-jadau-polki-bridal-choker.jpg",
     "tags": [
       "22ct Gold",
       "London Assay",

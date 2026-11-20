@@ -2,63 +2,73 @@ export interface RepairService {
   id: string;
   title: string;
   turnaround: string;
-  iconName: string;
+  priceDisplay: string;
+  pricingHint: string;
+  image: string;
+  imageAlt: string;
   summary: string;
   details: string[];
-  pricingHint: string;
 }
 
 export const REPAIR_SERVICES: RepairService[] = [
   {
     id: "laser-ring-resizing",
     title: "Precision Laser Ring Resizing",
-    turnaround: "Same-Day (2–4 Hours) / While You Wait",
-    iconName: "Maximize2",
-    summary: "Seamless ring sizing for 22ct gold, 18ct white/yellow/rose gold, and platinum without weak solder joints.",
-    details: [
-      "Precision laser welding that preserves hallmark stamps",
-      "Platinum, 18ct, and 22ct Asian high-purity gold specialization",
-      "Complimentary sonic cleaning and rhodium plating with every sizing",
-    ],
+    turnaround: "Same-Day (2–4 Hours)",
+    priceDisplay: "From £35",
     pricingHint: "From £35 • Exact quote on inspection",
+    image: "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
+    imageAlt: "Goldsmith bench precision ring sizing in Hayes",
+    summary: "Seamless ring sizing for 22ct gold, 18ct white/yellow/rose gold, and platinum with laser welding that preserves hallmark stamps.",
+    details: [
+      "Precision laser welding preserving official hallmarks",
+      "Specializing in high-purity 22ct Asian gold & platinum",
+      "Complimentary polish and clean included",
+    ],
   },
   {
     id: "claw-retipping-stone-resetting",
     title: "Diamond Claw Retipping & Stone Resetting",
     turnaround: "24–48 Hours",
-    iconName: "ShieldCheck",
-    summary: "Reinforce worn prongs and reset loose or missing diamonds, rubies, and emeralds securely.",
+    priceDisplay: "From £45",
+    pricingHint: "From £45 • Exact quote on inspection",
+    image: "/images/workshop/workshop-bench-velvet-trays.jpg",
+    imageAlt: "Microscope stone resetting and claw retipping bench",
+    summary: "Reinforce worn claws and securely reset loose or missing diamonds, rubies, and emeralds under high magnification.",
     details: [
-      "Heavy-duty laser retipping preventing diamond loss",
-      "Microscope stone inspection under 40x magnification",
-      "Exact GIA/IGI diamond color and clarity matching",
+      "Heavy-duty laser retipping preventing gemstone loss",
+      "Microscope inspection under 40x magnification",
+      "GIA/IGI color and clarity matched stones",
     ],
-    pricingHint: "From £45 per claw • Free 10-point prong security check",
   },
   {
     id: "ultrasonic-restoration-polishing",
     title: "Ultrasonic Steam Restoration & Polishing",
-    turnaround: "While You Wait (30 Minutes)",
-    iconName: "Sparkles",
-    summary: "Restore the dazzling showroom mirror shine to antique heirlooms, bridal suites, and everyday rings.",
+    turnaround: "While You Wait (30 Mins)",
+    priceDisplay: "Complimentary with repair / £25 standalone",
+    pricingHint: "Complimentary with repair / £25 standalone",
+    image: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
+    imageAlt: "Ultrasonic cleaning and mirror polish restoration",
+    summary: "Restore showroom mirror lustre to bridal suites, vintage heirlooms, and daily jewelry with ultrasonic steam cavitation.",
     details: [
-      "3-stage mechanical buffing to remove fine scratches",
-      "80°C pressurized ultrasonic cavitation bath",
-      "Bright-white rhodium electroplating for white gold",
+      "3-stage mechanical buffing removing hairline scratches",
+      "Pressurized ultrasonic cavitation bath",
+      "Rhodium electroplating available for white gold",
     ],
-    pricingHint: "From £25 • Included free with any repair work",
   },
   {
     id: "luxury-watch-servicing",
-    title: "Watch Battery, Pressure Testing & Link Adjustments",
+    title: "Watch Battery, Pressure Testing & Link Sizing",
     turnaround: "15 Minutes While You Wait",
-    iconName: "Watch",
-    summary: "Swiss battery replacements, water-resistance gasket sealing, and stainless steel / gold bracelet link adjustments.",
+    priceDisplay: "From £15",
+    pricingHint: "From £15 • Completed while you wait",
+    image: "/images/collections/1e26b5f9-6c8a-45ce-b688-52f9dbd1d8bb.jpeg",
+    imageAlt: "Watch battery replacement and link adjustments",
+    summary: "Swiss silver-oxide battery replacements, water-resistance gasket testing, and bracelet link removal for luxury timepieces.",
     details: [
       "Swiss Renata silver-oxide batteries with 2-year warranty",
-      "5ATM/10ATM pressure test chamber verification",
-      "Precision screw-pin and friction-pin link sizing for Rolex, Omega, Cartier",
+      "Chamber pressure testing verification",
+      "Precision friction and screw-pin bracelet sizing",
     ],
-    pricingHint: "From £15 • Done in-showroom",
   },
 ];

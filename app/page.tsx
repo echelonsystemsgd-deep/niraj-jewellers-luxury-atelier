@@ -2,61 +2,53 @@
 
 import { Navbar } from "@/components/header/navbar";
 import { HeroSection } from "@/components/hero/hero-section";
-import { MasterpieceHeroSlider } from "@/components/collections/masterpiece-hero-slider";
-import { InfiniteMotionRibbon } from "@/components/collections/infinite-motion-ribbon";
 import { CollectionGrid } from "@/components/collections/collection-grid";
 import { CadJourney } from "@/components/craftsmanship/cad-journey";
-import { WholesaleAdvantage } from "@/components/craftsmanship/wholesale-advantage";
 import { RepairsBento } from "@/components/repairs/repairs-bento";
-import { HallmarkGuide } from "@/components/trust/hallmark-guide";
+import { WholesaleAdvantage } from "@/components/craftsmanship/wholesale-advantage";
 import { ReviewsSection } from "@/components/trust/reviews-section";
-import { FaqSection } from "@/components/faq/faq-section";
 import { ShowroomHub } from "@/components/showroom/showroom-hub";
+import { HallmarkGuide } from "@/components/trust/hallmark-guide";
+import { FaqSection } from "@/components/faq/faq-section";
 import { Footer } from "@/components/footer/footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-white text-[#141416] flex flex-col selection:bg-gold-200 selection:text-gold-900 overflow-x-hidden">
-      {/* 1. Header with London Business Hours status & Direct Phone CTA */}
+    <div className="relative min-h-screen bg-[#FAF9F5] text-[#141416] flex flex-col selection:bg-[#E8DEC8] selection:text-[#8C6212] overflow-x-hidden">
+      {/* 1. Header with left-anchored brand mark & uncrowded responsive navigation */}
       <Navbar />
 
       {/* 2. Main Luxury Experience */}
       <main className="flex-1">
-        {/* 1. Cinematic Hero with Ambient Royal Crest Watermark & Vivaldi Flourish */}
+        {/* 1. Mayfair Goldsmith Hero with artisan framing & verified London Assay accreditation */}
         <HeroSection />
 
-        {/* 2. Masterpiece Hero Slider: Interactive Top 3 Showpieces with Looping Video & Touch Gestures */}
-        <MasterpieceHeroSlider />
-
-        {/* 3. Infinite Motion Atelier Ribbon: Continuous 60fps Marquee of 12 Living Pieces */}
-        <InfiniteMotionRibbon />
-
-        {/* 4. Curated Flagship Showroom Collections Showcase */}
+        {/* 2. Curated Flagship Showroom Collections Showcase (Top 3 Verified Masterworks) */}
         <CollectionGrid isHomepage={true} />
 
-        {/* 5. The 4-Step Goldsmith & 3D CAD Journey */}
+        {/* 3. The 4-Step Goldsmith & 3D CAD Linear Timeline */}
         <CadJourney />
 
-        {/* 6. In-House Workshop & Same-Day Repair Concierge Bento Grid */}
+        {/* 4. In-House Workshop & Same-Day Repair Concierge with authentic bench photography */}
         <RepairsBento />
 
-        {/* 7. Direct Bullion & Wholesale Sourcing Advantage */}
+        {/* 5. What Sets Niraj Jewellers Apart (4 Evidence-Led Differentiators) */}
         <WholesaleAdvantage />
 
-        {/* 8. Gold Purity & London Assay Office Hallmarking Guide */}
-        <HallmarkGuide />
-
-        {/* 9. Flagship Hayes Showroom Hub & Live London Operating Hours */}
-        <ShowroomHub />
-
-        {/* 10. Verified Google 5-Star Reviews Showcase */}
+        {/* 6. Verified Google Client Reviews & Reputation (Under differentiators) */}
         <ReviewsSection />
 
-        {/* 11. 5 Critical Commercial Objections & Guarantees FAQ */}
+        {/* 7. Flagship Hayes Showroom Hub & Live London Operating Hours */}
+        <ShowroomHub />
+
+        {/* 8. Gold Purity & London Assay Office Hallmarking Guide (Directly above FAQ) */}
+        <HallmarkGuide />
+
+        {/* 9. 5 Critical Commercial Objections & Guarantees FAQ */}
         <FaqSection />
       </main>
 
-      {/* 3. Luxury Footer with Mercian Wealth Automation Attribution */}
+      {/* 3. Luxury Footer */}
       <Footer />
     </div>
   );

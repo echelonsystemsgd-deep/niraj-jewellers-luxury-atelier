@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HelpCircle, ChevronDown, MessageCircle, Sparkles } from "lucide-react";
+import { HelpCircle, ChevronDown, Sparkles } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import { buildWhatsAppLink, NIRAJ_UK_PHONE } from "@/lib/whatsapp";
 
 export interface FaqItem {
@@ -168,9 +169,9 @@ export function FaqSection() {
             href={whatsappFaqLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm shrink-0 min-h-[44px]"
           >
-            <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+            <WhatsAppIcon className="w-4 h-4" fill="white" />
             <span>Ask Atelier on WhatsApp</span>
           </a>
         </div>

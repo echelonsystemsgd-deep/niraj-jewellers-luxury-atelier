@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { MessageCircle, Sparkles, ShieldCheck, ArrowRight, Award, Compass, Phone } from "lucide-react";
-import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
+import Link from "next/link";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import { WhatsAppIcon, LuxuryStarIcon, GoldsmithLoupeIcon, GoldsmithScalesIcon, HallmarkCrownIcon, WorkshopBenchIcon } from "@/components/icons/luxury-icons";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export function HeroSection() {
   const [scrollY, setScrollY] = useState(0);
 
-  // Lightweight 60fps scroll listener for 0.15x parallax
+  // Smooth scroll listener for lightweight 0.1x subtle parallax
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -30,32 +32,93 @@ export function HeroSection() {
   });
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center pt-32 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-white to-[#FAF7F2]">
-      {/* Background Ambient Warm Gold Radiance */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#DFBF7A]/20 via-[#C5A059]/10 to-transparent rounded-full blur-[140px] opacity-75" />
-        <div className="absolute top-12 right-10 w-[400px] h-[400px] bg-[#E8DEC8]/50 rounded-full blur-[110px]" />
-        <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-[#FAF0DC]/60 rounded-full blur-[100px]" />
+    <section className="relative min-h-[92vh] flex flex-col justify-center pt-32 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-[#FAF9F5]">
+      {/* 1. Tactile Archival Paper Micro-Texture & Ambient Gold Radiance */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
+        {/* Soft atmospheric warmth */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-gradient-to-br from-[#DFBF7A]/15 via-[#C5A059]/10 to-transparent rounded-full blur-[140px] opacity-70" />
+        <div className="absolute top-8 right-8 w-[380px] h-[380px] bg-[#E8DEC8]/40 rounded-full blur-[110px]" />
+        <div className="absolute bottom-8 left-8 w-[320px] h-[320px] bg-[#FAF0DC]/50 rounded-full blur-[100px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
-          {/* Subtle Tagline Pill */}
-          <div className="relative z-10 inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/50 text-[#8C6212] text-[11px] sm:text-xs tracking-wider uppercase font-semibold shadow-sm animate-in fade-in duration-700 max-w-full">
-            <Sparkles className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-            <span className="hidden sm:inline">Master Goldsmiths • 136 Uxbridge Road, Hayes</span>
-            <span className="sm:hidden">Master Goldsmiths • Hayes Atelier</span>
-            <span className="hidden sm:inline text-[#D4AF37]/60">•</span>
-            <span className="hidden sm:inline text-[#5A5960]">Direct Workshop Access</span>
+      {/* 2. Bakery-Style Artisan Flanking Objects (Left & Right Margins) */}
+      {/* Left Flank: Precision Bench Tools & Velvet Consultation Tray */}
+      <div
+        className="hidden lg:block absolute -left-12 xl:left-4 top-1/2 -translate-y-1/2 w-64 xl:w-72 pointer-events-none select-none z-0 transition-transform duration-500 ease-out"
+        style={{
+          transform: `translate3d(0, calc(-50% + ${scrollY * 0.08}px), 0)`,
+        }}
+        aria-hidden="true"
+      >
+        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-[#E8DEC8]/80 bg-white/40 backdrop-blur-sm -rotate-6 transform hover:rotate-0 transition-transform duration-700">
+          <Image
+            src="/images/workshop/workshop-bench-velvet-trays.jpg"
+            alt="Handcrafted goldsmith consultation tray"
+            fill
+            sizes="288px"
+            className="object-cover opacity-90 contrast-[1.05]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          <div className="absolute bottom-3 left-3 right-3 text-center">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#141416]/80 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] font-mono tracking-wider text-[#DFBF7A] uppercase">
+              Hayes Goldsmith Bench
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Flank: Handcrafted 22ct Gold Bridal Masterwork */}
+      <div
+        className="hidden lg:block absolute -right-12 xl:right-4 top-1/2 -translate-y-1/2 w-64 xl:w-72 pointer-events-none select-none z-0 transition-transform duration-500 ease-out"
+        style={{
+          transform: `translate3d(0, calc(-50% + ${scrollY * -0.06}px), 0)`,
+        }}
+        aria-hidden="true"
+      >
+        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-[#E8DEC8]/80 bg-white/40 backdrop-blur-sm rotate-6 transform hover:rotate-0 transition-transform duration-700">
+          <Image
+            src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
+            alt="Handcrafted 22ct gold filigree masterpiece"
+            fill
+            sizes="288px"
+            className="object-cover opacity-90 contrast-[1.05]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          <div className="absolute bottom-3 left-3 right-3 text-center">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#141416]/80 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] font-mono tracking-wider text-[#DFBF7A] uppercase">
+              22ct Filigree Atelier
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Core Editorial Typography & Hero Interaction Area */}
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 text-center">
+        <div className="max-w-3xl mx-auto space-y-6 sm:space-y-8">
+          {/* Social Proof & London Assay Accreditation Pill */}
+          <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/50 text-[#8C6212] text-[11px] sm:text-xs font-semibold tracking-wide shadow-sm max-w-full">
+            <div className="flex items-center -space-x-1 shrink-0">
+              <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/60 flex items-center justify-center text-[8px] sm:text-[9px] font-bold text-[#996515]">
+                UK
+              </span>
+            </div>
+            <div className="flex items-center gap-0.5 shrink-0">
+              {[...Array(5)].map((_, i) => (
+                <LuxuryStarIcon key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="#C5A059" />
+              ))}
+            </div>
+            <span className="text-[#3D3C42] font-medium hidden sm:inline">•</span>
+            <span className="hidden sm:inline">London Assay Office Registered Atelier • Hayes</span>
+            <span className="sm:hidden">London Assay Registered Atelier</span>
           </div>
 
-          {/* Headline Container with Ambient Royal Crest Watermark */}
+          {/* Cinematic Editorial Headline */}
           <div className="relative isolate">
-            {/* Ambient Royal Crest Watermark behind the primary headline */}
+            {/* Subtle Royal Crest Watermark behind text */}
             <div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] md:w-[600px] md:h-[600px] pointer-events-none select-none z-0 opacity-25 sm:opacity-30 transition-all duration-500"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[480px] sm:h-[480px] pointer-events-none select-none z-0 opacity-20 transition-all duration-500"
               style={{
-                transform: `translate3d(-50%, calc(-50% + ${scrollY * 0.12}px), 0)`,
+                transform: `translate3d(-50%, calc(-50% + ${scrollY * 0.1}px), 0)`,
                 willChange: "transform",
               }}
               aria-hidden="true"
@@ -64,32 +127,31 @@ export function HeroSection() {
                 src="/NIRAJ_LOGO9.png"
                 alt=""
                 fill
-                sizes="(max-width: 640px) 340px, (max-width: 1024px) 520px, 600px"
-                className="object-contain filter drop-shadow-[0_4px_24px_rgba(212,175,55,0.2)]"
+                sizes="(max-width: 640px) 300px, 480px"
+                className="object-contain filter drop-shadow-[0_4px_24px_rgba(212,175,55,0.15)]"
                 priority
               />
             </div>
 
-            {/* Main Cinematic Headline featuring Vivaldi Flourish */}
-            <h1 className="relative z-10 font-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-[#141416] leading-[1.12] sm:leading-[1.15]">
+            <h1 className="relative z-10 font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-[#141416] leading-[1.12]">
               London&apos;s Bespoke{" "}
-              <span className="font-vivaldi text-[#996515] block sm:inline text-5xl sm:text-7xl md:text-8xl px-1 font-normal">
+              <span className="font-vivaldi text-[#996515] block sm:inline text-4xl sm:text-6xl md:text-7xl lg:text-8xl px-1 font-normal">
                 Goldsmith Atelier
               </span>{" "}
-              <span className="block sm:inline">&amp; Direct Gold Wholesaler</span>
+              <span className="block sm:inline">&amp; Direct 22ct Gold</span>
             </h1>
           </div>
 
-          {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-[#4A4A52] max-w-2xl mx-auto font-normal leading-relaxed">
-            From majestic 22ct bridal suites handcrafted in our Hayes workshop to certified natural diamonds and wholesale gold bullion. Direct master-goldsmith access with no high-street retail markups.
+          {/* Specific Subtitle in UK English */}
+          <p className="text-sm sm:text-base md:text-lg text-[#4A4A52] max-w-2xl mx-auto font-normal leading-relaxed">
+            Handcrafted 22ct bridal suites, certified natural diamonds, and live bullion transactions forged on Uxbridge Road, Hayes. Direct master-goldsmith access without high-street retail markups.
           </p>
 
-          {/* Dual CTAs */}
+          {/* Dual Dedicated CTAs */}
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 max-w-md mx-auto sm:max-w-none">
             <a
               href="#collections"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#C5A059] via-[#DFBF7A] to-[#B88E3E] hover:from-[#B88E3E] hover:to-[#996515] text-[#141416] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg shadow-[#C5A059]/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#C5A059] via-[#DFBF7A] to-[#B88E3E] hover:from-[#B88E3E] hover:to-[#996515] text-[#141416] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
             >
               <span>Explore Masterpiece Showcase</span>
               <ArrowRight className="w-4 h-4 text-[#141416]" />
@@ -99,61 +161,33 @@ export function HeroSection() {
               href={whatsappHeroLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#25D366]/60 text-[#128C7E] hover:text-[#075E54] font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm hover:shadow-md transform hover:-translate-y-0.5 min-h-[48px]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:py-4 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 min-h-[48px]"
             >
-              <MessageCircle className="w-4 h-4 fill-[#25D366] text-transparent" />
+              <WhatsAppIcon className="w-4 h-4" fill="white" />
               <span>WhatsApp Atelier Concierge</span>
             </a>
           </div>
 
-          {/* Speed-of-reply Reassurance Badge with Direct Phone */}
-          <div className="pt-1 flex flex-wrap items-center justify-center gap-3 text-xs text-[#5A5960]">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Direct Workshop Line: Speak with our Goldsmith Team within 15 Minutes</span>
-            </span>
-            <span className="hidden sm:inline text-[#D4AF37]">•</span>
-            <a
-              href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-              className="font-mono font-bold text-[#141416] hover:text-[#996515] underline underline-offset-2 flex items-center gap-1 min-h-[44px] sm:min-h-0 py-1"
-            >
-              <Phone className="w-3 h-3 text-[#996515]" />
-              <span>{NIRAJ_UK_PHONE}</span>
-            </a>
-          </div>
-
-          {/* Trust Value Badges Grid */}
-          <div className="pt-8 sm:pt-12 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 text-left">
-            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DEC8] shadow-sm hover:shadow-md hover:border-[#D4AF37] transition-all">
-              <div className="flex items-center gap-2 mb-2 text-[#996515]">
-                <Award className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Heritage</span>
-              </div>
-              <p className="text-xs text-[#5A5960] leading-relaxed">Over 40 years of authentic British &amp; South Asian master goldsmithing.</p>
+          {/* 4 Sleek Horizontal Trust Pills (no bulky card paragraphs) */}
+          <div className="pt-8 sm:pt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8DEC8] text-[#3D3C42] shadow-sm">
+              <HallmarkCrownIcon className="w-3.5 h-3.5 text-[#996515]" />
+              <span className="font-semibold text-[#141416]">Heritage Goldsmith Atelier</span>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DEC8] shadow-sm hover:shadow-md hover:border-[#D4AF37] transition-all">
-              <div className="flex items-center gap-2 mb-2 text-[#996515]">
-                <ShieldCheck className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">100% Hallmarked</span>
-              </div>
-              <p className="text-xs text-[#5A5960] leading-relaxed">Official London Assay Office hallmarked 22ct (916) and 18ct (750).</p>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8DEC8] text-[#3D3C42] shadow-sm">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#996515]" />
+              <span className="font-semibold text-[#141416]">100% London Assay Hallmarked</span>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DEC8] shadow-sm hover:shadow-md hover:border-[#D4AF37] transition-all">
-              <div className="flex items-center gap-2 mb-2 text-[#996515]">
-                <Compass className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">In-House Only</span>
-              </div>
-              <p className="text-xs text-[#5A5960] leading-relaxed">Crafted &amp; repaired on Uxbridge Road. Never outsourced to third parties.</p>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8DEC8] text-[#3D3C42] shadow-sm">
+              <WorkshopBenchIcon className="w-3.5 h-3.5 text-[#996515]" />
+              <span className="font-semibold text-[#141416]">100% In-House Benchwork</span>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E8DEC8] shadow-sm hover:shadow-md hover:border-[#D4AF37] transition-all">
-              <div className="flex items-center gap-2 mb-2 text-[#996515]">
-                <Sparkles className="w-4 h-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">Wholesale Value</span>
-              </div>
-              <p className="text-xs text-[#5A5960] leading-relaxed">Direct bullion &amp; diamond sourcing without middleman retail markups.</p>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8DEC8] text-[#3D3C42] shadow-sm">
+              <GoldsmithScalesIcon className="w-3.5 h-3.5 text-[#996515]" />
+              <span className="font-semibold text-[#141416]">Direct Bullion Weight Pricing</span>
             </div>
           </div>
         </div>

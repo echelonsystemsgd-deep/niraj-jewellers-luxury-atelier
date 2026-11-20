@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Phone, MapPin, MessageCircle, ShieldCheck, ArrowUp, Mail, ExternalLink, Sparkles } from "lucide-react";
+import { Instagram, Phone, MapPin, ShieldCheck, ArrowUp, Mail, ExternalLink, Sparkles } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import { NIRAJ_DISPLAY_PHONE, NIRAJ_UK_PHONE, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_EMAIL, NIRAJ_VAT_NUMBER, NIRAJ_COMPANY_REG, buildWhatsAppLink } from "@/lib/whatsapp";
 import { LegalModal, LegalTab } from "@/components/legal/legal-modal";
 
@@ -90,7 +91,7 @@ export function Footer() {
                   className="p-2.5 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#25D366]/50 text-[#128C7E] hover:text-[#075E54] transition-colors shadow-sm"
                   aria-label="WhatsApp Concierge"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                  <WhatsAppIcon className="w-4 h-4" fill="#25D366" />
                 </a>
               </div>
             </div>

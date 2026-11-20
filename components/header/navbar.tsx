@@ -5,10 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Phone, Menu, X, ArrowRight } from "lucide-react";
+import { Phone, Menu, X, ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import { ShowroomStatusBadge } from "./showroom-status";
 import { ScrollProgressBar } from "./scroll-progress-bar";
-import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE, NIRAJ_EMAIL } from "@/lib/whatsapp";
+import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
 import { useScrollLock } from "@/lib/use-scroll-lock";
 
 interface NavbarProps {
@@ -92,17 +93,17 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-xl border-b border-[#E8DEC8] shadow-[0_4px_24px_-4px_rgba(212,175,55,0.12)] py-2.5 sm:py-3"
-            : "bg-white/90 backdrop-blur-md border-b border-[#EFE8DA] py-3 sm:py-3.5"
+            ? "bg-[#FBF9F5]/95 backdrop-blur-xl border-b border-[#E8DEC8] shadow-[0_4px_24px_-4px_rgba(212,175,55,0.12)] py-2.5 sm:py-3"
+            : "bg-[#FBF9F5]/90 backdrop-blur-md border-b border-[#EFE8DA] py-3 sm:py-3.5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
-            {/* Column 1: Left Brand Mark with Official Logo */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-3 sm:gap-4 lg:gap-6">
+            {/* Column 1: Left Brand Mark with Official Logo (hard-left anchored) */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <Link
                 href="/"
-                className="group flex items-center gap-2 sm:gap-3.5 focus:outline-none text-left"
+                className="group flex items-center gap-2.5 sm:gap-3.5 focus:outline-none text-left"
                 aria-label="Niraj Jewellers Ltd Home"
               >
                 {/* Official Royal Crest Logo */}
@@ -117,10 +118,10 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif text-sm sm:text-lg lg:text-xl font-bold tracking-wider text-[#141416] group-hover:text-[#996515] transition-colors uppercase whitespace-nowrap">
+                  <span className="font-serif text-sm sm:text-base lg:text-lg font-bold tracking-wider text-[#141416] group-hover:text-[#996515] transition-colors uppercase whitespace-nowrap">
                     NIRAJ JEWELLERS <span className="text-[10px] sm:text-xs font-semibold text-[#996515] tracking-normal">LTD</span>
                   </span>
-                  <span className="text-[7.5px] sm:text-[9.5px] tracking-[0.18em] sm:tracking-[0.22em] text-[#8C6212] font-semibold uppercase -mt-0.5 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
+                  <span className="text-[7.5px] sm:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] text-[#8C6212] font-semibold uppercase -mt-0.5 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
                     <span>HAYES</span>
                     <span className="text-[#C5A059]">•</span>
                     <span>LONDON</span>
@@ -131,15 +132,15 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               </Link>
             </div>
 
-            {/* Column 2: Center Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 text-[11px] xl:text-xs uppercase tracking-wider font-semibold whitespace-nowrap">
+            {/* Column 2: Center Navigation Links (balanced spacing across 1024 - 1920px) */}
+            <nav className="hidden lg:flex items-center space-x-3.5 xl:space-x-6 text-[10.5px] xl:text-xs uppercase tracking-wider font-semibold whitespace-nowrap">
               {navLinks.map((link) => {
                 const isActive = !isHome && pathname.startsWith(link.route);
                 return (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className={`py-1.5 px-0.5 relative group transition-colors ${
+                    className={`py-1 px-1 relative group transition-colors ${
                       isActive ? "text-[#996515] font-bold" : "text-[#3D3C42] hover:text-[#996515]"
                     }`}
                   >
@@ -156,41 +157,41 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
 
             {/* Column 3: Right Action Buttons */}
             <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0">
-              {/* Direct Phone Number Header CTA (Desktop / Tablet) */}
+              {/* Direct Phone Number Header CTA (Shown on sm-md and xl+) */}
               <a
                 href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                className="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/50 text-[#141416] hover:text-[#996515] font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow-md transform hover:-translate-y-0.5 whitespace-nowrap group"
+                className="hidden sm:inline-flex lg:hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/50 text-[#141416] hover:text-[#996515] font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow-md whitespace-nowrap group"
                 aria-label={`Call direct workshop line: ${NIRAJ_DISPLAY_PHONE}`}
               >
                 <Phone className="w-3.5 h-3.5 text-[#996515] group-hover:scale-110 transition-transform" />
-                <span className="font-mono text-[11.5px] sm:text-xs text-[#141416] group-hover:text-[#996515]">{NIRAJ_UK_PHONE}</span>
+                <span className="font-mono text-[11px] sm:text-xs text-[#141416] group-hover:text-[#996515]">{NIRAJ_UK_PHONE}</span>
               </a>
 
-              {/* Mobile Call Icon Button (replaces WhatsApp on mobile header) */}
+              {/* Mobile Call Icon Button (Strict 44px+ tap target) */}
               <a
                 href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                className="sm:hidden w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/60 text-[#996515] flex items-center justify-center shrink-0 transition-colors shadow-sm touch-target active:scale-95"
+                className="sm:hidden w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/60 text-[#996515] flex items-center justify-center shrink-0 transition-colors shadow-sm active:scale-95"
                 aria-label={`Call direct workshop line: ${NIRAJ_DISPLAY_PHONE}`}
               >
                 <Phone className="w-4 h-4 text-[#996515]" />
               </a>
 
-              {/* Tablet & Desktop WhatsApp Pill */}
+              {/* Tablet & Desktop WhatsApp Pill with official Meta WhatsApp Green */}
               <a
                 href={whatsappHeroLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow-md transform hover:-translate-y-0.5 whitespace-nowrap"
+                className="hidden md:inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-semibold text-xs tracking-wide transition-all shadow-sm hover:shadow-md transform hover:-translate-y-0.5 whitespace-nowrap"
               >
-                <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white text-transparent" />
+                <WhatsAppIcon className="w-4 h-4" fill="white" />
                 <span>WhatsApp Concierge</span>
               </a>
 
-              {/* Mobile / Tablet Menu Toggle Button (guaranteed visible and in-bounds on 360-390px viewports) */}
+              {/* Mobile / Tablet Menu Toggle Button (guaranteed min 44px tap target) */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden w-10 h-10 min-w-[40px] min-h-[40px] sm:w-11 sm:h-11 sm:min-w-[44px] sm:min-h-[44px] rounded-xl text-[#141416] hover:text-[#996515] bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] transition-colors flex items-center justify-center shrink-0 shadow-sm touch-target"
-                aria-label="Open luxury navigation menu"
+                className="lg:hidden w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl text-[#141416] hover:text-[#996515] bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] transition-colors flex items-center justify-center shrink-0 shadow-sm"
+                aria-label="Open navigation menu"
               >
                 <Menu className="w-5 h-5 text-[#996515]" />
               </button>
@@ -207,13 +208,13 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="fixed inset-0 z-[100] bg-white text-[#141416] flex flex-col justify-between overflow-y-auto"
+            className="fixed inset-0 z-[100] bg-[#FBF9F5] text-[#141416] flex flex-col justify-between overflow-y-auto"
             role="dialog"
             aria-modal="true"
             aria-label="Site Navigation"
           >
             {/* Top Bar inside Fullscreen Overlay */}
-            <div className="border-b border-[#E8DEC8] px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between bg-white sticky top-0 z-10">
+            <div className="border-b border-[#E8DEC8] px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between bg-[#FBF9F5] sticky top-0 z-10">
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
@@ -240,7 +241,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
 
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-[#D4AF37]/40 bg-[#FAF7F2] hover:bg-[#F4ECE1] text-[#996515] text-xs font-semibold uppercase tracking-wider transition-colors min-h-[48px] touch-target"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-[#D4AF37]/40 bg-[#FAF7F2] hover:bg-[#F4ECE1] text-[#996515] text-xs font-semibold uppercase tracking-wider transition-colors min-h-[48px]"
                 aria-label="Close menu"
               >
                 <span>CLOSE</span>
@@ -256,9 +257,9 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               </div>
 
               {/* Direct Phone Highlight in Mobile Menu */}
-              <div className="p-3.5 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8] flex items-center justify-between">
+              <div className="p-3.5 rounded-xl bg-white border border-[#E8DEC8] flex items-center justify-between shadow-sm">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#F4ECE1] flex items-center justify-center text-[#996515]">
+                  <div className="w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -268,7 +269,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 </div>
                 <a
                   href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                  className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#996515] to-[#C5A059] text-white text-xs font-bold uppercase tracking-wider shadow-sm"
+                  className="px-3.5 py-2 rounded-full bg-gradient-to-r from-[#996515] to-[#C5A059] text-white text-xs font-bold uppercase tracking-wider shadow-sm min-h-[44px] inline-flex items-center"
                 >
                   Call Now
                 </a>
@@ -282,10 +283,10 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                       key={link.label}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`group flex items-center justify-between py-3.5 px-3 rounded-xl transition-all ${
+                      className={`group flex items-center justify-between py-3.5 px-3 rounded-xl transition-all min-h-[48px] ${
                         isActive
-                          ? "bg-[#FAF7F2] text-[#996515] border-l-4 border-[#996515]"
-                          : "text-[#141416] hover:bg-[#FAF7F2] hover:text-[#996515]"
+                          ? "bg-white text-[#996515] border-l-4 border-[#996515] shadow-sm"
+                          : "text-[#141416] hover:bg-white hover:text-[#996515]"
                       }`}
                     >
                       <div className="flex items-center gap-4">
@@ -307,15 +308,15 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
             </div>
 
             {/* Bottom: Fast Contact Concierge Bar */}
-            <div className="border-t border-[#E8DEC8] px-5 sm:px-8 py-5 bg-[#FAF7F2] sticky bottom-0 z-10 space-y-3">
+            <div className="border-t border-[#E8DEC8] px-5 sm:px-8 py-5 bg-white sticky bottom-0 z-10 space-y-3">
               <a
                 href={whatsappHeroLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md min-h-[48px]"
               >
-                <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+                <WhatsAppIcon className="w-4 h-4" fill="white" />
                 <span>Message Atelier Concierge</span>
               </a>
               <div className="flex items-center justify-center text-[10px] text-[#7A7880] tracking-wider uppercase">

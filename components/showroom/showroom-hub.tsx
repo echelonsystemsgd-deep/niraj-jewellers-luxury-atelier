@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { MapPin, Clock, Car, Train, Phone, MessageCircle, Sparkles, Navigation, ChevronDown, ChevronUp, Mail, ShieldCheck } from "lucide-react";
+import { MapPin, Clock, Car, Train, Phone, Navigation, ChevronDown, ChevronUp, Mail, ShieldCheck } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import { ShowroomStatusBadge } from "@/components/header/showroom-status";
 import { NIRAJ_MAPS_LINK, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE, NIRAJ_EMAIL, buildWhatsAppLink } from "@/lib/whatsapp";
 import { getLondonCurrentDayInfo } from "@/lib/showroom-hours";
@@ -90,7 +91,7 @@ export function ShowroomHub() {
                   href={NIRAJ_MAPS_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#C5A059] to-[#996515] text-white font-bold text-xs uppercase tracking-wide transition-all shadow-sm hover:shadow"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#C5A059] to-[#996515] text-white font-bold text-xs uppercase tracking-wide transition-all shadow-sm hover:shadow min-h-[44px]"
                 >
                   <Navigation className="w-3.5 h-3.5" />
                   <span>Open in Google Maps</span>
@@ -98,7 +99,7 @@ export function ShowroomHub() {
 
                 <a
                   href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all font-mono"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all font-mono min-h-[44px]"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#996515]" />
                   <span>Call {NIRAJ_UK_PHONE}</span>
@@ -106,7 +107,7 @@ export function ShowroomHub() {
 
                 <a
                   href={`mailto:${NIRAJ_EMAIL}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all min-h-[44px]"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#996515]" />
                   <span>{NIRAJ_EMAIL}</span>
@@ -143,7 +144,7 @@ export function ShowroomHub() {
                 href={NIRAJ_MAPS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-1/2 py-3.5 rounded-xl bg-white hover:bg-[#FAF7F2] border border-[#D4AF37]/50 text-[#8C6212] hover:text-[#996515] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm"
+                className="w-full sm:w-1/2 py-3.5 rounded-xl bg-white hover:bg-[#FAF7F2] border border-[#D4AF37]/50 text-[#8C6212] hover:text-[#996515] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm min-h-[48px]"
               >
                 <Navigation className="w-4 h-4 text-[#996515]" />
                 <span>Get Driving Directions</span>
@@ -153,9 +154,9 @@ export function ShowroomHub() {
                 href={whatsappDirections}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-1/2 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
+                className="w-full sm:w-1/2 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md min-h-[48px]"
               >
-                <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+                <WhatsAppIcon className="w-4 h-4" fill="white" />
                 <span>WhatsApp Ahead of Arrival</span>
               </a>
             </div>
@@ -186,7 +187,7 @@ export function ShowroomHub() {
                 )}
                 <button
                   onClick={() => setHoursOpen(!hoursOpen)}
-                  className="text-[#5A5960] hover:text-[#141416] p-1"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] flex items-center justify-center text-[#5A5960] hover:text-[#996515] transition-colors shadow-sm"
                   aria-label="Toggle hours"
                 >
                   {hoursOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -246,96 +247,6 @@ export function ShowroomHub() {
                 </div>
               </div>
             )}
-          </div>
-        </div>
-
-        {/* Authentic Hayes Atelier Bench & Ledger Gallery */}
-        <div className="mt-16 pt-12 border-t border-[#E8DEC8]">
-          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-            <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#996515]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#996515]" />
-              <span>Authentic In-House Goldsmithing</span>
-            </div>
-            <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#141416]">
-              Behind the Benches at 136 Uxbridge Road
-            </h3>
-            <p className="text-xs sm:text-sm text-[#4A4A52]">
-              Every commission is hand-carved, weighed to the milligram, and finished in our West London atelier.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="group relative rounded-2xl overflow-hidden bg-white border border-[#E8DEC8] hover:border-[#D4AF37] transition-all shadow-sm hover:shadow-md">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FAF7F2]">
-                <Image
-                  src="/images/workshop/goldsmith-bench-order-book-22ct.jpg"
-                  alt="22ct Gold Choker and Jhumkis on Hayes Goldsmith Bench with Order Ledger #12402"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-black/80 backdrop-blur-sm border border-[#D4AF37]/40 text-[10px] font-mono font-semibold text-[#DFBF7A]">
-                  Goldsmith Ledger #12402
-                </div>
-              </div>
-              <div className="p-4 space-y-1">
-                <h4 className="font-serif text-base font-medium text-[#141416] group-hover:text-[#996515] transition-colors">
-                  Hand-Chased 22ct Granulation Choker
-                </h4>
-                <p className="text-xs text-[#5A5960]">
-                  Documented gram-by-gram on our workshop bench with matching drop jhumkis.
-                </p>
-              </div>
-            </div>
-
-            <div className="group relative rounded-2xl overflow-hidden bg-white border border-[#E8DEC8] hover:border-[#D4AF37] transition-all shadow-sm hover:shadow-md">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FAF7F2]">
-                <Image
-                  src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
-                  alt="Calcutta Filigree 22ct Gold Bridal Suite on Showroom Tray"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-black/80 backdrop-blur-sm border border-[#D4AF37]/40 text-[10px] font-mono font-semibold text-[#DFBF7A]">
-                  22ct Calcutta Filigree
-                </div>
-              </div>
-              <div className="p-4 space-y-1">
-                <h4 className="font-serif text-base font-medium text-[#141416] group-hover:text-[#996515] transition-colors">
-                  Multi-Tier Collar &amp; Maang Tikka Suite
-                </h4>
-                <p className="text-xs text-[#5A5960]">
-                  Intricate South Asian filigree mesh with cabochon emerald accents.
-                </p>
-              </div>
-            </div>
-
-            <div className="group relative rounded-2xl overflow-hidden bg-white border border-[#E8DEC8] hover:border-[#D4AF37] transition-all shadow-sm hover:shadow-md">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FAF7F2]">
-                <Image
-                  src="/images/workshop/workshop-bench-velvet-trays.jpg"
-                  alt="Hayes Atelier Workshop Velvet Trays with Finished Gold Suites"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-black/80 backdrop-blur-sm border border-[#D4AF37]/40 text-[10px] font-mono font-semibold text-[#DFBF7A]">
-                  Uxbridge Road Atelier
-                </div>
-              </div>
-              <div className="p-4 space-y-1">
-                <h4 className="font-serif text-base font-medium text-[#141416] group-hover:text-[#996515] transition-colors">
-                  Private Viewing Consultation Trays
-                </h4>
-                <p className="text-xs text-[#5A5960]">
-                  Curated bridal suites ready for consultation, scale testing, and hallmarking.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

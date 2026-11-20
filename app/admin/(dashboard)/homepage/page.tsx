@@ -16,7 +16,7 @@ export default function AdminHomepageSectionsPage() {
             Homepage Structure & Flow
           </h1>
           <p className="text-xs text-[#5A5960] mt-1">
-            Reorder and manage the 11 experiential sections of Niraj Jewellers Ltd.
+            Manage the 9 experiential sections of Niraj Jewellers Ltd.
           </p>
         </div>
 

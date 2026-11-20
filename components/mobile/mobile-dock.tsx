@@ -1,7 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Phone, MessageCircle, Navigation } from "lucide-react";
+import { Phone, Navigation } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import { NIRAJ_MAPS_LINK, NIRAJ_UK_PHONE, buildWhatsAppLink } from "@/lib/whatsapp";
 
 export function MobileDock() {
@@ -31,14 +32,14 @@ export function MobileDock() {
           <span className="text-[11px] font-semibold tracking-tight">Call Atelier</span>
         </a>
 
-        {/* 2. WhatsApp Concierge (Highlighted) */}
+        {/* 2. WhatsApp Concierge (Highlighted with Official WhatsApp Green) */}
         <a
           href={whatsappMobileLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white transition-all shadow-md min-h-[48px] touch-target font-bold"
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#25D366] hover:bg-[#1ebe5b] text-white transition-all shadow-md min-h-[48px] touch-target font-bold"
         >
-          <MessageCircle className="w-4 h-4 fill-white text-transparent mb-1" />
+          <WhatsAppIcon className="w-4 h-4 mb-1" fill="white" />
           <span className="text-[11px] font-bold tracking-tight">WhatsApp</span>
         </a>
 
