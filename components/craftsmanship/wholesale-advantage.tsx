@@ -74,30 +74,30 @@ export function WholesaleAdvantage() {
         </div>
 
         {/* 4 Differentiator Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
           {differentiators.map((diff, idx) => {
             const Icon = diff.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#FAF9F5] p-6 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
+                className="bg-[#FAF9F5] p-5 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
               >
                 <div>
                   {/* Top Bar with Icon & Subtitle */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-[#D4AF37]/50 flex items-center justify-center text-[#996515] shadow-sm">
-                      <Icon className="w-5 h-5" />
+                  <div className="flex items-center justify-between mb-3.5 sm:mb-4">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-[#D4AF37]/50 flex items-center justify-center text-[#996515] shadow-sm">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <span className="text-[11px] font-mono text-[#8C6212] uppercase tracking-wider font-semibold">
+                    <span className="text-[10.5px] sm:text-[11px] font-mono text-[#8C6212] uppercase tracking-wider font-semibold">
                       {diff.subtitle}
                     </span>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#141416] group-hover:text-[#996515] transition-colors mb-2">
+                  <h3 className="font-serif text-lg sm:text-2xl font-medium text-[#141416] group-hover:text-[#996515] transition-colors mb-2">
                     {diff.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#5A5960] leading-relaxed mb-5">
+                  <p className="text-xs sm:text-sm text-[#5A5960] leading-relaxed mb-4 sm:mb-5">
                     {diff.description}
                   </p>
 
@@ -111,15 +111,15 @@ export function WholesaleAdvantage() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    <div className="absolute bottom-2.5 left-3 flex items-center gap-1.5 text-white text-[11px] font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#DFBF7A]" />
-                      <span>{diff.proofPoint}</span>
+                    <div className="absolute bottom-2 sm:bottom-2.5 left-2.5 sm:left-3 flex items-center gap-1.5 text-white text-[10px] sm:text-[11px] font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#DFBF7A] shrink-0" />
+                      <span className="truncate">{diff.proofPoint}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Footer Proof Badge */}
-                <div className="pt-3 border-t border-[#EFE8DA] flex items-center justify-between text-xs text-[#8C6212] font-semibold">
+                <div className="pt-3 border-t border-[#EFE8DA] flex items-center justify-between text-[11px] sm:text-xs text-[#8C6212] font-semibold">
                   <span>Verified Atelier Standard</span>
                   <span className="text-[#C5A059] group-hover:translate-x-1 transition-transform">→</span>
                 </div>

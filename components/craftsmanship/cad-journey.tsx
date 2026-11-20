@@ -69,43 +69,59 @@ export function CadJourney() {
             aria-hidden="true"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
+          {/* Vertical Connecting Spine for Mobile */}
+          <div
+            className="md:hidden absolute top-6 bottom-6 left-3.5 w-[2px] bg-gradient-to-b from-[#DFBF7A] via-[#996515] to-[#DFBF7A] z-0"
+            aria-hidden="true"
+          />
+
+          <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
             {steps.map((item) => (
               <div
                 key={item.num}
-                className="bg-white rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group"
+                className="relative pl-8 md:pl-0 flex flex-col"
               >
-                <div>
-                  {/* Step Image */}
-                  <div className="relative aspect-[16/11] w-full rounded-xl overflow-hidden mb-5 border border-[#E8DEC8] bg-[#FAF7F2] group-hover:border-[#D4AF37] transition-colors">
-                    <Image
-                      src={item.image}
-                      alt={item.imageAlt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-black/80 backdrop-blur-sm border border-[#D4AF37]/40 text-[10px] font-mono font-semibold text-[#DFBF7A]">
-                      {item.caption}
-                    </div>
-                  </div>
-
-                  {/* Title with Step Number Prepend (No Day Pills, No Redundant Icons) */}
-                  <h3 className="font-serif text-lg font-medium text-[#141416] group-hover:text-[#996515] transition-colors mb-2.5">
-                    {item.title}
-                  </h3>
-
-                  {/* Single Clean Craft Description Sentence */}
-                  <p className="text-xs sm:text-[13px] text-[#5A5960] leading-relaxed">
-                    {item.description}
-                  </p>
+                {/* Mobile Chronological Node Marker */}
+                <div
+                  className="md:hidden absolute left-0 top-5 w-7 h-7 rounded-full bg-[#141416] border-2 border-[#D4AF37] flex items-center justify-center text-[10px] font-bold text-[#DFBF7A] shadow-md z-20"
+                  aria-hidden="true"
+                >
+                  {item.num}
                 </div>
 
-                {/* Timeline Progress Pill */}
-                <div className="mt-6 pt-3 border-t border-[#EFE8DA] flex items-center justify-between text-[11px] text-[#8C6212] font-semibold">
-                  <span>Step 0{item.num} of 04</span>
-                  <span className="text-[#C5A059] group-hover:translate-x-1 transition-transform">→</span>
+                <div className="bg-white rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group h-full">
+                  <div>
+                    {/* Step Image */}
+                    <div className="relative aspect-[16/11] w-full rounded-xl overflow-hidden mb-4 sm:mb-5 border border-[#E8DEC8] bg-[#FAF7F2] group-hover:border-[#D4AF37] transition-colors">
+                      <Image
+                        src={item.image}
+                        alt={item.imageAlt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                      <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-black/80 backdrop-blur-sm border border-[#D4AF37]/40 text-[10px] font-mono font-semibold text-[#DFBF7A]">
+                        {item.caption}
+                      </div>
+                    </div>
+
+                    {/* Title with Step Number Prepend (No Day Pills, No Redundant Icons) */}
+                    <h3 className="font-serif text-base sm:text-lg font-medium text-[#141416] group-hover:text-[#996515] transition-colors mb-2">
+                      {item.title}
+                    </h3>
+
+                    {/* Single Clean Craft Description Sentence */}
+                    <p className="text-xs sm:text-[13px] text-[#5A5960] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* Timeline Progress Pill */}
+                  <div className="mt-4 sm:mt-6 pt-3 border-t border-[#EFE8DA] flex items-center justify-between text-[11px] text-[#8C6212] font-semibold">
+                    <span>Step 0{item.num} of 04</span>
+                    <span className="text-[#C5A059] group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
                 </div>
               </div>
             ))}

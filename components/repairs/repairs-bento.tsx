@@ -38,26 +38,26 @@ export function RepairsBento() {
             return (
               <div
                 key={service.id}
-                className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
+                className="bg-white p-5 sm:p-7 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
               >
-                <div className="space-y-4">
+                <div className="space-y-3.5 sm:space-y-4">
                   {/* Real Bench Task Visual & Turnaround/Price Bar */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-[#D4AF37]/40 bg-[#FAF7F2] shrink-0">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-[#D4AF37]/40 bg-[#FAF7F2] shrink-0">
                       <Image
                         src={service.image}
                         alt={service.imageAlt}
                         fill
-                        sizes="80px"
+                        sizes="(max-width: 640px) 56px, 80px"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-2 sm:justify-end">
-                      <span className="text-xs font-bold text-[#8C6212] bg-[#FAF7F2] border border-[#D4AF37]/40 px-3 py-1 rounded-full">
+                    <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1.5 sm:gap-2">
+                      <span className="text-xs font-bold text-[#8C6212] bg-[#FAF7F2] border border-[#D4AF37]/40 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
                         {service.priceDisplay}
                       </span>
-                      <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-3 py-1 rounded-full">
+                      <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
                         {service.turnaround}
                       </span>
                     </div>

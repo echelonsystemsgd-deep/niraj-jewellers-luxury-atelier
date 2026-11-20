@@ -47,13 +47,13 @@ export function ReviewsSection() {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {REVIEWS_DATA.slice(0, 3).map((review) => (
             <div
               key={review.id}
-              className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md"
+              className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-3.5 sm:space-y-4 shadow-sm hover:shadow-md"
             >
-              <div className="space-y-3.5">
+              <div className="space-y-3 sm:space-y-3.5">
                 {/* Header: Stars & Google Icon */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-0.5">
@@ -67,7 +67,7 @@ export function ReviewsSection() {
                   </div>
                 </div>
 
-                <div className="text-xs font-bold text-[#8C6212] font-mono">
+                <div className="text-[11px] sm:text-xs font-bold text-[#8C6212] font-mono">
                   {review.service}
                 </div>
 
@@ -77,19 +77,19 @@ export function ReviewsSection() {
               </div>
 
               {/* Reviewer Profile Row with Avatar Initials */}
-              <div className="pt-4 border-t border-[#EFE8DA] flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-xs font-bold text-[#996515] shrink-0">
+              <div className="pt-3.5 sm:pt-4 border-t border-[#EFE8DA] flex items-center justify-between">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-xs font-bold text-[#996515] shrink-0">
                     {getInitials(review.author)}
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-[#141416]">{review.author}</h4>
-                    <span className="text-[10px] text-[#7A7880]">{review.location}</span>
+                    <span className="text-[9.5px] sm:text-[10px] text-[#7A7880]">{review.location}</span>
                   </div>
                 </div>
 
                 {review.verified && (
-                  <span className="inline-flex items-center gap-1 text-[10px] text-emerald-800 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300">
+                  <span className="inline-flex items-center gap-1 text-[9.5px] sm:text-[10px] text-emerald-800 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300">
                     <ShieldCheck className="w-3 h-3 text-emerald-600" />
                     <span>Verified</span>
                   </span>

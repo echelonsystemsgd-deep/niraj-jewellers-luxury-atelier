@@ -151,3 +151,30 @@ Following expert captain review and audit feedback, this specification details t
 * **Lint & Build:** `npm run build` must complete with 0 TypeScript and 0 ESLint errors.
 * **Responsive Testing:** Verify layouts at 360px, 375px, 390px, 412px, 430px (mobile), 768px (tablet), 1024px, 1280px, 1366px, 1440px, and 1920px (desktop).
 * **Accessibility:** Minimum 44px tap targets for all clickable elements, WCAG AA color contrast on all text elements over textured paper backgrounds.
+
+---
+
+## 5. Mobile Viewport Optimization & Touch Ergonomics
+
+Following mobile audit review, specific adaptations were built to ensure complete visibility, high ergonomics, and zero layout shifting on small screens:
+
+### 5.1 Hero Section on Mobile (`< 1024px`)
+* **Artisan Visual Presence:** Previously, desktop flanking cutouts were `hidden lg:block`. A dedicated compact dual-card showcase (`w-28 h-36 sm:w-40 sm:h-48`) was engineered for mobile, showing the *Hayes Bench* consultation tray (tilted -3°) and *22ct Bridal* suite (tilted +3°) directly above the CTAs without overlapping any text.
+* **Vertical Spacing:** Adjusted hero padding from `pt-32` down to `pt-24 pb-12` so the headline, visual cutouts, and dual CTAs sit comfortably within the initial mobile viewport.
+* **Trust Pills 2x2 Grid:** Converted bottom horizontal wrap into a responsive 2x2 grid on mobile screens (`< 640px`) with compact typography (`text-[10.5px]`) and SVG icons.
+
+### 5.2 Connected Timeline on Mobile (`CadJourney` & `/about`)
+* **Vertical Timeline Spine:** Replaced flat card stacking with a visible vertical gold connecting spine (`w-[2px] bg-gradient-to-b from-[#DFBF7A] via-[#996515] to-[#DFBF7A]`) with numbered glowing node markers (`1`, `2`, `3`, `4`) on mobile.
+* **Card Margins:** Indented cards on mobile (`pl-8`) to maintain the clear visual hierarchy of a continuous step-by-step goldsmithing process.
+
+### 5.3 Repairs & Concierge Mobile Sizing
+* **Image & Pricing Alignment:** Compacted bench visual thumbnails to `w-14 h-14` with vertically-stacked right-aligned pricing badges (`From £35`, `Same-Day`) on mobile.
+* **Padding:** Reduced card internal padding to `p-5` to prevent excessive vertical elongation on smaller mobile devices (360px–390px).
+
+### 5.4 Reviews & Hallmarking Mobile Tuning
+* **Review Cards:** Spaced at `gap-5` with `p-5` padding and compact reviewer initial avatars (`w-8 h-8`), preventing viewport crowding.
+* **3 Compulsory Marks:** Explainer card padded to `p-5` with stamp visual motifs sized at `w-14 h-14` to avoid line-wrapping on narrow screens.
+
+### 5.5 Navbar & Mobile Dock
+* **Brand Text Sizing:** Optimized crest and text sizing (`text-[13px]`) with micro-letterspaced subtitle (`text-[7px]`) to ensure zero wrapping next to the 44px call and menu buttons.
+* **Safe-Area Padding:** Maintained `pb-[max(0.625rem,env(safe-area-inset-bottom))]` on `MobileDock` with dedicated page bottom clearance (`pb-24`) to eliminate overlay clipping.

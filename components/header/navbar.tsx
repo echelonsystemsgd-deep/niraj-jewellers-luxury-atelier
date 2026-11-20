@@ -120,10 +120,10 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif text-sm sm:text-base lg:text-lg font-bold tracking-wider text-[#141416] group-hover:text-[#996515] transition-colors uppercase whitespace-nowrap">
-                    NIRAJ JEWELLERS <span className="text-[10px] sm:text-xs font-semibold text-[#996515] tracking-normal">LTD</span>
+                  <span className="font-serif text-[13px] sm:text-base lg:text-lg font-bold tracking-wider text-[#141416] group-hover:text-[#996515] transition-colors uppercase whitespace-nowrap">
+                    NIRAJ JEWELLERS <span className="text-[9px] sm:text-xs font-semibold text-[#996515] tracking-normal">LTD</span>
                   </span>
-                  <span className="text-[7.5px] sm:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] text-[#8C6212] font-semibold uppercase -mt-0.5 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
+                  <span className="text-[7px] sm:text-[9px] tracking-[0.16em] sm:tracking-[0.22em] text-[#8C6212] font-semibold uppercase -mt-0.5 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
                     <span>HAYES</span>
                     <span className="text-[#C5A059]">•</span>
                     <span>LONDON</span>

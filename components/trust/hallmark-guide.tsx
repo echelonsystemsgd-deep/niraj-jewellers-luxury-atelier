@@ -79,8 +79,8 @@ export function HallmarkGuide() {
         </div>
 
         {/* Visual 3 Compulsory UK Hallmarks Explainer */}
-        <div className="mb-14 bg-white p-6 sm:p-8 rounded-3xl border border-[#E8DEC8] shadow-sm">
-          <div className="text-center max-w-2xl mx-auto mb-8 space-y-1.5">
+        <div className="mb-14 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E8DEC8] shadow-sm">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1.5">
             <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#141416]">
               The 3 Compulsory Marks on Every Genuine Piece
             </h3>
@@ -89,29 +89,29 @@ export function HallmarkGuide() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {compulsoryMarks.map((mark) => (
               <div
                 key={mark.num}
-                className="p-5 rounded-2xl bg-[#FAF9F5] border border-[#E8DEC8] flex flex-col justify-between space-y-3"
+                className="p-4 sm:p-5 rounded-2xl bg-[#FAF9F5] border border-[#E8DEC8] flex flex-col justify-between space-y-2.5 sm:space-y-3"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                     <span className="font-mono text-xs font-bold text-[#8C6212]">{mark.num}</span>
-                    <span className="text-[10px] uppercase font-semibold text-[#5A5960] bg-white px-2.5 py-0.5 rounded-full border border-[#E8DEC8]">
+                    <span className="text-[9.5px] sm:text-[10px] uppercase font-semibold text-[#5A5960] bg-white px-2 sm:px-2.5 py-0.5 rounded-full border border-[#E8DEC8]">
                       Compulsory Mark
                     </span>
                   </div>
 
                   {/* Stamp Visual Motif */}
-                  <div className="w-16 h-16 rounded-2xl bg-white border border-[#D4AF37]/50 flex items-center justify-center text-xl font-bold font-serif text-[#996515] shadow-inner mb-3 mx-auto">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-[#D4AF37]/50 flex items-center justify-center text-lg sm:text-xl font-bold font-serif text-[#996515] shadow-inner mb-2.5 sm:mb-3 mx-auto">
                     {mark.symbol}
                   </div>
 
-                  <h4 className="font-serif text-base font-semibold text-[#141416] text-center mb-1">
+                  <h4 className="font-serif text-sm sm:text-base font-semibold text-[#141416] text-center mb-1">
                     {mark.name}
                   </h4>
-                  <p className="text-[11px] font-mono font-medium text-[#8C6212] text-center mb-2">
+                  <p className="text-[10.5px] sm:text-[11px] font-mono font-medium text-[#8C6212] text-center mb-1.5 sm:mb-2">
                     {mark.role}
                   </p>
                   <p className="text-xs text-[#5A5960] text-center leading-relaxed">
@@ -124,11 +124,11 @@ export function HallmarkGuide() {
         </div>
 
         {/* 4 Purity Standards Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {purities.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] space-y-3 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+              className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] space-y-3 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
             >
               <div>
                 <div className="flex items-center justify-between">
