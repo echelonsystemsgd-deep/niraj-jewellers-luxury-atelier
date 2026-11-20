@@ -55,8 +55,8 @@ export default async function AdminDashboardLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#141416] flex flex-col md:flex-row selection:bg-gold-200">
-      {/* 1. LUXURY DESKTOP SIDEBAR (Visible on md: >= 768px) */}
+    <div className="min-h-screen bg-[#FAF8F5] text-[#141416] flex flex-col md:flex-row md:items-start selection:bg-gold-200">
+      {/* 1. LUXURY DESKTOP SIDEBAR (Visible on md: >= 768px, pinned sticky viewport) */}
       <AdminSidebar userEmail={activeEmail} />
 
       {/* 2. MOBILE TOP BAR (< 768px) */}

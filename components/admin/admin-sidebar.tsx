@@ -92,36 +92,36 @@ export function AdminSidebar({ userEmail }: AdminSidebarProps) {
   ];
 
   return (
-    <aside className="hidden md:flex flex-col w-72 border-r border-[#E8DEC8] bg-[#FAF8F5] shrink-0 h-screen sticky top-0 shadow-sm z-30 select-none">
+    <aside className="hidden md:flex flex-col w-72 h-screen sticky top-0 border-r border-[#E8DEC8] bg-[#FAF8F5] shrink-0 z-30 select-none overflow-hidden">
       {/* 1. BRAND CREST HEADER */}
-      <div className="p-5 border-b border-[#E8DEC8] bg-white">
-        <Link href="/admin" className="flex items-center gap-3.5 group">
-          <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FAF8F5] to-[#F5ECE0] border border-[#D4AF37]/60 flex items-center justify-center shadow-luxury-sm overflow-hidden p-1.5 group-hover:border-[#996515] transition-all">
+      <div className="shrink-0 p-4 border-b border-[#E8DEC8] bg-white">
+        <Link href="/admin" className="flex items-center gap-3 group">
+          <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FAF8F5] to-[#F5ECE0] border border-[#D4AF37]/60 flex items-center justify-center shadow-luxury-sm overflow-hidden p-1 group-hover:border-[#996515] transition-all shrink-0">
             <Image
               src="/NIRAJ_LOGO9.png"
               alt="Niraj Jewellers Ltd Crest"
-              width={38}
-              height={38}
+              width={36}
+              height={36}
               className="object-contain"
               priority
             />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="font-serif text-sm font-bold tracking-wider text-[#141416] uppercase group-hover:text-[#996515] transition-colors leading-tight">
+            <span className="font-serif text-[13px] font-bold tracking-wider text-[#141416] uppercase group-hover:text-[#996515] transition-colors leading-tight whitespace-nowrap">
               NIRAJ JEWELLERS <span className="text-[10px] font-semibold text-[#996515]">LTD</span>
             </span>
-            <span className="text-[9px] font-bold tracking-[0.2em] text-[#8C6212] uppercase block mt-0.5">
-              ATELIER DASHBOARD
+            <span className="text-[8.5px] font-bold tracking-[0.16em] text-[#8C6212] uppercase block mt-0.5 whitespace-nowrap">
+              ATELIER DASHBOARD • EST. 1984
             </span>
-            <span className="text-[8.5px] font-medium text-[#7A705E] uppercase tracking-wider block mt-0.5">
-              Hayes • London • Since 1984
+            <span className="text-[8px] font-medium text-[#7A705E] uppercase tracking-wider block mt-0.5 whitespace-nowrap">
+              136 Uxbridge Road • Hayes, London
             </span>
           </div>
         </Link>
       </div>
 
       {/* 2. SCROLLABLE MIDDLE NAVIGATION & ATELIER STATUS CARD */}
-      <div className="flex-1 px-3.5 py-4 space-y-5 overflow-y-auto custom-scrollbar">
+      <div className="flex-1 min-h-0 px-3.5 py-3 space-y-4 overflow-y-auto custom-scrollbar">
         {navGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-1">
             <span className="text-[9.5px] font-bold uppercase tracking-[0.18em] text-[#8C6212]/90 px-3 block mb-1">
@@ -216,7 +216,7 @@ export function AdminSidebar({ userEmail }: AdminSidebarProps) {
       </div>
 
       {/* 4. REFINED OWNER PROFILE & QUICK ACTION FOOTER */}
-      <div className="p-3.5 border-t border-[#E8DEC8] bg-white space-y-2.5">
+      <div className="shrink-0 p-3.5 border-t border-[#E8DEC8] bg-white space-y-2.5">
         {/* User Monogram Profile Card */}
         <div className="p-2.5 rounded-xl bg-[#FAF8F5] border border-[#E8DEC8] flex items-center justify-between">
           <div className="flex items-center gap-2.5 min-w-0">
