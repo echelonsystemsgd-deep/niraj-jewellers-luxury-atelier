@@ -70,8 +70,9 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
               type="email"
               name="email"
               required
-              placeholder="nirajjewellers@hotmail.com"
-              autoComplete="email"
+              placeholder="name@niraj-jewellers.co.uk"
+              autoComplete="off"
+              defaultValue=""
               className="w-full h-12 px-4 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] text-sm text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#996515] focus:bg-white transition-colors"
             />
           </div>
@@ -85,7 +86,8 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
               name="password"
               required
               placeholder="••••••••••••"
-              autoComplete="current-password"
+              autoComplete="new-password"
+              defaultValue=""
               className="w-full h-12 px-4 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] text-sm text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#996515] focus:bg-white transition-colors"
             />
           </div>

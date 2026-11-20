@@ -52,9 +52,12 @@ export async function loginAction(formData: FormData): Promise<void> {
   if (error || !data.user) {
     // If Supabase returns "Email not confirmed" for pre-seeded owner credentials,
     // establish secure HttpOnly staff session directly so owner access is never blocked
+    const allowedOwnerEmail = (process.env.OWNER_EMAIL || "nirajjewellers@hotmail.com").toLowerCase();
+    const allowedOwnerPassword = process.env.OWNER_PASSWORD || "Website2026!!";
+
     if (
-      email === "nirajjewellers@hotmail.com" &&
-      password === "Website2026!!"
+      email === allowedOwnerEmail &&
+      password === allowedOwnerPassword
     ) {
       const cookieStore = await cookies();
       cookieStore.set("niraj_admin_session", "authenticated_owner", {
@@ -140,6 +143,17 @@ export interface PiecePayload {
   tags: string[];
 }
 
+function formatDbError(message: string): string {
+  if (
+    message.includes("Could not find the table") ||
+    message.includes("schema cache") ||
+    message.includes("PGRST205")
+  ) {
+    return "Database table initializing: Please run scripts/schema.sql in your Supabase SQL Editor to enable live cloud database saving.";
+  }
+  return message;
+}
+
 export async function updatePieceAction(payload: PiecePayload) {
   const { supabase, user } = await requireAdminUser();
 
@@ -171,7 +185,7 @@ export async function updatePieceAction(payload: PiecePayload) {
     .eq("id", payload.id);
 
   if (error) {
-    return { error: error.message };
+    return { error: formatDbError(error.message) };
   }
 
   // Create revision entry for 1-click rollback
@@ -206,7 +220,7 @@ export async function quickUpdateStockAction(id: string, stock_status: string) {
     .eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    return { error: formatDbError(error.message) };
   }
 
   revalidatePath("/");
@@ -252,7 +266,7 @@ export async function createPieceAction(payload: PiecePayload) {
   });
 
   if (error) {
-    return { error: error.message };
+    return { error: formatDbError(error.message) };
   }
 
   // Log creation
@@ -285,7 +299,7 @@ export async function deletePieceAction(id: string) {
     .eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    return { error: formatDbError(error.message) };
   }
 
   try {
@@ -349,7 +363,7 @@ export async function updateSettingsAction(payload: SettingsPayload) {
     .not("id", "is", null);
 
   if (error) {
-    return { error: error.message };
+    return { error: formatDbError(error.message) };
   }
 
   try {
@@ -393,7 +407,7 @@ export async function toggleReviewAction(
     .eq("id", id);
 
   if (error) {
-    return { error: error.message };
+    return { error: formatDbError(error.message) };
   }
 
   try {
