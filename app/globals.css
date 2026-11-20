@@ -251,3 +251,18 @@ body {
   background-repeat: repeat;
   background-size: auto, auto, 200px 200px;
 }
+
+/* 4. Elegant Custom Scrollbar for Admin Sidebar & Panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #E8DEC8;
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}

@@ -97,32 +97,32 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
     <aside
       className={
         isMobileDrawer
-          ? "flex flex-col w-[300px] max-w-[85vw] h-full bg-[#FAF8F5] shrink-0 z-50 select-none overflow-hidden shadow-2xl"
-          : "hidden md:flex flex-col w-72 h-screen sticky top-0 border-r border-[#E8DEC8] bg-[#FAF8F5] shrink-0 z-30 select-none overflow-hidden"
+          ? "flex flex-col w-[310px] max-w-[85vw] h-dvh max-h-screen bg-[#FAF8F5] shrink-0 z-[70] select-none overflow-hidden shadow-2xl"
+          : "hidden md:flex flex-col fixed top-0 bottom-0 left-0 w-72 h-screen border-r border-[#E8DEC8] bg-[#FAF8F5] shrink-0 z-30 select-none overflow-hidden"
       }
     >
       {/* 1. BRAND CREST HEADER */}
-      <div className="shrink-0 p-4 border-b border-[#E8DEC8] bg-white flex items-center justify-between">
-        <Link href="/admin" onClick={onClose} className="flex items-center gap-3 group min-w-0">
-          <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FAF8F5] to-[#F5ECE0] border border-[#D4AF37]/60 flex items-center justify-center shadow-luxury-sm overflow-hidden p-1 group-hover:border-[#996515] transition-all shrink-0">
+      <div className="shrink-0 p-3.5 border-b border-[#E8DEC8] bg-white flex items-center justify-between gap-2">
+        <Link href="/admin" onClick={onClose} className="flex items-center gap-2.5 group min-w-0 flex-1">
+          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-[#FAF8F5] to-[#F5ECE0] border border-[#D4AF37]/60 flex items-center justify-center shadow-luxury-sm overflow-hidden p-1 group-hover:border-[#996515] transition-all shrink-0">
             <Image
               src="/NIRAJ_LOGO9.png"
               alt="Niraj Jewellers Ltd Crest"
-              width={36}
-              height={36}
+              width={28}
+              height={28}
               className="object-contain"
               priority
             />
           </div>
-          <div className="flex flex-col min-w-0">
-            <span className="font-serif text-[13px] font-bold tracking-wider text-[#141416] uppercase group-hover:text-[#996515] transition-colors leading-tight whitespace-nowrap">
-              NIRAJ JEWELLERS <span className="text-[10px] font-semibold text-[#996515]">LTD</span>
+          <div className="flex flex-col min-w-0 flex-1">
+            <span className="font-serif text-xs md:text-sm font-bold tracking-wider text-[#141416] uppercase group-hover:text-[#996515] transition-colors leading-tight truncate">
+              NIRAJ JEWELLERS <span className="text-[10px] md:text-xs font-semibold text-[#996515]">LTD</span>
             </span>
-            <span className="text-[8.5px] font-bold tracking-[0.16em] text-[#8C6212] uppercase block mt-0.5 whitespace-nowrap">
+            <span className="text-[8.5px] md:text-[9.5px] font-bold tracking-[0.14em] text-[#8C6212] uppercase block mt-0.5 truncate">
               ATELIER DASHBOARD • EST. 1984
             </span>
-            <span className="text-[8px] font-medium text-[#7A705E] uppercase tracking-wider block mt-0.5 whitespace-nowrap">
-              136 Uxbridge Road • Hayes, London
+            <span className="text-[8px] md:text-[9px] font-medium text-[#7A705E] uppercase tracking-wider block mt-0.5 truncate">
+              136 Uxbridge Road • Hayes
             </span>
           </div>
         </Link>
@@ -131,7 +131,7 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] hover:bg-white text-[#7A705E] hover:text-[#141416] transition-colors ml-2 shrink-0"
+            className="w-8 h-8 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] hover:bg-white text-[#7A705E] hover:text-[#141416] flex items-center justify-center shrink-0 active:scale-95 transition-transform"
             aria-label="Close sidebar"
           >
             <X className="w-4 h-4" />
@@ -196,20 +196,20 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
         ))}
 
         {/* 3. ATELIER LIVE STATUS & HEALTH CARD (Eliminates the empty gap) */}
-        <div className="p-3.5 bg-white border border-[#E8DEC8] rounded-2xl shadow-luxury-sm space-y-2.5">
+        <div className="p-3 bg-white border border-[#E8DEC8] rounded-2xl shadow-luxury-sm space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-[10px] font-bold uppercase tracking-wider text-[#8C6212] flex items-center gap-1.5">
               <Sparkles className="w-3 h-3 text-[#996515]" />
               <span>Hayes Atelier</span>
             </span>
-            <span className="flex items-center gap-1 text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+            <span className="flex items-center gap-1 text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>Live Vault</span>
             </span>
           </div>
 
-          <div className="text-[11px] text-[#5A5960] space-y-1.5 pt-1 border-t border-[#F0E8D8]">
-            <p className="flex items-center gap-1.5 text-[#141416] font-medium text-[10.5px]">
+          <div className="text-[10.5px] text-[#5A5960] space-y-1 pt-1 border-t border-[#F0E8D8]">
+            <p className="flex items-center gap-1.5 text-[#141416] font-medium text-[10px]">
               <MapPin className="w-3.5 h-3.5 text-[#8C6212] shrink-0" />
               <span className="truncate">136 Uxbridge Rd, Hayes UB4</span>
             </p>
@@ -225,7 +225,7 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
             </p>
           </div>
 
-          <div className="pt-2 border-t border-[#F0E8D8] flex items-center justify-between text-[9px] text-[#8C6212] font-semibold">
+          <div className="pt-1.5 border-t border-[#F0E8D8] flex items-center justify-between text-[8.5px] text-[#8C6212] font-semibold">
             <span className="flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3 text-emerald-600" />
               <span>100% Free Cloud (£0/mo)</span>
@@ -235,19 +235,23 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
         </div>
       </div>
 
-      {/* 4. REFINED OWNER PROFILE & QUICK ACTION FOOTER */}
-      <div className="shrink-0 p-3.5 border-t border-[#E8DEC8] bg-white space-y-2.5">
+      {/* 4. REFINED OWNER PROFILE & QUICK ACTION FOOTER (Safe Area Bottom on Mobile) */}
+      <div
+        className={`shrink-0 p-3.5 border-t border-[#E8DEC8] bg-white space-y-2.5 ${
+          isMobileDrawer ? "pb-[max(1.5rem,env(safe-area-inset-bottom))]" : ""
+        }`}
+      >
         {/* User Monogram Profile Card */}
-        <div className="p-2.5 rounded-xl bg-[#FAF8F5] border border-[#E8DEC8] flex items-center justify-between">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#85560C] to-[#996515] text-white flex items-center justify-center font-serif font-bold text-xs shrink-0 shadow-sm">
+        <div className="p-2 rounded-xl bg-[#FAF8F5] border border-[#E8DEC8] flex items-center justify-between">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#85560C] to-[#996515] text-white flex items-center justify-center font-serif font-bold text-xs shrink-0 shadow-sm">
               NJ
             </div>
             <div className="min-w-0">
-              <span className="text-[9px] font-bold tracking-wider uppercase text-[#8C6212] block">
+              <span className="text-[8.5px] font-bold tracking-wider uppercase text-[#8C6212] block">
                 Atelier Proprietor
               </span>
-              <span className="text-xs font-semibold text-[#141416] truncate block" title={userEmail}>
+              <span className="text-[11px] font-semibold text-[#141416] truncate block" title={userEmail}>
                 {userEmail}
               </span>
             </div>

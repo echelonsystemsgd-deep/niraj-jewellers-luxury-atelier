@@ -43,6 +43,24 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [showPreviewModal]);
 
+  // Modal background body scroll lock
+  useEffect(() => {
+    if (showPreviewModal) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [showPreviewModal]);
+
   const [formData, setFormData] = useState<PiecePayload>(
     initialData || {
       id: `piece-${Date.now()}`,
@@ -639,17 +657,17 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
       {/* 4. Live Preview Modal with Mobile / Desktop Toggle */}
       {showPreviewModal && (
         <div
-          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-[80] bg-black/70 backdrop-blur-sm flex items-center justify-center p-2.5 sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-label="Live Visual Preview"
           onClick={() => setShowPreviewModal(false)}
         >
           <div
-            className="bg-white rounded-2xl border border-[#E8DEC8] shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden animate-scaleIn"
+            className="bg-white rounded-2xl border border-[#E8DEC8] shadow-2xl w-full max-w-2xl max-h-[92vh] flex flex-col overflow-hidden animate-scaleIn"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-4 border-b border-[#E8DEC8] flex items-center justify-between bg-[#FAF8F5]">
+            <div className="p-3.5 sm:p-4 border-b border-[#E8DEC8] flex items-center justify-between bg-[#FAF8F5]">
               <div className="flex items-center gap-2">
                 <span className="font-serif text-sm font-bold text-[#141416]">
                   Live Visual Preview
@@ -659,12 +677,12 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
                 </span>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <button
                   type="button"
                   aria-label="Desktop preview mode"
                   onClick={() => setPreviewMode("desktop")}
-                  className={`p-1.5 rounded-lg border ${previewMode === "desktop" ? "bg-[#996515] text-white border-[#996515]" : "bg-white text-[#7A705E] border-[#E8DEC8]"}`}
+                  className={`p-1.5 rounded-lg border transition-colors ${previewMode === "desktop" ? "bg-[#996515] text-white border-[#996515]" : "bg-white text-[#7A705E] border-[#E8DEC8]"}`}
                 >
                   <Monitor className="w-3.5 h-3.5" />
                 </button>
@@ -672,7 +690,7 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
                   type="button"
                   aria-label="Mobile preview mode"
                   onClick={() => setPreviewMode("mobile")}
-                  className={`p-1.5 rounded-lg border ${previewMode === "mobile" ? "bg-[#996515] text-white border-[#996515]" : "bg-white text-[#7A705E] border-[#E8DEC8]"}`}
+                  className={`p-1.5 rounded-lg border transition-colors ${previewMode === "mobile" ? "bg-[#996515] text-white border-[#996515]" : "bg-white text-[#7A705E] border-[#E8DEC8]"}`}
                 >
                   <Smartphone className="w-3.5 h-3.5" />
                 </button>
@@ -680,7 +698,7 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
                   type="button"
                   aria-label="Close modal"
                   onClick={() => setShowPreviewModal(false)}
-                  className="text-xs text-[#7A705E] hover:text-black ml-2 font-bold px-2 py-1 rounded-md"
+                  className="text-xs text-[#7A705E] hover:text-black ml-1.5 font-bold px-2 py-1 rounded-md"
                 >
                   ✕ Close
                 </button>
@@ -688,10 +706,10 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
             </div>
 
             {/* Preview Body */}
-            <div className="p-6 overflow-y-auto flex justify-center bg-[#FAF8F5]/50">
+            <div className="p-3 sm:p-6 overflow-y-auto flex justify-center bg-[#FAF8F5]/50">
               <div
                 className={`bg-white border border-[#E8DEC8] rounded-2xl overflow-hidden shadow-luxury-md transition-all ${
-                  previewMode === "mobile" ? "w-[360px]" : "w-full"
+                  previewMode === "mobile" ? "max-w-[340px] w-full" : "w-full"
                 }`}
               >
                 <div className="relative aspect-[4/3] bg-[#FAF8F5]">
