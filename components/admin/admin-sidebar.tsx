@@ -19,15 +19,17 @@ import {
   Clock,
   Phone,
   CheckCircle2,
-  Lock,
+  X,
 } from "lucide-react";
 import { logoutAction } from "@/app/admin/actions";
 
 interface AdminSidebarProps {
   userEmail: string;
+  isMobileDrawer?: boolean;
+  onClose?: () => void;
 }
 
-export function AdminSidebar({ userEmail }: AdminSidebarProps) {
+export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: AdminSidebarProps) {
   const pathname = usePathname();
 
   const navGroups = [
@@ -92,10 +94,16 @@ export function AdminSidebar({ userEmail }: AdminSidebarProps) {
   ];
 
   return (
-    <aside className="hidden md:flex flex-col w-72 h-screen sticky top-0 border-r border-[#E8DEC8] bg-[#FAF8F5] shrink-0 z-30 select-none overflow-hidden">
+    <aside
+      className={
+        isMobileDrawer
+          ? "flex flex-col w-[300px] max-w-[85vw] h-full bg-[#FAF8F5] shrink-0 z-50 select-none overflow-hidden shadow-2xl"
+          : "hidden md:flex flex-col w-72 h-screen sticky top-0 border-r border-[#E8DEC8] bg-[#FAF8F5] shrink-0 z-30 select-none overflow-hidden"
+      }
+    >
       {/* 1. BRAND CREST HEADER */}
-      <div className="shrink-0 p-4 border-b border-[#E8DEC8] bg-white">
-        <Link href="/admin" className="flex items-center gap-3 group">
+      <div className="shrink-0 p-4 border-b border-[#E8DEC8] bg-white flex items-center justify-between">
+        <Link href="/admin" onClick={onClose} className="flex items-center gap-3 group min-w-0">
           <div className="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FAF8F5] to-[#F5ECE0] border border-[#D4AF37]/60 flex items-center justify-center shadow-luxury-sm overflow-hidden p-1 group-hover:border-[#996515] transition-all shrink-0">
             <Image
               src="/NIRAJ_LOGO9.png"
@@ -118,6 +126,17 @@ export function AdminSidebar({ userEmail }: AdminSidebarProps) {
             </span>
           </div>
         </Link>
+
+        {isMobileDrawer && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1.5 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] hover:bg-white text-[#7A705E] hover:text-[#141416] transition-colors ml-2 shrink-0"
+            aria-label="Close sidebar"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        )}
       </div>
 
       {/* 2. SCROLLABLE MIDDLE NAVIGATION & ATELIER STATUS CARD */}
@@ -138,6 +157,7 @@ export function AdminSidebar({ userEmail }: AdminSidebarProps) {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={onClose}
                     className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold tracking-wide transition-all ${
                       isActive
                         ? "bg-white text-[#141416] border border-[#D4AF37] shadow-luxury-sm"
@@ -243,6 +263,7 @@ export function AdminSidebar({ userEmail }: AdminSidebarProps) {
           <Link
             href="/"
             target="_blank"
+            onClick={onClose}
             className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl border border-[#E8DEC8] bg-white hover:bg-[#FAF8F5] hover:border-[#996515] text-xs font-semibold text-[#141416] transition-colors shadow-sm"
           >
             <ExternalLink className="w-3.5 h-3.5 text-[#8C6212]" />
