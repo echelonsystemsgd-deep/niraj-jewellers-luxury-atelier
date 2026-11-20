@@ -55,7 +55,7 @@ export function WholesaleAdvantage() {
   });
 
   return (
-    <section className="py-20 sm:py-28 bg-white border-t border-[#E8DEC8] relative">
+    <section className="py-20 sm:py-28 bg-[#FAF9F5] texture-ivory-paper border-t border-[#E8DEC8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -80,13 +80,13 @@ export function WholesaleAdvantage() {
             return (
               <div
                 key={idx}
-                className="bg-[#FAF9F5] p-5 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
+                className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
               >
                 <div>
-                  {/* Top Bar with Icon & Subtitle */}
+                  {/* Top Bar with Icon & Subtitle (Hammered Gold Icon Medallion) */}
                   <div className="flex items-center justify-between mb-3.5 sm:mb-4">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-[#D4AF37]/50 flex items-center justify-center text-[#996515] shadow-sm">
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl texture-hammered-gold border border-white flex items-center justify-center text-[#141416] shadow-sm">
+                      <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-[10.5px] sm:text-[11px] font-mono text-[#8C6212] uppercase tracking-wider font-semibold">
                       {diff.subtitle}

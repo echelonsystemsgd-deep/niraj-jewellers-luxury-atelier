@@ -277,7 +277,7 @@ export default function AboutPage() {
         </section>
 
         {/* 4 Pillars of Excellence with Hammered Gold Accents */}
-        <section className="bg-white py-20 sm:py-28 border-y border-[#E8DEC8] mb-24 relative overflow-hidden">
+        <section className="bg-[#FAF9F5] texture-ivory-paper py-20 sm:py-28 border-y border-[#E8DEC8] mb-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
               <span className="text-xs font-bold uppercase tracking-widest text-[#996515]">
@@ -297,10 +297,10 @@ export default function AboutPage() {
                 return (
                   <div
                     key={pIdx}
-                    className="p-6 sm:p-7 rounded-2xl bg-[#FAF9F5] border border-[#E8DEC8] hover:border-[#D4AF37] transition-all hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group"
+                    className="p-6 sm:p-7 rounded-2xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] transition-all hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group"
                   >
                     <div className="space-y-4">
-                      <div className="w-12 h-12 rounded-xl bg-white border border-hammered-gold flex items-center justify-center text-[#996515] shadow-sm texture-hammered-subtle">
+                      <div className="w-12 h-12 rounded-xl texture-hammered-gold border border-white flex items-center justify-center text-[#141416] shadow-md">
                         <IconComponent className="w-6 h-6" />
                       </div>
                       <div>
@@ -394,9 +394,9 @@ export default function AboutPage() {
                   key={idx}
                   className="relative pl-8 md:pl-0 flex flex-col"
                 >
-                  {/* Mobile Chronological Node Marker */}
+                  {/* Mobile Chronological Node Marker (Hammered Gold) */}
                   <div
-                    className="md:hidden absolute left-0 top-5 w-7 h-7 rounded-full bg-[#141416] border-2 border-[#D4AF37] flex items-center justify-center text-[9px] font-bold text-[#DFBF7A] shadow-md z-20 font-mono"
+                    className="md:hidden absolute left-0 top-5 w-7 h-7 rounded-full texture-hammered-gold border border-white flex items-center justify-center text-[9px] font-bold text-[#141416] shadow-md z-20 font-mono"
                     aria-hidden="true"
                   >
                     0{idx + 1}

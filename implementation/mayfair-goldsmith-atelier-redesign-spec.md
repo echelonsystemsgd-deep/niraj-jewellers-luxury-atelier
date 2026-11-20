@@ -27,37 +27,85 @@ Following expert captain review and audit feedback, this specification details t
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │ 1. Header (Navbar)                                             │
-│    • Hard-left logo mark, uncrowded desktop nav, mobile drawer │
+│    • Hard-left logo mark, hammered gold crest container       │
 ├────────────────────────────────────────────────────────────────┤
 │ 2. Hero Section ("The Mayfair Goldsmith Archive")              │
-│    • Flanking artisan props (loupe, calipers, bullion, 22ct)   │
-│    • Verified London Assay Office & Hayes accreditation pill   │
+│    • Texture: Visible tactile deckle paper (.texture-ivory)    │
+│    • Hammered gold social proof pill & 4 trust cards           │
+│    • Flanking artisan props (bench velvet tray & 22ct bridal)  │
 │    • Specific UK English headline: Bespoke Goldsmithing & 22ct │
 │    • Dual CTAs: Curated Pieces + WhatsApp Concierge            │
-│    • 4 compact single-line trust pills (no bulky paragraphs)   │
 ├────────────────────────────────────────────────────────────────┤
 │ 3. Curated Vault Showcase (Top 3 Verified Masterworks)         │
-│    • Only verified pieces (Ruby Nizam, Calcutta, Chandbali)    │
+│    • Texture: Deckle paper canvas + hammered bullion card tags │
 │    • Single metal purity badge (e.g. "22ct Gold")              │
 │    • 1-line description, verified gram weight, clean specs CTA │
 │    • Bottom link to full collection catalog (no hardcoded "54")│
 ├────────────────────────────────────────────────────────────────┤
 │ 4. The Bespoke Goldsmith Journey (Linear Timeline)             │
+│    • Texture: Deckle paper canvas + hammered gold step nodes   │
 │    • Numbered steps: 1. Consultation, 2. 3D CAD, 3. Forging... │
-│    • Real workshop imagery, no redundant icons or day tags     │
-│    • Single crisp craft description sentence per step          │
+│    • Connected gold timeline spine on mobile & desktop         │
 ├────────────────────────────────────────────────────────────────┤
 │ 5. In-House Goldsmith Bench & Repairs Concierge                │
+│    • Texture: Deckle paper canvas + hammered gold price badges │
 │    • Real task photography replacing generic icons             │
 │    • Transparent pricing: From £35 / £45 / Free with repair    │
 │    • Official WhatsApp-green button (#25D366) with Meta SVG    │
 ├────────────────────────────────────────────────────────────────┤
 │ 6. What Sets Niraj Jewellers Apart (Differentiators)           │
+│    • Texture: Deckle paper canvas + hammered gold icon badges  │
 │    • 4 proof pillars: London Assay, Live Weight, In-House, CAD │
-│    • Zero unsubstantiated competitor bashing                   │
 ├────────────────────────────────────────────────────────────────┤
 │ 7. Verified Client Reviews & Reputation                        │
-│    • Positioned directly beneath Differentiators               │
+│    • Texture: Deckle paper canvas + hammered monogram avatars  │
+│    • Official Google Reviews banner in hammered gold card      │
+├────────────────────────────────────────────────────────────────┤
+│ 8. UK Hallmarking Act Compliance & Purity Education            │
+│    • Texture: Plush Jeweller's Midnight Velvet Tray (.velvet)  │
+│    • 3 Compulsory Marks stamped on hand-hammered 22ct coins    │
+├────────────────────────────────────────────────────────────────┤
+│ 9. Frequently Asked Questions (Accordion)                      │
+│    • 6 structured FAQ items covering bullion, hallmarking, CAD │
+├────────────────────────────────────────────────────────────────┤
+│ 10. Footer & Legal Disclosures                                 │
+│    • Registered address, VAT number, copyright                 │
+└────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 3. Physical Trade Material Textures System
+
+To eliminate the flat "vibecoded / AI-generated" look, four physical textures from the traditional goldsmith trade were engineered in CSS using lightweight inline SVG filters:
+
+1. **Artisanal Ivory Deckle Paper (`.texture-ivory-paper`):**
+   * Emulates heavy cotton archival paper used by traditional British craft ateliers.
+   * Constructed with multi-octave SVG `feTurbulence` fractal noise (`baseFrequency='0.75'`, `opacity='0.08'`) overlaid with ambient gold warmth (`rgba(212,175,55,0.08)`).
+   * Applied across the main page canvases: Hero, Collections, Bespoke Timeline, Repairs Concierge, What Sets Us Apart, and Reviews.
+
+2. **Hand-Hammered 22ct Gold (`.texture-hammered-gold`):**
+   * Directly derived from Viky's physical 22ct gold crest logo and traditional hand-chased (*pitai*) bullion.
+   * Built with 6 specular radial highlight nodes simulating light reflecting off micro-hammered facets, combined with gold bullion gradients and micro-chasing noise.
+   * Applied to:
+     * Mobile & desktop timeline step nodes (`1`, `2`, `3`, `4`)
+     * Workshop differentiator icon medallions
+     * Hallmarking stamp coin medallions (`NJ`, `916`, `🐆`)
+     * Reviewer monogram avatars and milestone markers
+
+3. **Hammered Gold Shimmer Cards (`.texture-hammered-card` & `.border-hammered-gold`):**
+   * Subtle metallic embossed paper surface with a 1px metallic gold border.
+   * Applied to:
+     * Hero social proof accreditation pill
+     * Hero 4 trust indicators (`Heritage Atelier`, `London Hallmarked`, `100% In-House`, `Live Bullion Fix`)
+     * Collection single metal purity tags
+     * Repairs pricing badges (`From £35`)
+     * Google Reviews trust banner
+
+4. **Jeweller's Midnight Velvet Presentation Tray (`.texture-jewellers-velvet`):**
+   * Emulates the plush black velvet display pads used in high-jewelry showrooms to showcase 22ct gold.
+   * Built with deep `#0F0F12` midnight charcoal, micro-velvet plush grain, and radial gold ambient radiance.
+   * Applied to the central **3 Compulsory UK Hallmarks Display Case**, creating high-contrast luxury presentation where the 22ct gold hallmark coins rest on midnight velvet.
 │    • Official Google Reviews branding & direct profile link    │
 ├────────────────────────────────────────────────────────────────┤
 │ 8. Flagship Hayes Showroom Hub                                 │

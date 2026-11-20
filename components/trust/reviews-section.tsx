@@ -15,7 +15,7 @@ export function ReviewsSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FAF9F5] border-t border-[#E8DEC8] relative">
+    <section className="py-20 sm:py-28 bg-[#FAF9F5] texture-ivory-paper border-t border-[#E8DEC8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -33,8 +33,8 @@ export function ReviewsSection() {
             Read authentic experiences from bridal couples, gold bullion investors, and repair clients who visit our Hayes atelier.
           </p>
 
-          {/* Official Google Reviews Trust Banner */}
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-[#E8DEC8] text-xs shadow-sm">
+          {/* Official Google Reviews Trust Banner (Hammered Gold Plaque) */}
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full texture-hammered-card border-hammered-gold text-xs shadow-sm">
             <GoogleGIcon className="w-4 h-4 shrink-0" />
             <div className="flex items-center gap-0.5">
               {[...Array(5)].map((_, i) => (
@@ -76,10 +76,10 @@ export function ReviewsSection() {
                 </p>
               </div>
 
-              {/* Reviewer Profile Row with Avatar Initials */}
+              {/* Reviewer Profile Row with Avatar Initials (Hammered Gold Monogram) */}
               <div className="pt-3.5 sm:pt-4 border-t border-[#EFE8DA] flex items-center justify-between">
                 <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-xs font-bold text-[#996515] shrink-0">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full texture-hammered-gold border border-white flex items-center justify-center text-xs font-bold text-[#141416] shrink-0 shadow-sm">
                     {getInitials(review.author)}
                   </div>
                   <div>

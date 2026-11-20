@@ -43,7 +43,7 @@ export function CadJourney() {
   ];
 
   return (
-    <section id="bespoke" className="py-20 sm:py-28 bg-[#FAF9F5] border-t border-[#E8DEC8] relative overflow-hidden">
+    <section id="bespoke" className="py-20 sm:py-28 bg-[#FAF9F5] texture-ivory-paper border-t border-[#E8DEC8] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -81,9 +81,9 @@ export function CadJourney() {
                 key={item.num}
                 className="relative pl-8 md:pl-0 flex flex-col"
               >
-                {/* Mobile Chronological Node Marker */}
+                {/* Mobile Chronological Node Marker (Hammered Gold Finish) */}
                 <div
-                  className="md:hidden absolute left-0 top-5 w-7 h-7 rounded-full bg-[#141416] border-2 border-[#D4AF37] flex items-center justify-center text-[10px] font-bold text-[#DFBF7A] shadow-md z-20"
+                  className="md:hidden absolute left-0 top-5 w-7 h-7 rounded-full texture-hammered-gold border border-white flex items-center justify-center text-[10px] font-bold text-[#141416] shadow-md z-20"
                   aria-hidden="true"
                 >
                   {item.num}
@@ -119,7 +119,9 @@ export function CadJourney() {
 
                   {/* Timeline Progress Pill */}
                   <div className="mt-4 sm:mt-6 pt-3 border-t border-[#EFE8DA] flex items-center justify-between text-[11px] text-[#8C6212] font-semibold">
-                    <span>Step 0{item.num} of 04</span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full texture-hammered-card border-hammered-gold text-[10px]">
+                      Step 0{item.num} of 04
+                    </span>
                     <span className="text-[#C5A059] group-hover:translate-x-1 transition-transform">→</span>
                   </div>
                 </div>

@@ -59,7 +59,7 @@ export function HallmarkGuide() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FAF9F5] border-t border-[#E8DEC8] relative">
+    <section className="py-20 sm:py-28 bg-[#FAF9F5] texture-ivory-paper border-t border-[#E8DEC8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -78,14 +78,14 @@ export function HallmarkGuide() {
           </p>
         </div>
 
-        {/* Visual 3 Compulsory UK Hallmarks Explainer */}
-        <div className="mb-14 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E8DEC8] shadow-sm">
+        {/* Visual 3 Compulsory UK Hallmarks Explainer (Plush Jeweller's Velvet Presentation Tray) */}
+        <div className="mb-14 texture-jewellers-velvet p-5 sm:p-8 rounded-2xl sm:rounded-3xl border-2 border-hammered-gold shadow-2xl text-white">
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1.5">
-            <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#141416]">
+            <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#FAF7F2]">
               The 3 Compulsory Marks on Every Genuine Piece
             </h3>
-            <p className="text-xs sm:text-sm text-[#5A5960]">
-              Every piece of gold over 1.0g legally requires these three distinct stamps under UK law.
+            <p className="text-xs sm:text-sm text-[#DFBF7A]">
+              Presented on our velvet bench tray: every piece of gold over 1.0g legally requires these three distinct stamps.
             </p>
           </div>
 
@@ -93,28 +93,28 @@ export function HallmarkGuide() {
             {compulsoryMarks.map((mark) => (
               <div
                 key={mark.num}
-                className="p-4 sm:p-5 rounded-2xl bg-[#FAF9F5] border border-[#E8DEC8] flex flex-col justify-between space-y-2.5 sm:space-y-3"
+                className="p-5 rounded-2xl bg-[#18181C]/90 border border-[#D4AF37]/50 flex flex-col justify-between space-y-3 backdrop-blur-sm shadow-md"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-2.5 sm:mb-3">
-                    <span className="font-mono text-xs font-bold text-[#8C6212]">{mark.num}</span>
-                    <span className="text-[9.5px] sm:text-[10px] uppercase font-semibold text-[#5A5960] bg-white px-2 sm:px-2.5 py-0.5 rounded-full border border-[#E8DEC8]">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-xs font-bold text-[#DFBF7A]">{mark.num}</span>
+                    <span className="text-[9.5px] sm:text-[10px] uppercase font-semibold text-[#DFBF7A] bg-black/60 px-2.5 py-0.5 rounded-full border border-[#D4AF37]/40">
                       Compulsory Mark
                     </span>
                   </div>
 
-                  {/* Stamp Visual Motif */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white border border-[#D4AF37]/50 flex items-center justify-center text-lg sm:text-xl font-bold font-serif text-[#996515] shadow-inner mb-2.5 sm:mb-3 mx-auto">
+                  {/* Stamp Visual Motif (Hand-Hammered 22ct Gold Coin Medallion) */}
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl texture-hammered-gold border-2 border-white/90 flex items-center justify-center text-lg sm:text-xl font-bold font-serif text-[#141416] shadow-xl mb-3 mx-auto">
                     {mark.symbol}
                   </div>
 
-                  <h4 className="font-serif text-sm sm:text-base font-semibold text-[#141416] text-center mb-1">
+                  <h4 className="font-serif text-sm sm:text-base font-semibold text-white text-center mb-1">
                     {mark.name}
                   </h4>
-                  <p className="text-[10.5px] sm:text-[11px] font-mono font-medium text-[#8C6212] text-center mb-1.5 sm:mb-2">
+                  <p className="text-[10.5px] sm:text-[11px] font-mono font-medium text-[#DFBF7A] text-center mb-2">
                     {mark.role}
                   </p>
-                  <p className="text-xs text-[#5A5960] text-center leading-relaxed">
+                  <p className="text-xs text-[#C4C2BA] text-center leading-relaxed">
                     {mark.description}
                   </p>
                 </div>

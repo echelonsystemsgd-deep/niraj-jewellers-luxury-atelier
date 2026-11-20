@@ -56,7 +56,7 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
   const displayedItems = isHomepage ? topThreeMasterpieces : filteredItems;
 
   return (
-    <section id="collections" className="py-16 sm:py-24 bg-[#FAF9F5] relative overflow-hidden">
+    <section id="collections" className="py-16 sm:py-24 bg-[#FAF9F5] texture-ivory-paper relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
@@ -124,8 +124,8 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity pointer-events-none" />
 
-                  {/* Single Clean Metal Purity Tag (No tag clutter) */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[11px] font-bold text-[#8C6212] shadow-sm z-10 pointer-events-none">
+                  {/* Single Clean Metal Purity Tag (Hammered Gold Bullion Card) */}
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full texture-hammered-card border-hammered-gold text-[11px] font-bold text-[#141416] shadow-sm z-10 pointer-events-none">
                     {item.metalPurity.split("(")[0].replace(/&.*$/, "").trim()}
                   </div>
                 </div>
