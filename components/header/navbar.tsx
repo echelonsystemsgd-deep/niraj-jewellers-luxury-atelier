@@ -166,6 +166,15 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 <span className="font-mono text-[11.5px] sm:text-xs text-[#141416] group-hover:text-[#996515]">{NIRAJ_UK_PHONE}</span>
               </a>
 
+              {/* Mobile Call Icon Button (replaces WhatsApp on mobile header) */}
+              <a
+                href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
+                className="sm:hidden w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/60 text-[#996515] flex items-center justify-center shrink-0 transition-colors shadow-sm touch-target active:scale-95"
+                aria-label={`Call direct workshop line: ${NIRAJ_DISPLAY_PHONE}`}
+              >
+                <Phone className="w-4 h-4 text-[#996515]" />
+              </a>
+
               {/* Tablet & Desktop WhatsApp Pill */}
               <a
                 href={whatsappHeroLink}
@@ -175,17 +184,6 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               >
                 <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white text-transparent" />
                 <span>WhatsApp Concierge</span>
-              </a>
-
-              {/* Mobile WhatsApp icon button (compact 40px, non-intrusive) */}
-              <a
-                href={whatsappHeroLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="md:hidden w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center shrink-0 transition-colors shadow-sm touch-target"
-                aria-label="WhatsApp Concierge"
-              >
-                <MessageCircle className="w-4 h-4 fill-white text-transparent" />
               </a>
 
               {/* Mobile / Tablet Menu Toggle Button (guaranteed visible and in-bounds on 360-390px viewports) */}
