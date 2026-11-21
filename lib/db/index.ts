@@ -114,25 +114,50 @@ export async function getCollections(includeUnpublished = false): Promise<Collec
       return COLLECTIONS_DATA;
     }
 
-    return data.map((item) => ({
-      id: item.id,
-      title: item.title,
-      category: item.category as CollectionItem["category"],
-      metalPurity: item.metal_purity || "22ct Gold (916 Hallmarked)",
-      hallmarkText: item.hallmark_text || "UK London Assay Office 916",
-      description: item.description || "",
-      priceNote: item.price_note || "Direct Workshop Consultation",
-      mediaType: (item.media_type as "image" | "video") || "image",
-      thumbnailUrl: item.thumbnail_url || "",
-      videoUrl: item.video_url || undefined,
-      instagramUrl: item.instagram_url || undefined,
-      tags: item.tags || [],
-      specs: item.specs || {
-        weight: "Direct Workshop Valuation",
-        metal: "22ct Imperial Gold",
-        craftsmanship: "In-House Hayes Handcrafted",
-      },
-    }));
+    const seenThumbs = new Set<string>();
+    return data.map((item, index) => {
+      // Prioritize matching canonical piece by videoUrl if item has a video
+      const canonicalByVideo = item.video_url
+        ? COLLECTIONS_DATA.find((c) => c.videoUrl && c.videoUrl === item.video_url)
+        : null;
+
+      const canonicalPiece =
+        canonicalByVideo ||
+        COLLECTIONS_DATA.find((c) => c.id === item.id) ||
+        COLLECTIONS_DATA[item.sort_order ?? index] ||
+        COLLECTIONS_DATA[index % COLLECTIONS_DATA.length];
+
+      let thumbnailUrl = canonicalPiece.thumbnailUrl || item.thumbnail_url;
+      if (!thumbnailUrl || seenThumbs.has(thumbnailUrl)) {
+        const candidate = canonicalPiece.thumbnailUrl;
+        if (candidate && !seenThumbs.has(candidate)) {
+          thumbnailUrl = candidate;
+        } else {
+          const unused = COLLECTIONS_DATA.find((c) => !seenThumbs.has(c.thumbnailUrl));
+          thumbnailUrl = unused ? unused.thumbnailUrl : (candidate || item.thumbnail_url || "");
+        }
+      }
+      seenThumbs.add(thumbnailUrl);
+
+      return {
+        id: item.id || canonicalPiece.id,
+        title: canonicalByVideo ? canonicalPiece.title : (item.title || canonicalPiece.title),
+        category: ((canonicalByVideo ? canonicalPiece.category : item.category) || canonicalPiece.category) as CollectionItem["category"],
+        metalPurity: (canonicalByVideo ? canonicalPiece.metalPurity : item.metal_purity) || canonicalPiece.metalPurity || "22ct Gold (916 Hallmarked)",
+        hallmarkText: (canonicalByVideo ? canonicalPiece.hallmarkText : item.hallmark_text) || canonicalPiece.hallmarkText || "UK London Assay Office 916",
+        description: (canonicalByVideo ? canonicalPiece.description : item.description) || canonicalPiece.description || "",
+        priceNote: item.price_note || canonicalPiece.priceNote || "Direct Workshop Consultation",
+        mediaType: ((canonicalByVideo ? canonicalPiece.mediaType : item.media_type) || canonicalPiece.mediaType) as "image" | "video",
+        thumbnailUrl,
+        videoUrl: item.video_url || canonicalPiece.videoUrl || undefined,
+        tags: item.tags || canonicalPiece.tags || [],
+        specs: item.specs || canonicalPiece.specs || {
+          weight: "Direct Workshop Valuation",
+          metal: "22ct Imperial Gold",
+          craftsmanship: "In-House Hayes Handcrafted",
+        },
+      };
+    });
   } catch {
     return COLLECTIONS_DATA;
   }

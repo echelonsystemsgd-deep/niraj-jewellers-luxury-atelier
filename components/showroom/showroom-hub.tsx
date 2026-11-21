@@ -148,7 +148,7 @@ export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) 
                   <span>Roadside Parking</span>
                 </div>
                 <p className="text-[#4A4A52] leading-relaxed">
-                  Convenient roadside customer parking bays available directly outside and along Uxbridge Road.
+                  Convenient roadside customer parking available directly outside and along Uxbridge Road.
                 </p>
               </div>
 

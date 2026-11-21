@@ -90,3 +90,12 @@ export function WorkshopBenchIcon({ className = "w-5 h-5", stroke = "currentColo
     </svg>
   );
 }
+
+export function LondonLeopardIcon({ className = "w-6 h-6", classNameInner = "text-[#DFBF7A]" }: { className?: string; classNameInner?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      {/* Historic London Assay Leopard's Head Crest Silhouette */}
+      <path d="M12 2C8.5 2 6 4.5 5 7.5c-.8 2.4-.2 5 .8 7 .8 1.6 2.2 3.2 4.2 4.5.6.4 1.2.7 2 .9.8-.2 1.4-.5 2-.9 2-1.3 3.4-2.9 4.2-4.5 1-2 1.6-4.6.8-7-1-3-3.5-5.5-7-5.5zm-4.2 5.2c.4-.6 1.1-.9 1.8-.7.4.1.7.4.9.8.2.5 0 1.1-.4 1.4-.6.5-1.5.3-1.9-.3-.3-.4-.3-.9-.4-1.2zm8.4 0c-.1.3-.1.8-.4 1.2-.4.6-1.3.8-1.9.3-.4-.3-.6-.9-.4-1.4.2-.4.5-.7.9-.8.7-.2 1.4.1 1.8.7zM12 17.5c-1.2 0-2.2-.4-3-.9.4-.8 1.4-1.4 3-1.4s2.6.6 3 1.4c-.8.5-1.8.9-3 .9zm-1.8-3.7c-.5-.2-1-.7-1-1.3 0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5c0 .6-.5 1.1-1 1.3h-1zm3.6 0c-.5-.2-1-.7-1-1.3 0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5c0 .6-.5 1.1-1 1.3h-1z" />
+    </svg>
+  );
+}

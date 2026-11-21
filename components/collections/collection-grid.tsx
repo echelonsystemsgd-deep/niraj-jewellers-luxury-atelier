@@ -39,9 +39,12 @@ export function CollectionGrid({ isHomepage = false, items }: CollectionGridProp
     [items]
   );
 
-  // Top 3 Verified Masterpieces for Clean Homepage Showcase
+  // Top 3 Verified Video Masterpieces for Clean Homepage Showcase
   const topThreeMasterpieces: CollectionItem[] = useMemo(() => {
-    return allItems.slice(0, 3);
+    const videoPieces = allItems.filter(
+      (item) => item.mediaType === "video" && Boolean(item.videoUrl)
+    );
+    return videoPieces.slice(0, 3);
   }, [allItems]);
 
   // Compute category counts dynamically across all live pieces
@@ -147,7 +150,7 @@ export function CollectionGrid({ isHomepage = false, items }: CollectionGridProp
               >
                 {/* Media Container with Clean Aspect Ratio */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
-                  <AtelierVideoCard item={item} hideMotionBadge={true} preferImage={isHomepage} />
+                  <AtelierVideoCard item={item} hideMotionBadge={true} preferImage={false} />
 
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity pointer-events-none" />

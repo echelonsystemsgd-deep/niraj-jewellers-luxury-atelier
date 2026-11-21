@@ -1,60 +1,67 @@
 "use client";
 
-import { ShieldCheck, CheckCircle2 } from "lucide-react";
-import { HallmarkCrownIcon, GoldsmithScalesIcon } from "@/components/icons/luxury-icons";
+import { ShieldCheck, CheckCircle2, Award, Scale } from "lucide-react";
+import { LondonLeopardIcon } from "@/components/icons/luxury-icons";
 
 export function HallmarkGuide() {
   const compulsoryMarks = [
     {
       num: "01",
       name: "Sponsor's Mark",
+      punchShape: "shield",
       symbol: "NJ",
-      symbolType: "text",
       role: "Registered Maker / Atelier",
-      description: "Identifies the unique registered initials of the craft atelier responsible for sending the piece to assay.",
+      description:
+        "Identifies the unique registered initials of Niraj Jewellers, legally held with the London Assay Office since 1984.",
     },
     {
       num: "02",
       name: "Standard Fineness Mark",
+      punchShape: "oval",
       symbol: "916",
-      symbolType: "text",
-      role: "Guaranteed Purity (e.g. 22ct)",
-      description: "Confirms the exact metallurgical precious metal content in parts per thousand (916 = 22ct Gold, 750 = 18ct Gold).",
+      role: "Guaranteed Purity (22ct / 91.6%)",
+      description:
+        "Confirms the exact precious metal purity in parts per thousand (916 = 22ct Gold, 750 = 18ct Gold, 999 = 24ct Bullion).",
     },
     {
       num: "03",
       name: "Assay Office Mark",
-      symbol: "🐆",
-      symbolType: "emoji",
-      role: "Leopard's Head (London)",
-      description: "The historic symbol of the London Assay Office at Goldsmiths' Hall, testing precious metals since 1300 AD.",
+      punchShape: "crest",
+      symbol: "leopard",
+      role: "London Leopard's Head",
+      description:
+        "The historic emblem of the London Assay Office at Goldsmiths' Hall, testing and certifying UK precious metals since 1300 AD.",
     },
   ];
 
   const purities = [
     {
-      carat: "24ct Gold",
-      partsPerThousand: "999 Fine Gold",
-      description: "Pure investment grade bullion. Minted gold bars, coins, and wealth preservation.",
-      tag: "Pure Bullion",
+      carat: "24ct Pure Bullion",
+      partsPerThousand: "999.9 Fine Gold",
+      description: "Highest purity investment grade bullion bars, legal tender sovereign coins, and wealth preservation portfolios.",
+      tag: "Pure Investment Bullion",
+      badge: "999.9 Fine",
     },
     {
-      carat: "22ct Gold",
+      carat: "22ct Imperial Gold",
       partsPerThousand: "916 Hallmarked",
-      description: "The revered gold standard for South Asian bridal suites, kadas, and mangalsutras. Deep golden luster.",
+      description: "The revered benchmark for bespoke Asian bridal suites, heavy kadas, and sacred mangalsutras. Rich, deep yellow luster.",
       tag: "Flagship Specialty",
+      badge: "916 Stamped",
     },
     {
-      carat: "18ct Gold",
+      carat: "18ct Fine Gold",
       partsPerThousand: "750 Hallmarked",
-      description: "The global benchmark for fine diamond solitaires, engagement rings, and luxury watches.",
+      description: "The global benchmark for certified diamond solitaire rings, pavé bands, and fine jewelry. Optimum durability and strength.",
       tag: "Solitaires & Bands",
+      badge: "750 Stamped",
     },
     {
-      carat: "950 Platinum",
-      partsPerThousand: "950 Pure Platinum",
-      description: "Naturally white, dense, and hypoallergenic precious metal. Holds diamond solitaires with maximum claw security.",
-      tag: "Diamond Rings",
+      carat: "950 Pure Platinum",
+      partsPerThousand: "950 Platinum",
+      description: "Naturally white, dense, and hypoallergenic precious metal. Holds diamond solitaires with exceptional claw security.",
+      tag: "Bridal Platinum",
+      badge: "950 Stamped",
     },
   ];
 
@@ -62,7 +69,7 @@ export function HallmarkGuide() {
     <section className="py-20 sm:py-28 bg-[#FAF9F5] texture-ivory-paper border-t border-[#E8DEC8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#996515]">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>UK Hallmarking Act Compliance &amp; Purity Education</span>
@@ -78,43 +85,72 @@ export function HallmarkGuide() {
           </p>
         </div>
 
-        {/* Visual 3 Compulsory UK Hallmarks Explainer (Plush Jeweller's Velvet Presentation Tray) */}
-        <div className="mb-14 texture-jewellers-velvet p-5 sm:p-8 rounded-2xl sm:rounded-3xl border-2 border-hammered-gold shadow-2xl text-white">
-          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1.5">
-            <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#FAF7F2]">
+        {/* Visual 3 Compulsory UK Hallmarks Explainer (Clean Mayfair Ivory & Gold Atelier Card Layout) */}
+        <div className="mb-14 bg-white rounded-3xl border border-[#E8DEC8] p-6 sm:p-10 shadow-sm relative overflow-hidden">
+          {/* Subtle Ambient Gold Hairline Glow */}
+          <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#DFBF7A] to-transparent" />
+
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 text-xs font-bold text-[#8C6212] uppercase tracking-wider">
+              <Award className="w-3.5 h-3.5 text-[#996515]" />
+              <span>Statutory British Standard</span>
+            </div>
+            <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#141416]">
               The 3 Compulsory Marks on Every Genuine Piece
             </h3>
-            <p className="text-xs sm:text-sm text-[#DFBF7A]">
-              Presented on our velvet bench tray: every piece of gold over 1.0g legally requires these three distinct stamps.
+            <p className="text-xs sm:text-sm text-[#5A5960] leading-relaxed">
+              Every precious metal piece sold legally requires these three distinct punches struck by an independent UK Assay Office.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {compulsoryMarks.map((mark) => (
               <div
                 key={mark.num}
-                className="p-5 rounded-2xl bg-[#18181C]/90 border border-[#D4AF37]/50 flex flex-col justify-between space-y-3 backdrop-blur-sm shadow-md"
+                className="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E8DEC8] hover:border-[#D4AF37] flex flex-col justify-between space-y-4 transition-all duration-300 hover:shadow-md group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs font-bold text-[#DFBF7A]">{mark.num}</span>
-                    <span className="text-[9.5px] sm:text-[10px] uppercase font-semibold text-[#DFBF7A] bg-black/60 px-2.5 py-0.5 rounded-full border border-[#D4AF37]/40">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-xs font-bold text-[#8C6212] bg-white px-2.5 py-0.5 rounded-full border border-[#E8DEC8]">
+                      Step {mark.num}
+                    </span>
+                    <span className="text-[10px] uppercase font-semibold text-[#8C6212] bg-[#F4ECE1] px-2.5 py-0.5 rounded-full border border-[#D4AF37]/30">
                       Compulsory Mark
                     </span>
                   </div>
 
-                  {/* Stamp Visual Motif (Hand-Hammered 22ct Gold Coin Medallion) */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl texture-hammered-gold border-2 border-white/90 flex items-center justify-center text-lg sm:text-xl font-bold font-serif text-[#141416] shadow-xl mb-3 mx-auto">
-                    {mark.symbol}
+                  {/* Refined Punch Stamp Motif */}
+                  <div className="flex items-center justify-center my-4">
+                    {mark.punchShape === "shield" && (
+                      <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-b from-[#F4ECE1] to-[#FAF7F2] border-2 border-[#D4AF37] flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
+                        <span className="font-serif text-2xl font-bold tracking-wider text-[#8C6212]">
+                          {mark.symbol}
+                        </span>
+                      </div>
+                    )}
+
+                    {mark.punchShape === "oval" && (
+                      <div className="relative w-24 h-16 rounded-full bg-gradient-to-b from-[#F4ECE1] to-[#FAF7F2] border-2 border-[#D4AF37] flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
+                        <span className="font-mono text-2xl font-bold tracking-wider text-[#8C6212]">
+                          {mark.symbol}
+                        </span>
+                      </div>
+                    )}
+
+                    {mark.punchShape === "crest" && (
+                      <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-b from-[#F4ECE1] to-[#FAF7F2] border-2 border-[#D4AF37] flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform text-[#8C6212]">
+                        <LondonLeopardIcon className="w-10 h-10 fill-current text-[#8C6212]" />
+                      </div>
+                    )}
                   </div>
 
-                  <h4 className="font-serif text-sm sm:text-base font-semibold text-white text-center mb-1">
+                  <h4 className="font-serif text-lg font-medium text-[#141416] text-center mb-1 group-hover:text-[#996515] transition-colors">
                     {mark.name}
                   </h4>
-                  <p className="text-[10.5px] sm:text-[11px] font-mono font-medium text-[#DFBF7A] text-center mb-2">
+                  <p className="text-xs font-mono font-semibold text-[#8C6212] text-center mb-2.5">
                     {mark.role}
                   </p>
-                  <p className="text-xs text-[#C4C2BA] text-center leading-relaxed">
+                  <p className="text-xs text-[#5A5960] text-center leading-relaxed">
                     {mark.description}
                   </p>
                 </div>
@@ -128,7 +164,7 @@ export function HallmarkGuide() {
           {purities.map((item, idx) => (
             <div
               key={idx}
-              className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] space-y-3 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+              className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] space-y-3 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow group"
             >
               <div>
                 <div className="flex items-center justify-between">
@@ -136,20 +172,20 @@ export function HallmarkGuide() {
                     {item.partsPerThousand}
                   </span>
                   <span className="text-[10px] font-semibold text-[#5A5960] bg-[#FAF7F2] px-2 py-0.5 rounded-full border border-[#E8DEC8]">
-                    {item.tag}
+                    {item.badge}
                   </span>
                 </div>
-                <h3 className="font-serif text-2xl font-medium text-[#141416] mt-2">
+                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#141416] mt-2 group-hover:text-[#996515] transition-colors">
                   {item.carat}
                 </h3>
-                <p className="text-xs text-[#4A4A52] mt-2 leading-relaxed">
+                <p className="text-xs text-[#5A5960] mt-2 leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
               <div className="pt-4 border-t border-[#EFE8DA] flex items-center gap-1.5 text-[11px] text-emerald-800 font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>London Assay Office Stamped</span>
+                <span>London Assay Office Verified</span>
               </div>
             </div>
           ))}

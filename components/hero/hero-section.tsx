@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
-import { WhatsAppIcon, LuxuryStarIcon, GoldsmithLoupeIcon, GoldsmithScalesIcon, HallmarkCrownIcon, WorkshopBenchIcon } from "@/components/icons/luxury-icons";
+import { WhatsAppIcon, LuxuryStarIcon, GoldsmithLoupeIcon, HallmarkCrownIcon, WorkshopBenchIcon } from "@/components/icons/luxury-icons";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export function HeroSection() {
@@ -217,26 +217,21 @@ export function HeroSection() {
             </a>
           </div>
 
-          {/* 4 Sleek Trust Pills (Ivory Cards with Soft Gold Hairlines & Navy Font) */}
-          <div className="pt-4 sm:pt-6 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10.5px] sm:text-xs">
-            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
+          {/* 3 Sleek Trust Pills (Ivory Cards with Soft Gold Hairlines & Navy Font) */}
+          <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10.5px] sm:text-xs">
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
               <HallmarkCrownIcon className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
               <span className="font-semibold text-[#1F2A44] truncate">Heritage Atelier</span>
             </div>
 
-            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
               <ShieldCheck className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
               <span className="font-semibold text-[#1F2A44] truncate">London Hallmarked</span>
             </div>
 
-            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
               <WorkshopBenchIcon className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
               <span className="font-semibold text-[#1F2A44] truncate">100% In-House</span>
-            </div>
-
-            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
-              <GoldsmithScalesIcon className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
-              <span className="font-semibold text-[#1F2A44] truncate">Live Bullion Fix</span>
             </div>
           </div>
         </div>
