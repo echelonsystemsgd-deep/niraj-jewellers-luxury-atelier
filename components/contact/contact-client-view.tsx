@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { SubpageNav } from "@/components/header/subpage-nav";
 import { Footer } from "@/components/footer/footer";
-import { MessageCircle, Phone, Mail, MapPin, Sparkles, Navigation, Send, Check } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, Sparkles, Navigation, Send, Check, Instagram } from "lucide-react";
 import {
   NIRAJ_DISPLAY_PHONE,
   NIRAJ_UK_PHONE,
@@ -212,6 +212,63 @@ export function ContactClientView() {
                   <Navigation className="w-3.5 h-3.5 text-[#996515]" />
                   <span>Open in Google Maps</span>
                 </a>
+              </div>
+
+              {/* Official Social Media Channels */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DEC8] space-y-3 shadow-sm">
+                <div>
+                  <span className="text-xs uppercase tracking-wider text-[#8C6212] font-bold block">
+                    Official Workshop Channels
+                  </span>
+                  <p className="text-xs text-[#5A5960] mt-1">
+                    Follow daily behind-the-bench videos, CAD animations, and new showroom drops:
+                  </p>
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  <a
+                    href="https://www.instagram.com/nirajjewellersltd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3 rounded-xl bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] hover:border-[#D4AF37] transition-all text-xs font-semibold text-[#141416] group"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Instagram className="w-4 h-4 text-pink-600" />
+                      <span>Instagram: @nirajjewellersltd</span>
+                    </div>
+                    <span className="text-[#996515] group-hover:translate-x-1 transition-transform">→</span>
+                  </a>
+
+                  <a
+                    href="https://www.tiktok.com/@nirajjewellersltd"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3 rounded-xl bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] hover:border-[#D4AF37] transition-all text-xs font-semibold text-[#141416] group"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <svg className="w-4 h-4 fill-current text-[#141416]" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.46 6.27 6.27 0 0 0 1.9-4.46V8.7a8.18 8.18 0 0 0 4.87 1.6V6.84a4.87 4.87 0 0 1-1-.15Z" />
+                      </svg>
+                      <span>TikTok Atelier: @nirajjewellersltd</span>
+                    </div>
+                    <span className="text-[#996515] group-hover:translate-x-1 transition-transform">→</span>
+                  </a>
+
+                  <a
+                    href="https://www.tiktok.com/@nirajjewellersuk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3 rounded-xl bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] hover:border-[#D4AF37] transition-all text-xs font-semibold text-[#141416] group"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <svg className="w-4 h-4 fill-current text-[#141416]" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.46 6.27 6.27 0 0 0 1.9-4.46V8.7a8.18 8.18 0 0 0 4.87 1.6V6.84a4.87 4.87 0 0 1-1-.15Z" />
+                      </svg>
+                      <span>TikTok Showcase: @nirajjewellersuk</span>
+                    </div>
+                    <span className="text-[#996515] group-hover:translate-x-1 transition-transform">→</span>
+                  </a>
+                </div>
               </div>
             </div>
 

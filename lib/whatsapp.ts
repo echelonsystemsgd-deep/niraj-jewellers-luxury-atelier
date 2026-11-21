@@ -25,6 +25,11 @@ export const NIRAJ_COMPANY_NAME = "Niraj Jewellers Ltd";
 export const NIRAJ_COMPANY_REG = "Registered in England & Wales";
 export const NIRAJ_VAT_NUMBER = "GB 842 9617 32";
 
+// Official Social Channels
+export const NIRAJ_INSTAGRAM_URL = "https://www.instagram.com/nirajjewellersltd";
+export const NIRAJ_TIKTOK_ATELIER_URL = "https://www.tiktok.com/@nirajjewellersltd";
+export const NIRAJ_TIKTOK_UK_URL = "https://www.tiktok.com/@nirajjewellersuk";
+
 export interface WhatsAppMessageOptions {
   source?: string;
   pieceTitle?: string;

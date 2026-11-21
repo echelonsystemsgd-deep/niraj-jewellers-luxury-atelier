@@ -223,6 +223,7 @@ export default function RootLayout({
         sameAs: [
           "https://www.instagram.com/nirajjewellersltd",
           "https://www.tiktok.com/@nirajjewellersltd",
+          "https://www.tiktok.com/@nirajjewellersuk",
         ],
         aggregateRating: {
           "@type": "AggregateRating",

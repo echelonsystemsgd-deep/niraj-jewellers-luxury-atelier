@@ -49,6 +49,8 @@ export const FALLBACK_SETTINGS: GlobalSettings = {
   },
   social_links: {
     instagram: "https://www.instagram.com/nirajjewellersltd",
+    tiktok_atelier: "https://www.tiktok.com/@nirajjewellersltd",
+    tiktok_uk: "https://www.tiktok.com/@nirajjewellersuk",
     facebook: "https://facebook.com/nirajjewellersltd",
     whatsapp: `https://wa.me/${NIRAJ_PHONE_NUMBER}`,
   },
