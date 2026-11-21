@@ -9,6 +9,7 @@ import { RepairsShowcase } from "./RepairsShowcase";
 import { ProvenanceSection } from "./ProvenanceSection";
 import { EditorialManifesto } from "./EditorialManifesto";
 import { ShowroomLogistics } from "./ShowroomLogistics";
+import { ReviewsSection } from "@/components/trust/reviews-section";
 import { Footer } from "@/components/footer/footer";
 import { CollectionItem, COLLECTIONS_DATA } from "@/data/collections-data";
 import Link from "next/link";
@@ -59,6 +60,9 @@ export function AtelierClientView() {
 
         {/* In-House Same-Day Bench Repairs Showcase */}
         <RepairsShowcase />
+
+        {/* Verified Google Reviews & Client Trust */}
+        <ReviewsSection />
 
         {/* Editorial Goldsmith Manifesto */}
         <EditorialManifesto />

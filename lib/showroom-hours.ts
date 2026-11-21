@@ -45,20 +45,22 @@ export function getLondonCurrentDayInfo(): { dayName: string; formattedTime: str
 export function getLondonShowroomStatus(simulatedDate?: Date): ShowroomStatus {
   const now = simulatedDate || new Date();
   
-  const londonTimeStr = now.toLocaleString("en-GB", {
+  const formatter = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Europe/London",
-    hour12: false,
+    hourCycle: "h23",
     weekday: "short",
-    hour: "2-digit",
-    minute: "2-digit",
+    hour: "numeric",
+    minute: "numeric",
   });
-
-  const [weekdayShort, timeStr] = londonTimeStr.split(", ");
-  const [hourStr, minuteStr] = (timeStr || "12:00").split(":");
-  const currentMinutes = parseInt(hourStr, 10) * 60 + parseInt(minuteStr, 10);
+  const parts = formatter.formatToParts(now);
+  const weekdayShort = parts.find((p) => p.type === "weekday")?.value || "Sat";
+  const hour = parseInt(parts.find((p) => p.type === "hour")?.value || "0", 10);
+  const minute = parseInt(parts.find((p) => p.type === "minute")?.value || "0", 10);
+  const currentMinutes = hour * 60 + minute;
 
   const isMon = weekdayShort === "Mon";
   const isSun = weekdayShort === "Sun";
+  const isSat = weekdayShort === "Sat";
 
   let openTime = 660; // 11:00 AM
   const closeTime = isMon ? 1020 : 1050; // 5:00 PM on Mon (17:00), 5:30 PM on Tue-Sat (17:30)

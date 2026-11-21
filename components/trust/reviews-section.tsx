@@ -41,30 +41,39 @@ export function ReviewsSection({ items }: ReviewsSectionProps) {
           </p>
 
           {/* Official Google Reviews Trust Banner (Hammered Gold Plaque) */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-full texture-hammered-card border-hammered-gold text-xs shadow-sm">
-            <div className="flex items-center gap-1.5">
-              <GoogleGIcon className="w-4 h-4 shrink-0" />
-              <span className="font-bold text-[#141416]">Google Reviews</span>
-            </div>
-            <div className="flex items-center gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <LuxuryStarIcon key={i} className="w-3.5 h-3.5" fill="#C5A059" />
-              ))}
-            </div>
-            <span className="font-bold text-[#141416]">5.0 / 5.0</span>
-            <span className="text-[#8C6212] font-semibold hidden sm:inline">• 140+ London Clients Verified</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto">
+            <a
+              href="https://share.google/UzzobueZI6BXs8GZQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full texture-hammered-card border-hammered-gold text-xs shadow-sm hover:border-[#996515] transition-all group"
+              title="View Niraj Jewellers Ltd on Google"
+            >
+              <div className="flex items-center gap-1.5">
+                <GoogleGIcon className="w-4 h-4 shrink-0" />
+                <span className="font-bold text-[#141416]">Google Rating</span>
+              </div>
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <LuxuryStarIcon key={i} className="w-3.5 h-3.5" fill="#C5A059" />
+                ))}
+              </div>
+              <span className="font-bold text-[#141416]">4.3 / 5.0</span>
+              <span className="text-[#8C6212] font-semibold">• 10 Google Reviews</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#996515] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
           </div>
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
-          {reviewsToDisplay.slice(0, 3).map((review) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {reviewsToDisplay.slice(0, 6).map((review) => (
             <div
               key={review.id}
-              className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-3.5 sm:space-y-4 shadow-sm hover:shadow-md"
+              className="bg-white p-6 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md"
             >
-              <div className="space-y-3 sm:space-y-3.5">
-                {/* Header: Stars & Google Icon */}
+              <div className="space-y-3">
+                {/* Header: Stars & Google / Atelier Icon */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-0.5">
                     {[...Array(review.rating)].map((_, i) => (
@@ -72,7 +81,15 @@ export function ReviewsSection({ items }: ReviewsSectionProps) {
                     ))}
                   </div>
                   <div className="flex items-center gap-1.5 text-[10px] text-[#7A7880]">
-                    <GoogleGIcon className="w-3.5 h-3.5" />
+                    {review.source === "Google" ? (
+                      <span className="inline-flex items-center gap-1 font-medium text-[#1A73E8]">
+                        <GoogleGIcon className="w-3 h-3" />
+                        Google
+                      </span>
+                    ) : (
+                      <span className="font-medium text-[#8C6212]">Showroom</span>
+                    )}
+                    <span>•</span>
                     <span>{review.date}</span>
                   </div>
                 </div>
@@ -87,17 +104,21 @@ export function ReviewsSection({ items }: ReviewsSectionProps) {
               </div>
 
               {/* Reviewer Profile Row with Verified Profile Photo Avatar */}
-              <div className="pt-3.5 sm:pt-4 border-t border-[#EFE8DA] flex items-center justify-between">
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-hammered-gold shrink-0 shadow-sm">
-                    <Image
-                      src={review.avatarUrl || "/images/avatars/avatar-1.svg"}
-                      alt={review.author}
-                      fill
-                      unoptimized
-                      sizes="40px"
-                      className="object-cover"
-                    />
+              <div className="pt-3.5 border-t border-[#EFE8DA] flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-hammered-gold shrink-0 shadow-sm bg-[#FAF7F2] flex items-center justify-center font-serif text-xs font-bold text-[#8C6212]">
+                    {review.avatarUrl ? (
+                      <Image
+                        src={review.avatarUrl}
+                        alt={review.author}
+                        fill
+                        unoptimized
+                        sizes="36px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span>{getInitials(review.author)}</span>
+                    )}
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-[#141416]">{review.author}</h4>
@@ -106,7 +127,7 @@ export function ReviewsSection({ items }: ReviewsSectionProps) {
                 </div>
 
                 {review.verified && (
-                  <span className="inline-flex items-center gap-1 text-[9.5px] sm:text-[10px] text-emerald-800 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300">
+                  <span className="inline-flex items-center gap-1 text-[9.5px] text-emerald-800 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300">
                     <ShieldCheck className="w-3 h-3 text-emerald-600" />
                     <span>Verified</span>
                   </span>
@@ -116,16 +137,16 @@ export function ReviewsSection({ items }: ReviewsSectionProps) {
           ))}
         </div>
 
-        {/* Action Link to Google Maps Location */}
-        <div className="mt-12 text-center">
+        {/* Action Link to Google Profile */}
+        <div className="mt-12 text-center flex flex-wrap items-center justify-center gap-3">
           <a
-            href="https://maps.google.com/?q=Niraj+Jewellers+136+Uxbridge+Road+Hayes+UB4+0JH"
+            href="https://share.google/UzzobueZI6BXs8GZQ"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-xs font-bold text-[#141416] hover:text-[#996515] transition-all shadow-sm min-h-[44px]"
           >
             <GoogleGIcon className="w-4 h-4" />
-            <span>View 136 Uxbridge Road Location &amp; Reviews on Google</span>
+            <span>Read All 10 Reviews on Google</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-[#996515]" />
           </a>
         </div>

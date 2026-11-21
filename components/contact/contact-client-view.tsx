@@ -127,7 +127,7 @@ export function ContactClientView() {
                   </span>
                 </div>
                 <p className="text-xs text-[#5A5960] mt-2">
-                  Mon: 12:00–17:00 | Tue–Sat: 11:00–17:00. Direct access to our Hayes showroom desk.
+                  Mon: 12:00–17:00 | Tue–Sat: 11:00–17:30. Direct access to our Hayes showroom desk.
                 </p>
               </a>
 

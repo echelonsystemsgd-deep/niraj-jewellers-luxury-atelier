@@ -4,10 +4,20 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MessageSquare, Phone, X, Menu, ArrowRight, MapPin, Clock, ShieldCheck } from "lucide-react";
+import { getLondonShowroomStatus, ShowroomStatus } from "@/lib/showroom-hours";
 
 export function AtelierNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showroomStatus, setShowroomStatus] = useState<ShowroomStatus | null>(null);
+
+  useEffect(() => {
+    setShowroomStatus(getLondonShowroomStatus());
+    const interval = setInterval(() => {
+      setShowroomStatus(getLondonShowroomStatus());
+    }, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Background body scroll & interaction lock:
   // When mobile menu is open, the background site is 100% frozen, non-scrollable, and non-interactive
@@ -181,13 +191,27 @@ export function AtelierNavbar() {
 
           {/* Middle: Viky's 6 Official Navigation Portals */}
           <div className="px-5 sm:px-8 pt-8 pb-12 flex-1 max-w-2xl mx-auto w-full space-y-6">
-            {/* Showroom Status Indicator */}
+            {/* Dynamic London Showroom Status Indicator */}
             <div className="pb-3 border-b border-[#E8DEC8] flex items-center justify-between text-xs text-[#57534E] font-mono">
               <span className="uppercase tracking-wider">SHOWROOM ACCESS:</span>
-              <span className="inline-flex items-center gap-1.5 text-[#128C7E] font-semibold">
-                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
-                <span>OPEN · WALK-INS WELCOME</span>
-              </span>
+              {showroomStatus ? (
+                showroomStatus.isOpen ? (
+                  <span className="inline-flex items-center gap-1.5 text-[#128C7E] font-semibold">
+                    <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
+                    <span>OPEN · WALK-INS WELCOME</span>
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center gap-1.5 text-[#996515] font-semibold text-[11px]">
+                    <span className="w-2 h-2 rounded-full bg-[#C5A059]"></span>
+                    <span>CLOSED · {showroomStatus.nextEventText.toUpperCase()}</span>
+                  </span>
+                )
+              ) : (
+                <span className="inline-flex items-center gap-1.5 text-[#7A7880]">
+                  <span className="w-2 h-2 rounded-full bg-gray-400"></span>
+                  <span>136 UXBRIDGE ROAD</span>
+                </span>
+              )}
             </div>
 
             {/* Dual Phone Numbers (Landline + Mobile) */}
@@ -273,7 +297,7 @@ export function AtelierNavbar() {
                 <MapPin className="w-3 h-3 text-[#C6A75E]" />
                 <span>136 Uxbridge Road, Hayes UB4 0JH</span>
               </span>
-              <span>Tue–Sat 10:30–18:00</span>
+              <span>Mon 12–17:00 | Tue–Sat 11–17:30</span>
             </div>
           </div>
         </div>

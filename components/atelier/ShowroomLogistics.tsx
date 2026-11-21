@@ -3,6 +3,7 @@
 import React from "react";
 import { sound } from "@/lib/sound";
 import { MapPin, Clock, Phone, Navigation, MessageSquare, Car, Train } from "lucide-react";
+import { ShowroomStatusBadge } from "@/components/header/showroom-status";
 
 export function ShowroomLogistics() {
   return (
@@ -11,13 +12,16 @@ export function ShowroomLogistics() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: Atelier Location & Hours */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <div>
-              <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#C6A75E] block mb-2">
-                [ SHOWROOM & ATELIER LOGISTICS ]
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-[#FAF9F5] tracking-tight">
-                Visit the Hayes Bench
-              </h2>
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#C6A75E] block mb-2">
+                  [ SHOWROOM & ATELIER LOGISTICS ]
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#FAF9F5] tracking-tight">
+                  Visit the Hayes Bench
+                </h2>
+              </div>
+              <ShowroomStatusBadge />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs text-[#A89F91]">

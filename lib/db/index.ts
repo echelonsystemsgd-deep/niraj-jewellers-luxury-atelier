@@ -41,11 +41,11 @@ export const FALLBACK_SETTINGS: GlobalSettings = {
   vat_number: NIRAJ_VAT_NUMBER,
   opening_hours: {
     monday: "12:00 – 17:00",
-    tuesday: "11:00 – 17:00",
-    wednesday: "11:00 – 17:00",
-    thursday: "11:00 – 17:00",
-    friday: "11:00 – 17:00",
-    saturday: "11:00 – 17:00",
+    tuesday: "11:00 – 17:30",
+    wednesday: "11:00 – 17:30",
+    thursday: "11:00 – 17:30",
+    friday: "11:00 – 17:30",
+    saturday: "11:00 – 17:30",
     sunday: "Closed (Open festive Sundays)",
   },
   social_links: {

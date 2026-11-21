@@ -90,13 +90,14 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
         className="relative w-full max-w-4xl max-h-[92vh] flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button with 48px touch target */}
+        {/* High-Contrast Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-30 w-12 h-12 rounded-full bg-white/95 hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-[#141416] flex items-center justify-center transition-all shadow-md touch-target"
+          className="absolute top-4 right-4 z-30 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#141416] border border-[#E8DEC8] hover:border-[#141416] text-[#8C6212] hover:text-white transition-all shadow-md text-xs font-bold uppercase tracking-wider touch-target cursor-pointer"
           aria-label="Close piece details"
         >
-          <X className="w-5 h-5" />
+          <span>CLOSE</span>
+          <X className="w-4 h-4" />
         </button>
 
         {/* Left Column: Authentic Photography or Video on Infinite Loop */}
@@ -301,6 +302,18 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
                   </svg>
                   <span>TikTok @nirajjewellersltd</span>
                 </a>
+              </div>
+
+              {/* Explicit Exit / Close Button */}
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="w-full py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] hover:bg-[#141416] text-[#8C6212] hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <X className="w-3.5 h-3.5" />
+                  <span>CLOSE &amp; RETURN TO COLLECTION</span>
+                </button>
               </div>
             </div>
           </div>
