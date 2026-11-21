@@ -33,6 +33,22 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center pt-24 sm:pt-36 pb-12 sm:pb-24 overflow-hidden bg-[#FAF9F5] texture-ivory-paper">
+      {/* 0. Ambient Diamond Motion Video Backdrop (Cropped & Scaled to Focus on Sparkling Diamonds) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" aria-hidden="true">
+        <video
+          src="/images/collections/0bda9709-3486-4146-b08c-9f05cc25ee4d.mp4"
+          poster="/images/collections/posters/0bda9709-3486-4146-b08c-9f05cc25ee4d.jpg"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-top opacity-20 sm:opacity-25 scale-125 sm:scale-135 filter contrast-125 mix-blend-multiply"
+        />
+        {/* Soft atmospheric gradient masks preserving ivory luxury palette & hiding bottom watermark */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F5]/75 via-[#FAF9F5]/50 to-[#FAF9F5]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#FAF9F5_85%)]" />
+      </div>
+
       {/* 1. Tactile Archival Paper Micro-Texture & Ambient Gold Radiance */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
         {/* Soft atmospheric warmth */}
