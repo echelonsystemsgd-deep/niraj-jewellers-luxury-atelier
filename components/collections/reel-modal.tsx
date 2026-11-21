@@ -69,13 +69,10 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
     }
   };
 
-  const whatsappEnquiryLink = buildWhatsAppLink({
-    source: `collection_modal_${item.id}`,
-    pieceTitle: item.title,
-    metalPurity: item.metalPurity,
-    category: item.category,
-    customNote: `Hi Niraj Jewellers team, I am enquiring about the ${item.title} (${item.metalPurity}) featured in your collection showroom. Could you please share more details regarding pricing, bespoke options, and showroom viewing?`,
-  });
+  const whatsappMessage = encodeURIComponent(
+    `Hi Niraj Jewellers, I am interested in "${item.title}" (${item.metalPurity}). Is this available to inspect at your Hayes showroom?`
+  );
+  const whatsappEnquiryLink = `https://api.whatsapp.com/send?phone=447955565137&text=${whatsappMessage}`;
 
   return (
     <div
