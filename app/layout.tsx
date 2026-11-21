@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Alex_Brush } from "next/font/google";
 import "./globals.css";
 import { MobileDock } from "@/components/mobile/mobile-dock";
 import { BackToTop } from "@/components/header/back-to-top";
+
+const alexBrush = Alex_Brush({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-alex-brush",
+  display: "swap",
+});
 
 const vivaldi = localFont({
   src: "../public/fonts/vivaldi.ttf",
@@ -314,7 +322,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${vivaldi.variable} scroll-smooth`}>
+    <html lang="en" className={`${alexBrush.variable} ${vivaldi.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"

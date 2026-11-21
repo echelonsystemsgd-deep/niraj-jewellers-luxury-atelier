@@ -22,7 +22,7 @@ export const NIRAJ_MAPS_LINK = "https://maps.google.com/?q=136+Uxbridge+Road+Hay
 
 // Business credentials
 export const NIRAJ_COMPANY_NAME = "Niraj Jewellers Ltd";
-export const NIRAJ_COMPANY_REG = "Registered in England & Wales";
+export const NIRAJ_COMPANY_REG = "Company No: 05074588 (Registered in England & Wales)";
 export const NIRAJ_VAT_NUMBER = "GB 842 9617 32";
 
 // Official Social Channels
@@ -64,30 +64,50 @@ export function buildWhatsAppLink(options: WhatsAppMessageOptions = {}): string 
     intent = "general",
   } = options;
 
+  // Clean custom note if it already has a greeting or if it's the sole message
+  const cleanedCustomNote = customNote ? customNote.trim() : "";
+  const hasGreetingInNote = /^hi\s+niraj|^hello|^dear/i.test(cleanedCustomNote);
+
   let message = "";
 
+  // If customNote was passed as a complete self-contained message and no structured piece details are needed:
+  if (cleanedCustomNote && hasGreetingInNote && !pieceTitle && !stones && !estimatedBudget && !visitDate && !visitPurpose && intent === "general") {
+    message = cleanedCustomNote;
+  }
   // 1. Wholesale Bullion & Scrap Inquiries
-  if (intent === "wholesale") {
-    message = `Hi Niraj Jewellers team, I am viewing your wholesale bullion services on your website.\n\nCould you please share your current rates and availability for 24ct / 22ct bullion investment?`;
-    if (customNote) {
-      message += `\n\n${customNote}`;
+  else if (intent === "wholesale") {
+    if (cleanedCustomNote && hasGreetingInNote) {
+      message = cleanedCustomNote;
+    } else {
+      message = `Hi Niraj Jewellers team, I am viewing your wholesale bullion services on your website.\n\nCould you please share your current rates and availability for 24ct / 22ct bullion investment?`;
+      if (cleanedCustomNote) {
+        message += `\n\n${cleanedCustomNote}`;
+      }
     }
   } 
   // 2. Scrap Gold Trade-in
   else if (intent === "scrap") {
-    message = `Hi Niraj Jewellers team, I have some gold / scrap jewellery that I would like to get valued for trade-in at your Hayes showroom. Could you please let me know your current trade-in rate per gram?`;
-    if (customNote) {
-      message += `\n\n${customNote}`;
+    if (cleanedCustomNote && hasGreetingInNote) {
+      message = cleanedCustomNote;
+    } else {
+      message = `Hi Niraj Jewellers team, I have some gold / scrap jewellery that I would like to get valued for trade-in at your Hayes showroom. Could you please let me know your current trade-in rate per gram?`;
+      if (cleanedCustomNote) {
+        message += `\n\n${cleanedCustomNote}`;
+      }
     }
   }
   // 3. Jewellery Repairs & Restorations
   else if (intent === "repair") {
-    message = `Hi Niraj Jewellers team, I would like to enquire about an in-house jewellery repair at your Hayes workshop.`;
-    if (visitPurpose) {
-      message += `\n\nService: ${visitPurpose}`;
-    }
-    if (customNote) {
-      message += `\nDetails: ${customNote}`;
+    if (cleanedCustomNote && hasGreetingInNote) {
+      message = cleanedCustomNote;
+    } else {
+      message = `Hi Niraj Jewellers team, I would like to enquire about an in-house jewellery repair at your Hayes workshop.`;
+      if (visitPurpose) {
+        message += `\n\nService: ${visitPurpose}`;
+      }
+      if (cleanedCustomNote) {
+        message += `\nDetails: ${cleanedCustomNote}`;
+      }
     }
   }
   // 4. Showroom VIP Viewing Booking
@@ -96,7 +116,8 @@ export function buildWhatsAppLink(options: WhatsAppMessageOptions = {}): string 
     if (clientName) message += `\n\nName: ${clientName}`;
     if (visitPurpose) message += `\nPurpose: ${visitPurpose}`;
     if (visitDate) message += `\nPreferred Date: ${visitDate} ${visitTime ? `at ${visitTime}` : ""}`;
-    if (customNote) message += `\nNotes: ${customNote}`;
+    if (cleanedCustomNote && !hasGreetingInNote) message += `\nNotes: ${cleanedCustomNote}`;
+    else if (cleanedCustomNote && hasGreetingInNote) message += `\n\n${cleanedCustomNote.replace(/^hi\s+niraj\s+jewellers\s+team,?\s*/i, "")}`;
   }
   // 5. Bespoke Commission Configuration
   else if (intent === "bespoke" || pieceTitle || stones || estimatedBudget) {
@@ -106,16 +127,19 @@ export function buildWhatsAppLink(options: WhatsAppMessageOptions = {}): string 
     if (metalPurity) message += `\n• Metal: ${metalPurity}`;
     if (stones) message += `\n• Stones: ${stones}`;
     if (estimatedBudget) message += `\n• Budget Tier: ${estimatedBudget}`;
-    if (customNote) message += `\n\n${customNote}`;
-    else message += `\n\nCould we discuss design options and lead times?`;
+    
+    if (cleanedCustomNote) {
+      const noteWithoutGreeting = cleanedCustomNote.replace(/^hi\s+niraj\s+jewellers\s+team,?\s*/i, "").trim();
+      if (noteWithoutGreeting) {
+        message += `\n\n${noteWithoutGreeting}`;
+      }
+    } else {
+      message += `\n\nCould we discuss design options and lead times?`;
+    }
   }
   // 6. Natural Fallback / General Enquiries
   else {
-    if (customNote) {
-      message = customNote;
-    } else {
-      message = `Hi Niraj Jewellers team, I am reaching out from your website and would like to ask a question.`;
-    }
+    message = cleanedCustomNote || `Hi Niraj Jewellers team, I am reaching out from your website and would like to ask a question.`;
   }
 
   const encodedMessage = encodeURIComponent(message);

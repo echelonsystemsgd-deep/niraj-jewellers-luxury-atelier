@@ -288,7 +288,7 @@ export function Footer() {
             <div className="flex flex-wrap items-center gap-3 text-center md:text-left">
               <span>© {new Date().getFullYear()} Niraj Jewellers Ltd.</span>
               <span className="hidden sm:inline">•</span>
-              <span>Co. Reg: {NIRAJ_COMPANY_REG}</span>
+              <span>{NIRAJ_COMPANY_REG}</span>
               <span className="hidden sm:inline">•</span>
               <span className="text-[#8C6212] font-semibold">VAT Reg No: {NIRAJ_VAT_NUMBER}</span>
               <span className="hidden sm:inline">•</span>

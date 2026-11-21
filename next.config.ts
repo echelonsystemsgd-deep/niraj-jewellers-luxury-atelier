@@ -54,6 +54,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/bullion",
+        destination: "/gold-rates",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

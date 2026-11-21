@@ -32,80 +32,62 @@ export function HeroSection() {
   });
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center pt-24 sm:pt-36 pb-12 sm:pb-24 overflow-hidden bg-[#FAF9F5] texture-ivory-paper">
-      {/* 0. Ambient Diamond Motion Video Backdrop (Significantly Enhanced Visibility) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" aria-hidden="true">
-        <video
-          src="/images/collections/0bda9709-3486-4146-b08c-9f05cc25ee4d.mp4"
-          poster="/images/collections/posters/0bda9709-3486-4146-b08c-9f05cc25ee4d.jpg"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover object-top opacity-65 sm:opacity-75 lg:opacity-85 scale-125 sm:scale-130 filter brightness-120 contrast-130 transition-opacity duration-1000"
-        />
-        {/* Soft edge-blending gradients preserving high readability while letting diamonds sparkle */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F5]/35 via-transparent to-[#FAF9F5]/85" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,#FAF9F5_90%)]" />
-      </div>
-
-      {/* 1. Tactile Archival Paper Micro-Texture & Ambient Gold Radiance */}
+    <section className="relative min-h-[92vh] flex flex-col justify-center pt-24 sm:pt-32 pb-14 sm:pb-20 overflow-hidden bg-[#F6F1E9] texture-ivory-paper">
+      {/* 1. Luminous Ambient Warmth & Archival Light Gradients (Zero Dark Blur) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        {/* Soft atmospheric warmth */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-gradient-to-br from-[#DFBF7A]/15 via-[#C5A059]/10 to-transparent rounded-full blur-[140px] opacity-70" />
-        <div className="absolute top-8 right-8 w-[380px] h-[380px] bg-[#E8DEC8]/40 rounded-full blur-[110px]" />
-        <div className="absolute bottom-8 left-8 w-[320px] h-[320px] bg-[#FAF0DC]/50 rounded-full blur-[100px]" />
+        {/* Soft atmospheric golden warmth without muddy dark vignettes */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[#DFBF7A]/12 via-[#E8DCC8]/20 to-transparent rounded-full blur-[120px] opacity-80" />
+        <div className="absolute top-12 right-12 w-[420px] h-[420px] bg-[#E8DCC8]/30 rounded-full blur-[100px]" />
+        <div className="absolute bottom-12 left-12 w-[380px] h-[380px] bg-[#FAF7F2]/60 rounded-full blur-[90px]" />
       </div>
 
-      {/* 2. Desktop Bakery-Style Artisan Flanking Objects (Left & Right Margins) */}
-      {/* Left Flank: Precision Bench Tools & Velvet Consultation Tray */}
+      {/* 2. Desktop Artisan Flanking Frames (Far margins only on large screens, >= 1280px) */}
       <div
-        className="hidden lg:block absolute -left-12 xl:left-4 top-1/2 -translate-y-1/2 w-64 xl:w-72 pointer-events-none select-none z-0 transition-transform duration-500 ease-out"
+        className="hidden xl:block absolute -left-10 2xl:left-6 top-1/2 -translate-y-1/2 w-64 pointer-events-none select-none z-0 transition-transform duration-500 ease-out"
         style={{
-          transform: `translate3d(0, calc(-50% + ${scrollY * 0.08}px), 0)`,
+          transform: `translate3d(0, calc(-50% + ${scrollY * 0.06}px), 0)`,
         }}
         aria-hidden="true"
       >
-        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-2 border-hammered-gold bg-white/40 backdrop-blur-sm -rotate-6 transform hover:rotate-0 transition-transform duration-700">
+        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border-2 border-[#C6A75E]/60 bg-[#FAF7F2] -rotate-6 transform hover:rotate-0 transition-transform duration-700">
           <Image
             src="/images/workshop/workshop-bench-velvet-trays.jpg"
             alt="Handcrafted goldsmith consultation tray"
             fill
             unoptimized
             priority
-            sizes="288px"
+            sizes="256px"
             className="object-cover opacity-90 contrast-[1.05]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-3 right-3 text-center">
-            <span className="inline-block px-3.5 py-1 rounded-full texture-hammered-gold text-[10px] font-mono tracking-wider text-[#141416] font-bold uppercase shadow-sm">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#1F2A44] border border-[#C6A75E]/60 text-[10px] font-mono tracking-wider text-[#FAF7F2] font-semibold uppercase shadow-sm">
               Hayes Goldsmith Bench
             </span>
           </div>
         </div>
       </div>
 
-      {/* Right Flank: Handcrafted 22ct Gold Bridal Masterwork */}
       <div
-        className="hidden lg:block absolute -right-12 xl:right-4 top-1/2 -translate-y-1/2 w-64 xl:w-72 pointer-events-none select-none z-0 transition-transform duration-500 ease-out"
+        className="hidden xl:block absolute -right-10 2xl:right-6 top-1/2 -translate-y-1/2 w-64 pointer-events-none select-none z-0 transition-transform duration-500 ease-out"
         style={{
-          transform: `translate3d(0, calc(-50% + ${scrollY * -0.06}px), 0)`,
+          transform: `translate3d(0, calc(-50% + ${scrollY * -0.05}px), 0)`,
         }}
         aria-hidden="true"
       >
-        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-2 border-hammered-gold bg-white/40 backdrop-blur-sm rotate-6 transform hover:rotate-0 transition-transform duration-700">
+        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border-2 border-[#C6A75E]/60 bg-[#FAF7F2] rotate-6 transform hover:rotate-0 transition-transform duration-700">
           <Image
             src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
             alt="Handcrafted 22ct gold filigree masterpiece"
             fill
             unoptimized
             priority
-            sizes="288px"
+            sizes="256px"
             className="object-cover opacity-90 contrast-[1.05]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-3 right-3 text-center">
-            <span className="inline-block px-3.5 py-1 rounded-full texture-hammered-gold text-[10px] font-mono tracking-wider text-[#141416] font-bold uppercase shadow-sm">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#1F2A44] border border-[#C6A75E]/60 text-[10px] font-mono tracking-wider text-[#FAF7F2] font-semibold uppercase shadow-sm">
               22ct Filigree Atelier
             </span>
           </div>
@@ -114,9 +96,9 @@ export function HeroSection() {
 
       {/* 3. Core Editorial Typography & Hero Interaction Area */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 text-center">
-        <div className="max-w-3xl mx-auto space-y-5 sm:space-y-8">
+        <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
           {/* Social Proof Pill (Overlapping Client Avatars + Google 5.0 Rating) */}
-          <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full texture-hammered-card border-hammered-gold text-[#141416] text-[11px] sm:text-xs font-semibold tracking-wide shadow-sm max-w-full">
+          <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] text-[11px] sm:text-xs font-semibold tracking-wide shadow-xs max-w-full">
             {/* Overlapping Client Avatars */}
             <div className="flex items-center -space-x-2 shrink-0">
               <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden border border-white shadow-xs">
@@ -136,22 +118,22 @@ export function HeroSection() {
             {/* 5 Gold Stars */}
             <div className="flex items-center gap-0.5 shrink-0">
               {[...Array(5)].map((_, i) => (
-                <LuxuryStarIcon key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="#C5A059" />
+                <LuxuryStarIcon key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="#C6A75E" />
               ))}
             </div>
 
-            <span className="text-[#3D3C42] font-medium hidden sm:inline">•</span>
-            <span className="font-bold text-[#8C6212] whitespace-nowrap">5.0 Rating</span>
-            <span className="text-[#5A5960] hidden sm:inline">(140+ Google Reviews)</span>
+            <span className="text-[#C6A75E] font-medium hidden sm:inline">•</span>
+            <span className="font-bold text-[#1F2A44] whitespace-nowrap">5.0 Rating</span>
+            <span className="text-[#1F2A44]/75 hidden sm:inline">(140+ Google Reviews)</span>
           </div>
 
           {/* Cinematic Editorial Headline */}
           <div className="relative isolate">
             {/* Subtle Royal Crest Watermark behind text */}
             <div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] sm:w-[480px] sm:h-[480px] pointer-events-none select-none z-0 opacity-15 sm:opacity-20 transition-all duration-500"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] sm:w-[420px] sm:h-[420px] pointer-events-none select-none z-0 opacity-10 transition-all duration-500"
               style={{
-                transform: `translate3d(-50%, calc(-50% + ${scrollY * 0.1}px), 0)`,
+                transform: `translate3d(-50%, calc(-50% + ${scrollY * 0.08}px), 0)`,
                 willChange: "transform",
               }}
               aria-hidden="true"
@@ -160,58 +142,55 @@ export function HeroSection() {
                 src="/NIRAJ_LOGO9.png"
                 alt=""
                 fill
-                sizes="(max-width: 640px) 240px, 480px"
-                className="object-contain filter drop-shadow-[0_4px_24px_rgba(212,175,55,0.15)]"
+                sizes="(max-width: 640px) 220px, 420px"
+                className="object-contain"
                 priority
               />
             </div>
 
-            <h1 className="relative z-10 font-serif text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-[#141416] leading-[1.15] sm:leading-[1.12]">
+            <h1 className="relative z-10 font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-[#1F2A44] leading-[1.14]">
               London&apos;s Bespoke{" "}
-              <span className="font-vivaldi text-[#996515] block sm:inline text-3xl sm:text-6xl md:text-7xl lg:text-8xl px-1 font-normal">
+              <span className="font-script text-[#C6A75E] block sm:inline text-4xl sm:text-6xl md:text-7xl lg:text-8xl px-2 font-normal">
                 Goldsmith Atelier
               </span>{" "}
               <span className="block sm:inline">&amp; Direct 22ct Gold</span>
             </h1>
           </div>
 
-          {/* Specific Subtitle in UK English */}
-          <p className="text-xs sm:text-base md:text-lg text-[#4A4A52] max-w-2xl mx-auto font-normal leading-relaxed px-1 sm:px-0">
+          {/* Specific Subtitle in UK English with 11.7:1 AAA Contrast */}
+          <p className="text-xs sm:text-base md:text-lg text-[#1F2A44]/80 max-w-2xl mx-auto font-normal leading-relaxed px-1 sm:px-0">
             Handcrafted 22ct bridal suites, certified natural diamonds, and live bullion transactions forged on Uxbridge Road, Hayes. Direct master-goldsmith access without high-street retail markups.
           </p>
 
-          {/* Mobile Bakery-Style Artisan Cutouts Duo (Visible on mobile & tablet, hidden on desktop) */}
-          <div className="lg:hidden flex items-center justify-center gap-3 sm:gap-6 py-2 select-none" aria-hidden="true">
-            {/* Mobile Left Cutout: Workshop Consultation Tray */}
-            <div className="relative w-28 h-36 sm:w-40 sm:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-hammered-gold bg-white -rotate-3 shrink-0">
-              <Image
-                src="/images/workshop/workshop-bench-velvet-trays.jpg"
-                alt="Hayes goldsmith bench"
-                fill
-                sizes="(max-width: 640px) 112px, 160px"
-                className="object-cover"
+          {/* 4. The Live Looping Jewellery Masterpiece Vitrine (Visible on Desktop & Mobile) */}
+          <div className="relative w-full max-w-xl sm:max-w-2xl mx-auto pt-2 pb-1">
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#C6A75E] shadow-2xl bg-[#0F0F12] group">
+              <video
+                src="/images/collections/0bda9709-3486-4146-b08c-9f05cc25ee4d.mp4"
+                poster="/images/collections/posters/0bda9709-3486-4146-b08c-9f05cc25ee4d.jpg"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover object-center filter brightness-110 contrast-120 group-hover:scale-102 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-1.5 left-1.5 right-1.5 text-center">
-                <span className="inline-block px-2 py-0.5 rounded-full texture-hammered-gold text-[8px] sm:text-[10px] font-mono tracking-wider text-[#141416] font-bold uppercase shadow-sm">
-                  Hayes Bench
-                </span>
-              </div>
-            </div>
+              {/* Subtle edge illumination gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/35 pointer-events-none" />
 
-            {/* Mobile Right Cutout: 22ct Filigree Masterpiece */}
-            <div className="relative w-28 h-36 sm:w-40 sm:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-hammered-gold bg-white rotate-3 shrink-0">
-              <Image
-                src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
-                alt="Handcrafted 22ct gold jewellery"
-                fill
-                sizes="(max-width: 640px) 112px, 160px"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-1.5 left-1.5 right-1.5 text-center">
-                <span className="inline-block px-2 py-0.5 rounded-full texture-hammered-gold text-[8px] sm:text-[10px] font-mono tracking-wider text-[#141416] font-bold uppercase shadow-sm">
-                  22ct Bridal
+              {/* Top Live Badge */}
+              <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 z-10 flex items-center gap-2 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1F2A44]/80 backdrop-blur-md border border-[#C6A75E]/60 text-white text-[10px] sm:text-xs font-semibold tracking-wide shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                <span className="text-[#E8DCC8]">Live Atelier Loop:</span>
+                <span className="text-[#C6A75E] font-bold">22ct Diamond Masterpiece</span>
+              </div>
+
+              {/* Bottom Caption */}
+              <div className="absolute bottom-2.5 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-center justify-between text-[10px] sm:text-xs text-white/95">
+                <span className="font-serif italic tracking-wide text-[#FAF7F2] drop-shadow-sm">
+                  Hand-set Syndicate Diamonds &amp; Chased 22ct Gold
+                </span>
+                <span className="hidden sm:inline-block font-mono text-[10px] uppercase text-[#C6A75E] tracking-wider font-semibold">
+                  136 Uxbridge Road • Hayes
                 </span>
               </div>
             </div>
@@ -221,10 +200,10 @@ export function HeroSection() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto sm:max-w-none">
             <a
               href="#collections"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#C5A059] via-[#DFBF7A] to-[#B88E3E] hover:from-[#B88E3E] hover:to-[#996515] text-[#141416] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#C6A75E] hover:bg-[#b5954a] text-[#1F2A44] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 min-h-[48px]"
             >
               <span>Explore Masterpiece Showcase</span>
-              <ArrowRight className="w-4 h-4 text-[#141416]" />
+              <ArrowRight className="w-4 h-4 text-[#1F2A44]" />
             </a>
 
             <a
@@ -238,26 +217,26 @@ export function HeroSection() {
             </a>
           </div>
 
-          {/* 4 Sleek Trust Pills (Textured Hammered Gold Cards) */}
-          <div className="pt-6 sm:pt-10 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10.5px] sm:text-xs">
-            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full texture-hammered-card border-hammered-gold text-[#3D3C42] shadow-sm">
-              <HallmarkCrownIcon className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-              <span className="font-semibold text-[#141416] truncate">Heritage Atelier</span>
+          {/* 4 Sleek Trust Pills (Ivory Cards with Soft Gold Hairlines & Navy Font) */}
+          <div className="pt-4 sm:pt-6 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10.5px] sm:text-xs">
+            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
+              <HallmarkCrownIcon className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
+              <span className="font-semibold text-[#1F2A44] truncate">Heritage Atelier</span>
             </div>
 
-            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full texture-hammered-card border-hammered-gold text-[#3D3C42] shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-              <span className="font-semibold text-[#141416] truncate">London Hallmarked</span>
+            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
+              <span className="font-semibold text-[#1F2A44] truncate">London Hallmarked</span>
             </div>
 
-            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full texture-hammered-card border-hammered-gold text-[#3D3C42] shadow-sm">
-              <WorkshopBenchIcon className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-              <span className="font-semibold text-[#141416] truncate">100% In-House</span>
+            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
+              <WorkshopBenchIcon className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
+              <span className="font-semibold text-[#1F2A44] truncate">100% In-House</span>
             </div>
 
-            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full texture-hammered-card border-hammered-gold text-[#3D3C42] shadow-sm">
-              <GoldsmithScalesIcon className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-              <span className="font-semibold text-[#141416] truncate">Live Bullion Fix</span>
+            <div className="inline-flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
+              <GoldsmithScalesIcon className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
+              <span className="font-semibold text-[#1F2A44] truncate">Live Bullion Fix</span>
             </div>
           </div>
         </div>
