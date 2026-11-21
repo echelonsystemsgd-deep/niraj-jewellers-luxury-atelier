@@ -42,11 +42,11 @@ export function HeroSection() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-top opacity-50 sm:opacity-60 scale-125 sm:scale-130 filter brightness-110 contrast-125 transition-opacity duration-1000"
+          className="w-full h-full object-cover object-top opacity-65 sm:opacity-75 lg:opacity-85 scale-125 sm:scale-130 filter brightness-120 contrast-130 transition-opacity duration-1000"
         />
         {/* Soft edge-blending gradients preserving high readability while letting diamonds sparkle */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F5]/50 via-transparent to-[#FAF9F5]/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,#FAF9F5_92%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F5]/35 via-transparent to-[#FAF9F5]/85" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,#FAF9F5_90%)]" />
       </div>
 
       {/* 1. Tactile Archival Paper Micro-Texture & Ambient Gold Radiance */}

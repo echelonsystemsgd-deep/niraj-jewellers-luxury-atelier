@@ -24,8 +24,8 @@ interface SectionItem {
 const DEFAULT_SECTIONS: SectionItem[] = [
   {
     id: "hero",
-    name: "1. Mayfair Goldsmith Hero (Tactile Paper & Artisan Props)",
-    description: "Above-the-fold banner with flanking trade cut-outs, London Assay accreditation pill, and dual CTAs.",
+    name: "1. Atelier Hero (Sparkling Diamond Choker & Goldsmith Heritage)",
+    description: "Above-the-fold banner with shimmering diamond collar video, London Assay accreditation pill, and dual CTAs.",
     active: true,
   },
   {
@@ -134,7 +134,7 @@ export function HomepageSectionsEditor() {
             onClick={handleSave}
             disabled={loading}
             type="button"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#85560C] via-[#996515] to-[#85560C] text-white text-xs font-semibold tracking-wide shadow-sm hover:opacity-95 transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#85560C] via-[#996515] to-[#85560C] text-white text-xs font-semibold tracking-wide shadow-sm hover:opacity-95 transition-all disabled:opacity-50 whitespace-nowrap shrink-0"
           >
             <Save className="w-3.5 h-3.5" />
             <span>{loading ? "Saving..." : "Save Homepage Flow"}</span>

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Niraj Jewellers Ltd | Bespoke Goldsmith & Bullion Hayes London",
-    template: "%s | Niraj Jewellers Ltd London",
+    template: "%s",
   },
   description:
     "Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Niraj Jewellers Ltd. Handcrafted in our Hayes workshop since 1984. Visit our showroom or speak with our atelier team.",

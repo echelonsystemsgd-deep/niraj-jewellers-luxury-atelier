@@ -216,15 +216,15 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
 
               {/* Specs & Pricing Pill */}
               <div className="pt-2 border-t border-[#E8DEC8]/60 space-y-1.5">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="text-[#7A705E]">Weight:</span>
-                  <span className="font-semibold text-[#141416]">
+                <div className="flex items-center justify-between gap-2 text-xs">
+                  <span className="text-[#7A705E] shrink-0">Weight:</span>
+                  <span className="font-semibold text-[#141416] text-right">
                     {piece.specs.weight || "Workshop Weighed"}
                   </span>
                 </div>
-                <div className="flex items-center justify-between text-xs">
-                  <span className="text-[#7A705E]">Price:</span>
-                  <span className="font-bold text-[#8C6212]">
+                <div className="flex items-start justify-between gap-2 text-xs">
+                  <span className="text-[#7A705E] shrink-0 pt-0.5">Price:</span>
+                  <span className="font-bold text-[#8C6212] text-right">
                     {piece.priceNote}
                   </span>
                 </div>
