@@ -6,7 +6,7 @@ import { NIRAJ_SHOWROOM_ADDRESS, NIRAJ_UK_PHONE, NIRAJ_COMPANY_REG } from '@/lib
 export const metadata: Metadata = {
   title: "Privacy Policy | Niraj Jewellers Ltd London",
   description:
-    "How Niraj Jewellers Ltd protects your personal data, appointment details, and customer information under UK GDPR.",
+    "How Niraj Jewellers Ltd protects your personal data, consultation details, and customer information under UK GDPR.",
   alternates: {
     canonical: "https://www.niraj-jewellers.co.uk/privacy",
   },
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
 
           <section className="space-y-3">
             <h2 className="text-lg font-serif text-[#141416] font-medium">2. Information We Collect</h2>
-            <p>We collect and process minimal personal information strictly required to deliver bespoke jewellery commissions, verify high-value transactions, and coordinate physical showroom appointments:</p>
+            <p>We collect and process minimal personal information strictly required to deliver bespoke jewellery commissions, verify high-value transactions, and coordinate bespoke showroom consultations:</p>
             <ul className="list-disc pl-5 space-y-2 text-[#141416]">
               <li><strong>Contact Identification:</strong> Full name, telephone/WhatsApp mobile number, and email address.</li>
               <li><strong>Bespoke Commission Specifications:</strong> Indicative budget tiers, ring sizes, gold karat preferences (22ct/18ct), custom engraving text, and CAD design references.</li>

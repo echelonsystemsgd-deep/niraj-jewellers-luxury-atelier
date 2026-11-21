@@ -75,13 +75,13 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
       href: "/contact",
       route: "/contact",
       num: "06",
-      desc: "Direct Workshop Lines & Appointments",
+      desc: "Direct Workshop Lines & Showroom Details",
     },
   ];
 
   const whatsappHeroLink = buildWhatsAppLink({
     intent: "general",
-    customNote: "Hi Niraj Jewellers team, I am browsing your website and would like to enquire about bespoke jewellery / showroom appointments.",
+    customNote: "Hi Niraj Jewellers team, I am browsing your website and would like to enquire about bespoke jewellery craftsmanship and visiting your Hayes atelier.",
   });
 
   return (

@@ -75,7 +75,7 @@ const items = [
     metalPurity: "18ct White & Rose Gold (750)",
     hallmarkText: "London Assay 750 Stamped",
     description: "Multi-row graduated V-shaped natural diamond collar necklace with a signature chevron front drop, hand-set in 18ct gold.",
-    priceNote: "Atelier Haute Joaillerie • Private Appointment",
+    priceNote: "Atelier Haute Joaillerie • Direct Workshop Consultation",
     mediaType: "video",
     thumbnailUrl: "/images/collections/posters/0bda9709-3486-4146-b08c-9f05cc25ee4d.jpg",
     videoUrl: "/images/collections/0bda9709-3486-4146-b08c-9f05cc25ee4d.mp4",

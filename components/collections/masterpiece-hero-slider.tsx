@@ -109,7 +109,7 @@ export function MasterpieceHeroSlider({ onSelectItem }: MasterpieceHeroSliderPro
     pieceTitle: currentPiece.title,
     metalPurity: currentPiece.metalPurity,
     category: currentPiece.category,
-    customNote: `Hi Niraj Jewellers team, I am enquiring about Showpiece #${currentIndex + 1}: ${currentPiece.title} (${currentPiece.metalPurity}). Could you please share bespoke commission details and showroom appointment availability?`,
+    customNote: `Hi Niraj Jewellers team, I am enquiring about Showpiece #${currentIndex + 1}: ${currentPiece.title} (${currentPiece.metalPurity}). Could you please share bespoke commission details and pricing?`,
   });
 
   const handleInspect = () => {

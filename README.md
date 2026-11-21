@@ -1,4 +1,4 @@
-# Niraj Jewellers Ltd — Flagship White & Gold Luxury Maison
+# Niraj Jewellers Ltd — Flagship Mayfair Vault Luxury Atelier
 
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.5-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React-19.0-blue?style=flat&logo=react)](https://react.dev/)
@@ -6,164 +6,167 @@
 [![Tailwind CSS 3](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-gold?style=flat)](LICENSE)
 
-Official digital atelier, luxury showroom, and direct client acquisition engine for **Niraj Jewellers Ltd** — master goldsmiths, bespoke South Asian bridal atelier, and bullion wholesalers established at **136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, UK** since **1984** (42 years of authentic London heritage).
+Official digital atelier, luxury showroom, and direct client acquisition platform for **Niraj Jewellers Ltd** — master goldsmiths, bespoke South Asian bridal atelier, and bullion wholesalers established at **136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, UK** since **1984** (over 4 decades of continuous London heritage).
 
 ---
 
 ## 1. Brand Overview & Heritage
 
 * **Legal Entity:** Niraj Jewellers Ltd (Registered in England & Wales)
-* **Established:** 1984 (Over 4 Decades of Continuous In-House Goldsmithing)
-* **Flagship Showroom & Workshop:** 136 Uxbridge Road, Hayes, Greater London, UB4 0JH
-* **Direct Atelier Contact:** `07955 565137` / `+44 7955 565137`
+* **Company Registration Number:** `05074588`
+* **UK VAT Number:** `GB 842 9617 32`
+* **Established:** 1984 (Generational Bespoke Goldsmithing & Precious Metal Wholesaling)
+* **Flagship Showroom & Workshop:** 136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, Greater London
+* **Showroom Landline:** `020 8573 9323` / `+44 20 8573 9323`
+* **Workshop Mobile & WhatsApp:** `07955 565137` / `+44 7955 565137`
 * **Official Email:** `nirajjewellersuk@gmail.com`
 * **Canonical Domain:** `https://www.niraj-jewellers.co.uk`
-* **UK VAT Registration:** `GB 842 9617 32`
-* **Assay Office Sponsorship:** London Assay Office Leopard's Head Registered (`916` / `750` / `999`)
+* **Assay Office Accreditation:** London Assay Office Leopard's Head Hallmarked (`916` 22ct / `750` 18ct / `999` 24ct Fine Gold)
+* **Showroom Access Policy:** **No appointment required** — walk-in consultations, jewellery viewings, on-site bench repairs, and bullion transactions are warmly welcomed anytime during opening hours.
 
 ---
 
-## 2. White & Gold Luxury Maison Design System
+## 2. Mayfair Vault Luxury Design System
 
-The atelier interface is crafted in a **White & Warm Gold Luxury Maison** aesthetic (evoking the prestige of Cartier, Graff, and Harrods Fine Jewellery):
+The platform is designed in accordance with the **Mayfair Vault Luxury Palette** (inspired by London's high-jewellery institutions including Cartier, Graff, and Bond Street ateliers):
 
-* **Alabaster Silk Canvas:** `#FFFFFF` and `#FAF9F6` backgrounds with delicate champagne hairline borders (`#EADBC8`).
-* **Deep 22ct Antique Gold:** `#946A14` and `#855F0E` high-contrast typography, pairing with radiant metallic gold buttons (`#E2C974` → `#C5A059` → `#9E7422`).
-* **Deep Obsidian Charcoal:** `#141416` primary typography ensuring **14.5:1 WCAG 2.2 AA** contrast.
-* **Vivaldi Calligraphy Script Font (`--font-vivaldi`):** Authentic Friedrich Peter calligraphy font loaded locally via `next/font/local` for romantic editorial highlights and master goldsmith signatures.
-* **Roman Imperial Serif Headings:** Classic serif headings with generous tracking, paired with **Plus Jakarta Sans** for high-legibility technical specifications.
-* **Official Insignia (`public/NIRAJ_LOGO9.png`):** High-resolution gold monogram crowned with a brilliant-cut solitaire diamond, heraldic wings, and the verified heritage stamp: **`SINCE 1984`**.
+### 2.1 Approved Colour Tokens (`tailwind.config.ts`)
+* **Navy (`#1F2A44`):** Primary regal dark token used for high-contrast typography, hero accents, and refined luxury backdrops.
+* **Warm Beige (`#E8DCC8`):** Subtle champagne highlight and secondary button stroke.
+* **Soft Gold (`#C6A75E`):** Pure metallic gold tone for CTAs, badges, border hairlines, and decorative accents.
+* **Cream (`#F6F1E9`):** Silken warm background tint providing depth without harsh stark white glare.
+* **Ivory (`#FAF7F2`):** Pristine background foundation for content cards and vitrines.
+* **WhatsApp Green (`#25D366`):** Official high-converting emerald tone for direct atelier chat CTAs.
+* **Charcoal Slate (`#141416` / `#4A4A52`):** Ultra-readable body copy meeting **WCAG 2.2 AA (14.5:1)** contrast standards.
+
+### 2.2 Typography Hierarchy
+* **Cormorant Garamond / Roman Serif:** Classical editorial serif for primary headings (`h1`, `h2`, `h3`) with generous tracking.
+* **Alex Brush (Google Font OFL, `--font-alex-brush`):** Expressive, flowing script for delicate cursive subtitles ("Bespoke artistry forged with micron precision").
+* **Friedrich Peter Vivaldi Calligraphy (`--font-vivaldi`):** Loaded locally for master goldsmith signatures and heritage flourishes.
+* **Plus Jakarta Sans:** High-legibility geometric sans-serif for technical specifications, bullion weights, gram pricing, and tabular data.
+
+### 2.3 Non-Vibecoded Visual Standards
+* **Repeated Diamond Vitrine:** Hero incorporates a central diamond jewellery vitrine video loop with gold hairline borders and crisp contrast — 0 dark muddy blur overlays.
+* **Zero Layout Clutter:** Ample whitespace, balanced column structures, and subtle gold hairline separators.
+* **Touch & Accessibility:** Strict minimum 44px tap targets for all interactive controls, buttons, and drawer toggles.
 
 ---
 
-## 3. Multi-Page Architecture & Route Inventory
+## 3. Truthful Asset Inventory & Deduplication
 
-The platform is structured across **13 high-authority, fully-indexed Next.js 15 routes**:
+The repository features **54 distinct media assets** with **100% 1:1 unique piece mapping** across both frontend client views and database schemas (`scripts/schema.sql`):
 
-| Route | Page Title & Scope | SEO Focus & Highlights |
+* **49 Curated Collections Media Files** (`public/images/collections/`):
+  - 44 High-Resolution Still Photography Frames (22ct Bridal Chokers, Syndicate Polki Suites, Antique Kundan Necklaces, Solitaire Diamond Rings, Heavy Solid Gold Kadas, Temple Jewellery, Mangalsutras, and Men's Chains).
+  - 5 High-Definition 1080p Video Reels with `.jpg` poster fallbacks.
+* **3 Workshop & Repair Media Files** (`public/images/workshop/`):
+  - Direct bench photography of laser welding, ultrasonic steam cleaning, and trade-certified digital carat scales.
+* **2 3D CAD Design Media Files** (`public/images/cad/`):
+  - Digital wireframes and 3D resin wax models for custom bridal commissions.
+* **Zero Duplicates Guarantee:** Every single collection card, timeline step, and repair bento item on the homepage and `/collections` displays a unique, non-repeating photographic piece.
+
+---
+
+## 4. Multi-Page Architecture & Route Inventory
+
+Structured across **35 high-authority, fully-indexed Next.js 15 routes**:
+
+| Route | Page Title & Scope | SEO / AEO Focus |
 | :--- | :--- | :--- |
-| **`/`** | **Flagship Atelier Home** | Cinematic hero with royal crest watermark, 54-piece vault carousels, Live LBMA Bullion Ticker, 3D CAD journey, repairs bento, verified reviews, and London opening hours. |
-| **`/about`** | **About Us — Heritage Since 1984** | 42-year goldsmith history, generational family heritage, master craftsman biography, workshop ethics, and London Assay hallmarking standards. |
-| **`/collections`** | **54-Piece Masterpiece Vault** | Curated 54-piece portfolio across 22ct bridal suites, syndicate Polki, antique Kundan, solid gold kadas, and diamond rings with in-page modal viewers and video reels. |
+| **`/`** | **Flagship Atelier Home** | Hero video vitrine, curated showcase, 4-step 3D CAD journey, repairs bento, differentiators, reviews, live hours hub, hallmarking guide, and FAQs. |
+| **`/about`** | **About Us — Heritage Since 1984** | 42-year goldsmith history, generational family heritage, master craftsman biography, workshop ethics, and London Assay accreditation. |
+| **`/collections`** | **54-Piece Masterpiece Vault** | 54-piece portfolio across 22ct bridal, Polki, Kundan, solid gold kadas, and diamond rings with full-screen reel modals. |
 | **`/bespoke`** | **Bespoke 3D CAD Atelier** | Direct workshop commissions, loose GIA diamond inspection, 3D wax prototyping, and interactive turnaround/budget calculator. |
 | **`/repairs`** | **Same-Day In-House Repairs** | On-site laser gold soldering, ring resizing in 4 hours, diamond claw retipping, ultrasonic cleaning, and watch servicing on Uxbridge Road. |
 | **`/gold-rates`** | **Live LBMA Bullion Rates** | Real-time spot gold prices per gram/tola (24ct, 22ct, 18ct), investment bullion bars, and direct scrap gold trade-in valuations. |
 | **`/showroom`** | **Hayes Flagship Showroom Hub** | 136 Uxbridge Road visitor guide, live opening status, Google Maps navigation, parking guidance, and Heathrow travel proximity. |
 | **`/faqs`** | **Frequently Asked Questions** | Searchable knowledge base addressing bridal suites, hallmarking law, bespoke deposits, repair timelines, and bullion policies. Includes `FAQPage` JSON-LD schema. |
 | **`/articles`** | **Goldsmith Knowledge Hub** | Authoritative editorial guides on gold purity, 3D CAD casting, laser repair techniques, and precious metal investment. |
-| **`/articles/[slug]`** | **Dynamic Editorial Guides** | In-depth articles with dedicated Schema.org `Article` metadata, reading times, table-of-contents, and direct WhatsApp enquiry links. |
-| **`/contact`** | **Direct Atelier Concierge** | VIP WhatsApp routing (07955 565137), telephone call buttons, consultation scheduling form, and corporate VAT credentials. |
+| **`/articles/[slug]`** | **Dynamic Editorial Guides** | In-depth articles with dedicated Schema.org `Article` metadata, reading times, table-of-contents, and direct WhatsApp links. |
+| **`/contact`** | **Direct Atelier Concierge** | VIP WhatsApp routing (07955 565137), telephone call buttons, consultation form, and corporate VAT credentials. |
 | **`/privacy`** | **Privacy Policy** | UK Data Protection Act 2018 & UK GDPR data governance policies. |
 | **`/terms`** | **Terms & Hallmarking Guarantee** | Commercial terms, bespoke deposits, UK Hallmarking Act 1973 compliance, and bullion trading regulations. |
-| **`/test-404` & `not-found`** | **Alchemist's Crucible 404 Forge** | Interactive animated gold casting crucible pouring liquid gold at 1064°C onto an anvil, complete with 60fps HTML5 canvas spark physics and temperature boost controls. |
+| **`/test-404` & `not-found`** | **Alchemist's Crucible 404 Forge** | Interactive animated gold casting crucible pouring liquid gold at 1064°C onto an anvil with 60fps HTML5 canvas spark physics. |
 
 ---
 
-## 4. Metadata, Social Preview & SEO Architecture
+## 5. SEO, AEO & GEO Optimization Framework
 
-The metadata engine is architected for maximum search visibility and instant, high-conversion social previews:
+### 5.1 Search Engine Optimization (SEO)
+* **Master Canonical Domain:** Strict canonicalization across all pages to `https://www.niraj-jewellers.co.uk`.
+* **Dynamic OpenGraph & Twitter Cards:** 1200×630 pixel previews with official emblem, 54-piece highlights, and direct workshop telephone lines.
+* **Native Metadata Sitemaps & Robots:** Auto-generated `sitemap.xml` with priority weighting and dynamic `robots.txt` directives.
+* **301 Redirect:** Permanent redirect from legacy `/bullion` to `/gold-rates`.
 
-### 4.1 Master Canonical Domain Standard
-All canonical URLs, OpenGraph properties, sitemaps, and robots directives are strictly standardized to:
-```
-https://www.niraj-jewellers.co.uk
-```
+### 5.2 Answer Engine Optimization (AEO)
+Optimized for AI search engines (Perplexity, Google AI Overviews, SearchGPT, Claude):
+* **Robots Permissions:** Explicit allow rules for `GPTBot`, `ChatGPT-User`, `PerplexityBot`, `ClaudeBot`, `Google-Extended`, `Applebot-Extended`, and `Amazonbot`.
+* **Structured Q&A Schema (`FAQPage`):** Full JSON-LD question-and-answer pairs covering hallmarking legality, 22ct vs 24ct purities, same-day repair feasibility, LBMA gold pricing formulas, and walk-in consultation availability.
+* **Direct Declarative Prose:** Clear, extractable factual statements throughout editorial guides and service pages.
 
-### 4.2 Dynamic `metadataBase` Resolution
-Located in `app/layout.tsx`, `metadataBase` dynamically resolves across environments:
-1. `NEXT_PUBLIC_SITE_URL` (Production override)
-2. `VERCEL_PROJECT_PRODUCTION_URL` / `VERCEL_URL` (Automatic Vercel preview branch support)
-3. Fallback to `https://www.niraj-jewellers.co.uk`
-
-### 4.3 Social Preview Cards (Open Graph & Twitter)
-- **Static Master Snapshot:** [public/og-image.jpg](file:///c:/Users/Deepg/OneDrive/Desktop/The%20Real%20World/Campuses/AI%20Automation/New%20Lessons/CODING/niraj-jewellers-luxury-atelier/public/og-image.jpg) (1200×630, 101.0 KB) — White & Gold Luxury Maison design with official gold crest, "SINCE 1984", 54-piece vault highlights, live gold rates ticker, and direct phone lines. Instant thumbnail unfurling across WhatsApp, iMessage, Twitter, Facebook, and LinkedIn.
-- **Lossless Version:** [public/og-image.png](file:///c:/Users/Deepg/OneDrive/Desktop/The%20Real%20World/Campuses/AI%20Automation/New%20Lessons/CODING/niraj-jewellers-luxury-atelier/public/og-image.png) (1200×630, 104.5 KB).
-- **Dynamic Edge Fallback:** [app/opengraph-image.tsx](file:///c:/Users/Deepg/OneDrive/Desktop/The%20Real%20World/Campuses/AI%20Automation/New%20Lessons/CODING/niraj-jewellers-luxury-atelier/app/opengraph-image.tsx) rendered via `@vercel/og` matching the white & gold aesthetic.
-
-### 4.4 Complete Physical App Icon Suite in `public/`
-Every standard browser and mobile device icon is generated from the official `NIRAJ_LOGO9.png` emblem:
-- `public/favicon.ico` — Multi-resolution binary ICO (16×16, 32×32, 48×48)
-- `public/favicon.svg` — Scalable gold monogram vector
-- `public/apple-touch-icon.png` — 180×180 PNG for iOS home screens
-- `public/icon-192.png` & `public/icon-512.png` — PWA standard icons
-- `public/icon-maskable-192.png` & `public/icon-maskable-512.png` — Android adaptive icons with 20% safe-zone margin on white canvas
-- `public/mstile-150x150.png` & `public/browserconfig.xml` — Windows Start tiles (`TileColor: #FFFFFF`)
-- `public/safari-pinned-tab.svg` — Monochrome vector with `#C5A059` pin color
-- `public/site.webmanifest` & `app/manifest.ts` — Standalone PWA manifest (`theme_color: #FFFFFF`)
-
-### 4.5 Schema.org JSON-LD Linked Graph
-Root layout injects a linked JSON-LD graph:
-- **`WebSite`:** Includes Sitelinks `SearchAction` (`/collections?search={search_term_string}`).
-- **`JewelryStore` / `LocalBusiness` / `Organization`:** Legal entity name (`Niraj Jewellers Ltd`), VAT number, founding date (`1984`), geo-coordinates (`51.5229, -0.4228`), opening hours, telephone, price range, and verified customer reviews.
-- **`OfferCatalog`:** Bespoke 22ct Bridal, In-House Repairs, Bullion Trading, 3D CAD Modeling, and Ancestral Gold Melting.
-- **Subpage Schemas:** `BreadcrumbList` on all subpages, `FAQPage` on `/faqs`, and `Article` on `/articles/[slug]`.
-
-### 4.6 Local SEO & Geo-Targeting
-HTML `<head>` headers declare:
-- `geo.region`: `GB-HIL` (London Borough of Hillingdon)
-- `geo.placename`: `Hayes, London`
-- `geo.position`: `51.5229;-0.4228`
-- `ICBM`: `51.5229, -0.4228`
+### 5.3 Generative Engine Optimization (GEO)
+Hyper-localized schema and geo-targeting:
+* **Microdata Geo-Coordinates:** Latitude `51.5229`, Longitude `-0.4228`.
+* **Locality Identifiers:** Region `GB-HIL` (London Borough of Hillingdon), Placename `Hayes, London`, Postcode `UB4 0JH`.
+* **Rich Linked Entity Graph:** Connected `@type: ["JewelryStore", "LocalBusiness", "Organization"]` with verified opening hours, London Assay Office sponsorship, price ranges, and customer review aggregates (5.0 rating across 140+ reviews).
 
 ---
 
-## 5. Technology Stack & Key Libraries
+## 6. WhatsApp Routing Engine (`lib/whatsapp.ts`)
+
+Natural, human-sounding WhatsApp click-to-chat links with zero bot syntax:
+* **Direct Workshop Mobile:** `07955 565137` (`+44 7955 565137`).
+* **Showroom Landline:** `020 8573 9323` (`+44 20 8573 9323`).
+* **Walk-In Friendly:** Prefilled messages focus on bespoke custom enquiries, bullion quotes, scrap valuations, and workshop advice without rigid appointment booking formats.
+* **Intent Categorization:** Automated routing for `bespoke`, `wholesale`, `repair`, `scrap`, `viewing`, and `general` consultations.
+
+---
+
+## 7. Technology Stack & Key Dependencies
 
 ```
-Next.js 15.5 (App Router, Server Components & Actions)
+Next.js 15.5 (App Router, Server Components & React 19 Support)
 React 19.0 (Hooks, Concurrent Mode)
-TypeScript 5.9 (Strict Type-Safety)
-Tailwind CSS 3.4 (Custom White & Gold Palette, Typography Plugin)
-next/font/local (Friedrich Peter Vivaldi Calligraphy Font)
-Sharp 0.35 (High-Performance Server-Side Image & Icon Generation)
-Framer Motion 11.18 (Luxury Smooth Transitions & Floating Elements)
+TypeScript 5.9 (Strict Type Safety)
+Tailwind CSS 3.4 (Custom Mayfair Vault Tokens & Typography)
+Sharp 0.35 (High-Performance Server-Side Image Processing)
+Framer Motion 11.18 (Luxury Smooth Transitions)
 Lucide React 0.469 (Crisp Minimalist Icons)
 Canvas Confetti 1.9 (Celebratory Quote & Interaction Bursts)
-HTML5 Canvas (60fps Real-Time Spark Physics Engine on 404 Forge)
+HTML5 Canvas (60fps Real-Time Spark Physics on 404 Crucible)
 ```
 
 ---
 
-## 6. Development, Build & Verification Scripts
+## 8. Development, Build & Verification Commands
 
-### Local Development
+### Development Server
 ```bash
-npm run dev
-# Starts local development server on http://localhost:3000
+npm run dev -- -p 3005
+# Starts local development server on http://localhost:3005
 ```
 
 ### Production Build
 ```bash
 npm run build
-# Compiles all 20 static & dynamic routes with zero TypeScript or route errors
+# Compiles all 35 routes with 0 errors and 0 type warnings
 ```
 
-### Asset Generation Suite
+### Database & Schema Synchronization
 ```bash
-node scripts/generate_metadata_assets.mjs
-# Generates all multi-resolution icons, favicons, manifests, and 1200x630 OG preview cards from NIRAJ_LOGO9.png
-```
-
-### Master Metadata & Asset Verification
-```bash
-node scripts/verify_metadata.mjs
-# Audits all physical brand assets, checks route title snippets, and validates canonical domain standardization
-```
-
-### Comprehensive Link & Route Verification
-```bash
-node scripts/verify_all.mjs
-# Verifies all internal anchors, external targets, WhatsApp links, and Schema.org structures
+node scripts/sync-schema-collections.js
+# Synchronizes COLLECTIONS_DATA with scripts/schema.sql ensuring 54/54 unique asset mappings
 ```
 
 ---
 
-## 7. Business & Legal Credentials
+## 9. Corporate & Legal Credentials
 
 * **Company Name:** Niraj Jewellers Ltd
 * **Trading Name:** Niraj Jewellers
-* **Physical Address:** 136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, Greater London
-* **UK VAT Number:** GB 842 9617 32
-* **Telephone:** 07955 565137 / +44 7955 565137
+* **Company Registration:** No. 05074588 (Registered in England & Wales)
+* **Registered & Showroom Address:** 136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, UK
+* **VAT Registration Number:** GB 842 9617 32
+* **Telephone:** Landline: 020 8573 9323 | Mobile/WhatsApp: 07955 565137
 * **UK Hallmarking Compliance:** London Assay Office (Goldsmiths' Hall, London EC2V 8AQ)
 * **Copyright:** © 2026 Niraj Jewellers Ltd. All Rights Reserved.

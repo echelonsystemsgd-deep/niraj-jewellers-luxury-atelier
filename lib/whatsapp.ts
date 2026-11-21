@@ -37,8 +37,6 @@ export interface WhatsAppMessageOptions {
   category?: string;
   stones?: string;
   estimatedBudget?: string;
-  visitDate?: string;
-  visitTime?: string;
   visitPurpose?: string;
   clientName?: string;
   customNote?: string;
@@ -48,6 +46,7 @@ export interface WhatsAppMessageOptions {
 /**
  * Builds natural, professional WhatsApp click-to-chat links for clients contacting the showroom team.
  * Messages sound human, polite, and directly address the client's intent without awkward bot codes.
+ * Note: Walk-ins are always welcome with no appointment booking required.
  */
 export function buildWhatsAppLink(options: WhatsAppMessageOptions = {}): string {
   const {
@@ -56,8 +55,6 @@ export function buildWhatsAppLink(options: WhatsAppMessageOptions = {}): string 
     category,
     stones,
     estimatedBudget,
-    visitDate,
-    visitTime,
     visitPurpose,
     clientName,
     customNote,
@@ -71,7 +68,7 @@ export function buildWhatsAppLink(options: WhatsAppMessageOptions = {}): string 
   let message = "";
 
   // If customNote was passed as a complete self-contained message and no structured piece details are needed:
-  if (cleanedCustomNote && hasGreetingInNote && !pieceTitle && !stones && !estimatedBudget && !visitDate && !visitPurpose && intent === "general") {
+  if (cleanedCustomNote && hasGreetingInNote && !pieceTitle && !stones && !estimatedBudget && !visitPurpose && intent === "general") {
     message = cleanedCustomNote;
   }
   // 1. Wholesale Bullion & Scrap Inquiries
@@ -110,12 +107,11 @@ export function buildWhatsAppLink(options: WhatsAppMessageOptions = {}): string 
       }
     }
   }
-  // 4. Showroom VIP Viewing Booking
+  // 4. Showroom Consultation & Walk-In Enquiries
   else if (intent === "viewing") {
-    message = `Hi Niraj Jewellers team, I would like to arrange a consultation at your 136 Uxbridge Road showroom.`;
+    message = `Hi Niraj Jewellers team, I am reaching out to enquire about visiting your 136 Uxbridge Road showroom to view your fine jewellery collections.`;
     if (clientName) message += `\n\nName: ${clientName}`;
-    if (visitPurpose) message += `\nPurpose: ${visitPurpose}`;
-    if (visitDate) message += `\nPreferred Date: ${visitDate} ${visitTime ? `at ${visitTime}` : ""}`;
+    if (visitPurpose) message += `\nInterest: ${visitPurpose}`;
     if (cleanedCustomNote && !hasGreetingInNote) message += `\nNotes: ${cleanedCustomNote}`;
     else if (cleanedCustomNote && hasGreetingInNote) message += `\n\n${cleanedCustomNote.replace(/^hi\s+niraj\s+jewellers\s+team,?\s*/i, "")}`;
   }

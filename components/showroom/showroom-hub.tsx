@@ -264,7 +264,7 @@ export function ShowroomHub() {
                   <span className="font-bold text-[#8C6212] block mb-0.5">
                     Festive &amp; Bridal Sunday Openings:
                   </span>
-                  We open on selected Sundays in the weeks leading up to Diwali, Karva Chauth, Dhanteras, and Christmas. Private bridal appointments can also be arranged outside standard hours.
+                  We open on selected Sundays in the weeks leading up to Diwali, Karva Chauth, Dhanteras, and Christmas. Special festive bridal viewings and custom consultations can also be arranged outside standard hours.
                 </div>
               </div>
             )}

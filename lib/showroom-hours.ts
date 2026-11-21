@@ -4,7 +4,7 @@
  * 
  * Mon: 12:00 - 17:00
  * Tue - Sat: 11:00 - 17:00
- * Sun: Closed (Special bridal appointments & festive Sundays)
+ * Sun: Closed (Festive Sundays & bridal consultations)
  */
 
 export interface ShowroomStatus {

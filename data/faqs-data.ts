@@ -98,13 +98,13 @@ export const FAQS_FULL_DIRECTORY: FaqItem[] = [
       "Under UK HMRC Anti-Money Laundering (AML) regulations, clients transacting bullion or high-value gold sales must provide valid government-issued photographic identification (Passport or UK Driving Licence) alongside proof of address (utility bill or bank statement dated within 3 months).",
   },
 
-  // 5. Visits & Appointments
+  // 5. Showroom Visits & Walk-In Access
   {
     id: "visits-1",
     category: "visits",
-    question: "Do I need to book an appointment to visit your Hayes showroom?",
+    question: "Do I need an appointment to visit your Hayes showroom?",
     answer:
-      "Walk-in visitors are always warmly welcome during our standard opening hours (Monday to Saturday, 10:30 AM to 6:00 PM; Sunday 11:30 AM to 5:00 PM; closed Tuesdays). However, for extensive bespoke bridal consultations or diamond viewing, booking in advance ensures a dedicated specialist.",
+      "No appointment is required. Walk-ins are always warmly welcome during our opening hours (Monday to Saturday, 10:30 AM to 6:00 PM; Sunday 11:30 AM to 5:00 PM; closed Tuesdays). You are welcome to walk in anytime to explore our showroom collections, bring in jewellery for same-day bench repairs, or execute gold bullion transactions.",
   },
   {
     id: "visits-2",

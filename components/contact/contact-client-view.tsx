@@ -330,7 +330,7 @@ export function ContactClientView() {
                     <option value="In-House Jewellery Repair">Same-Day In-House Jewellery Repair</option>
                     <option value="Gold Bullion & Investment">Gold Bullion Investment (24ct / 22ct)</option>
                     <option value="Scrap Gold Cash Valuation">Scrap Gold Melting &amp; Trade-In</option>
-                    <option value="Showroom VIP Consultation">Private Showroom Appointment</option>
+                    <option value="Showroom Walk-In Consultation">Showroom Walk-In Consultation</option>
                   </select>
                 </div>
 
