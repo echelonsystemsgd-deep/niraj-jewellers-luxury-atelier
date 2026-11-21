@@ -26,9 +26,9 @@ interface MasterpieceHeroSliderProps {
 export function MasterpieceHeroSlider({ onSelectItem }: MasterpieceHeroSliderProps) {
   // Top 3 showpieces as defined in implementation plan
   const showpieces: CollectionItem[] = [
-    COLLECTIONS_DATA[0], // 1. The Nizam Ruby & Basra Pearl Polki Choker
+    COLLECTIONS_DATA[0], // 1. The Imperial Broad Mesh Polki Choker & Jhumkas
     COLLECTIONS_DATA[1], // 2. The Calcutta Filigree 22ct Gold Bridal Suite
-    COLLECTIONS_DATA[2], // 3. The Chandbali Carved Zambian Emerald Melon Choker
+    COLLECTIONS_DATA[2], // 3. The Royal Nizam Crimson Ruby & Syndicate Polki Choker
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

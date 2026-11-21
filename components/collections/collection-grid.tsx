@@ -18,9 +18,9 @@ export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
 
   // Top 3 Verified Masterpieces for Clean Homepage Showcase (No watermarked pieces)
   const topThreeMasterpieces: CollectionItem[] = useMemo(() => [
-    COLLECTIONS_DATA[0], // The Nizam Ruby & Basra Pearl Polki Choker
+    COLLECTIONS_DATA[0], // The Imperial Broad Mesh Polki Choker & Jhumkas
     COLLECTIONS_DATA[1], // The Calcutta Filigree 22ct Gold Bridal Suite
-    COLLECTIONS_DATA[2], // The Chandbali Carved Zambian Emerald Melon Choker
+    COLLECTIONS_DATA[2], // The Royal Nizam Crimson Ruby & Syndicate Polki Choker
   ], []);
 
   // Compute category counts dynamically
