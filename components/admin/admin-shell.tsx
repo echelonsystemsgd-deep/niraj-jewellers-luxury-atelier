@@ -94,7 +94,7 @@ export function AdminShell({ userEmail, children }: AdminShellProps) {
         <div className="flex items-center gap-1.5 shrink-0">
           <Link
             href="/admin/pieces/new"
-            className="flex items-center gap-1 text-[11px] font-bold text-white bg-gradient-to-r from-[#85560C] to-[#996515] px-2.5 py-1.5 rounded-lg shadow-sm active:scale-95 transition-transform"
+            className="flex items-center gap-1 text-[11px] font-bold text-[#FAF9F5] bg-[#141416] hover:bg-[#C6A75E] hover:text-[#141416] px-2.5 py-1.5 rounded-lg shadow-xs active:scale-95 transition-all"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>New</span>

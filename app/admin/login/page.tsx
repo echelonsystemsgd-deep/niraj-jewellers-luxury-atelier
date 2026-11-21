@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Lock, Shield, Sparkles } from "lucide-react";
+import { Lock, Shield, Sparkles, ArrowLeft } from "lucide-react";
 import { loginAction } from "@/app/admin/actions";
 
 export const metadata: Metadata = {
-  title: "Staff Login",
+  title: "Staff & Proprietor Portal | Niraj Jewellers Ltd",
   description: "Authorized owner and staff portal for Niraj Jewellers Ltd Hayes London.",
   robots: {
     index: false,
@@ -23,30 +23,36 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
   const errorMessage = params.error;
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#141416] flex flex-col justify-center items-center px-4 py-12 selection:bg-gold-200">
-      {/* Background Subtle Watermark */}
-      <div className="absolute inset-0 bg-[radial-gradient(#E8DEC8_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+    <div className="min-h-screen bg-[#FAF9F5] text-[#141416] flex flex-col justify-center items-center px-4 py-12 selection:bg-[#C6A75E]/30 relative overflow-hidden">
+      {/* Subtle Hairline Frame Accents */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C6A75E]/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C6A75E]/40 to-transparent" />
+      </div>
 
-      <div className="relative w-full max-w-md bg-white border border-[#E8DEC8] rounded-2xl p-8 sm:p-10 shadow-luxury-md">
+      <div className="relative w-full max-w-md bg-white border border-[#E7E2DA] rounded-2xl p-8 sm:p-10 shadow-xl">
         {/* Brand Crest Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-8">
-          <div className="relative w-16 h-16 rounded-2xl bg-[#FAF8F5] border border-[#D4AF37]/50 flex items-center justify-center shadow-sm overflow-hidden p-1">
+          <div className="relative w-16 h-16 rounded-2xl bg-[#FAF9F5] border border-[#D4AF37] flex items-center justify-center shadow-xs overflow-hidden p-1.5">
             <Image
               src="/NIRAJ_LOGO9.png"
-              alt="Niraj Jewellers Ltd Emblem"
-              width={56}
-              height={56}
+              alt="Niraj Jewellers Ltd Official Crest"
+              width={52}
+              height={52}
               unoptimized
               className="object-contain"
               priority
             />
           </div>
           <div>
-            <h1 className="font-serif text-2xl font-bold tracking-wide uppercase text-[#141416]">
+            <h1 className="font-serif text-2xl font-bold tracking-wider uppercase text-[#141416]">
               NIRAJ JEWELLERS <span className="text-[#996515]">LTD</span>
             </h1>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8C6212] mt-0.5">
-              Hayes • Atelier Staff Portal
+            <p className="font-mono text-[9px] tracking-[0.22em] uppercase text-[#7A705E] mt-1">
+              HAYES · LONDON · SINCE 1984
+            </p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8C6212] mt-1">
+              Atelier Proprietor & Staff Portal
             </p>
           </div>
         </div>
@@ -64,7 +70,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
           <input type="hidden" name="next" value={next} />
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-[#4A4A52] mb-1.5">
+            <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#7A705E] mb-1.5">
               Staff Email Address
             </label>
             <input
@@ -74,12 +80,12 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
               placeholder="name@niraj-jewellers.co.uk"
               autoComplete="off"
               defaultValue=""
-              className="w-full h-12 px-4 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] text-sm text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#996515] focus:bg-white transition-colors"
+              className="w-full h-12 px-4 rounded-xl border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#C6A75E] focus:bg-white transition-all font-sans"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-[#4A4A52] mb-1.5">
+            <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#7A705E] mb-1.5">
               Security Password
             </label>
             <input
@@ -89,13 +95,13 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
               placeholder="••••••••••••"
               autoComplete="new-password"
               defaultValue=""
-              className="w-full h-12 px-4 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] text-sm text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#996515] focus:bg-white transition-colors"
+              className="w-full h-12 px-4 rounded-xl border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#C6A75E] focus:bg-white transition-all font-sans"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full h-12 rounded-xl bg-gradient-to-r from-[#85560C] via-[#996515] to-[#85560C] text-white font-medium text-sm tracking-wide shadow-sm hover:opacity-95 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+            className="w-full h-12 rounded-xl bg-[#141416] hover:bg-[#C6A75E] hover:text-[#141416] text-[#FAF9F5] font-mono text-xs uppercase tracking-[0.18em] font-bold shadow-sm active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <Lock className="w-4 h-4" />
             <span>Enter Atelier Dashboard</span>
@@ -103,18 +109,21 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
         </form>
 
         {/* Security Disclaimers */}
-        <div className="mt-8 pt-6 border-t border-[#E8DEC8] text-center space-y-2 text-[11px] text-[#7A7880]">
-          <p className="flex items-center justify-center gap-1.5 font-medium text-[#8C6212]">
-            <Sparkles className="w-3.5 h-3.5" />
+        <div className="mt-8 pt-6 border-t border-[#E7E2DA] text-center space-y-2 text-[11px] text-[#7A7880]">
+          <p className="flex items-center justify-center gap-1.5 font-medium text-[#8C6212] font-mono text-[10.5px] uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-[#C6A75E]" />
             <span>Private Goldsmith Administration</span>
           </p>
-          <p>Restricted access to authorized Niraj Jewellers Ltd personnel only.</p>
+          <p className="font-sans text-[11px] text-[#7A705E]">
+            Restricted access to authorized Niraj Jewellers Ltd personnel only.
+          </p>
           <div className="pt-2">
             <Link
               href="/"
-              className="text-[#996515] hover:underline font-medium inline-flex items-center gap-1"
+              className="text-[#141416] hover:text-[#996515] font-mono text-[11px] font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
             >
-              ← Return to Public Showroom
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Return to Public Showroom</span>
             </Link>
           </div>
         </div>

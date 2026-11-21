@@ -67,7 +67,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
         {/* Desktop Add Piece Button (On mobile, it's pinned in the fixed top header!) */}
         <Link
           href="/admin/pieces/new"
-          className="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#85560C] via-[#996515] to-[#85560C] text-white text-xs font-semibold tracking-wider uppercase shadow-sm hover:opacity-95 active:scale-95 transition-all"
+          className="hidden sm:inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#141416] hover:bg-[#C6A75E] hover:text-[#141416] text-[#FAF9F5] text-xs font-mono font-bold tracking-wider uppercase shadow-xs transition-all cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Add New Piece</span>
@@ -76,7 +76,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
 
       {/* 2. Inventory Counters: Mobile Compact 4-Stat Strip (< sm) vs Desktop 4 Cards (sm+) */}
       {/* Mobile Compact 4-Stat Strip: Saves 150px of vertical height! */}
-      <div className="sm:hidden grid grid-cols-4 gap-1 p-2 bg-white border border-[#E8DEC8] rounded-xl shadow-luxury-sm text-center">
+      <div className="sm:hidden grid grid-cols-4 gap-1 p-2 bg-white border border-[#E7E2DA] rounded-xl shadow-xs text-center">
         <div className="px-1">
           <span className="text-[8px] font-bold uppercase tracking-wider text-[#7A705E] block truncate">
             Vault
@@ -85,7 +85,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
             {allPieces.length}
           </span>
         </div>
-        <div className="border-l border-[#E8DEC8] px-1">
+        <div className="border-l border-[#E7E2DA] px-1">
           <span className="text-[8px] font-bold uppercase tracking-wider text-emerald-700 block truncate">
             Live
           </span>
@@ -93,7 +93,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
             {allPieces.length}
           </span>
         </div>
-        <div className="border-l border-[#E8DEC8] px-1">
+        <div className="border-l border-[#E7E2DA] px-1">
           <span className="text-[8px] font-bold uppercase tracking-wider text-[#8C6212] block truncate">
             Bridal
           </span>
@@ -101,7 +101,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
             {allPieces.filter((p) => p.category === "bridal").length}
           </span>
         </div>
-        <div className="border-l border-[#E8DEC8] px-1">
+        <div className="border-l border-[#E7E2DA] px-1">
           <span className="text-[8px] font-bold uppercase tracking-wider text-[#4A4A52] block truncate">
             22ct Gold
           </span>
@@ -113,32 +113,32 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
 
       {/* Desktop 4-Card Grid (sm+) */}
       <div className="hidden sm:grid sm:grid-cols-4 gap-3">
-        <div className="p-3.5 bg-white border border-[#E8DEC8] rounded-xl shadow-luxury-sm">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-[#7A705E] block">
+        <div className="p-3.5 bg-white border border-[#E7E2DA] rounded-xl shadow-xs">
+          <span className="font-mono text-[9.5px] font-bold uppercase tracking-[0.16em] text-[#7A705E] block">
             Total Vault Pieces
           </span>
           <span className="font-serif text-2xl font-bold text-[#141416] mt-0.5 block">
             {allPieces.length}
           </span>
         </div>
-        <div className="p-3.5 bg-white border border-[#E8DEC8] rounded-xl shadow-luxury-sm">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-700 block">
+        <div className="p-3.5 bg-white border border-[#E7E2DA] rounded-xl shadow-xs">
+          <span className="font-mono text-[9.5px] font-bold uppercase tracking-[0.16em] text-emerald-700 block">
             Live in Showroom
           </span>
           <span className="font-serif text-2xl font-bold text-emerald-800 mt-0.5 block">
             {allPieces.length}
           </span>
         </div>
-        <div className="p-3.5 bg-white border border-[#E8DEC8] rounded-xl shadow-luxury-sm">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-[#8C6212] block">
+        <div className="p-3.5 bg-white border border-[#E7E2DA] rounded-xl shadow-xs">
+          <span className="font-mono text-[9.5px] font-bold uppercase tracking-[0.16em] text-[#8C6212] block">
             Bridal Suites
           </span>
           <span className="font-serif text-2xl font-bold text-[#8C6212] mt-0.5 block">
             {allPieces.filter((p) => p.category === "bridal").length}
           </span>
         </div>
-        <div className="p-3.5 bg-white border border-[#E8DEC8] rounded-xl shadow-luxury-sm">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-[#4A4A52] block">
+        <div className="p-3.5 bg-white border border-[#E7E2DA] rounded-xl shadow-xs">
+          <span className="font-mono text-[9.5px] font-bold uppercase tracking-[0.16em] text-[#4A4A52] block">
             22ct Gold Kadas
           </span>
           <span className="font-serif text-2xl font-bold text-[#141416] mt-0.5 block">
@@ -148,7 +148,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
       </div>
 
       {/* 3. Search & Filter Bar */}
-      <div className="bg-white border border-[#E8DEC8] rounded-xl p-2.5 sm:p-4 space-y-2.5 shadow-luxury-sm">
+      <div className="bg-white border border-[#E7E2DA] rounded-xl p-2.5 sm:p-4 space-y-2.5 shadow-xs">
         <div className="flex flex-col sm:flex-row gap-2.5">
           {/* Search Box */}
           <form className="relative flex-1">
@@ -158,7 +158,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
               name="query"
               defaultValue={searchQuery}
               placeholder="Search by piece title, metal, or gemstone..."
-              className="w-full h-10 pl-9 pr-3 rounded-lg bg-[#FAF8F5] border border-[#E8DEC8] text-xs text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#996515] transition-colors"
+              className="w-full h-10 pl-9 pr-3 rounded-lg bg-[#FAF9F5] border border-[#E7E2DA] text-xs text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#C6A75E] transition-colors"
             />
           </form>
 
@@ -168,10 +168,10 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
               <Link
                 key={c.id}
                 href={`/admin?category=${c.id}${searchQuery ? `&query=${encodeURIComponent(searchQuery)}` : ""}`}
-                className={`px-3 py-1.5 rounded-lg text-[11px] font-semibold whitespace-nowrap transition-colors ${
+                className={`px-3 py-1.5 rounded-lg text-[11px] font-mono uppercase tracking-wider font-semibold whitespace-nowrap transition-colors ${
                   activeCategory === c.id
-                    ? "bg-[#996515] text-white shadow-sm"
-                    : "bg-[#FAF8F5] text-[#5A5960] hover:bg-[#F3EDE0]"
+                    ? "bg-[#141416] text-[#FAF9F5] shadow-xs"
+                    : "bg-[#FAF9F5] text-[#5A5960] hover:bg-[#F3EDE0] border border-[#E7E2DA]"
                 }`}
               >
                 {c.label}
@@ -186,7 +186,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
         {filteredPieces.map((piece) => (
           <div
             key={piece.id}
-            className="bg-white border border-[#E8DEC8] rounded-2xl overflow-hidden shadow-luxury-sm hover:border-[#D4AF37] transition-all flex flex-col"
+            className="bg-white border border-[#E7E2DA] rounded-2xl overflow-hidden shadow-xs hover:border-[#C6A75E] transition-all flex flex-col"
           >
             {/* Card Media Preview */}
             <div className="relative aspect-[4/3] bg-[#FAF8F5] overflow-hidden group">
@@ -261,7 +261,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
               <div className="pt-2 flex items-center gap-2">
                 <Link
                   href={`/admin/pieces/${piece.id}`}
-                  className="flex-1 py-2.5 px-3 rounded-xl bg-[#FAF8F5] border border-[#E8DEC8] hover:border-[#996515] hover:bg-white text-xs font-semibold text-center text-[#141416] transition-colors shadow-sm"
+                  className="flex-1 py-2.5 px-3 rounded-xl bg-[#FAF9F5] border border-[#E7E2DA] hover:border-[#141416] hover:bg-white text-xs font-mono uppercase tracking-wider font-semibold text-center text-[#141416] transition-colors shadow-2xs"
                 >
                   Edit Details & Photos
                 </Link>
@@ -275,7 +275,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
                   <button
                     type="submit"
                     title="Mark Sold"
-                    className="py-2.5 px-3 rounded-xl bg-white border border-[#E8DEC8] hover:bg-red-50 hover:text-red-600 text-xs text-[#7A705E] transition-colors shadow-sm"
+                    className="py-2.5 px-3 rounded-xl bg-white border border-[#E7E2DA] hover:bg-red-50 hover:text-red-600 text-xs font-mono uppercase tracking-wider text-[#7A705E] transition-colors shadow-2xs cursor-pointer"
                   >
                     Sold
                   </button>

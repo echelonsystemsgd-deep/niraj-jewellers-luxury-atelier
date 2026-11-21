@@ -102,14 +102,14 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
       }
     >
       {/* 1. BRAND CREST HEADER */}
-      <div className="shrink-0 p-3.5 border-b border-[#E8DEC8] bg-white flex items-center justify-between gap-2">
+      <div className="shrink-0 p-3.5 border-b border-[#E7E2DA] bg-white flex items-center justify-between gap-2">
         <Link href="/admin" onClick={onClose} className="flex items-center gap-2.5 group min-w-0 flex-1">
-          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-[#FAF8F5] to-[#F5ECE0] border border-[#D4AF37]/60 flex items-center justify-center shadow-luxury-sm overflow-hidden p-1 group-hover:border-[#996515] transition-all shrink-0">
+          <div className="relative w-10 h-10 rounded-xl bg-white border border-[#D4AF37] flex items-center justify-center shadow-xs overflow-hidden p-1 group-hover:border-[#996515] transition-all shrink-0">
             <Image
               src="/NIRAJ_LOGO9.png"
               alt="Niraj Jewellers Ltd Crest"
-              width={28}
-              height={28}
+              width={32}
+              height={32}
               unoptimized
               className="object-contain"
               priority
@@ -119,11 +119,11 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
             <span className="font-serif text-xs md:text-sm font-bold tracking-wider text-[#141416] uppercase group-hover:text-[#996515] transition-colors leading-tight truncate">
               NIRAJ JEWELLERS <span className="text-[10px] md:text-xs font-semibold text-[#996515]">LTD</span>
             </span>
-            <span className="text-[8.5px] md:text-[9.5px] font-bold tracking-[0.14em] text-[#8C6212] uppercase block mt-0.5 truncate">
-              ATELIER DASHBOARD • EST. 1984
+            <span className="font-mono text-[8.5px] md:text-[9px] font-bold tracking-[0.16em] text-[#8C6212] uppercase block mt-0.5 truncate">
+              ATELIER DASHBOARD · 1984
             </span>
-            <span className="text-[8px] md:text-[9px] font-medium text-[#7A705E] uppercase tracking-wider block mt-0.5 truncate">
-              136 Uxbridge Road • Hayes
+            <span className="font-mono text-[8px] md:text-[8.5px] text-[#7A705E] uppercase tracking-wider block mt-0.5 truncate">
+              136 Uxbridge Road · Hayes
             </span>
           </div>
         </Link>
@@ -229,9 +229,9 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
           <div className="pt-1.5 border-t border-[#F0E8D8] flex items-center justify-between text-[8.5px] text-[#8C6212] font-semibold">
             <span className="flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-              <span>100% Free Cloud (£0/mo)</span>
+              <span>London Assay Leopard's Head Stamped</span>
             </span>
-            <span className="text-[#7A705E]">Active</span>
+            <span className="text-[#7A705E]">916 / 750</span>
           </div>
         </div>
       </div>
@@ -245,7 +245,7 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
         {/* User Monogram Profile Card */}
         <div className="p-2 rounded-xl bg-[#FAF8F5] border border-[#E8DEC8] flex items-center justify-between">
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#85560C] to-[#996515] text-white flex items-center justify-center font-serif font-bold text-xs shrink-0 shadow-sm">
+            <div className="w-7 h-7 rounded-lg bg-[#141416] text-[#C6A75E] border border-[#D4AF37]/50 flex items-center justify-center font-serif font-bold text-xs shrink-0 shadow-xs">
               NJ
             </div>
             <div className="min-w-0">

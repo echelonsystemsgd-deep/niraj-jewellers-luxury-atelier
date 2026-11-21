@@ -17,15 +17,15 @@ interface FeaturedVideo {
 
 const FEATURED_VIDEOS: FeaturedVideo[] = [
   {
-    pieceId: "piece-1-broad-mesh-polki-choker",
-    title: "The Imperial Broad Mesh Polki Choker & Jhumkas",
-    category: "22ct Bridal Choker & Jhumkas",
-    purity: "22ct Royal Gold (916)",
-    weight: "138.5g solid cast mass",
-    hallmark: "London Assay Leopard's Head · 916",
+    pieceId: "piece-4-chevron-v-collar-diamond-necklace",
+    title: "The Chevron V-Collar Diamond Gala Necklace",
+    category: "Haute Joaillerie Diamond Collar",
+    purity: "18ct White & Rose Gold (750)",
+    weight: "48.5g solid gold mass",
+    hallmark: "London Assay 750 Stamped",
     videoUrl: "/images/collections/0bda9709-3486-4146-b08c-9f05cc25ee4d.mp4",
     posterUrl: "/images/collections/posters/0bda9709-3486-4146-b08c-9f05cc25ee4d.jpg",
-    description: "22ct yellow gold Kundan Polki lattice bridal choker necklace with cascading natural pearl fringe and matching bell jhumka earrings handcrafted on Hayes benches.",
+    description: "Multi-row graduated V-shaped natural diamond collar necklace with a signature chevron front drop, hand-set in 18ct gold.",
   },
   {
     pieceId: "piece-6-crown-milgrain-beaded-diamond-band",

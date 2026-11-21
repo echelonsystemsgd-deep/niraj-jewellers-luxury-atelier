@@ -39,9 +39,9 @@ export function ShowroomLogistics() {
                   <span>BENCH HOURS</span>
                 </div>
                 <p className="font-sans text-xs text-[#D1C9BD] leading-relaxed">
-                  Tuesday – Saturday: 10:30 – 18:00 <br />
-                  Sunday: By VIP Appointment <br />
-                  Monday: Atelier Closed (Casting Bench)
+                  Monday: 12:00 – 17:00 <br />
+                  Tuesday – Saturday: 11:00 – 17:00 <br />
+                  Sunday: Closed (Private Bespoke by Request)
                 </p>
               </div>
             </div>

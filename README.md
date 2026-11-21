@@ -75,6 +75,7 @@ Structured across **35 high-authority, fully-indexed Next.js 15 routes**:
 | Route | Page Title & Scope | SEO / AEO Focus |
 | :--- | :--- | :--- |
 | **`/`** | **Flagship Atelier Home** | Hero video vitrine, curated showcase, 4-step 3D CAD journey, repairs bento, differentiators, reviews, live hours hub, hallmarking guide, and FAQs. |
+| **`/atelier`** | **Digital Flagship Atelier (Reels & 54-Piece Vault)** | Editorial video-first atelier, full 54-piece vault with synonym search, same-day bench repairs, Hayes showroom dossier modal, and direct WhatsApp VIP inquiry. |
 | **`/about`** | **About Us — Heritage Since 1984** | 42-year goldsmith history, generational family heritage, master craftsman biography, workshop ethics, and London Assay accreditation. |
 | **`/collections`** | **54-Piece Masterpiece Vault** | 54-piece portfolio across 22ct bridal, Polki, Kundan, solid gold kadas, and diamond rings with full-screen reel modals. |
 | **`/bespoke`** | **Bespoke 3D CAD Atelier** | Direct workshop commissions, loose GIA diamond inspection, 3D wax prototyping, and interactive turnaround/budget calculator. |

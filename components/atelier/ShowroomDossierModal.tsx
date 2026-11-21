@@ -33,16 +33,24 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
     }
   }, [piece]);
 
-  // Lock body scroll when modal is active
+  // Lock background body scroll & interactions completely when modal is active
   useEffect(() => {
     if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+      document.body.style.touchAction = "none";
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+        document.body.style.touchAction = "";
+        window.scrollTo(0, scrollY);
+      };
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [isOpen]);
 
   if (!isOpen || !piece) return null;
@@ -221,7 +229,7 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
 
                 <div className="flex items-center gap-2 text-[10px] text-[#7A705E]">
                   <Clock className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
-                  <span>Tue – Sat: 10:30 – 18:00 (No Appointment Needed)</span>
+                  <span>Mon: 12:00–17:00 | Tue–Sat: 11:00–17:00 (Walk-Ins Welcome)</span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 pt-1">
@@ -240,7 +248,7 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
                     className="py-2.5 px-3 border border-[#141416] bg-white text-[#141416] hover:bg-[#FAF9F5] transition-colors font-semibold text-[10.5px] uppercase tracking-wider flex items-center justify-center gap-1.5"
                   >
                     <Phone className="w-3 h-3 text-[#C6A75E]" />
-                    <span>CALL 020 8573</span>
+                    <span>CALL 020 8573 9323</span>
                   </a>
                 </div>
               </div>
