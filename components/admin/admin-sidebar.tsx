@@ -219,8 +219,8 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
             </p>
             <p className="flex items-center gap-1.5 text-[10px] text-[#7A705E]">
               <Phone className="w-3.5 h-3.5 text-[#8C6212] shrink-0" />
-              <a href="tel:02085732276" className="hover:text-[#996515] transition-colors">
-                020 8573 2276
+              <a href="tel:02085739323" className="hover:text-[#996515] transition-colors">
+                020 8573 9323
               </a>
             </p>
           </div>
