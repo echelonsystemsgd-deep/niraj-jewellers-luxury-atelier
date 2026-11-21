@@ -217,8 +217,15 @@ export function HeroSection() {
             </a>
           </div>
 
-          {/* 3 Sleek Trust Pills (Ivory Cards with Soft Gold Hairlines & Navy Font) */}
+          {/* 3 Sleek Trust Pills + 3D Atelier Flagship Pill */}
           <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[10.5px] sm:text-xs">
+            <Link
+              href="/atelier"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#141416] hover:bg-[#C6A75E] border border-[#141416] text-[#FAF9F5] hover:text-[#141416] transition-all shadow-xs font-mono text-[10.5px] sm:text-xs tracking-wider uppercase font-semibold"
+            >
+              <span>3D DIGITAL ATELIER ⊙</span>
+            </Link>
+
             <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#C6A75E]/50 text-[#1F2A44] shadow-xs">
               <HallmarkCrownIcon className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
               <span className="font-semibold text-[#1F2A44] truncate">Heritage Atelier</span>
