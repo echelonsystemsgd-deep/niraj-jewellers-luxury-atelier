@@ -48,6 +48,7 @@ export function RepairsBento() {
                         src={service.image}
                         alt={service.imageAlt}
                         fill
+                        unoptimized
                         sizes="(max-width: 640px) 56px, 80px"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />

@@ -110,6 +110,7 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
               alt="Niraj Jewellers Ltd Crest"
               width={28}
               height={28}
+              unoptimized
               className="object-contain"
               priority
             />

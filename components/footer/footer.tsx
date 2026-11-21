@@ -54,6 +54,7 @@ export function Footer() {
                     src="/NIRAJ_LOGO9.png"
                     alt="Niraj Jewellers Ltd Crest"
                     fill
+                    unoptimized
                     sizes="48px"
                     className="object-contain p-0.5"
                   />

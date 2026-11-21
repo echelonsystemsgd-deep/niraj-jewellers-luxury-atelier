@@ -71,6 +71,8 @@ export function HeroSection() {
             src="/images/workshop/workshop-bench-velvet-trays.jpg"
             alt="Handcrafted goldsmith consultation tray"
             fill
+            unoptimized
+            priority
             sizes="288px"
             className="object-cover opacity-90 contrast-[1.05]"
           />
@@ -96,6 +98,8 @@ export function HeroSection() {
             src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
             alt="Handcrafted 22ct gold filigree masterpiece"
             fill
+            unoptimized
+            priority
             sizes="288px"
             className="object-cover opacity-90 contrast-[1.05]"
           />

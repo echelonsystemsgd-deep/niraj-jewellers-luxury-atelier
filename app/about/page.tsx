@@ -182,6 +182,7 @@ export default function AboutPage() {
                   src="/images/workshop/goldsmith-bench-order-book-22ct.jpg"
                   alt="Niraj Jewellers Workshop Order Book and Bench"
                   fill
+                  unoptimized
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                   priority
@@ -205,6 +206,7 @@ export default function AboutPage() {
                     src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
                     alt="22ct Gold Filigree Craftsmanship"
                     fill
+                    unoptimized
                     sizes="(max-width: 1024px) 50vw, 25vw"
                     className="object-cover"
                   />
@@ -214,6 +216,7 @@ export default function AboutPage() {
                     src="/images/workshop/workshop-bench-velvet-trays.jpg"
                     alt="Velvet Trays in Workshop"
                     fill
+                    unoptimized
                     sizes="(max-width: 1024px) 50vw, 25vw"
                     className="object-cover"
                   />
@@ -410,6 +413,7 @@ export default function AboutPage() {
                           src={ms.image}
                           alt={ms.imageAlt}
                           fill
+                          unoptimized
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />

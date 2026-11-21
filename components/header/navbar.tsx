@@ -113,6 +113,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                       src="/NIRAJ_LOGO9.png"
                       alt="Niraj Jewellers Ltd Official Crest"
                       fill
+                      unoptimized
                       sizes="44px"
                       className="object-contain p-0.5"
                       priority
@@ -227,6 +228,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                     src="/NIRAJ_LOGO9.png"
                     alt="Niraj Jewellers Ltd"
                     fill
+                    unoptimized
                     sizes="32px"
                     className="object-contain p-0.5"
                   />

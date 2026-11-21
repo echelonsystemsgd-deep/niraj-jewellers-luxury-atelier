@@ -36,6 +36,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
               alt="Niraj Jewellers Ltd Emblem"
               width={56}
               height={56}
+              unoptimized
               className="object-contain"
               priority
             />

@@ -88,6 +88,7 @@ export function ReviewsSection() {
                       src={review.avatarUrl || "/images/avatars/avatar-1.svg"}
                       alt={review.author}
                       fill
+                      unoptimized
                       sizes="40px"
                       className="object-cover"
                     />

@@ -131,6 +131,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
                 src={item.thumbnailUrl}
                 alt={item.title}
                 fill
+                unoptimized
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className={`object-cover object-center transition-all duration-700 group-hover:scale-105 ${
                   imageLoaded ? "opacity-100" : "opacity-0"

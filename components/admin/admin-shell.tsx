@@ -74,6 +74,7 @@ export function AdminShell({ userEmail, children }: AdminShellProps) {
               alt="Niraj Jewellers Emblem"
               width={26}
               height={26}
+              unoptimized
               className="object-contain"
               priority
             />
