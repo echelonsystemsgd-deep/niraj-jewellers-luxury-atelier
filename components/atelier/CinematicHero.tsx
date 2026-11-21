@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Image from "next/image";
-import { ShieldCheck, Play, Pause, ArrowDown, Eye, CheckCircle2, Sparkles } from "lucide-react";
+import { ShieldCheck, Play, Pause, ArrowDown, Eye, Sparkles } from "lucide-react";
 
 interface FeaturedVideo {
-  id: string;
+  pieceId: string;
   title: string;
   category: string;
   purity: string;
@@ -18,8 +17,8 @@ interface FeaturedVideo {
 
 const FEATURED_VIDEOS: FeaturedVideo[] = [
   {
-    id: "polki-bridal-suite",
-    title: "The Imperial Broad Mesh Polki Suite",
+    pieceId: "piece-1-broad-mesh-polki-choker",
+    title: "The Imperial Broad Mesh Polki Choker & Jhumkas",
     category: "22ct Bridal Choker & Jhumkas",
     purity: "22ct Royal Gold (916)",
     weight: "138.5g solid cast mass",
@@ -29,42 +28,42 @@ const FEATURED_VIDEOS: FeaturedVideo[] = [
     description: "22ct yellow gold Kundan Polki lattice bridal choker necklace with cascading natural pearl fringe and matching bell jhumka earrings handcrafted on Hayes benches.",
   },
   {
-    id: "royal-emerald-collar",
-    title: "The Royal Emerald & Diamond Choker",
-    category: "Syndicate Polki & Gemstones",
-    purity: "22ct Royal Gold (916)",
-    weight: "112.0g solid cast mass",
-    hallmark: "London Assay Leopard's Head · 916",
+    pieceId: "piece-6-crown-milgrain-beaded-diamond-band",
+    title: "The Crown Milgrain Beaded Diamond Band",
+    category: "Solid Gold & Diamond Bands",
+    purity: "18ct Warm Gold (750)",
+    weight: "28.4g solid gold mass",
+    hallmark: "London Assay Leopard's Head · 750",
     videoUrl: "/images/collections/39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.mp4",
     posterUrl: "/images/collections/posters/39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.jpg",
-    description: "Natural cabochon emerald centerpiece enveloped by syndicate uncut Polki diamonds and suspended south sea pearls.",
+    description: "Handcrafted band featuring dual beaded milgrain borders framing a central channel of micro-pavé diamonds.",
   },
   {
-    id: "calcutta-filigree",
-    title: "The Calcutta Micro-Filigree Bridal Collar",
-    category: "Handcrafted Filigree",
-    purity: "22ct Royal Gold (916)",
-    weight: "96.4g solid gold mass",
-    hallmark: "London Assay Leopard's Head · 916",
+    pieceId: "piece-16-sovereign-6-prong-solitaire-ring",
+    title: "The Sovereign 6-Prong Round Solitaire Ring",
+    category: "Solitaire Rings",
+    purity: "18ct Solid Yellow Gold (750)",
+    weight: "18.2g solid shank",
+    hallmark: "London Assay Leopard's Head · 750",
     videoUrl: "/images/collections/86e9bedc-c2df-4ad8-81f5-a2f038596d60.mp4",
     posterUrl: "/images/collections/posters/86e9bedc-c2df-4ad8-81f5-a2f038596d60.jpg",
-    description: "Intricate micro-wire lace collar cast in pure 22ct yellow gold with hand-set floral motifs and diamond cuts.",
+    description: "Iconic six-prong crown collet holding a round brilliant natural diamond on a solid polished yellow gold rounded shank.",
   },
   {
-    id: "solid-kada",
-    title: "The Sovereign Solid Cast 22ct Kada",
-    category: "Solid Bangles & Kadas",
-    purity: "22ct Royal Gold (916)",
-    weight: "48.2g non-hollow mass",
-    hallmark: "London Assay Leopard's Head · 916",
+    pieceId: "piece-5-sovereign-shared-prong-eternity-band",
+    title: "The Sovereign Shared-Prong Diamond Eternity Band",
+    category: "950 Platinum & Diamonds",
+    purity: "950 Pure Platinum",
+    weight: "24.6g solid platinum mass",
+    hallmark: "London Assay 950 Platinum Stamped",
     videoUrl: "/images/collections/259e7f7d-50a7-4cba-8a65-a2b46c1e4ea0.mp4",
     posterUrl: "/images/collections/posters/259e7f7d-50a7-4cba-8a65-a2b46c1e4ea0.jpg",
-    description: "Generational solid non-hollow gold bangle engineered with parabolic comfort-fit inner bore for lifetime durability.",
+    description: "Continuous circle of shared-prong round brilliant natural diamonds set in solid 950 platinum with maximum light dispersion.",
   },
 ];
 
 interface CinematicHeroProps {
-  onInspectPiece: (pieceTitle: string) => void;
+  onInspectPiece: (pieceId: string) => void;
   onExploreVault: () => void;
 }
 
@@ -123,7 +122,7 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
                   const isActive = activeVideoIdx === idx;
                   return (
                     <button
-                      key={item.id}
+                      key={item.pieceId}
                       type="button"
                       onClick={() => handleSelectReel(idx)}
                       className={`text-left p-3 border transition-all cursor-pointer ${
@@ -176,8 +175,8 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
 
           {/* Center Column: Live Looping High-Definition Video Player */}
           <div className="lg:col-span-8 order-1 lg:order-2 flex flex-col">
-            {/* Top Micro-HUD */}
-            <div className="w-full flex items-center justify-between font-mono text-[11px] tracking-[0.2em] text-[#7A705E] px-2 mb-2">
+            {/* Top Micro-HUD (Responsive flex-col on mobile, zero collision) */}
+            <div className="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.2em] text-[#7A705E] px-2 mb-2">
               <span>HAYES BENCH REEL [ 0{activeVideoIdx + 1} / 04 ]</span>
               <span className="text-[#C6A75E] flex items-center gap-1 font-semibold">
                 1080P MASTERWORK RECORDING
@@ -198,7 +197,7 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
                 className="w-full h-full object-cover object-center filter brightness-105 contrast-110"
               />
 
-              {/* Gradient Overlays for Architectural Restraint */}
+              {/* Gradient Overlays */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
               {/* Bottom Video Badge & Info */}
@@ -231,11 +230,11 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
             <div className="mt-6 flex flex-col sm:flex-row items-center gap-3">
               <button
                 type="button"
-                onClick={() => onInspectPiece(activePiece.title)}
+                onClick={() => onInspectPiece(activePiece.pieceId)}
                 className="w-full sm:flex-1 py-3.5 bg-[#141416] text-[#FAF9F5] hover:bg-[#C6A75E] hover:text-[#141416] transition-colors font-mono text-xs tracking-[0.2em] uppercase font-semibold flex items-center justify-center gap-2 cursor-pointer border border-[#141416]"
               >
                 <Eye className="w-4 h-4" />
-                <span>INSPECT PIECE & BOOK VIEWING</span>
+                <span>INSPECT PIECE & INQUIRE</span>
               </button>
 
               <button

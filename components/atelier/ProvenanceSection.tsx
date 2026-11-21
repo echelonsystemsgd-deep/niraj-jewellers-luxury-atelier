@@ -100,16 +100,14 @@ export function ProvenanceSection({ onOpenBooking }: ProvenanceSectionProps) {
             </p>
           </div>
 
-          <button
-            type="button"
-            onClick={() => {
-              sound.playTick();
-              onOpenBooking();
-            }}
-            className="shrink-0 px-6 py-3 bg-[#C6A75E] text-[#141416] hover:bg-white transition-colors font-mono text-xs tracking-[0.2em] uppercase font-bold cursor-pointer"
+          <a
+            href="https://wa.me/447955565137?text=Hi%20Niraj%20Jewellers%20team%2C%20I%20would%20like%20to%20inquire%20about%20inspecting%20your%20jewellery%20masterpieces%20at%20your%20Hayes%20atelier."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 px-6 py-3 bg-[#C6A75E] text-[#141416] hover:bg-white transition-colors font-mono text-xs tracking-[0.2em] uppercase font-bold flex items-center gap-2"
           >
-            REQUEST PRIVATE VIEWING →
-          </button>
+            <span>INQUIRE ON WHATSAPP →</span>
+          </a>
         </div>
       </div>
     </section>

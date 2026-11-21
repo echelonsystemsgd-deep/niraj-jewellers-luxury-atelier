@@ -9,7 +9,6 @@ import { RepairsShowcase } from "./RepairsShowcase";
 import { ProvenanceSection } from "./ProvenanceSection";
 import { EditorialManifesto } from "./EditorialManifesto";
 import { ShowroomLogistics } from "./ShowroomLogistics";
-import { AgencyPitchPill } from "./AgencyPitchPill";
 import { CollectionItem, COLLECTIONS_DATA } from "@/data/collections-data";
 import Link from "next/link";
 
@@ -17,10 +16,11 @@ export function AtelierClientView() {
   const [selectedPiece, setSelectedPiece] = useState<CollectionItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleInspectPiece = (pieceTitle: string) => {
+  const handleInspectPiece = (pieceId: string) => {
     const found =
-      COLLECTIONS_DATA.find((p) => p.title.toLowerCase().includes(pieceTitle.toLowerCase())) ||
-      COLLECTIONS_DATA[0];
+      COLLECTIONS_DATA.find(
+        (p) => p.id === pieceId || p.title.toLowerCase().includes(pieceId.toLowerCase())
+      ) || COLLECTIONS_DATA[0];
     setSelectedPiece(found);
     setIsModalOpen(true);
   };
@@ -37,22 +37,10 @@ export function AtelierClientView() {
     }
   };
 
-  const handleOpenBooking = (pieceName?: string) => {
-    if (pieceName) {
-      const match =
-        COLLECTIONS_DATA.find((p) => p.title.toLowerCase().includes(pieceName.toLowerCase())) ||
-        COLLECTIONS_DATA[0];
-      setSelectedPiece(match);
-    } else {
-      setSelectedPiece(COLLECTIONS_DATA[0]);
-    }
-    setIsModalOpen(true);
-  };
-
   return (
     <div className="relative min-h-screen bg-[#FAF9F5] text-[#141416] flex flex-col selection:bg-[#C6A75E]/30 selection:text-[#141416] overflow-x-hidden">
-      {/* 1. Atelier Header (Quiet Luxury, No Sound Toggle) */}
-      <AtelierNavbar onOpenBooking={handleOpenBooking} />
+      {/* 1. Official Atelier Header (Viky's 6 Navigation Pages, Direct Phone & WhatsApp) */}
+      <AtelierNavbar />
 
       {/* 2. Main Experience */}
       <main className="flex-1">
@@ -66,7 +54,7 @@ export function AtelierClientView() {
         <ProductGrid onSelectPiece={handleSelectPiece} />
 
         {/* 3-Step Unboxing Architecture & Provenance */}
-        <ProvenanceSection onOpenBooking={() => handleOpenBooking()} />
+        <ProvenanceSection onOpenBooking={() => {}} />
 
         {/* In-House Same-Day Bench Repairs Showcase */}
         <RepairsShowcase />
@@ -92,16 +80,25 @@ export function AtelierClientView() {
 
           <div className="flex items-center gap-6 text-[11px] tracking-wider uppercase">
             <Link href="/" className="hover:text-[#FAF9F5] transition-colors">
-              MAIN SITE
+              HOME
+            </Link>
+            <Link href="/about" className="hover:text-[#FAF9F5] transition-colors">
+              ABOUT US
             </Link>
             <Link href="/collections" className="hover:text-[#FAF9F5] transition-colors">
-              COLLECTIONS
+              COLLECTION
             </Link>
-            <Link href="/repairs" className="hover:text-[#FAF9F5] transition-colors">
-              BENCH REPAIRS
+            <Link href="/articles" className="hover:text-[#FAF9F5] transition-colors">
+              ARTICLES
+            </Link>
+            <Link href="/showroom" className="hover:text-[#FAF9F5] transition-colors">
+              SHOWROOM
+            </Link>
+            <Link href="/faqs" className="hover:text-[#FAF9F5] transition-colors">
+              FAQS
             </Link>
             <Link href="/contact" className="hover:text-[#FAF9F5] transition-colors">
-              CONCIERGE
+              CONTACT
             </Link>
           </div>
 
@@ -112,15 +109,12 @@ export function AtelierClientView() {
         </div>
       </footer>
 
-      {/* Showroom Dossier Modal (High-Resolution Video Reel / Photo & VIP Booking) */}
+      {/* Showroom Dossier Modal (High-Resolution Video Reel / Photo & Direct WhatsApp) */}
       <ShowroomDossierModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         piece={selectedPiece}
       />
-
-      {/* Agency Pitch Pill & Presentation Drawer */}
-      <AgencyPitchPill />
     </div>
   );
 }

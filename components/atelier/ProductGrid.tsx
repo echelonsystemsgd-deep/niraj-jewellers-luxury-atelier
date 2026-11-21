@@ -32,13 +32,27 @@ export function ProductGrid({ onSelectPiece }: ProductGridProps) {
       // Media filter match
       const matchesMedia = mediaFilter === "all" || item.mediaType === mediaFilter;
 
-      // Search match
+      // Search match with intelligent jewelry synonyms (e.g. kada <-> bangle <-> band)
       const q = searchQuery.toLowerCase().trim();
+      const synonyms: Record<string, string[]> = {
+        kada: ["kada", "bangle", "band", "cuff", "bracelet"],
+        kadas: ["kada", "bangle", "band", "cuff", "bracelet"],
+        bangle: ["bangle", "kada", "cuff", "band"],
+        bangles: ["bangle", "kada", "cuff", "band"],
+        necklace: ["necklace", "choker", "collar", "suite", "lariat"],
+        choker: ["choker", "collar", "necklace", "suite"],
+      };
+
+      const searchTerms = [q, ...(synonyms[q] || [])];
       const matchesSearch =
         !q ||
-        item.title.toLowerCase().includes(q) ||
-        item.description.toLowerCase().includes(q) ||
-        item.tags.some((tag) => tag.toLowerCase().includes(q));
+        searchTerms.some(
+          (term) =>
+            item.title.toLowerCase().includes(term) ||
+            item.description.toLowerCase().includes(term) ||
+            item.category.toLowerCase().includes(term) ||
+            item.tags.some((tag) => tag.toLowerCase().includes(term))
+        );
 
       return matchesCategory && matchesMedia && matchesSearch;
     });

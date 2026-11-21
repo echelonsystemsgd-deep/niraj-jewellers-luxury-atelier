@@ -14,7 +14,7 @@ export function RepairsShowcase() {
       description:
         "Micro-pulse laser welding joins 22ct gold, 18ct white gold, and dense platinum without heating gemstones. Exact sizing bore calibrated under microscope magnification.",
       badge: "SAME-DAY SPEED",
-      image: "/images/workshop/laser-welding-bench.jpg",
+      image: "/images/collections/posters/482c070d-7614-41e2-8811-d76441020509.jpg",
     },
     {
       num: "02",
@@ -23,7 +23,7 @@ export function RepairsShowcase() {
       description:
         "Strengthening worn prongs and loose diamond claws on vintage bridal suites and solitaire rings. Precision metal buildup prevents stone loss.",
       badge: "LIFETIME SECURITY",
-      image: "/images/workshop/claw-retipping-microscope.jpg",
+      image: "/images/collections/posters/585f854b-a2a7-4608-83e8-29eded6d04f6.jpg",
     },
     {
       num: "03",
@@ -32,7 +32,7 @@ export function RepairsShowcase() {
       description:
         "Deep multi-stage ultrasonic cavitation cleans built-up grease and oxidation, followed by high-pressure steam blast and digital density verification on trade-approved scales.",
       badge: "TRADE-VERIFIED",
-      image: "/images/workshop/trade-certified-carat-scale.jpg",
+      image: "/images/workshop/workshop-bench-velvet-trays.jpg",
     },
   ];
 
@@ -77,6 +77,8 @@ export function RepairsShowcase() {
                     src={service.image}
                     alt={service.title}
                     fill
+                    unoptimized
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
