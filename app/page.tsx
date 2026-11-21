@@ -1,5 +1,3 @@
-"use client";
-
 import { Navbar } from "@/components/header/navbar";
 import { HeroSection } from "@/components/hero/hero-section";
 import { CollectionGrid } from "@/components/collections/collection-grid";
@@ -11,8 +9,15 @@ import { ShowroomHub } from "@/components/showroom/showroom-hub";
 import { HallmarkGuide } from "@/components/trust/hallmark-guide";
 import { FaqSection } from "@/components/faq/faq-section";
 import { Footer } from "@/components/footer/footer";
+import { getCollections, getGlobalSettings, getReviews } from "@/lib/db";
 
-export default function Home() {
+export default async function Home() {
+  const [collections, settings, reviews] = await Promise.all([
+    getCollections(),
+    getGlobalSettings(),
+    getReviews(),
+  ]);
+
   return (
     <div className="relative min-h-screen bg-[#FAF9F5] text-[#141416] flex flex-col selection:bg-[#E8DEC8] selection:text-[#8C6212] overflow-x-hidden">
       {/* 1. Header with left-anchored brand mark & uncrowded responsive navigation */}
@@ -24,7 +29,7 @@ export default function Home() {
         <HeroSection />
 
         {/* 2. Curated Flagship Showroom Collections Showcase (Top 3 Verified Masterworks) */}
-        <CollectionGrid isHomepage={true} />
+        <CollectionGrid isHomepage={true} items={collections} />
 
         {/* 3. The 4-Step Goldsmith & 3D CAD Linear Timeline */}
         <CadJourney />
@@ -36,10 +41,14 @@ export default function Home() {
         <WholesaleAdvantage />
 
         {/* 6. Verified Google Client Reviews & Reputation (Under differentiators) */}
-        <ReviewsSection />
+        <ReviewsSection items={reviews} />
 
         {/* 7. Flagship Hayes Showroom Hub & Live London Operating Hours */}
-        <ShowroomHub />
+        <ShowroomHub
+          openingHours={settings.opening_hours}
+          phone={settings.phone_uk}
+          address={settings.showroom_address}
+        />
 
         {/* 8. Gold Purity & London Assay Office Hallmarking Guide (Directly above FAQ) */}
         <HallmarkGuide />

@@ -14,13 +14,14 @@ Official digital atelier, luxury showroom, and direct client acquisition platfor
 
 * **Legal Entity:** Niraj Jewellers Ltd (Registered in England & Wales)
 * **Company Registration Number:** `05074588`
-* **UK VAT Number:** `GB 842 9617 32`
+* **UK VAT Number:** `GB 674 7451 05` (VAT No: `674745105`)
 * **Established:** 1984 (Generational Bespoke Goldsmithing & Precious Metal Wholesaling)
 * **Flagship Showroom & Workshop:** 136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, Greater London
 * **Showroom Landline:** `020 8573 9323` / `+44 20 8573 9323`
 * **Workshop Mobile & WhatsApp:** `07955 565137` / `+44 7955 565137`
 * **Official Email:** `nirajjewellersuk@gmail.com`
 * **Canonical Domain:** `https://www.niraj-jewellers.co.uk`
+* **Official Facebook:** `https://www.facebook.com/p/Niraj-Jewellers-Ltd-100063525010609/`
 * **Assay Office Accreditation:** London Assay Office Leopard's Head Hallmarked (`916` 22ct / `750` 18ct / `999` 24ct Fine Gold)
 * **Showroom Access Policy:** **No appointment required** — walk-in consultations, jewellery viewings, on-site bench repairs, and bullion transactions are warmly welcomed anytime during opening hours.
 
@@ -166,7 +167,7 @@ node scripts/sync-schema-collections.js
 * **Trading Name:** Niraj Jewellers
 * **Company Registration:** No. 05074588 (Registered in England & Wales)
 * **Registered & Showroom Address:** 136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, UK
-* **VAT Registration Number:** GB 842 9617 32
+* **VAT Registration Number:** GB 674 7451 05 (No: 674745105)
 * **Telephone:** Landline: 020 8573 9323 | Mobile/WhatsApp: 07955 565137
 * **UK Hallmarking Compliance:** London Assay Office (Goldsmiths' Hall, London EC2V 8AQ)
 * **Copyright:** © 2026 Niraj Jewellers Ltd. All Rights Reserved.

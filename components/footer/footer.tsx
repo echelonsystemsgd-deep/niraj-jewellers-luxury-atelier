@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Phone, MapPin, ShieldCheck, ArrowUp, Mail, ExternalLink, Sparkles } from "lucide-react";
+import { Instagram, Facebook, Phone, MapPin, ShieldCheck, ArrowUp, Mail, ExternalLink, Sparkles } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import {
   NIRAJ_DISPLAY_PHONE,
@@ -14,6 +14,7 @@ import {
   NIRAJ_EMAIL,
   NIRAJ_VAT_NUMBER,
   NIRAJ_COMPANY_REG,
+  NIRAJ_FACEBOOK_URL,
   buildWhatsAppLink,
 } from "@/lib/whatsapp";
 import { LegalModal, LegalTab } from "@/components/legal/legal-modal";
@@ -73,6 +74,17 @@ export function Footer() {
               </p>
 
               <div className="flex items-center gap-3 pt-2">
+                <a
+                  href={NIRAJ_FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-[#1877F2] transition-colors shadow-sm"
+                  aria-label="Facebook Niraj Jewellers Ltd"
+                  title="Facebook Niraj Jewellers Ltd"
+                >
+                  <Facebook className="w-4 h-4 fill-current" />
+                </a>
+
                 <a
                   href="https://www.instagram.com/nirajjewellersltd"
                   target="_blank"

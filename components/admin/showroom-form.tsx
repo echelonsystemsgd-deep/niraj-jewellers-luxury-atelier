@@ -99,7 +99,7 @@ export function ShowroomForm({ initialSettings }: ShowroomFormProps) {
               required
               value={formData.vat_number}
               onChange={(e) => handleChange("vat_number", e.target.value)}
-              placeholder="e.g. GB 842 9617 32"
+              placeholder="e.g. GB 674 7451 05"
               className="w-full h-11 px-4 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] text-xs font-medium text-[#141416] focus:bg-white focus:border-[#996515] focus:outline-none transition-colors"
             />
           </div>
@@ -168,26 +168,73 @@ export function ShowroomForm({ initialSettings }: ShowroomFormProps) {
 
       {/* C. London Operating Hours */}
       <div className="p-5 sm:p-6 bg-white border border-[#E8DEC8] rounded-2xl shadow-luxury-sm space-y-4">
-        <h2 className="font-serif text-base font-bold text-[#141416] border-b border-[#E8DEC8]/60 pb-3 flex items-center gap-2">
-          <Clock className="w-4 h-4 text-[#8C6212]" />
-          <span>Hayes Atelier Operating Hours</span>
-        </h2>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E8DEC8]/60 pb-3">
+          <h2 className="font-serif text-base font-bold text-[#141416] flex items-center gap-2">
+            <Clock className="w-4 h-4 text-[#8C6212]" />
+            <span>Hayes Atelier Operating Hours</span>
+          </h2>
+
+          <button
+            type="button"
+            onClick={() => {
+              setFormData((prev) => ({
+                ...prev,
+                opening_hours: {
+                  monday: "11:00 AM – 6:30 PM",
+                  tuesday: "11:00 AM – 6:30 PM",
+                  wednesday: "11:00 AM – 6:30 PM",
+                  thursday: "11:00 AM – 6:30 PM",
+                  friday: "11:00 AM – 6:30 PM",
+                  saturday: "11:00 AM – 6:30 PM",
+                  sunday: "Closed (Workshop & Bullion Vaulting)",
+                },
+              }));
+            }}
+            className="text-[11px] font-bold text-[#8C6212] bg-[#FAF5E8] hover:bg-[#E8DEC8] px-3 py-1.5 rounded-xl border border-[#D4AF37]/50 transition-colors self-start sm:self-auto"
+          >
+            ⚡ Apply Standard Mon–Sat (11:00 AM – 6:30 PM)
+          </button>
+        </div>
 
         <div className="space-y-3">
           {days.map((day) => (
             <div
               key={day.key}
-              className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-2.5 rounded-xl bg-[#FAF8F5] border border-[#E8DEC8]/60"
+              className="p-3 rounded-xl bg-[#FAF8F5] border border-[#E8DEC8]/60 space-y-2"
             >
-              <span className="text-xs font-bold text-[#141416] w-28">
-                {day.label}
-              </span>
-              <input
-                type="text"
-                value={formData.opening_hours[day.key] || ""}
-                onChange={(e) => handleHourChange(day.key, e.target.value)}
-                className="flex-1 h-9 px-3 rounded-lg border border-[#E8DEC8] bg-white text-xs text-[#141416]"
-              />
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <span className="text-xs font-bold text-[#141416] w-28 shrink-0">
+                  {day.label}
+                </span>
+                <input
+                  type="text"
+                  value={formData.opening_hours[day.key] || ""}
+                  onChange={(e) => handleHourChange(day.key, e.target.value)}
+                  placeholder="e.g. 11:00 AM – 6:30 PM or Closed"
+                  className="flex-1 h-9 px-3 rounded-lg border border-[#E8DEC8] bg-white text-xs text-[#141416] focus:border-[#996515] focus:outline-none"
+                />
+              </div>
+
+              {/* Quick Preset Pills for this Day */}
+              <div className="flex flex-wrap items-center gap-1.5 pl-0 sm:pl-28">
+                <span className="text-[9.5px] font-semibold text-[#7A705E]">Presets:</span>
+                {[
+                  "11:00 AM – 6:30 PM",
+                  "11:30 AM – 5:30 PM",
+                  "12:00 PM – 5:00 PM",
+                  "Closed (Workshop & Vaulting)",
+                  "By Appointment Only",
+                ].map((preset) => (
+                  <button
+                    key={preset}
+                    type="button"
+                    onClick={() => handleHourChange(day.key, preset)}
+                    className="text-[9px] font-medium px-2 py-0.5 rounded-md bg-white border border-[#E8DEC8] text-[#5A5960] hover:text-[#996515] hover:border-[#D4AF37] transition-colors"
+                  >
+                    {preset}
+                  </button>
+                ))}
+              </div>
             </div>
           ))}
         </div>

@@ -11,6 +11,7 @@ import {
   NIRAJ_MAPS_LINK,
   NIRAJ_COMPANY_REG,
   NIRAJ_VAT_NUMBER,
+  NIRAJ_FACEBOOK_URL,
 } from "@/lib/whatsapp";
 import { createClient } from "@/lib/supabase/server";
 
@@ -51,7 +52,7 @@ export const FALLBACK_SETTINGS: GlobalSettings = {
     instagram: "https://www.instagram.com/nirajjewellersltd",
     tiktok_atelier: "https://www.tiktok.com/@nirajjewellersltd",
     tiktok_uk: "https://www.tiktok.com/@nirajjewellersuk",
-    facebook: "https://facebook.com/nirajjewellersltd",
+    facebook: NIRAJ_FACEBOOK_URL,
     whatsapp: `https://wa.me/${NIRAJ_PHONE_NUMBER}`,
   },
 };
@@ -94,15 +95,20 @@ export async function getGlobalSettings(): Promise<GlobalSettings> {
   }
 }
 
-export async function getCollections(): Promise<CollectionItem[]> {
+export async function getCollections(includeUnpublished = false): Promise<CollectionItem[]> {
   try {
     const supabase = await createClient();
-    const { data, error } = await supabase
+    let query = supabase
       .from("collections")
       .select("*")
-      .eq("is_published", true)
       .eq("is_archived", false)
-      .order("sort_order", { ascending: true });
+      .order("sort_order", { ascending: true, nullsFirst: false });
+
+    if (!includeUnpublished) {
+      query = query.eq("is_published", true);
+    }
+
+    const { data, error } = await query;
 
     if (error || !data || data.length === 0) {
       return COLLECTIONS_DATA;
@@ -112,12 +118,12 @@ export async function getCollections(): Promise<CollectionItem[]> {
       id: item.id,
       title: item.title,
       category: item.category as CollectionItem["category"],
-      metalPurity: item.metal_purity,
-      hallmarkText: item.hallmark_text,
-      description: item.description,
-      priceNote: item.price_note,
-      mediaType: item.media_type as "image" | "video",
-      thumbnailUrl: item.thumbnail_url,
+      metalPurity: item.metal_purity || "22ct Gold (916 Hallmarked)",
+      hallmarkText: item.hallmark_text || "UK London Assay Office 916",
+      description: item.description || "",
+      priceNote: item.price_note || "Direct Workshop Consultation",
+      mediaType: (item.media_type as "image" | "video") || "image",
+      thumbnailUrl: item.thumbnail_url || "",
       videoUrl: item.video_url || undefined,
       instagramUrl: item.instagram_url || undefined,
       tags: item.tags || [],

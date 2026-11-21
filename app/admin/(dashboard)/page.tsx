@@ -13,7 +13,7 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
   const activeCategory = params.category || "all";
   const searchQuery = (params.query || "").toLowerCase();
 
-  const allPieces = await getCollections();
+  const allPieces = await getCollections(true);
 
   const filteredPieces = allPieces.filter((piece) => {
     const matchesCategory =
@@ -27,13 +27,28 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
     return matchesCategory && matchesQuery;
   });
 
-  const categories = [
+  const standardCats = [
     { id: "all", label: "All Pieces" },
     { id: "bridal", label: "Bridal Suites" },
     { id: "22ct-gold", label: "22ct Gold" },
     { id: "rings", label: "Diamond Rings" },
     { id: "polki-heritage", label: "Polki Heirlooms" },
     { id: "featured", label: "Featured" },
+  ];
+
+  const uniqueCustomCats = Array.from(
+    new Set(allPieces.map((p) => p.category))
+  ).filter((cat) => cat && !standardCats.some((sc) => sc.id === cat));
+
+  const categories = [
+    ...standardCats,
+    ...uniqueCustomCats.map((cat) => ({
+      id: cat,
+      label: cat
+        .split(/[-_ ]+/)
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" "),
+    })),
   ];
 
   return (
@@ -175,14 +190,25 @@ export default async function AdminVaultPage({ searchParams }: AdminVaultPagePro
           >
             {/* Card Media Preview */}
             <div className="relative aspect-[4/3] bg-[#FAF8F5] overflow-hidden group">
-              <Image
-                src={piece.thumbnailUrl}
-                alt={piece.title}
-                fill
-                unoptimized
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
+              {piece.thumbnailUrl ? (
+                <Image
+                  src={piece.thumbnailUrl}
+                  alt={piece.title}
+                  fill
+                  unoptimized
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1C1A17] via-[#2A2620] to-[#141416] flex flex-col items-center justify-center p-4 text-center">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-[#D4AF37]/40 flex items-center justify-center mb-1 text-[#D4AF37]">
+                    <Gem className="w-5 h-5 text-[#D4AF37]" />
+                  </div>
+                  <span className="text-[10px] font-bold text-white tracking-wider uppercase">
+                    Photo Pending
+                  </span>
+                </div>
+              )}
               <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
                 <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-sm text-[10px] font-bold tracking-wider uppercase text-[#8C6212] border border-[#E8DEC8] shadow-sm">
                   {piece.category}

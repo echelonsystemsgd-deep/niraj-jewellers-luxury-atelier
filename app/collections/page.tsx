@@ -5,6 +5,7 @@ import { CollectionGrid } from "@/components/collections/collection-grid";
 import { Footer } from "@/components/footer/footer";
 import { Gem, Award, ShieldCheck, Sparkles } from "lucide-react";
 import { COLLECTIONS_DATA } from "@/data/collections-data";
+import { getCollections } from "@/lib/db";
 
 export const metadata: Metadata = {
   title: "Atelier Collections & 54-Piece Vault | Niraj Jewellers Ltd London",
@@ -36,7 +37,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CollectionsPage() {
+export default async function CollectionsPage() {
+  const collections = await getCollections();
+  const allVaultItems = collections && collections.length > 0 ? collections : COLLECTIONS_DATA;
+
   const collectionsJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -61,8 +65,8 @@ export default function CollectionsPage() {
         "@type": "ItemList",
         "@id": "https://www.niraj-jewellers.co.uk/collections#itemlist",
         name: "Niraj Jewellers Ltd Master Goldsmith 54-Piece Vault",
-        numberOfItems: COLLECTIONS_DATA.length,
-        itemListElement: COLLECTIONS_DATA.map((item, idx) => ({
+        numberOfItems: allVaultItems.length,
+        itemListElement: allVaultItems.map((item, idx) => ({
           "@type": "Product",
           position: idx + 1,
           name: item.title,
@@ -133,10 +137,10 @@ export default function CollectionsPage() {
         </header>
 
         {/* Dynamic Atelier Motion Ribbon */}
-        <InfiniteMotionRibbon />
+        <InfiniteMotionRibbon items={allVaultItems} />
 
-        {/* Full Collection Grid Component with 54 pieces and category tabs */}
-        <CollectionGrid isHomepage={false} />
+        {/* Full Collection Grid Component with live Supabase pieces and dynamic category tabs */}
+        <CollectionGrid items={allVaultItems} isHomepage={false} />
       </main>
 
       <Footer />

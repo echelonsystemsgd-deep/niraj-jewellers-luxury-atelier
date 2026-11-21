@@ -184,7 +184,7 @@ export default function RootLayout({
         "@id": "https://www.niraj-jewellers.co.uk/#jewelrystore",
         name: "Niraj Jewellers Ltd",
         legalName: "Niraj Jewellers Ltd",
-        vatID: "GB 842 9617 32",
+        vatID: "GB 674 7451 05",
         logo: {
           "@type": "ImageObject",
           url: "https://www.niraj-jewellers.co.uk/NIRAJ_LOGO9.png",
@@ -229,6 +229,7 @@ export default function RootLayout({
           },
         ],
         sameAs: [
+          "https://www.facebook.com/p/Niraj-Jewellers-Ltd-100063525010609/",
           "https://www.instagram.com/nirajjewellersltd",
           "https://www.tiktok.com/@nirajjewellersltd",
           "https://www.tiktok.com/@nirajjewellersuk",

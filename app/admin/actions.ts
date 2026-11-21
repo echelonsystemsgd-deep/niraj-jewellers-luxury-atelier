@@ -117,7 +117,7 @@ export async function logoutAction() {
 export interface PiecePayload {
   id: string;
   title: string;
-  category: "bridal" | "rings" | "22ct-gold" | "polki-heritage" | "featured";
+  category: string;
   metal_purity: string;
   hallmark_text: string;
   description: string;

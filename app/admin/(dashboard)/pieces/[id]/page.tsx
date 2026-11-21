@@ -9,7 +9,7 @@ interface PiecePageProps {
 
 export default async function AdminPieceDetailPage({ params }: PiecePageProps) {
   const { id } = await params;
-  const pieces = await getCollections();
+  const pieces = await getCollections(true);
   const piece = pieces.find((p) => p.id === id);
 
   if (!piece) {

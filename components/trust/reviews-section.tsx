@@ -3,9 +3,15 @@
 import Image from "next/image";
 import { ShieldCheck, ArrowUpRight } from "lucide-react";
 import { GoogleGIcon, LuxuryStarIcon } from "@/components/icons/luxury-icons";
-import { REVIEWS_DATA } from "@/data/reviews-data";
+import { REVIEWS_DATA, ReviewItem } from "@/data/reviews-data";
 
-export function ReviewsSection() {
+interface ReviewsSectionProps {
+  items?: ReviewItem[];
+}
+
+export function ReviewsSection({ items }: ReviewsSectionProps) {
+  const reviewsToDisplay = items && items.length > 0 ? items : REVIEWS_DATA;
+
   const getInitials = (name: string) => {
     return name
       .split(" ")
@@ -52,7 +58,7 @@ export function ReviewsSection() {
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
-          {REVIEWS_DATA.slice(0, 3).map((review) => (
+          {reviewsToDisplay.slice(0, 3).map((review) => (
             <div
               key={review.id}
               className="bg-white p-5 sm:p-8 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-3.5 sm:space-y-4 shadow-sm hover:shadow-md"

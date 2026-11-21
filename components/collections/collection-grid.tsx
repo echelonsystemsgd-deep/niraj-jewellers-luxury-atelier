@@ -10,48 +10,76 @@ import { ReelModal } from "./reel-modal";
 
 interface CollectionGridProps {
   isHomepage?: boolean;
+  items?: CollectionItem[];
 }
 
-export function CollectionGrid({ isHomepage = false }: CollectionGridProps) {
+const formatCategoryLabel = (cat: string) => {
+  if (cat === "bridal") return "Bridal Suites";
+  if (cat === "polki-heritage") return "Polki & Heritage";
+  if (cat === "22ct-gold") return "22ct Gold & Kadas";
+  if (cat === "rings") return "Bespoke Rings & CAD";
+  if (cat === "featured") return "Featured Masterpieces";
+  if (cat === "bangles-kadas") return "Bangles & Kadas";
+  if (cat === "mangalsutra") return "Sacred Mangalsutras";
+  if (cat === "necklaces") return "Necklaces & Chokers";
+  if (cat === "coins-bullion") return "Gold Coins & Bullion";
+  // Custom categories: convert kebab-case or snake_case to Title Case
+  return cat
+    .split(/[-_ ]+/)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+};
+
+export function CollectionGrid({ isHomepage = false, items }: CollectionGridProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [selectedItem, setSelectedItem] = useState<CollectionItem | null>(null);
 
-  // Top 3 Verified Masterpieces for Clean Homepage Showcase (Zero asset duplication with other sections)
-  const topThreeMasterpieces: CollectionItem[] = useMemo(() => [
-    COLLECTIONS_DATA[0], // The Imperial Broad Mesh Polki Choker & Jhumkas
-    COLLECTIONS_DATA[2], // The Royal Nizam Crimson Ruby & Syndicate Polki Choker
-    COLLECTIONS_DATA[11], // The Hayes Lion Crest Aquamarine & Diamond Pendant
-  ], []);
+  const allItems = useMemo(
+    () => (items && items.length > 0 ? items : COLLECTIONS_DATA),
+    [items]
+  );
 
-  // Compute category counts dynamically
+  // Top 3 Verified Masterpieces for Clean Homepage Showcase
+  const topThreeMasterpieces: CollectionItem[] = useMemo(() => {
+    return allItems.slice(0, 3);
+  }, [allItems]);
+
+  // Compute category counts dynamically across all live pieces
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {
-      all: COLLECTIONS_DATA.length,
-      bridal: 0,
-      "polki-heritage": 0,
-      "22ct-gold": 0,
-      rings: 0,
+      all: allItems.length,
     };
-    COLLECTIONS_DATA.forEach((item) => {
-      if (counts[item.category] !== undefined) {
-        counts[item.category]++;
-      }
+    allItems.forEach((item) => {
+      const cat = item.category || "other";
+      counts[cat] = (counts[cat] || 0) + 1;
     });
     return counts;
-  }, []);
+  }, [allItems]);
 
-  const categories = [
-    { id: "all", label: `All Masterpieces (${categoryCounts.all})` },
-    { id: "bridal", label: `Bridal Suites (${categoryCounts.bridal})` },
-    { id: "polki-heritage", label: `Polki & Heritage (${categoryCounts["polki-heritage"]})` },
-    { id: "22ct-gold", label: `22ct Gold & Kadas (${categoryCounts["22ct-gold"]})` },
-    { id: "rings", label: `Bespoke Rings & CAD (${categoryCounts.rings})` },
-  ];
+  // Dynamic category pills
+  const categories = useMemo(() => {
+    const standardOrder = ["bridal", "polki-heritage", "22ct-gold", "rings"];
+    const catsInVault = Array.from(new Set(allItems.map((i) => i.category))).filter(Boolean);
+
+    // Standard categories first, then any custom categories added by Viky
+    const sortedCats = [
+      ...standardOrder.filter((c) => catsInVault.includes(c)),
+      ...catsInVault.filter((c) => !standardOrder.includes(c)),
+    ];
+
+    return [
+      { id: "all", label: `All Masterpieces (${categoryCounts.all || 0})` },
+      ...sortedCats.map((cat) => ({
+        id: cat,
+        label: `${formatCategoryLabel(cat)} (${categoryCounts[cat] || 0})`,
+      })),
+    ];
+  }, [allItems, categoryCounts]);
 
   const filteredItems = useMemo(() => {
-    if (activeCategory === "all") return COLLECTIONS_DATA;
-    return COLLECTIONS_DATA.filter((item) => item.category === activeCategory);
-  }, [activeCategory]);
+    if (activeCategory === "all") return allItems;
+    return allItems.filter((item) => item.category === activeCategory);
+  }, [allItems, activeCategory]);
 
   const displayedItems = isHomepage ? topThreeMasterpieces : filteredItems;
 

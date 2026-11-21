@@ -8,24 +8,30 @@ import { ReelModal } from "./reel-modal";
 
 interface InfiniteMotionRibbonProps {
   onSelectItem?: (item: CollectionItem) => void;
+  items?: CollectionItem[];
 }
 
-export function InfiniteMotionRibbon({ onSelectItem }: InfiniteMotionRibbonProps) {
+export function InfiniteMotionRibbon({ onSelectItem, items }: InfiniteMotionRibbonProps) {
   const [isPaused, setIsPaused] = useState(false);
   const [selectedItem, setSelectedItem] = useState<CollectionItem | null>(null);
 
+  const sourceItems = useMemo(
+    () => (items && items.length > 0 ? items : COLLECTIONS_DATA),
+    [items]
+  );
+
   // Curate 12 alternating cards: 6 authentic videos and 6 high-contrast photographs
   const ribbonPieces = useMemo(() => {
-    const videos = COLLECTIONS_DATA.filter((i) => i.mediaType === "video");
-    const images = COLLECTIONS_DATA.filter((i) => i.mediaType === "image");
+    const videos = sourceItems.filter((i) => i.mediaType === "video");
+    const images = sourceItems.filter((i) => i.mediaType === "image");
 
     const curated: CollectionItem[] = [];
     for (let i = 0; i < 6; i++) {
       if (videos[i]) curated.push(videos[i]);
       if (images[i]) curated.push(images[i]);
     }
-    return curated.slice(0, 12);
-  }, []);
+    return curated.length > 0 ? curated.slice(0, 12) : sourceItems.slice(0, 12);
+  }, [sourceItems]);
 
   // Double array for seamless continuous infinite marquee loop
   const marqueeItems = useMemo(() => [...ribbonPieces, ...ribbonPieces], [ribbonPieces]);

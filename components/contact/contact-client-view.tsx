@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { SubpageNav } from "@/components/header/subpage-nav";
 import { Footer } from "@/components/footer/footer";
-import { MessageCircle, Phone, Mail, MapPin, Sparkles, Navigation, Send, Check, Instagram } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, Sparkles, Navigation, Send, Check, Instagram, Facebook } from "lucide-react";
 import {
   NIRAJ_DISPLAY_PHONE,
   NIRAJ_UK_PHONE,
@@ -14,6 +14,7 @@ import {
   NIRAJ_MAPS_LINK,
   NIRAJ_VAT_NUMBER,
   NIRAJ_COMPANY_REG,
+  NIRAJ_FACEBOOK_URL,
   buildWhatsAppLink,
 } from "@/lib/whatsapp";
 import { ShowroomStatusBadge } from "@/components/header/showroom-status";
@@ -226,6 +227,19 @@ export function ContactClientView() {
                 </div>
 
                 <div className="space-y-2 pt-1">
+                  <a
+                    href={NIRAJ_FACEBOOK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3 rounded-xl bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] hover:border-[#D4AF37] transition-all text-xs font-semibold text-[#141416] group"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Facebook className="w-4 h-4 text-[#1877F2]" />
+                      <span>Facebook: Niraj Jewellers Ltd</span>
+                    </div>
+                    <span className="text-[#996515] group-hover:translate-x-1 transition-transform">→</span>
+                  </a>
+
                   <a
                     href="https://www.instagram.com/nirajjewellersltd"
                     target="_blank"

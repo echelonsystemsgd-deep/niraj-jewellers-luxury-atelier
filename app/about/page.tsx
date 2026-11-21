@@ -193,7 +193,7 @@ export default function AboutPage() {
                       Authentic Workshop Record
                     </span>
                     <span className="text-xs font-semibold text-[#141416]">
-                      Order Book Ref #12402 • 136 Uxbridge Road
+                      Hayes Goldsmith Bench • 136 Uxbridge Road
                     </span>
                   </div>
                   <ShieldCheck className="w-5 h-5 text-[#996515]" />

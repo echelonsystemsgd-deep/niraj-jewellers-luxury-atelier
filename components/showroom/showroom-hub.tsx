@@ -17,7 +17,13 @@ import {
 } from "@/lib/whatsapp";
 import { getLondonCurrentDayInfo } from "@/lib/showroom-hours";
 
-export function ShowroomHub() {
+interface ShowroomHubProps {
+  openingHours?: Record<string, string>;
+  phone?: string;
+  address?: string;
+}
+
+export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) {
   const [hoursOpen, setHoursOpen] = useState(false);
   const [londonInfo, setLondonInfo] = useState<{ dayName: string; formattedTime: string; dateStr: string } | null>(null);
 
@@ -36,13 +42,13 @@ export function ShowroomHub() {
   });
 
   const hoursList = [
-    { day: "Monday", hours: "12:00 – 17:00", note: "Afternoon workshop hours" },
-    { day: "Tuesday", hours: "11:00 – 17:00", note: "Full atelier bench access" },
-    { day: "Wednesday", hours: "11:00 – 17:00", note: "Full atelier bench access" },
-    { day: "Thursday", hours: "11:00 – 17:00", note: "Full atelier bench access" },
-    { day: "Friday", hours: "11:00 – 17:00", note: "Full atelier bench access" },
-    { day: "Saturday", hours: "11:00 – 17:00", note: "Weekend bridal consultations" },
-    { day: "Sunday", hours: "Closed", note: "Open select Sundays prior to Diwali, Karva Chauth & Christmas" },
+    { day: "Monday", hours: openingHours?.monday || "12:00 – 17:00", note: "Afternoon workshop hours" },
+    { day: "Tuesday", hours: openingHours?.tuesday || "11:00 – 17:00", note: "Full atelier bench access" },
+    { day: "Wednesday", hours: openingHours?.wednesday || "11:00 – 17:00", note: "Full atelier bench access" },
+    { day: "Thursday", hours: openingHours?.thursday || "11:00 – 17:00", note: "Full atelier bench access" },
+    { day: "Friday", hours: openingHours?.friday || "11:00 – 17:00", note: "Full atelier bench access" },
+    { day: "Saturday", hours: openingHours?.saturday || "11:00 – 17:00", note: "Weekend bridal consultations" },
+    { day: "Sunday", hours: openingHours?.sunday || "Closed", note: "Open select Sundays prior to Diwali, Karva Chauth & Christmas" },
   ];
 
   return (

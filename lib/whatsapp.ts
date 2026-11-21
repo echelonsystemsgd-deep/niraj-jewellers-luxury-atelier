@@ -23,9 +23,11 @@ export const NIRAJ_MAPS_LINK = "https://maps.google.com/?q=136+Uxbridge+Road+Hay
 // Business credentials
 export const NIRAJ_COMPANY_NAME = "Niraj Jewellers Ltd";
 export const NIRAJ_COMPANY_REG = "Company No: 05074588 (Registered in England & Wales)";
-export const NIRAJ_VAT_NUMBER = "GB 842 9617 32";
+export const NIRAJ_VAT_NUMBER = "GB 674 7451 05";
+export const NIRAJ_VAT_RAW = "674745105";
 
 // Official Social Channels
+export const NIRAJ_FACEBOOK_URL = "https://www.facebook.com/p/Niraj-Jewellers-Ltd-100063525010609/";
 export const NIRAJ_INSTAGRAM_URL = "https://www.instagram.com/nirajjewellersltd";
 export const NIRAJ_TIKTOK_ATELIER_URL = "https://www.tiktok.com/@nirajjewellersltd";
 export const NIRAJ_TIKTOK_UK_URL = "https://www.tiktok.com/@nirajjewellersuk";

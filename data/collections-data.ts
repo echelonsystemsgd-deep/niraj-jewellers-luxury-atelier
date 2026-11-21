@@ -6,7 +6,7 @@
 export interface CollectionItem {
   id: string;
   title: string;
-  category: "bridal" | "rings" | "22ct-gold" | "polki-heritage";
+  category: "bridal" | "rings" | "22ct-gold" | "polki-heritage" | "featured" | string;
   metalPurity: string;
   hallmarkText: string;
   description: string;
@@ -797,7 +797,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
     "category": "22ct-gold",
     "metalPurity": "Pure 22ct Bullion Gold (916)",
     "hallmarkText": "Official London Leopard's Head 916",
-    "description": "Documented in our Hayes workshop order ledger (Ref #12402). 22ct solid gold choker with cascading micro-granulation spheres and matching hand-forged jhumki drops.",
+    "description": "Handcrafted at our Hayes goldsmith bench. 22ct solid gold choker with cascading micro-granulation spheres and matching hand-forged jhumki drops.",
     "priceNote": "Direct Workshop Bullion Pricing",
     "mediaType": "image",
     "thumbnailUrl": "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
@@ -1181,11 +1181,11 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
   },
   {
     "id": "piece-51-workshop-order-ledger-record",
-    "title": "Workshop Order Ledger #12402 & 22ct Gold Choker",
+    "title": "The Grand Heritage 22ct Gold Choker & Floral Earrings",
     "category": "22ct-gold",
     "metalPurity": "22ct Solid Gold (916)",
     "hallmarkText": "916 London Assay Stamped",
-    "description": "Archival record of bespoke commission #12402 paired with finished hand-chased gold choker and floral drop earrings.",
+    "description": "Finished hand-chased 22ct solid gold choker paired with floral drop earrings, hand-forged on Uxbridge Road.",
     "priceNote": "Direct Workshop Bullion Pricing",
     "mediaType": "image",
     "thumbnailUrl": "/images/collections/6993a897-24d0-4f1f-b8a8-06b2c0001dcb.jpeg",
