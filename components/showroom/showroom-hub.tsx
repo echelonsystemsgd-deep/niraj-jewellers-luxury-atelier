@@ -5,7 +5,16 @@ import Image from "next/image";
 import { MapPin, Clock, Car, Train, Phone, Navigation, ChevronDown, ChevronUp, Mail, ShieldCheck } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import { ShowroomStatusBadge } from "@/components/header/showroom-status";
-import { NIRAJ_MAPS_LINK, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE, NIRAJ_EMAIL, buildWhatsAppLink } from "@/lib/whatsapp";
+import {
+  NIRAJ_MAPS_LINK,
+  NIRAJ_SHOWROOM_ADDRESS,
+  NIRAJ_UK_PHONE,
+  NIRAJ_DISPLAY_PHONE,
+  NIRAJ_LANDLINE_PHONE,
+  NIRAJ_MOBILE_PHONE,
+  NIRAJ_EMAIL,
+  buildWhatsAppLink,
+} from "@/lib/whatsapp";
 import { getLondonCurrentDayInfo } from "@/lib/showroom-hours";
 
 export function ShowroomHub() {
@@ -98,11 +107,21 @@ export function ShowroomHub() {
                 </a>
 
                 <a
-                  href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
+                  href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`}
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all font-mono min-h-[44px]"
+                  title="Call Showroom Landline"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#996515]" />
-                  <span>Call {NIRAJ_UK_PHONE}</span>
+                  <span>Landline: {NIRAJ_LANDLINE_PHONE}</span>
+                </a>
+
+                <a
+                  href={`tel:${NIRAJ_MOBILE_PHONE.replace(/\s+/g, "")}`}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all font-mono min-h-[44px]"
+                  title="Call Workshop Mobile"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#996515]" />
+                  <span>Mobile: {NIRAJ_MOBILE_PHONE}</span>
                 </a>
 
                 <a

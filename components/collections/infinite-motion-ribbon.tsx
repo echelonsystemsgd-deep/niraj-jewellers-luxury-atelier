@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Sparkles, ShieldCheck, Eye, Film } from "lucide-react";
+import { Film } from "lucide-react";
 import { COLLECTIONS_DATA, CollectionItem } from "@/data/collections-data";
 import { AtelierVideoCard } from "./atelier-video-card";
 import { ReelModal } from "./reel-modal";
@@ -87,24 +87,18 @@ export function InfiniteMotionRibbon({ onSelectItem }: InfiniteMotionRibbonProps
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity" />
 
               {/* Top Floating Badge */}
-              <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] font-bold text-[#8C6212] shadow-sm">
+              <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] font-bold text-[#8C6212] shadow-sm z-10 pointer-events-none">
                 {item.metalPurity.split("(")[0].trim()}
               </div>
 
-              {/* Bottom Inspection Indicator */}
-              <div className="absolute bottom-3 right-3 p-2 rounded-full bg-white/90 text-[#996515] group-hover:scale-110 group-hover:bg-[#996515] group-hover:text-white transition-all shadow-md">
-                <Eye className="w-3.5 h-3.5" />
-              </div>
-
-              {/* Card Meta on Bottom */}
-              <div className="absolute bottom-3 left-3 right-12 space-y-1 text-white">
-                <div className="flex items-center gap-1.5 text-[10px] text-[#DFBF7A] font-semibold">
-                  <ShieldCheck className="w-3 h-3 text-[#DFBF7A]" />
-                  <span className="truncate">{item.hallmarkText}</span>
-                </div>
+              {/* Card Meta on Bottom - Clean, Minimalist Title & Spec */}
+              <div className="absolute bottom-3 left-3 right-3 text-white pointer-events-none">
                 <h3 className="font-serif text-sm font-semibold leading-tight line-clamp-1 group-hover:text-[#DFBF7A] transition-colors">
                   {item.title}
                 </h3>
+                <p className="text-[11px] text-[#E8DEC8] font-mono mt-0.5">
+                  {item.specs.weight || item.specs.carat || item.metalPurity}
+                </p>
               </div>
             </button>
           ))}

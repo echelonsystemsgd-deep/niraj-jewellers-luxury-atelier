@@ -9,7 +9,7 @@ import { Phone, Menu, X, ArrowRight } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import { ShowroomStatusBadge } from "./showroom-status";
 import { ScrollProgressBar } from "./scroll-progress-bar";
-import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
+import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE, NIRAJ_LANDLINE_PHONE, NIRAJ_MOBILE_PHONE } from "@/lib/whatsapp";
 import { useScrollLock } from "@/lib/use-scroll-lock";
 
 interface NavbarProps {
@@ -97,7 +97,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
             : "bg-[#FBF9F5]/90 backdrop-blur-md border-b border-[#EFE8DA] py-3 sm:py-3.5"
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex items-center justify-between gap-3 sm:gap-4 lg:gap-8">
             {/* Column 1: Left Brand Mark with Official Logo (hard-left anchored) */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -258,23 +258,45 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 <ShowroomStatusBadge variant="compact" />
               </div>
 
-              {/* Direct Phone Highlight in Mobile Menu */}
-              <div className="p-3.5 rounded-xl bg-white border border-[#E8DEC8] flex items-center justify-between shadow-sm">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
-                    <Phone className="w-4 h-4" />
+              {/* Dual Direct Phone Highlights in Mobile Menu (Landline + Mobile) */}
+              <div className="space-y-2">
+                <div className="p-3 rounded-xl bg-white border border-[#E8DEC8] flex items-center justify-between shadow-sm">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase font-bold tracking-wider text-[#8C6212]">Showroom Landline</p>
+                      <p className="font-mono text-sm font-semibold text-[#141416]">{NIRAJ_LANDLINE_PHONE}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[10px] uppercase font-bold tracking-wider text-[#8C6212]">Direct Atelier Line</p>
-                    <p className="font-mono text-sm font-semibold text-[#141416]">{NIRAJ_UK_PHONE}</p>
-                  </div>
+                  <a
+                    href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`}
+                    className="px-3.5 py-2 rounded-full bg-gradient-to-r from-[#996515] to-[#C5A059] text-white text-xs font-bold uppercase tracking-wider shadow-sm min-h-[44px] inline-flex items-center"
+                    aria-label={`Call showroom landline ${NIRAJ_LANDLINE_PHONE}`}
+                  >
+                    Call
+                  </a>
                 </div>
-                <a
-                  href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                  className="px-3.5 py-2 rounded-full bg-gradient-to-r from-[#996515] to-[#C5A059] text-white text-xs font-bold uppercase tracking-wider shadow-sm min-h-[44px] inline-flex items-center"
-                >
-                  Call Now
-                </a>
+
+                <div className="p-3 rounded-xl bg-white border border-[#E8DEC8] flex items-center justify-between shadow-sm">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase font-bold tracking-wider text-[#8C6212]">Workshop Mobile</p>
+                      <p className="font-mono text-sm font-semibold text-[#141416]">{NIRAJ_MOBILE_PHONE}</p>
+                    </div>
+                  </div>
+                  <a
+                    href={`tel:${NIRAJ_MOBILE_PHONE.replace(/\s+/g, "")}`}
+                    className="px-3.5 py-2 rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/60 text-[#996515] text-xs font-bold uppercase tracking-wider shadow-sm min-h-[44px] inline-flex items-center"
+                    aria-label={`Call workshop mobile ${NIRAJ_MOBILE_PHONE}`}
+                  >
+                    Call
+                  </a>
+                </div>
               </div>
 
               <nav className="space-y-1">

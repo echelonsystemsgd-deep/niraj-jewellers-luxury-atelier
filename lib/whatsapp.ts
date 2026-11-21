@@ -1,11 +1,21 @@
 /**
  * WhatsApp routing utility & business credentials for Niraj Jewellers Ltd
- * Direct Atelier Line: 07955 565137 (+44 7955 565137)
+ * Showroom Landline: 020 8573 9323 (+44 20 8573 9323)
+ * Direct Workshop Mobile & WhatsApp: 07955 565137 (+44 7955 565137)
  */
 
+export const NIRAJ_LANDLINE_PHONE = "020 8573 9323";
+export const NIRAJ_DISPLAY_LANDLINE = "020 8573 9323";
+export const NIRAJ_INTL_LANDLINE = "+44 20 8573 9323";
+
+export const NIRAJ_MOBILE_PHONE = "07955 565137";
+export const NIRAJ_DISPLAY_MOBILE = "07955 565137";
+export const NIRAJ_INTL_MOBILE = "+44 7955 565137";
+
+// Primary telephone contact for CTAs is the Hayes Landline
+export const NIRAJ_UK_PHONE = "020 8573 9323";
+export const NIRAJ_DISPLAY_PHONE = "020 8573 9323";
 export const NIRAJ_PHONE_NUMBER = "447955565137";
-export const NIRAJ_UK_PHONE = "07955 565137";
-export const NIRAJ_DISPLAY_PHONE = "+44 7955 565137";
 export const NIRAJ_EMAIL = "nirajjewellersuk@gmail.com";
 export const NIRAJ_SHOWROOM_ADDRESS = "136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, UK";
 export const NIRAJ_MAPS_LINK = "https://maps.google.com/?q=136+Uxbridge+Road+Hayes+UB4+0JH+UK";

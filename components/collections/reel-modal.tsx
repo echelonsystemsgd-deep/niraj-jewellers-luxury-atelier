@@ -18,7 +18,7 @@ import {
   Maximize2
 } from "lucide-react";
 import { CollectionItem } from "@/data/collections-data";
-import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE } from "@/lib/whatsapp";
+import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE, NIRAJ_LANDLINE_PHONE, NIRAJ_MOBILE_PHONE } from "@/lib/whatsapp";
 import { useScrollLock } from "@/lib/use-scroll-lock";
 
 interface ReelModalProps {
@@ -111,18 +111,21 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
 
           <div className="relative w-full h-full max-h-[460px] rounded-2xl overflow-hidden shadow-md border border-[#E8DEC8] bg-black">
             {isVideo ? (
-              <video
-                ref={videoRef}
-                src={item.videoUrl}
-                poster={item.thumbnailUrl}
-                autoPlay
-                loop
-                muted={isMuted}
-                playsInline
-                {...({ "webkit-playsinline": "true" })}
-                controls={false}
-                className="w-full h-full object-cover"
-              />
+              <>
+                <video
+                  ref={videoRef}
+                  src={item.videoUrl}
+                  poster={item.thumbnailUrl}
+                  autoPlay
+                  loop
+                  muted={isMuted}
+                  playsInline
+                  {...({ "webkit-playsinline": "true" })}
+                  controls={false}
+                  className="w-full h-full object-cover object-top scale-135 origin-top"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+              </>
             ) : (
               <Image
                 src={item.thumbnailUrl}
@@ -257,24 +260,36 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
               <span>Enquire on WhatsApp</span>
             </a>
 
-            <div className="flex items-center gap-2">
-              <a
-                href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] font-semibold text-xs tracking-wider transition-colors min-h-[48px]"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#996515]" />
-                <span>Call {NIRAJ_DISPLAY_PHONE}</span>
-              </a>
+            <div className="space-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a
+                  href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`}
+                  className="inline-flex items-center justify-center gap-2 py-3 px-3 rounded-full bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] font-semibold text-xs tracking-wider transition-colors min-h-[44px]"
+                  title="Call Showroom Landline"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#996515]" />
+                  <span>Landline: {NIRAJ_LANDLINE_PHONE}</span>
+                </a>
+
+                <a
+                  href={`tel:${NIRAJ_MOBILE_PHONE.replace(/\s+/g, "")}`}
+                  className="inline-flex items-center justify-center gap-2 py-3 px-3 rounded-full bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] font-semibold text-xs tracking-wider transition-colors min-h-[44px]"
+                  title="Call Workshop Mobile"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#996515]" />
+                  <span>Mobile: {NIRAJ_MOBILE_PHONE}</span>
+                </a>
+              </div>
 
               <a
                 href="https://www.instagram.com/nirajjewellersltd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 py-3 px-4 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-pink-700 font-semibold text-xs transition-colors min-h-[48px]"
+                className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-pink-700 font-semibold text-xs transition-colors min-h-[40px]"
                 title="Follow on Instagram"
               >
                 <Instagram className="w-4 h-4 text-pink-600" />
-                <span className="hidden sm:inline">Instagram</span>
+                <span>Follow @nirajjewellersltd on Instagram</span>
               </a>
             </div>
           </div>

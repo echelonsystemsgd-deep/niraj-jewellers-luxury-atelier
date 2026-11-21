@@ -7,6 +7,8 @@ import { MessageCircle, Phone, Mail, MapPin, Sparkles, Navigation, Send, Check }
 import {
   NIRAJ_DISPLAY_PHONE,
   NIRAJ_UK_PHONE,
+  NIRAJ_LANDLINE_PHONE,
+  NIRAJ_MOBILE_PHONE,
   NIRAJ_EMAIL,
   NIRAJ_SHOWROOM_ADDRESS,
   NIRAJ_MAPS_LINK,
@@ -87,7 +89,7 @@ export function ContactClientView() {
                         Direct WhatsApp Line
                       </span>
                       <span className="font-mono text-base font-bold text-[#141416]">
-                        {NIRAJ_UK_PHONE}
+                        {NIRAJ_MOBILE_PHONE}
                       </span>
                     </div>
                   </div>
@@ -100,9 +102,9 @@ export function ContactClientView() {
                 </p>
               </a>
 
-              {/* Telephone Card */}
+              {/* Landline Telephone Card */}
               <a
-                href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
+                href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`}
                 className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] text-left block transition-all shadow-sm hover:shadow-md group"
               >
                 <div className="flex items-center justify-between pb-2">
@@ -112,10 +114,10 @@ export function ContactClientView() {
                     </div>
                     <div>
                       <span className="text-xs uppercase tracking-wider text-[#8C6212] font-bold block">
-                        Workshop Telephone
+                        Showroom Landline
                       </span>
                       <span className="font-mono text-base font-bold text-[#141416]">
-                        {NIRAJ_UK_PHONE}
+                        {NIRAJ_LANDLINE_PHONE}
                       </span>
                     </div>
                   </div>
@@ -124,7 +126,35 @@ export function ContactClientView() {
                   </span>
                 </div>
                 <p className="text-xs text-[#5A5960] mt-2">
-                  Mon: 12:00–17:00 | Tue–Sat: 11:00–17:00. Direct access to our Hayes goldsmith bench.
+                  Mon: 12:00–17:00 | Tue–Sat: 11:00–17:00. Direct access to our Hayes showroom desk.
+                </p>
+              </a>
+
+              {/* Direct Workshop Mobile Telephone Card */}
+              <a
+                href={`tel:${NIRAJ_MOBILE_PHONE.replace(/\s+/g, "")}`}
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] text-left block transition-all shadow-sm hover:shadow-md group"
+              >
+                <div className="flex items-center justify-between pb-2">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-full bg-[#FAF7F2] text-[#996515]">
+                      <Phone className="w-5 h-5 text-[#996515]" />
+                    </div>
+                    <div>
+                      <span className="text-xs uppercase tracking-wider text-[#8C6212] font-bold block">
+                        Direct Workshop Line
+                      </span>
+                      <span className="font-mono text-base font-bold text-[#141416]">
+                        {NIRAJ_MOBILE_PHONE}
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-xs text-[#996515] font-bold group-hover:translate-x-1 transition-transform">
+                    Call →
+                  </span>
+                </div>
+                <p className="text-xs text-[#5A5960] mt-2">
+                  Speak directly with our goldsmiths regarding custom commissions and repair status.
                 </p>
               </a>
 

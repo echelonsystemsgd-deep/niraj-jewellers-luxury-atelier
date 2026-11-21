@@ -5,7 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Phone, MapPin, ShieldCheck, ArrowUp, Mail, ExternalLink, Sparkles } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/luxury-icons";
-import { NIRAJ_DISPLAY_PHONE, NIRAJ_UK_PHONE, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_EMAIL, NIRAJ_VAT_NUMBER, NIRAJ_COMPANY_REG, buildWhatsAppLink } from "@/lib/whatsapp";
+import {
+  NIRAJ_DISPLAY_PHONE,
+  NIRAJ_UK_PHONE,
+  NIRAJ_LANDLINE_PHONE,
+  NIRAJ_MOBILE_PHONE,
+  NIRAJ_SHOWROOM_ADDRESS,
+  NIRAJ_EMAIL,
+  NIRAJ_VAT_NUMBER,
+  NIRAJ_COMPANY_REG,
+  buildWhatsAppLink,
+} from "@/lib/whatsapp";
 import { LegalModal, LegalTab } from "@/components/legal/legal-modal";
 
 export function Footer() {
@@ -181,8 +191,16 @@ export function Footer() {
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-                  <a href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`} className="hover:text-[#996515] font-mono font-semibold text-[#141416]">
-                    {NIRAJ_UK_PHONE}
+                  <span className="text-[#7A7880] text-[11px]">Landline:</span>
+                  <a href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`} className="hover:text-[#996515] font-mono font-semibold text-[#141416]">
+                    {NIRAJ_LANDLINE_PHONE}
+                  </a>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-[#996515] shrink-0" />
+                  <span className="text-[#7A7880] text-[11px]">Mobile:</span>
+                  <a href={`tel:${NIRAJ_MOBILE_PHONE.replace(/\s+/g, "")}`} className="hover:text-[#996515] font-mono font-semibold text-[#141416]">
+                    {NIRAJ_MOBILE_PHONE}
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
