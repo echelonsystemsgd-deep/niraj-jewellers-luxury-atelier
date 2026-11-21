@@ -1,7 +1,7 @@
 # ARCHITECTURAL SPECIFICATION: VEYRA × NIRAJ JEWELLERS
-## High-Ticket 3D Goldsmith Atelier & Digital Flagship Adaptation
+## High-Ticket Pragmatic Luxury Flagship (Video Reels & 54-Piece Vault)
 
-**Platform:** Next.js 15 App Router + React 19 + TypeScript + Tailwind CSS 3.4 + Three.js WebGL + Web Audio API  
+**Platform:** Next.js 15 App Router + React 19 + TypeScript + Tailwind CSS 3.4  
 **Entity:** Niraj Jewellers Ltd (Est. 1984 · London Assay Leopard's Head Hallmarked · Hayes Flagship)  
 **Location:** 136 Uxbridge Road, Hayes, Middlesex, UB4 0JH  
 **Branch:** `feature/veyra-digital-flagship`  
@@ -9,108 +9,78 @@
 
 ---
 
-## 1. STRATEGIC CONVERSION ARCHITECTURE
+## 1. STRATEGIC CONVERSION ARCHITECTURE & COMMERCIAL REALITY
 
-Traditional high-value South Asian jewellery transactions (£3,000 to £20,000+ for 22ct bridal suites, syndicates, and bullion) suffer near-100% cart abandonment when forced into an anonymous e-commerce cart. Buyers require:
-1. Physical weight verification on trade-approved carat scales.
-2. Independent London Assay Leopard's Head verification (`916` 22ct / `750` 18ct / `999.9` 24ct).
-3. Live LBMA gold gram rate transparency.
-4. Intricate fitting and bespoke sizing at the bench.
-
-### The VEYRA Solution for Niraj Jewellers:
-- **E-Commerce Cart Removed**: Replaced with **Showroom Vault Dossier** and **Direct WhatsApp VIP Deep-Linking**.
-- **Alloy Purity Reframed**: 22ct Royal Yellow Gold (91.6% purity), 18ct Rose Gold (75.0%), and 950 Pure Platinum.
-- **Hero Canvas Scrub**: Frame-accurate visual scrubbing displaying 1064°C gold crucible melting, laser micro-welding, and master benchwork.
-- **Real-Time 3D WebGL Configurator**: Three.js PBR metal shader with live material switching, OrbitControls, and studio lighting.
-- **Live Bench Ticker**: LBMA daily spot rate per gram and hallmark reassurance.
-- **In-House Same-Day Bench Repairs**: Highlighting 2–4 hour laser resizing, claw retipping, and ultrasonic cleaning for footfall acquisition.
-- **Hyper-Local Hayes Logistics**: 136 Uxbridge Road, Hayes, UB4 0JH, opening hours, Google Maps navigation, and workshop direct dial.
+### Commercial Rationale (£470.25 Build Fee / £10/month Maintenance)
+- **High-Maintenance Liabilities Removed**:
+  - **Live Gold Tickers**: Gold spot rates fluctuate constantly. An unmonitored ticker creates client disputes over quoted gold gram rates. It has been removed in favor of direct WhatsApp and in-person quotes.
+  - **Procedural 3D WebGL / Three.js**: Procedural 3D wireframe rings require ongoing GPU debugging across mobile chipsets and do not convey the authentic emotional weight of South Asian bridal jewellery. Replaced with **authentic 1080p video reels of the real pieces**.
+  - **Procedural Audio**: Removed for a quiet, serene luxury experience without browser autoplay blocks.
+  - **Zero Price Mentions**: High-value 22ct bridal sets and solid kadas are bespoke investments based on daily gold weight and making charges (*mazdoori*). All pricing has been omitted in favor of "Direct Workshop Consultation" and certified gram weights.
 
 ---
 
-## 2. DESIGN TOKENS & METALLURGY MATRIX
+## 2. REVISED COMPONENT ARCHITECTURE (`/atelier`)
 
-### Color Palette
-- `--bg-primary`: `#FAF9F5` (Warm Alabaster / Mayfair Cream)
-- `--bg-surface`: `#FFFFFF` (Pristine Museum White)
-- `--border-hairline`: `#E8DEC8` / `#E7E2DA` (1px Architectural Rule)
-- `--text-primary`: `#141416` (Deep Graphite Carbon)
-- `--text-muted`: `#57534E` (Stone Muted Grey)
-- `--text-gold`: `#C6A75E` / `#D4AF37` (22ct Royal Gold Hallmark)
-- `--whatsapp`: `#25D366` (Direct Goldsmith Line)
+1. **`AtelierNavbar.tsx`**:
+   - Fixed header with subtle backdrop blur and architectural hairline border.
+   - Left brand mark: `NIRAJ JEWELLERS — METALLURGY ATELIER · EST. 1984 · HAYES`.
+   - Links: `[ 54-PIECE VAULT ]`, `[ SAME-DAY REPAIRS ]`, `[ PROVENANCE ]`, `[ HAYES SHOWROOM ]`.
+   - Direct high-converting actions: `[ WHATSAPP VIP ]` and `[ SHOWROOM: HAYES ]`.
+   - Completely silent: zero audio buttons.
 
-### Metallurgy PBR Shaders
-| Alloy | Gold Content | PBR BaseColor | Metalness | Roughness | Description |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **22ct Royal Gold** | 91.6% (`916`) | `#D4AF37` | `0.98` | `0.22` | Deep, saturated warm yellow-orange gold |
-| **18ct Rose Gold** | 75.0% (`750`) | `#C58F78` | `0.95` | `0.25` | Warm coppery champagne pink |
-| **950 Platinum** | 95.0% (`950`) | `#D8DEE4` | `0.96` | `0.18` | Dense, cold specular white-silver |
-| **Cabochon Stone** | Natural Garnet | `#881337` | `0.10` | `0.05` | Deep cabochon transmission with dispersion |
+2. **`CinematicHero.tsx`**:
+   - Replaces procedural 3D models with an **Interactive High-Definition Video Showcase**.
+   - Displays authentic 1080p video reels of Niraj's real bridal suites and solid gold kadas:
+     - The Imperial Broad Mesh Polki Suite (138.5g)
+     - The Royal Emerald & Diamond Choker (112.0g)
+     - The Calcutta Micro-Filigree Bridal Collar (96.4g)
+     - The Sovereign Solid Cast 22ct Kada (48.2g)
+   - Real-time video player with play/pause and hairline architectural framing.
+   - Micro-HUD: `HAYES BENCH REEL [ 01 / 04 ]` and `1080P MASTERWORK RECORDING`.
 
----
+3. **`ProductGrid.tsx`**:
+   - Complete **54-piece vault** loaded from `@/data/collections-data`.
+   - Category filter tabs:
+     - `[ ALL PIECES (54) ]`
+     - `[ 22CT BRIDAL ]`
+     - `[ SOLID GOLD & KADAS ]`
+     - `[ POLKI & KUNDAN ]`
+     - `[ RINGS & SOLITAIRES ]`
+   - Real-time search by title, tag, or hallmark.
+   - Media filter (`ALL MEDIA`, `VIDEOS ONLY`, `PHOTOS ONLY`).
+   - Card badges: `▶ 1080P REEL` vs `STILL PHOTOGRAPHY`.
+   - Certified weights and London Assay Leopard's Head hallmarking.
+   - Zero pricing mentioned anywhere.
 
-## 3. COMPONENT BREAKDOWN (`/atelier`)
+4. **`ShowroomDossierModal.tsx`**:
+   - Full-screen modal with body scroll lock.
+   - Authentic media switcher: 1080p video player or high-resolution still photography.
+   - Action 1: **One-Click WhatsApp VIP Deep-Link** with pre-filled piece metadata and Hayes viewing request.
+   - Action 2: **Hayes Showroom Viewing Reservation Form** with instant confirmation.
 
-1. **`lib/sound.ts`**:
-   - Native Web Audio API synthesis.
-   - 55Hz & 110Hz dual sine drone with 220Hz low-pass filter and subtle gain modulation.
-   - 1800Hz / 12ms decay high-frequency metallic tick for micro-interactions.
-   - Non-blocking browser autoplay compliance.
+5. **`RepairsShowcase.tsx`**:
+   - 3-column hairline architectural grid showcasing walk-in services:
+     1. Precision Laser Ring Resizing (2–4 Hours · While You Wait)
+     2. Diamond Claw Retipping & Resetting
+     3. Ultrasonic Steam Restoration & Carat Testing
 
-2. **`components/atelier/LiveGoldTicker.tsx`**:
-   - Architectural ticker: `LIVE ATELIER BENCH RATE: 22ct £68.40/g · 24ct 999.9 Bullion Available · London Assay Stamped · Hayes Bench Open`.
-   - Live LBMA reference and quick WhatsApp booking link.
+6. **`ProvenanceSection.tsx`**:
+   - Unboxing architecture: 420g Solid Presentation Vault, London Assay Leopard's Head Dossier, Lifetime In-House Benchmark Care.
 
-3. **`components/atelier/AtelierNavbar.tsx`**:
-   - Fixed header with blur backdrop.
-   - Left brand mark: `NIRAJ JEWELLERS — MASTER GOLDSMITHS EST. 1984`.
-   - Sound toggle `[ SOUND: OFF / ON ]` with animated frequency bars.
-   - Direct button `[ SHOWROOM: HAYES ]` & `[ INQUIRE ON WHATSAPP ]`.
+7. **`EditorialManifesto.tsx`**:
+   - Philosophy of deliberate weight: 100% solid-cast non-hollow gold shanks vs hollow fast-fashion jewellery.
 
-4. **`components/atelier/CinematicHero.tsx`**:
-   - Canvas scroll-scrubbing hero over a sticky track.
-   - Procedural 1064°C gold melting & sparks simulation rendered via deterministic `requestAnimationFrame`.
-   - Micro-HUD: `BENCH SEQUENCE [ 01 / 72 ]`, `SCRUB: {percent}%`, and interactive hotspot pins.
-   - Alloy switcher: `22ct Royal Gold`, `18ct Rose Gold`, `950 Platinum`.
+8. **`ShowroomLogistics.tsx`**:
+   - 136 Uxbridge Road, Hayes, UB4 0JH address, opening hours, Google Maps navigation, phone triggers.
 
-5. **`components/atelier/ProductDetailViewer.tsx`**:
-   - Real-time Three.js WebGL canvas with procedural luxury signet / bridal piece.
-   - Live alloy switcher triggering PBR material updates in real time.
-   - OrbitControls with damped rotation and touch pinch zoom clamping.
-
-6. **`components/atelier/ProductGrid.tsx`**:
-   - 3-column architectural hairline grid showcasing verified collection pieces:
-     - 22ct Royal Polki Bridal Suite
-     - Solid 22ct Gold Kada (38.5g)
-     - Solitaire Diamond Signet Ring
-     - Kundan Choker & Jhumka Set
-     - Mangalsutra Diamond Pendant
-     - 24ct Fine Gold Investment Bullion Bar
-   - Click card opens the **Showroom Vault Dossier Modal**.
-
-7. **`components/atelier/ShowroomDossierModal.tsx`**:
-   - Full-screen modal with Lenis / page scroll lock.
-   - High-res photography switchable to 3D WebGL inspection.
-   - US / UK / Indian ring and bangle sizing conversion.
-   - Action 1: **Book Hayes Showroom Viewing** (pre-fills booking request).
-   - Action 2: **Inquire on WhatsApp** (`wa.me/447955565137` pre-filled with piece details).
-
-8. **`components/atelier/RepairsShowcase.tsx`**:
-   - 3-column architectural grid for same-day walk-in repairs:
-     - Laser Ring Resizing (2–4 Hours)
-     - Diamond Claw Retipping & Stone Resetting
-     - Ultrasonic Steam Cleaning & London Assay Verification
-
-9. **`components/atelier/ProvenanceSection.tsx`**:
-   - Unboxing architecture: Solid Vault Presentation Case, London Assay Dossier, Lifetime Claw Guarantee.
-
-10. **`components/atelier/ShowroomLogistics.tsx`**:
-    - 136 Uxbridge Road, Hayes, UB4 0JH address, opening hours, Google Maps navigation, workshop phone `020 8573 9323`.
+9. **`AgencyPitchPill.tsx`**:
+   - Floating badge with slide-over overview of the conversion model.
 
 ---
 
-## 4. VERIFICATION CRITERIA
+## 3. VERIFICATION & QUALITY STANDARDS
 
-- 100% Mobile responsive across 360px to 1920px+ viewports with **0px horizontal overflow**.
-- Strict TypeScript `tsc --noEmit` and Next.js `npm run build` with **0 errors**.
-- Safe handling of browser AudioContext and WebGL canvas lifecycles.
+- **0 Coding Errors**: Strict TypeScript compliance and 0 webpack build warnings.
+- **36/36 Static Routes Generated**: Fully optimized with Next.js 15 SSG.
+- **Mobile Responsive**: 100% responsive across 360px–430px viewports with **0px horizontal scroll overflow**.

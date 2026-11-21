@@ -1,37 +1,37 @@
 "use client";
 
 import React, { useState } from "react";
-import { LiveGoldTicker } from "./LiveGoldTicker";
 import { AtelierNavbar } from "./AtelierNavbar";
 import { CinematicHero } from "./CinematicHero";
-import { ProductGrid, MasterpieceItem, MASTERPIECES } from "./ProductGrid";
+import { ProductGrid } from "./ProductGrid";
 import { ShowroomDossierModal } from "./ShowroomDossierModal";
 import { RepairsShowcase } from "./RepairsShowcase";
 import { ProvenanceSection } from "./ProvenanceSection";
 import { EditorialManifesto } from "./EditorialManifesto";
 import { ShowroomLogistics } from "./ShowroomLogistics";
 import { AgencyPitchPill } from "./AgencyPitchPill";
+import { CollectionItem, COLLECTIONS_DATA } from "@/data/collections-data";
 import Link from "next/link";
-import { sound } from "@/lib/sound";
-import { ArrowUp, ShieldCheck } from "lucide-react";
 
 export function AtelierClientView() {
-  const [selectedPiece, setSelectedPiece] = useState<MasterpieceItem | null>(null);
+  const [selectedPiece, setSelectedPiece] = useState<CollectionItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleInspect3D = (pieceTitle: string) => {
-    const found = MASTERPIECES.find((p) => p.title.toLowerCase().includes(pieceTitle.toLowerCase())) || MASTERPIECES[0];
+  const handleInspectPiece = (pieceTitle: string) => {
+    const found =
+      COLLECTIONS_DATA.find((p) => p.title.toLowerCase().includes(pieceTitle.toLowerCase())) ||
+      COLLECTIONS_DATA[0];
     setSelectedPiece(found);
     setIsModalOpen(true);
   };
 
-  const handleSelectPiece = (piece: MasterpieceItem) => {
+  const handleSelectPiece = (piece: CollectionItem) => {
     setSelectedPiece(piece);
     setIsModalOpen(true);
   };
 
-  const handleExploreArchive = () => {
-    const el = document.getElementById("archive");
+  const handleExploreVault = () => {
+    const el = document.getElementById("vault");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
@@ -39,37 +39,36 @@ export function AtelierClientView() {
 
   const handleOpenBooking = (pieceName?: string) => {
     if (pieceName) {
-      const match = MASTERPIECES.find((p) => p.title.includes(pieceName)) || MASTERPIECES[0];
+      const match =
+        COLLECTIONS_DATA.find((p) => p.title.toLowerCase().includes(pieceName.toLowerCase())) ||
+        COLLECTIONS_DATA[0];
       setSelectedPiece(match);
     } else {
-      setSelectedPiece(MASTERPIECES[0]);
+      setSelectedPiece(COLLECTIONS_DATA[0]);
     }
     setIsModalOpen(true);
   };
 
   return (
     <div className="relative min-h-screen bg-[#FAF9F5] text-[#141416] flex flex-col selection:bg-[#C6A75E]/30 selection:text-[#141416] overflow-x-hidden">
-      {/* 1. Live Gold Rate & Bullion Ticker */}
-      <LiveGoldTicker />
-
-      {/* 2. Atelier Navbar with Audio Toggle & Showroom CTAs */}
+      {/* 1. Atelier Header (Quiet Luxury, No Sound Toggle) */}
       <AtelierNavbar onOpenBooking={handleOpenBooking} />
 
-      {/* 3. Main Experience */}
+      {/* 2. Main Experience */}
       <main className="flex-1">
-        {/* Frame-Accurate Canvas Scrub & 1064°C Metallurgy Hero */}
+        {/* Real Product Video Showcase Hero (No 3D Models, Real High-Definition Reels) */}
         <CinematicHero
-          onInspect3D={handleInspect3D}
-          onExploreArchive={handleExploreArchive}
+          onInspectPiece={handleInspectPiece}
+          onExploreVault={handleExploreVault}
         />
 
-        {/* Permanent Collection Archive Grid (360° Inspect & WhatsApp Pre-fill) */}
+        {/* Complete 54-Piece Atelier Vault (Categories, Search, Real Media, Zero Pricing) */}
         <ProductGrid onSelectPiece={handleSelectPiece} />
 
         {/* 3-Step Unboxing Architecture & Provenance */}
         <ProvenanceSection onOpenBooking={() => handleOpenBooking()} />
 
-        {/* In-House Same-Day Bench Repairs Module */}
+        {/* In-House Same-Day Bench Repairs Showcase */}
         <RepairsShowcase />
 
         {/* Editorial Goldsmith Manifesto */}
@@ -79,7 +78,7 @@ export function AtelierClientView() {
         <ShowroomLogistics />
       </main>
 
-      {/* 4. Atelier Editorial Footer */}
+      {/* 3. Atelier Editorial Footer */}
       <footer className="w-full bg-[#0D0C0B] text-[#A89F91] border-t border-[#2C2825] py-12 px-4 sm:px-6 lg:px-8 font-mono text-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col items-center md:items-start gap-1">
@@ -87,37 +86,21 @@ export function AtelierClientView() {
               NIRAJ JEWELLERS LTD
             </span>
             <span className="text-[10px] text-[#7A705E] tracking-widest">
-              MASTER GOLDSMITHS & BULLION DEALERS · ESTABLISHED 1984 · LONDON
+              MASTER GOLDSMITHS & PRECIOUS METAL ATELIER · ESTABLISHED 1984 · LONDON
             </span>
           </div>
 
           <div className="flex items-center gap-6 text-[11px] tracking-wider uppercase">
-            <Link
-              href="/"
-              onClick={() => sound.playTick()}
-              className="hover:text-[#FAF9F5] transition-colors"
-            >
+            <Link href="/" className="hover:text-[#FAF9F5] transition-colors">
               MAIN SITE
             </Link>
-            <Link
-              href="/collections"
-              onClick={() => sound.playTick()}
-              className="hover:text-[#FAF9F5] transition-colors"
-            >
-              54-PIECE VAULT
+            <Link href="/collections" className="hover:text-[#FAF9F5] transition-colors">
+              COLLECTIONS
             </Link>
-            <Link
-              href="/gold-rates"
-              onClick={() => sound.playTick()}
-              className="hover:text-[#FAF9F5] transition-colors"
-            >
-              LBMA SPOT RATES
+            <Link href="/repairs" className="hover:text-[#FAF9F5] transition-colors">
+              BENCH REPAIRS
             </Link>
-            <Link
-              href="/contact"
-              onClick={() => sound.playTick()}
-              className="hover:text-[#FAF9F5] transition-colors"
-            >
+            <Link href="/contact" className="hover:text-[#FAF9F5] transition-colors">
               CONCIERGE
             </Link>
           </div>
@@ -129,7 +112,7 @@ export function AtelierClientView() {
         </div>
       </footer>
 
-      {/* Showroom Dossier Modal (3D WebGL Configurator & WhatsApp VIP) */}
+      {/* Showroom Dossier Modal (High-Resolution Video Reel / Photo & VIP Booking) */}
       <ShowroomDossierModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

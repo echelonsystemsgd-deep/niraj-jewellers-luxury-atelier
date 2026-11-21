@@ -2,9 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { sound } from "@/lib/sound";
-import { ProductDetailViewer } from "./ProductDetailViewer";
-import { MasterpieceItem } from "./ProductGrid";
+import { CollectionItem } from "@/data/collections-data";
 import {
   X,
   ShieldCheck,
@@ -12,36 +10,35 @@ import {
   Calendar,
   Sparkles,
   CheckCircle2,
-  Box,
-  Compass,
-  ArrowRight,
+  Play,
+  Film,
+  Camera,
 } from "lucide-react";
 
 interface ShowroomDossierModalProps {
   isOpen: boolean;
   onClose: () => void;
-  piece: MasterpieceItem | null;
+  piece: CollectionItem | null;
 }
 
 export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossierModalProps) {
-  const [viewMode, setViewMode] = useState<"photo" | "3d">("3d");
-  const [selectedAlloy, setSelectedAlloy] = useState<"22ct" | "18ct" | "platinum">("22ct");
-  const [selectedSize, setSelectedSize] = useState<string>("UK P (US 7.5 · 56mm)");
+  const [mediaTab, setMediaTab] = useState<"video" | "image">("video");
+  const [selectedSize, setSelectedSize] = useState<string>("Standard Indian / UK Size (Custom Adjusted in Showroom)");
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [visitDate, setVisitDate] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
-  // Sync alloy when piece changes
+  // Sync media tab based on whether video exists
   useEffect(() => {
     if (piece) {
-      setSelectedAlloy(piece.defaultAlloy);
+      setMediaTab(piece.videoUrl ? "video" : "image");
       setIsConfirmed(false);
     }
   }, [piece]);
 
-  // Lock background scroll when open
+  // Lock body scroll when modal is active
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -55,41 +52,25 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
 
   if (!isOpen || !piece) return null;
 
-  const handleClose = () => {
-    sound.playTick();
-    onClose();
-  };
-
-  const handleSwitchView = (mode: "photo" | "3d") => {
-    sound.playTick();
-    setViewMode(mode);
-  };
-
-  const handleAlloyChange = (alloy: "22ct" | "18ct" | "platinum") => {
-    sound.playTick();
-    setSelectedAlloy(alloy);
-  };
-
   const handleSubmitBooking = (e: React.FormEvent) => {
     e.preventDefault();
-    sound.playTick();
     setIsSubmitting(true);
-
     setTimeout(() => {
       setIsSubmitting(false);
       setIsConfirmed(true);
-    }, 1200);
+    }, 1000);
   };
 
+  const weightStr = piece.specs.weight ? ` · ${piece.specs.weight}` : "";
   const whatsappMessage = encodeURIComponent(
-    `Hi Niraj Jewellers team, I am looking at "${piece.title}" (${selectedAlloy.toUpperCase()} · ${piece.weight}) on your 3D digital showroom and would like to visit your Hayes atelier (136 Uxbridge Road) to inspect it in person.`
+    `Hi Niraj Jewellers team, I am viewing "${piece.title}" (${piece.metalPurity}${weightStr}) on your digital atelier and would like to visit your Hayes showroom (136 Uxbridge Road) to inspect it in person.`
   );
   const whatsappUrl = `https://wa.me/447955565137?text=${whatsappMessage}`;
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 lg:p-6 bg-black/80 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
-      onClick={handleClose}
+      onClick={onClose}
       role="dialog"
       aria-modal="true"
     >
@@ -101,10 +82,10 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
         <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-[#E7E2DA] bg-white font-mono text-xs tracking-[0.2em] uppercase text-[#141416]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#C6A75E]"></span>
-            <span>VAULT DOSSIER · HAYES SHOWROOM ALLOCATION</span>
+            <span>SHOWROOM VAULT DOSSIER · HAYES ATELIER</span>
           </div>
           <button
-            onClick={handleClose}
+            onClick={onClose}
             type="button"
             className="p-1.5 hover:bg-[#FAF9F5] transition-colors cursor-pointer text-[#141416]"
             aria-label="Close modal"
@@ -114,46 +95,59 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
         </div>
 
         {/* Modal Body: Dual Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[550px]">
-          {/* Left: Media Canvas View (3D or Photography) */}
-          <div className="lg:col-span-7 bg-[#141416] flex flex-col justify-between relative border-b lg:border-b-0 lg:border-r border-[#2C2825]">
-            {/* Media Switcher Tabs */}
-            <div className="absolute top-4 left-4 z-10 flex items-center gap-2 font-mono text-[10px] tracking-[0.16em] uppercase">
-              <button
-                type="button"
-                onClick={() => handleSwitchView("3d")}
-                className={`px-3 py-1.5 border transition-all cursor-pointer ${
-                  viewMode === "3d"
-                    ? "border-[#C6A75E] bg-[#C6A75E] text-[#141416] font-semibold"
-                    : "border-white/30 bg-black/60 text-white/80 hover:text-white"
-                }`}
-              >
-                360° 3D STUDIO
-              </button>
-              <button
-                type="button"
-                onClick={() => handleSwitchView("photo")}
-                className={`px-3 py-1.5 border transition-all cursor-pointer ${
-                  viewMode === "photo"
-                    ? "border-[#C6A75E] bg-[#C6A75E] text-[#141416] font-semibold"
-                    : "border-white/30 bg-black/60 text-white/80 hover:text-white"
-                }`}
-              >
-                ATELIER STILL
-              </button>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
+          {/* Left: Authentic Media Reel / Photo */}
+          <div className="lg:col-span-7 bg-[#0E0D0C] flex flex-col justify-between relative border-b lg:border-b-0 lg:border-r border-[#2C2825]">
+            {/* Media Selector Tabs (if video exists) */}
+            {piece.videoUrl && (
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 font-mono text-[10px] tracking-[0.16em] uppercase">
+                <button
+                  type="button"
+                  onClick={() => setMediaTab("video")}
+                  className={`px-3 py-1.5 border transition-all cursor-pointer flex items-center gap-1.5 ${
+                    mediaTab === "video"
+                      ? "border-[#C6A75E] bg-[#C6A75E] text-[#141416] font-semibold"
+                      : "border-white/30 bg-black/60 text-white/80 hover:text-white"
+                  }`}
+                >
+                  <Film className="w-3 h-3" />
+                  <span>1080P REEL</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMediaTab("image")}
+                  className={`px-3 py-1.5 border transition-all cursor-pointer flex items-center gap-1.5 ${
+                    mediaTab === "image"
+                      ? "border-[#C6A75E] bg-[#C6A75E] text-[#141416] font-semibold"
+                      : "border-white/30 bg-black/60 text-white/80 hover:text-white"
+                  }`}
+                >
+                  <Camera className="w-3 h-3" />
+                  <span>STILL FRAME</span>
+                </button>
+              </div>
+            )}
 
-            {/* Visual Canvas Display */}
-            <div className="w-full h-[360px] sm:h-[460px] lg:h-full flex items-center justify-center relative">
-              {viewMode === "3d" ? (
-                <ProductDetailViewer alloy={selectedAlloy} className="w-full h-full" />
+            {/* Visual Display */}
+            <div className="w-full h-[360px] sm:h-[460px] lg:h-full flex items-center justify-center relative bg-[#0E0D0C]">
+              {mediaTab === "video" && piece.videoUrl ? (
+                <video
+                  src={piece.videoUrl}
+                  poster={piece.thumbnailUrl}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="w-full h-full object-contain"
+                />
               ) : (
-                <div className="relative w-full h-full bg-[#141416]">
+                <div className="relative w-full h-full p-6">
                   <Image
-                    src={piece.image}
+                    src={piece.thumbnailUrl}
                     alt={piece.title}
                     fill
-                    className="object-contain p-6"
+                    className="object-contain"
                     priority
                   />
                 </div>
@@ -164,13 +158,13 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
             <div className="p-4 bg-[#141416] border-t border-[#2C2825] flex items-center justify-between font-mono text-[10px] text-[#A89F91] tracking-[0.18em]">
               <span className="flex items-center gap-1.5 text-[#C6A75E]">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>ASSAY VERIFIED: {piece.hallmark}</span>
+                <span>{piece.hallmarkText || "London Assay Leopard's Head Hallmarked"}</span>
               </span>
-              <span>100% SOLID MASS · NON-HOLLOW</span>
+              <span>100% SOLID MASS</span>
             </div>
           </div>
 
-          {/* Right: Configurator & Showroom Viewing Reservation */}
+          {/* Right: Piece Dossier & Showroom Viewing Reservation */}
           <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between bg-white overflow-y-auto max-h-[80vh] lg:max-h-none">
             {isConfirmed ? (
               <div className="flex flex-col items-center justify-center text-center py-10 my-auto animate-in zoom-in-95 duration-200">
@@ -185,8 +179,8 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
                 </h3>
                 <p className="font-sans text-xs text-[#57534E] max-w-sm mb-6 leading-relaxed">
                   Your reservation for <strong>{piece.title}</strong> has been logged at our Hayes
-                  goldsmith workshop. Our senior master craftsman will have the piece weighed, polished,
-                  and ready for your inspection.
+                  workshop. Our senior master craftsman will have the piece weighed and prepared for your
+                  visit.
                 </p>
 
                 <div className="w-full border border-[#E7E2DA] bg-[#FAF9F5] p-4 text-left font-mono text-xs mb-6 space-y-1 text-[#57534E]">
@@ -206,85 +200,41 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
                 </a>
               </div>
             ) : (
-              <div className="flex flex-col gap-6">
-                {/* Title & Purity Badge */}
+              <div className="flex flex-col gap-5">
+                {/* Title & Metadata */}
                 <div>
                   <div className="flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-[#C6A75E] uppercase mb-1">
                     <Sparkles className="w-3 h-3" />
-                    <span>{piece.categoryLabel}</span>
+                    <span>{piece.category.toUpperCase()}</span>
                   </div>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#141416] leading-tight">
+                  <h2 className="font-serif text-2xl font-semibold text-[#141416] leading-tight">
                     {piece.title}
                   </h2>
-                  <div className="font-mono text-xs text-[#7A705E] mt-2 tracking-wider">
-                    ESTIMATED MASS: <strong className="text-[#141416]">{piece.weight}</strong>
+                  <div className="font-mono text-xs text-[#7A705E] mt-2 tracking-wider flex items-center gap-3">
+                    {piece.specs.weight && (
+                      <span>CERTIFIED MASS: <strong className="text-[#141416]">{piece.specs.weight}</strong></span>
+                    )}
+                    <span>{piece.metalPurity}</span>
                   </div>
                 </div>
 
-                {/* Alloy Switcher */}
-                <div>
-                  <label className="block font-mono text-[10px] tracking-[0.2em] uppercase text-[#7A705E] mb-2">
-                    SELECT METALLURGICAL ALLOY:
-                  </label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {[
-                      { id: "22ct", label: "22ct Royal Gold", sub: "91.6% Purity" },
-                      { id: "18ct", label: "18ct Rose Gold", sub: "75.0% Purity" },
-                      { id: "platinum", label: "950 Platinum", sub: "95.0% Pure" },
-                    ].map((item) => {
-                      const isActive = selectedAlloy === item.id;
-                      return (
-                        <button
-                          key={item.id}
-                          type="button"
-                          onClick={() => handleAlloyChange(item.id as "22ct" | "18ct" | "platinum")}
-                          className={`p-2 border text-left transition-all cursor-pointer ${
-                            isActive
-                              ? "border-[#141416] bg-[#141416] text-[#FAF9F5]"
-                              : "border-[#E7E2DA] bg-[#FAF9F5] text-[#141416] hover:border-[#A89F91]"
-                          }`}
-                        >
-                          <div className="font-serif text-xs font-semibold leading-none mb-1">
-                            {item.label}
-                          </div>
-                          <div
-                            className={`font-mono text-[9px] ${
-                              isActive ? "text-[#C6A75E]" : "text-[#7A705E]"
-                            }`}
-                          >
-                            {item.sub}
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
+                {/* Description */}
+                <p className="font-sans text-xs text-[#57534E] leading-relaxed">
+                  {piece.description}
+                </p>
+
+                {/* Specification Badges */}
+                <div className="border border-[#E7E2DA] bg-[#FAF9F5] p-3 text-[11px] font-mono space-y-1.5 text-[#57534E]">
+                  <div>CRAFTSMANSHIP: {piece.specs.craftsmanship || "In-House Hayes Benchwork"}</div>
+                  <div>AUTHENTICITY: London Assay Office Hallmarked</div>
+                  <div>POLICY: Walk-ins welcome · Zero high-street retail markups</div>
                 </div>
 
-                {/* Size Selector */}
-                <div>
-                  <label className="block font-mono text-[10px] tracking-[0.2em] uppercase text-[#7A705E] mb-2">
-                    ESTIMATED SIZE / BORE (COMPLIMENTARY IN-HOUSE RESIZING):
-                  </label>
-                  <select
-                    value={selectedSize}
-                    onChange={(e) => setSelectedSize(e.target.value)}
-                    className="w-full border border-[#E7E2DA] bg-[#FAF9F5] p-2.5 font-mono text-xs text-[#141416] focus:outline-none focus:border-[#141416]"
-                  >
-                    <option>UK M (US 6.0 · 52mm inside circum.)</option>
-                    <option>UK N (US 6.5 · 53mm inside circum.)</option>
-                    <option>UK P (US 7.5 · 56mm inside circum.)</option>
-                    <option>UK R (US 8.5 · 58mm inside circum.)</option>
-                    <option>UK T (US 9.5 · 61mm inside circum.)</option>
-                    <option>Bespoke Custom Circumference (Measured in Showroom)</option>
-                  </select>
-                </div>
-
-                {/* Action 1: Direct WhatsApp Line (Primary Instant Action) */}
+                {/* Action 1: Direct WhatsApp Line */}
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => sound.playTick()}
                   className="w-full py-3.5 bg-[#25D366] hover:bg-[#128C7E] text-white font-mono text-xs tracking-[0.18em] uppercase font-semibold flex items-center justify-center gap-2 transition-colors shadow-xs"
                 >
                   <MessageSquare className="w-4 h-4" />

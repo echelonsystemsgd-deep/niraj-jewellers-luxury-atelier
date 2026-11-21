@@ -71,11 +71,11 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
       desc: "Direct Workshop Transparency & Answers",
     },
     {
-      label: "3D Atelier",
+      label: "Atelier Vault",
       href: "/atelier",
       route: "/atelier",
       num: "07",
-      desc: "Interactive 3D Metallurgy Flagship",
+      desc: "Curated 54-Piece Digital Flagship",
     },
     {
       label: "Contact",
@@ -186,12 +186,12 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 <Phone className="w-4 h-4 text-[#996515]" />
               </a>
 
-              {/* 3D Atelier Digital Flagship Pill */}
+              {/* Atelier Vault Digital Flagship Pill */}
               <Link
                 href="/atelier"
                 className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#141416] hover:bg-[#C6A75E] text-[#FAF9F5] hover:text-[#141416] font-mono text-[10.5px] uppercase tracking-wider font-semibold transition-all shadow-xs shrink-0"
               >
-                <span>3D ATELIER ⊙</span>
+                <span>ATELIER VAULT ⊙</span>
               </Link>
 
               {/* Tablet & Desktop WhatsApp Pill with official Meta WhatsApp Green */}

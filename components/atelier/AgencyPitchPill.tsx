@@ -64,7 +64,7 @@ export function AgencyPitchPill() {
                     <span>Zero E-Commerce Cart Friction</span>
                   </h4>
                   <p>
-                    £3,000 to £15,000 22ct bridal suites are never bought via anonymous credit card checkouts.
+                    High-value Asian bridal suites are never bought via anonymous credit card checkouts.
                     Replacing the cart with WhatsApp VIP and Showroom Bench Viewings guarantees high conversion.
                   </p>
                 </div>
@@ -72,11 +72,11 @@ export function AgencyPitchPill() {
                 <div>
                   <h4 className="font-serif text-sm font-semibold text-[#141416] mb-1 flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#C6A75E]" />
-                    <span>Real-Time 3D PBR WebGL & Audio</span>
+                    <span>Authentic Video Reels & 54-Piece Vault</span>
                   </h4>
                   <p>
-                    Interactive 3D alloy switching (22ct Gold / 18ct Rose Gold / Platinum) with procedural Web
-                    Audio drone creates the quiet gravitas of a European luxury maison.
+                    High-definition video reels of actual 22ct gold suites and solid kadas crafted on Hayes benches
+                    create instant trust and tactile presence.
                   </p>
                 </div>
 
@@ -86,7 +86,7 @@ export function AgencyPitchPill() {
                     <span>Hayes Showroom Footfall Engine</span>
                   </h4>
                   <p>
-                    Same-day laser repair modules and live gold bullion rates drive immediate walk-ins to 136
+                    Same-day laser repair modules and direct master-goldsmith access drive immediate walk-ins to 136
                     Uxbridge Road, Hayes.
                   </p>
                 </div>
