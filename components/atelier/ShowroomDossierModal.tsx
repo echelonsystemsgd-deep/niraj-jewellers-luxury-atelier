@@ -229,7 +229,7 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
 
                 <div className="flex items-center gap-2 text-[10px] text-[#7A705E]">
                   <Clock className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
-                  <span>Mon: 12:00–17:00 | Tue–Sat: 11:00–17:00 (Walk-Ins Welcome)</span>
+                  <span>Mon: 12:00–17:00 | Tue–Sat: 11:00–17:30 (Walk-Ins Welcome)</span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 pt-1">

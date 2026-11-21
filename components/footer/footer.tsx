@@ -237,7 +237,7 @@ export function Footer() {
                   </a>
                 </p>
                 <p className="text-[11px] text-[#7A7880] pt-1">
-                  Mon: 12:00–17:00 | Tue–Sat: 11:00–17:00
+                  Mon: 12:00–17:00 | Tue–Sat: 11:00–17:30
                 </p>
               </div>
             </div>

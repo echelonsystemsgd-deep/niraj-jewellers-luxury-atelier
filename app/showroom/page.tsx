@@ -83,7 +83,7 @@ export default function ShowroomPage() {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             opens: "11:00",
-            closes: "17:00",
+            closes: "17:30",
           },
         ],
       },

@@ -225,10 +225,11 @@ export default function RootLayout({
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             opens: "11:00",
-            closes: "17:00",
+            closes: "17:30",
           },
         ],
         sameAs: [
+          "https://share.google/UzzobueZI6BXs8GZQ",
           "https://www.facebook.com/p/Niraj-Jewellers-Ltd-100063525010609/",
           "https://www.instagram.com/nirajjewellersltd",
           "https://www.tiktok.com/@nirajjewellersltd",

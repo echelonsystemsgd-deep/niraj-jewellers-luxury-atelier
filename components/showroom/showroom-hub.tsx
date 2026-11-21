@@ -43,11 +43,11 @@ export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) 
 
   const hoursList = [
     { day: "Monday", hours: openingHours?.monday || "12:00 – 17:00", note: "Afternoon workshop hours" },
-    { day: "Tuesday", hours: openingHours?.tuesday || "11:00 – 17:00", note: "Full atelier bench access" },
-    { day: "Wednesday", hours: openingHours?.wednesday || "11:00 – 17:00", note: "Full atelier bench access" },
-    { day: "Thursday", hours: openingHours?.thursday || "11:00 – 17:00", note: "Full atelier bench access" },
-    { day: "Friday", hours: openingHours?.friday || "11:00 – 17:00", note: "Full atelier bench access" },
-    { day: "Saturday", hours: openingHours?.saturday || "11:00 – 17:00", note: "Weekend bridal consultations" },
+    { day: "Tuesday", hours: openingHours?.tuesday || "11:00 – 17:30", note: "Full atelier bench access" },
+    { day: "Wednesday", hours: openingHours?.wednesday || "11:00 – 17:30", note: "Full atelier bench access" },
+    { day: "Thursday", hours: openingHours?.thursday || "11:00 – 17:30", note: "Full atelier bench access" },
+    { day: "Friday", hours: openingHours?.friday || "11:00 – 17:30", note: "Full atelier bench access" },
+    { day: "Saturday", hours: openingHours?.saturday || "11:00 – 17:30", note: "Weekend bridal consultations" },
     { day: "Sunday", hours: openingHours?.sunday || "Closed", note: "Open select Sundays prior to Diwali, Karva Chauth & Christmas" },
   ];
 

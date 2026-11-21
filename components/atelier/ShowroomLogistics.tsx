@@ -40,7 +40,7 @@ export function ShowroomLogistics() {
                 </div>
                 <p className="font-sans text-xs text-[#D1C9BD] leading-relaxed">
                   Monday: 12:00 – 17:00 <br />
-                  Tuesday – Saturday: 11:00 – 17:00 <br />
+                  Tuesday – Saturday: 11:00 – 17:30 <br />
                   Sunday: Closed (Private Bespoke by Request)
                 </p>
               </div>

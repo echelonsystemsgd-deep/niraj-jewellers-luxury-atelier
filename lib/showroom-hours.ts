@@ -3,7 +3,7 @@
  * 136 Uxbridge Road, Hayes UB4 0JH
  * 
  * Mon: 12:00 - 17:00
- * Tue - Sat: 11:00 - 17:00
+ * Tue - Sat: 11:00 - 17:30
  * Sun: Closed (Festive Sundays & bridal consultations)
  */
 
@@ -61,7 +61,9 @@ export function getLondonShowroomStatus(simulatedDate?: Date): ShowroomStatus {
   const isSun = weekdayShort === "Sun";
 
   let openTime = 660; // 11:00 AM
-  const closeTime = 1020; // 5:00 PM (17:00)
+  const closeTime = isMon ? 1020 : 1050; // 5:00 PM on Mon (17:00), 5:30 PM on Tue-Sat (17:30)
+  const closingTimeFormatted = isMon ? "5:00 PM" : "5:30 PM";
+  const closingTimeISO = isMon ? "17:00" : "17:30";
 
   if (isMon) {
     openTime = 720; // 12:00 PM
@@ -92,8 +94,8 @@ export function getLondonShowroomStatus(simulatedDate?: Date): ShowroomStatus {
       isOpen: true,
       isTodayOpen: true,
       statusBadge: "Showroom Open Today",
-      nextEventText: `Open until 5:00 PM ${countdown}`,
-      closingTime: "17:00",
+      nextEventText: `Open until ${closingTimeFormatted} ${countdown}`,
+      closingTime: closingTimeISO,
     };
   }
 
