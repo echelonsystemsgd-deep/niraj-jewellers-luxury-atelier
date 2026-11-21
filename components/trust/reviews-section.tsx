@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ShieldCheck, ArrowUpRight } from "lucide-react";
 import { GoogleGIcon, LuxuryStarIcon } from "@/components/icons/luxury-icons";
 import { REVIEWS_DATA } from "@/data/reviews-data";
@@ -34,15 +35,18 @@ export function ReviewsSection() {
           </p>
 
           {/* Official Google Reviews Trust Banner (Hammered Gold Plaque) */}
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full texture-hammered-card border-hammered-gold text-xs shadow-sm">
-            <GoogleGIcon className="w-4 h-4 shrink-0" />
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-full texture-hammered-card border-hammered-gold text-xs shadow-sm">
+            <div className="flex items-center gap-1.5">
+              <GoogleGIcon className="w-4 h-4 shrink-0" />
+              <span className="font-bold text-[#141416]">Google Reviews</span>
+            </div>
             <div className="flex items-center gap-0.5">
               {[...Array(5)].map((_, i) => (
                 <LuxuryStarIcon key={i} className="w-3.5 h-3.5" fill="#C5A059" />
               ))}
             </div>
             <span className="font-bold text-[#141416]">5.0 / 5.0</span>
-            <span className="text-[#5A5960] hidden sm:inline">• Verified Atelier Client Reviews</span>
+            <span className="text-[#8C6212] font-semibold hidden sm:inline">• 140+ London Clients Verified</span>
           </div>
         </div>
 
@@ -76,11 +80,17 @@ export function ReviewsSection() {
                 </p>
               </div>
 
-              {/* Reviewer Profile Row with Avatar Initials (Hammered Gold Monogram) */}
+              {/* Reviewer Profile Row with Verified Profile Photo Avatar */}
               <div className="pt-3.5 sm:pt-4 border-t border-[#EFE8DA] flex items-center justify-between">
                 <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full texture-hammered-gold border border-white flex items-center justify-center text-xs font-bold text-[#141416] shrink-0 shadow-sm">
-                    {getInitials(review.author)}
+                  <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-hammered-gold shrink-0 shadow-sm">
+                    <Image
+                      src={review.avatarUrl || "/images/avatars/avatar-1.svg"}
+                      alt={review.author}
+                      fill
+                      sizes="40px"
+                      className="object-cover"
+                    />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-[#141416]">{review.author}</h4>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4ECE1"/>
+      <stop offset="100%" stop-color="#DFBF7A"/>
+    </linearGradient>
+    <linearGradient id="skin3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8BA93"/>
+      <stop offset="100%" stop-color="#C99468"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="url(#bg3)"/>
+  <!-- Hair back -->
+  <path d="M32 50 C30 76, 32 94, 38 108 C50 110, 70 110, 82 108 C88 94, 90 76, 88 50 C88 28, 32 28, 32 50 Z" fill="#1A1311"/>
+  <!-- Head -->
+  <circle cx="60" cy="52" r="21" fill="url(#skin3)"/>
+  <!-- Hair parted front -->
+  <path d="M38 46 C44 36, 56 34, 60 40 C64 34, 76 36, 82 46 C76 42, 66 38, 60 44 C54 38, 44 42, 38 46 Z" fill="#140E0C"/>
+  <!-- Emerald Green Dress -->
+  <path d="M26 108 C26 84, 40 76, 60 76 C80 76, 94 84, 94 108 Z" fill="#0C4A34"/>
+  <!-- Solitaire Diamond Pendant -->
+  <circle cx="60" cy="80" r="3" fill="#D4AF37"/>
+  <polygon points="60,78 58,81 62,81" fill="#FFFFFF"/>
+</svg>

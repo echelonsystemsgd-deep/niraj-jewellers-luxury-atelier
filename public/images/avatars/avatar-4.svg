@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFE8DA"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+    <linearGradient id="skin4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFAC82"/>
+      <stop offset="100%" stop-color="#BF8858"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="url(#bg4)"/>
+  <!-- Hair bun -->
+  <circle cx="60" cy="34" r="14" fill="#201815"/>
+  <!-- Head -->
+  <circle cx="60" cy="54" r="21" fill="url(#skin4)"/>
+  <!-- Sleek Hair -->
+  <path d="M38 48 C42 36, 78 36, 82 48 C76 42, 60 40, 38 48 Z" fill="#181210"/>
+  <!-- Professional Blazer in Warm Ivory / Gold Lapel -->
+  <path d="M26 108 C26 84, 40 78, 60 78 C80 78, 94 84, 94 108 Z" fill="#2D2825"/>
+  <polygon points="60,78 50,96 70,96" fill="#F4ECE1"/>
+  <circle cx="60" cy="84" r="2.5" fill="#D4AF37"/>
+</svg>

@@ -7,6 +7,7 @@ export interface ReviewItem {
   service: string;
   text: string;
   verified: boolean;
+  avatarUrl?: string;
 }
 
 export const REVIEWS_DATA: ReviewItem[] = [
@@ -19,6 +20,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: "Complete Bespoke 22ct Bridal Suite",
     text: "The master goldsmith at Niraj Jewellers Ltd is in a league of his own. We spent weeks in central London jewellery shops being quoted astronomical prices with zero transparency. The team sat down with us in Hayes, weighed the gold in front of us, 3D CAD printed my dream choker, and delivered a 22ct masterpiece under budget. True old-school honesty.",
     verified: true,
+    avatarUrl: "/images/avatars/avatar-1.svg",
   },
   {
     id: "rev-2",
@@ -29,6 +31,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: "Same-Day 18ct Ring Resizing & Polishing",
     text: "My grandfather's signet ring needed sizing down and the claw needed rebuild. Most shops wanted 3 weeks and to ship it out to Birmingham. The goldsmith resized it right here in the Hayes workshop in 4 hours while I had lunch down the road. Immaculate finish and fair workshop pricing.",
     verified: true,
+    avatarUrl: "/images/avatars/avatar-2.svg",
   },
   {
     id: "rev-3",
@@ -39,6 +42,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: "GIA Certified 2.2ct Oval Engagement Ring",
     text: "Cannot recommend Niraj Jewellers Ltd enough. We brought in an Instagram reference video and the atelier team hand-selected three GIA diamonds for us to view under the loupe. No pushy retail tactics. The ring is breathtaking. Niraj Jewellers is our family jeweller for life.",
     verified: true,
+    avatarUrl: "/images/avatars/avatar-3.svg",
   },
   {
     id: "rev-4",
@@ -49,6 +53,7 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: "24ct Bullion Bars & Exchange",
     text: "Transparent live bullion rates without hidden trading margins. As a regular gold buyer, having the atelier team directly on WhatsApp gives me peace of mind. All gold stamped with official UK assay hallmarks.",
     verified: true,
+    avatarUrl: "/images/avatars/avatar-4.svg",
   },
   {
     id: "rev-5",
@@ -59,5 +64,6 @@ export const REVIEWS_DATA: ReviewItem[] = [
     service: "Custom 22ct Heavy Kada",
     text: "Ordered a custom 90g solid 22ct lion-head kada. The weight, deep engraving, and finish exceeded all expectations. Niraj Jewellers Ltd carries on the authentic goldsmithing traditions that are impossible to find elsewhere in London.",
     verified: true,
+    avatarUrl: "/images/avatars/avatar-1.svg",
   },
 ];

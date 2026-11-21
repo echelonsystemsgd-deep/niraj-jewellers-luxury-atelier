@@ -252,7 +252,22 @@ body {
   background-size: auto, auto, 200px 200px;
 }
 
-/* 4. Elegant Custom Scrollbar for Admin Sidebar & Panels */
+/* 4. Real Hammered 22ct Gold Texture Extracted from Official Logo */
+.texture-hammered-gold-real {
+  background-image: url('/images/textures/hammered-gold.png');
+  background-repeat: repeat;
+  background-size: 140px 140px;
+}
+
+.gold-text-hammered {
+  background-image: url('/images/textures/hammered-gold.png');
+  background-repeat: repeat;
+  background-size: 140px 140px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 5. Elegant Custom Scrollbar for Admin Sidebar & Panels */
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
 }

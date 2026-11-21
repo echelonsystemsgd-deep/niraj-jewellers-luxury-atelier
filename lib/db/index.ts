@@ -154,6 +154,7 @@ export async function getReviews(): Promise<ReviewItem[]> {
       service: r.service,
       text: r.review_text,
       verified: r.verified_genuine,
+      avatarUrl: r.avatar_url || "/images/avatars/avatar-1.svg",
     }));
   } catch {
     return REVIEWS_DATA;

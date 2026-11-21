@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8DEC8"/>
+      <stop offset="100%" stop-color="#C5A059"/>
+    </linearGradient>
+    <linearGradient id="skin1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0A97E"/>
+      <stop offset="100%" stop-color="#C6895C"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="url(#bg1)"/>
+  <!-- Hair back -->
+  <circle cx="60" cy="55" r="32" fill="#241B18"/>
+  <!-- Head -->
+  <circle cx="60" cy="52" r="22" fill="url(#skin1)"/>
+  <!-- Hair front -->
+  <path d="M38 50 C38 32, 82 32, 82 50 C76 40, 68 38, 60 38 C52 38, 44 40, 38 50 Z" fill="#1C1412"/>
+  <!-- Shoulders / Sari Drape in Burgundy/Gold -->
+  <path d="M26 108 C26 82, 42 76, 60 76 C78 76, 94 82, 94 108 Z" fill="#801828"/>
+  <path d="M42 76 C48 86, 72 86, 78 76 Z" fill="#DFBF7A"/>
+  <!-- Gold Jhumka Earrings -->
+  <circle cx="40" cy="56" r="3" fill="#D4AF37"/>
+  <circle cx="80" cy="56" r="3" fill="#D4AF37"/>
+  <circle cx="60" cy="40" r="2" fill="#D4AF37"/> <!-- Bindi -->
+</svg>

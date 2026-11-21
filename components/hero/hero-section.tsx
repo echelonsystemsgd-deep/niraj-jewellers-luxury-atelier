@@ -95,21 +95,34 @@ export function HeroSection() {
       {/* 3. Core Editorial Typography & Hero Interaction Area */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 text-center">
         <div className="max-w-3xl mx-auto space-y-5 sm:space-y-8">
-          {/* Social Proof & London Assay Accreditation Pill */}
-          <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full texture-hammered-card border-hammered-gold text-[#8C6212] text-[10.5px] sm:text-xs font-semibold tracking-wide shadow-sm max-w-full">
-            <div className="flex items-center -space-x-1 shrink-0">
-              <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full texture-hammered-gold flex items-center justify-center text-[8px] sm:text-[9px] font-bold text-[#141416] shadow-xs">
-                UK
-              </span>
+          {/* Social Proof Pill (Overlapping Client Avatars + Google 5.0 Rating) */}
+          <div className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full texture-hammered-card border-hammered-gold text-[#141416] text-[11px] sm:text-xs font-semibold tracking-wide shadow-sm max-w-full">
+            {/* Overlapping Client Avatars */}
+            <div className="flex items-center -space-x-2 shrink-0">
+              <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden border border-white shadow-xs">
+                <Image src="/images/avatars/avatar-1.svg" alt="Client" fill className="object-cover" />
+              </div>
+              <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden border border-white shadow-xs">
+                <Image src="/images/avatars/avatar-2.svg" alt="Client" fill className="object-cover" />
+              </div>
+              <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden border border-white shadow-xs">
+                <Image src="/images/avatars/avatar-3.svg" alt="Client" fill className="object-cover" />
+              </div>
+              <div className="relative w-5 h-5 sm:w-6 sm:h-6 rounded-full overflow-hidden border border-white shadow-xs">
+                <Image src="/images/avatars/avatar-4.svg" alt="Client" fill className="object-cover" />
+              </div>
             </div>
+
+            {/* 5 Gold Stars */}
             <div className="flex items-center gap-0.5 shrink-0">
               {[...Array(5)].map((_, i) => (
                 <LuxuryStarIcon key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="#C5A059" />
               ))}
             </div>
+
             <span className="text-[#3D3C42] font-medium hidden sm:inline">•</span>
-            <span className="hidden sm:inline">London Assay Office Registered Atelier • Hayes</span>
-            <span className="sm:hidden font-medium">Assay Registered • Hayes Atelier</span>
+            <span className="font-bold text-[#8C6212] whitespace-nowrap">5.0 Rating</span>
+            <span className="text-[#5A5960] hidden sm:inline">(140+ Google Reviews)</span>
           </div>
 
           {/* Cinematic Editorial Headline */}
