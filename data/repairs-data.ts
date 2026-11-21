@@ -17,7 +17,7 @@ export const REPAIR_SERVICES: RepairService[] = [
     turnaround: "Same-Day (2–4 Hours)",
     priceDisplay: "From £35 / ring",
     pricingHint: "From £35 / ring • Exact quote on inspection",
-    image: "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
+    image: "/images/collections/posters/482c070d-7614-41e2-8811-d76441020509.jpg",
     imageAlt: "Goldsmith bench precision ring sizing in Hayes",
     summary: "Seamless ring sizing for 22ct gold, 18ct white/yellow/rose gold, and platinum with laser welding that preserves hallmark stamps.",
     details: [
@@ -32,7 +32,7 @@ export const REPAIR_SERVICES: RepairService[] = [
     turnaround: "24–48 Hours",
     priceDisplay: "From £45 / claw",
     pricingHint: "From £45 / claw • Exact quote on inspection",
-    image: "/images/workshop/workshop-bench-velvet-trays.jpg",
+    image: "/images/collections/posters/585f854b-a2a7-4608-83e8-29eded6d04f6.jpg",
     imageAlt: "Microscope stone resetting and claw retipping bench",
     summary: "Reinforce worn claws and securely reset loose or missing diamonds, rubies, and emeralds under high magnification.",
     details: [
@@ -47,7 +47,7 @@ export const REPAIR_SERVICES: RepairService[] = [
     turnaround: "While You Wait (30 Mins)",
     priceDisplay: "From £25 / piece",
     pricingHint: "Complimentary with repair / £25 standalone",
-    image: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
+    image: "/images/collections/fc4f5f26-d64e-490e-87dc-23058ec58235.jpeg",
     imageAlt: "Ultrasonic cleaning and mirror polish restoration",
     summary: "Restore showroom mirror lustre to bridal suites, vintage heirlooms, and daily jewelry with ultrasonic steam cavitation.",
     details: [

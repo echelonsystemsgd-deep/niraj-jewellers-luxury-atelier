@@ -11,7 +11,7 @@ export function WholesaleAdvantage() {
       title: "Direct London Assay Hallmarking",
       subtitle: "UK Hallmarking Act 1973 Compliance",
       icon: HallmarkCrownIcon,
-      image: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
+      image: "/images/collections/5ce947fd-b64d-4004-afc4-8ffe1a7847b8.jpeg",
       imageAlt: "Official London Assay Office Leopard's head hallmark verification",
       description:
         "Every single piece sold is legally tested and struck with the official London Leopard's Head hallmark at Goldsmiths' Hall, London. Zero unverified imports.",
@@ -21,7 +21,7 @@ export function WholesaleAdvantage() {
       title: "Live Bullion Weight Transparency",
       subtitle: "Priced by Gram & London Fix",
       icon: GoldsmithScalesIcon,
-      image: "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
+      image: "/images/collections/12829417-6791-4c2c-8ff1-7b92d459aab4.jpeg",
       imageAlt: "Live gold bullion weighing on trade certified scales",
       description:
         "We weigh every piece on trade-certified digital scales directly in front of you. Gold is priced honestly by gram weight and live London bullion fix plus an unbundled craft fee.",
@@ -31,7 +31,7 @@ export function WholesaleAdvantage() {
       title: "100% In-House Benchwork",
       subtitle: "136 Uxbridge Road, Hayes",
       icon: WorkshopBenchIcon,
-      image: "/images/workshop/workshop-bench-velvet-trays.jpg",
+      image: "/images/collections/8cca104b-0936-4db2-82d0-92750aa40c0d.jpeg",
       imageAlt: "In-house master goldsmith benches at Hayes workshop",
       description:
         "Your engagement rings and wedding heirlooms never leave our workshop. All laser soldering, stone setting, and restorative polishing are conducted on-site.",
@@ -41,7 +41,7 @@ export function WholesaleAdvantage() {
       title: "Direct Master Goldsmith Access",
       subtitle: "Artisan-Led Consultations",
       icon: GoldsmithLoupeIcon,
-      image: "/images/cad/bespoke-evil-eye-sapphire-cad.jpg",
+      image: "/images/cad/bespoke-evil-eye-diamond-cad.jpg",
       imageAlt: "Master goldsmith 3D CAD and diamond loupe consultation",
       description:
         "Sit down directly with the master craftsmen forging your piece. Review 3D CAD models, inspect loose GIA/IGI diamonds under 40x magnification, and refine details in real time.",

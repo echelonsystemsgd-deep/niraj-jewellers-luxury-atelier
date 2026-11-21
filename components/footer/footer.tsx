@@ -49,14 +49,14 @@ export function Footer() {
                 aria-label="Scroll back to top"
               >
                 {/* Official Crest Logo */}
-                <div className="relative w-12 h-12 rounded-xl bg-white border border-[#D4AF37]/50 flex items-center justify-center shrink-0 shadow-sm group-hover:border-[#996515] transition-colors overflow-hidden">
+                <div className="relative w-12 h-12 rounded-xl bg-white border border-[#D4AF37]/50 flex items-center justify-center shrink-0 shadow-sm group-hover:border-[#996515] transition-colors overflow-hidden p-1">
                   <Image
                     src="/NIRAJ_LOGO9.png"
                     alt="Niraj Jewellers Ltd Crest"
-                    fill
+                    width={44}
+                    height={44}
                     unoptimized
-                    sizes="48px"
-                    className="object-contain p-0.5"
+                    className="object-contain w-auto h-auto max-w-full max-h-full"
                   />
                 </div>
                 <div className="flex flex-col">

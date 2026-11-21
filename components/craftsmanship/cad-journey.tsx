@@ -34,8 +34,8 @@ export function CadJourney() {
     {
       num: 4,
       title: "4. London Assay Hallmarking & Collection",
-      image: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
-      imageAlt: "Handcrafted 22ct gold filigree bridal suite ready for London Assay hallmarking",
+      image: "/images/collections/64043268-7e68-48e4-8b74-f58fbd5ff884.jpeg",
+      imageAlt: "Handcrafted 22ct gold royal heirloom ready for London Assay hallmarking",
       caption: "London Assay Stamped",
       description:
         "Sent directly to Goldsmiths' Hall for compulsory UK hallmark stamping, then presented in a velvet suite with full valuation documentation.",
