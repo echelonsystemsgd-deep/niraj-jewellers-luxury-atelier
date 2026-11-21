@@ -9,7 +9,7 @@ import { NIRAJ_MAPS_LINK, NIRAJ_SHOWROOM_ADDRESS, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_
 import { getLondonCurrentDayInfo } from "@/lib/showroom-hours";
 
 export function ShowroomHub() {
-  const [hoursOpen, setHoursOpen] = useState(true);
+  const [hoursOpen, setHoursOpen] = useState(false);
   const [londonInfo, setLondonInfo] = useState<{ dayName: string; formattedTime: string; dateStr: string } | null>(null);
 
   useEffect(() => {
@@ -164,11 +164,14 @@ export function ShowroomHub() {
 
           {/* Right Column: Interactive Operating Hours Accordion */}
           <div className="lg:col-span-5 bg-[#FAF7F2] p-7 sm:p-8 rounded-2xl border border-[#E8DEC8] shadow-sm space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-[#E8DEC8]">
+            <div
+              onClick={() => setHoursOpen(!hoursOpen)}
+              className="flex items-center justify-between pb-4 border-b border-[#E8DEC8] cursor-pointer group select-none"
+            >
               <div className="flex items-center gap-2.5 text-[#996515]">
-                <Clock className="w-5 h-5 text-[#996515]" />
+                <Clock className="w-5 h-5 text-[#996515] group-hover:scale-105 transition-transform" />
                 <div>
-                  <h3 className="font-serif text-xl font-medium text-[#141416] leading-tight">
+                  <h3 className="font-serif text-xl font-medium text-[#141416] group-hover:text-[#996515] transition-colors leading-tight">
                     Opening Hours
                   </h3>
                   {londonInfo && (
@@ -185,13 +188,12 @@ export function ShowroomHub() {
                     Live GMT
                   </span>
                 )}
-                <button
-                  onClick={() => setHoursOpen(!hoursOpen)}
-                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] flex items-center justify-center text-[#5A5960] hover:text-[#996515] transition-colors shadow-sm"
+                <div
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white border border-[#E8DEC8] group-hover:border-[#D4AF37] flex items-center justify-center text-[#5A5960] group-hover:text-[#996515] transition-colors shadow-sm"
                   aria-label="Toggle hours"
                 >
                   {hoursOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </button>
+                </div>
               </div>
             </div>
 

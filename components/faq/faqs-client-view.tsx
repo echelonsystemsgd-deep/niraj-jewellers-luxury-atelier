@@ -23,7 +23,6 @@ export function FaqsClientView() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [openIds, setOpenIds] = useState<Record<string, boolean>>({
     "bespoke-1": true,
-    "hallmarks-1": true,
   });
 
   const categories = [
@@ -79,7 +78,7 @@ export function FaqsClientView() {
       </div>
 
       {/* Category Filter Chips */}
-      <div className="flex items-center justify-center gap-2.5 overflow-x-auto pb-2 no-scrollbar">
+      <div className="flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto pb-2 px-4 sm:px-0 no-scrollbar">
         {categories.map((cat) => {
           const IconComp = cat.icon;
           const isActive = activeCategory === cat.id;
@@ -87,7 +86,7 @@ export function FaqsClientView() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap transition-all shadow-sm ${
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap transition-all shadow-sm shrink-0 ${
                 isActive
                   ? "bg-gradient-to-r from-[#996515] to-[#C5A059] text-white shadow-md"
                   : "bg-white text-[#4A4A52] hover:text-[#141416] border border-[#E8DEC8] hover:border-[#D4AF37]"
