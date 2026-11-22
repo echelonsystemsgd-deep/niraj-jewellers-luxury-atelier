@@ -117,7 +117,7 @@ Social media unfurlers (WhatsApp, iMessage, Twitter/X, Facebook, LinkedIn, Disco
 * **Showcase Bento:**
   - 22ct Indian Bridal Suites (Syndicate Polki, Kundan & Hallmarked Gold).
   - London Leopard's Head Hallmarking accreditation (`916` / `750`).
-  - Principal Goldsmith Viky signature card.
+  - Principal Goldsmith & Atelier Master signature card.
 * **Live LBMA Bullion Ticker Bar:**
   - Real-time gold market indicators: 24ct Pure £68.50/g, 22ct Sovereign £62.80/g, 18ct Fine £51.40/g.
 * **Direct Contact & Verification Row:**
@@ -160,7 +160,7 @@ Search engines (Google, Bing, Apple Spotlight) parse JSON-LD graphs to generate 
 graph TD
     WS["WebSite (#website)<br/>SearchAction: /collections?search={query}"] -->|publisher| JB["JewelryStore & LocalBusiness (#jewelrystore)"]
     JB -->|legalName| L["Niraj Jewellers Ltd"]
-    JB -->|founder| P["Person (Master Goldsmith Viky)"]
+    JB -->|founder| P["Person (Principal Goldsmith & Master Jeweller)"]
     JB -->|address| PA["PostalAddress (136 Uxbridge Road, Hayes)"]
     JB -->|geo| GC["GeoCoordinates (51.5229, -0.4228)"]
     JB -->|aggregateRating| AR["AggregateRating (5.0 / 48 Reviews)"]

@@ -68,20 +68,25 @@ Following review by the second Captain and direct mobile inspection by the clien
 
 ---
 
-### Workstream E: Redesign Google Reviews to Dallas Paints Benchmark
+### Workstream E: Redesign Google Reviews to Dallas Paints Moving Carousel Benchmark
 * **Current Issue:**
   - Current reviews have custom tags (`Google Verified Client`, `BESPOKE JEWELLERY & NOSE STUD FITTING`, `HELPFUL`) that feel artificial, hand-coded, and dashboard-like.
 * **Brainstormed Solution (Faithful to the Dallas Paints Reference in Image 1):**
   - **Header Structure:**
-    - Eyebrow: `CLIENT REVIEWS` (clean, centered)
+    - Eyebrow: `WHAT CLIENTS SAY` (clean, centered)
     - Heading: `Don't Take Our Word For It` (refined Cormorant / serif)
-    - Subtitle: `Over 40 years of handcrafted bridal suites and heirloom restorations in Hayes.`
+    - Subtitle: `We could tell you about our attention to detail, but we would rather let our customers speak for themselves.`
   - **Google Summary Bar:**
-    - Official Google `G` multi-color icon + `4.9` rating + 5 gold stars + `(120+ Google Reviews)` + `Read all reviews on Google →` link.
+    - Official Google `G` multi-color icon + `4.9` rating + 5 gold stars + `120+ reviews` + `Read all reviews →` link.
+  - **Dual-Row Infinite Moving Carousel (Dallas Paints Layout):**
+    - 2 staggered rows of authentic Google review cards continuously gliding horizontally at 60fps GPU acceleration.
+    - Row 1 glides left; Row 2 glides right.
+    - Soft gradient edge masks (`from-[#FAF9F5] to-transparent`) for seamless entrance and exit.
+    - Seamless pause-on-hover and pause-on-touch so patrons can easily read any review.
   - **Card Structure:**
-    - Clean white cards with gentle rounded corners (`rounded-2xl` or `rounded-xl`) and subtle border.
-    - Top Row: Reviewer initial in a soft neutral circle (e.g., `S` for Sarah), reviewer name (e.g. `Priya S.`), relative date (e.g., `3 months ago`), and official Google `G` logo top-right.
-    - Middle: 5 solid gold stars (`#FAB005` / Google review star yellow).
+    - Clean white cards (`w-[290px] sm:w-[360px]`, `rounded-2xl`, subtle border and shadow).
+    - Top Row: Reviewer initial in an avatar circle (e.g., `L` for Lisa), reviewer name (`Lisa K.`), relative date (`11 months ago`), and official Google `G` icon top-right.
+    - Middle: 5 solid gold stars (`#FBBC05`).
     - Bottom: The authentic review quote in clean, comfortable sans-serif body text.
     - **Zero custom badges** (`Google Verified Client`, `HELPFUL`, etc.).
 

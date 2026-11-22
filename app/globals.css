@@ -160,9 +160,35 @@ body {
   will-change: transform;
 }
 
+/* Bi-directional Infinite Marquee for Dallas Paints Google Reviews Carousel */
+@keyframes infiniteMarqueeReverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: infiniteMarquee 50s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: infiniteMarqueeReverse 50s linear infinite;
+  will-change: transform;
+}
+
 @media (max-width: 640px) {
-  .animate-infinite-ribbon {
-    animation-duration: 32s;
+  .animate-infinite-ribbon,
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation-duration: 35s;
   }
 }
 
