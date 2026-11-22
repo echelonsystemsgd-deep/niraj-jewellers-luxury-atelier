@@ -107,6 +107,7 @@ export function ProductGrid({ onSelectPiece }: ProductGridProps) {
               <input
                 type="text"
                 placeholder="Search 54 pieces..."
+                aria-label="Search 54 bespoke pieces by title, category, or stone"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-8 pr-3 py-1.5 border border-[#E7E2DA] bg-white text-xs text-[#141416] focus:outline-none focus:border-[#141416] placeholder:text-[#A89F91]"
