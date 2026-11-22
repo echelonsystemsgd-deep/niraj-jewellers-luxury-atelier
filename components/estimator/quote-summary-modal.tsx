@@ -38,7 +38,7 @@ export function QuoteSummaryModal({ summary, onClose }: QuoteSummaryModalProps) 
     customNote: `Estimated Workshop Turnaround: ${summary.turnaroundDays}. Looking forward to discussing CAD design and direct workshop pricing with your atelier team.`,
   });
 
-  const formattedSummaryText = `*NIRAJ JEWELLERS LTD — BESPOKE SPECIFICATIONS*
+  const formattedSummaryText = `*NIRAJ JEWELLERS LTD - BESPOKE SPECIFICATIONS*
 ━━━━━━━━━━━━━━━━━━━━━━━
 👑 Piece Type: ${summary.pieceType}
 🌟 Metal Purity: ${summary.metal}

@@ -58,7 +58,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
       name: "Master Goldsmith Atelier",
       role: "Principal Goldsmith at Niraj Jewellers Ltd",
     },
-    coverImage: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop",
+    coverImage: "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
     tags: ["22ct Gold", "24ct Gold", "UK Hallmarking Act 1973", "London Assay Office", "Asian Bridal Jewellery", "Purity Guide"],
     keyTakeaways: [
       "22ct gold contains 91.6% pure gold alloyed with 8.4% copper and silver, providing the tensile strength necessary for intricate filigree and secure stone settings.",
@@ -109,7 +109,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
         bullets: [
           "Calibrated Weighing: We weigh scrap or inherited gold in your direct line of sight on trade-certified Class II electronic scales.",
           "Induction Melting: Our in-house crucibles melt your gold on-site, retaining 100% of the intrinsic precious metal value towards your bespoke CAD design.",
-          "Zero Third-Party Middlemen: Direct workshop execution cuts high-street broker premiums by up to 25–35%.",
+          "Zero Third-Party Middlemen: Direct workshop execution cuts high-street broker premiums by up to 25% to 35%.",
         ],
       },
     ],
@@ -147,21 +147,21 @@ export const ARTICLES_DATA: ArticleItem[] = [
       name: "Master Goldsmith Atelier",
       role: "Principal Goldsmith at Niraj Jewellers Ltd",
     },
-    coverImage: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=crop",
+    coverImage: "/images/cad/bespoke-evil-eye-sapphire-cad.jpg",
     tags: ["Bespoke Jewellery", "3D CAD Modeling", "Lost-Wax Casting", "GIA Diamonds", "Handmade Jewellery London"],
     keyTakeaways: [
       "3D CAD modeling enables sub-millimeter precision and allows clients to preview photorealistic 360° renders before any metal is cast.",
       "Niraj Jewellers requires only a 30% deposit upon CAD approval, with 70% balance settled upon final in-person inspection.",
-      "In-house production cuts turnaround times down to 5–7 working days, compared to 3–4 weeks for high-street jewellers.",
+      "In-house production cuts turnaround times down to 5 to 7 working days, compared to 3 to 4 weeks for high-street jewellers.",
       "Loose GIA/IGI diamonds and uncut Polki gems are inspected under 40x digital loupes to ensure flawless stone seating.",
     ],
     sections: [
       {
         heading: "1. Stage 1: The Design Consultation & Gemstone Sourcing",
         subtext:
-          "Every bespoke piece begins with an idea—whether a rough paper sketch, an Instagram reference video, or an heirloom stone needing resetting. Our master goldsmiths analyze stone proportions, finger ergonomics, and lifestyle durability.",
+          "Every bespoke piece begins with an idea: whether a rough paper sketch, an Instagram reference video, or an heirloom stone needing resetting. Our master goldsmiths analyze stone proportions, finger ergonomics, and lifestyle durability.",
         bullets: [
-          "Direct Diamond Inspection: Clients view certified loose diamonds (D–F colour, VVS/VS clarity) under digital loupes.",
+          "Direct Diamond Inspection: Clients view certified loose diamonds (D to F colour, VVS/VS clarity) under digital loupes.",
           "Precious Metal Selection: Tailoring choices between 22ct Imperial Yellow Gold, 18ct White Gold, or 950 Solid Platinum.",
           "Fixed Quotation: Transparent pricing locked to current LBMA bullion and wholesale diamond rates.",
         ],
@@ -221,12 +221,12 @@ export const ARTICLES_DATA: ArticleItem[] = [
       name: "Master Goldsmith Atelier",
       role: "Principal Goldsmith at Niraj Jewellers Ltd",
     },
-    coverImage: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=crop",
+    coverImage: "/images/workshop/workshop-bench-velvet-trays.jpg",
     tags: ["Ring Resizing", "Jewellery Repairs", "Laser Soldering", "Hayes Jewellers", "Same-Day Service"],
     keyTakeaways: [
       "Traditional blowtorch soldering heats the entire ring, risking thermal shock to delicate diamonds, emeralds, and pearls.",
       "Laser micro-welding focuses localized heat to a 0.2mm pinpoint, allowing stone-tight claw retipping without un-mounting gemstones.",
-      "Niraj Jewellers completes ring sizing in 2–4 hours on-site at 136 Uxbridge Road, Hayes.",
+      "Niraj Jewellers completes ring sizing in 2 to 4 hours on-site at 136 Uxbridge Road, Hayes.",
       "All ring resizings include complimentary ultrasonic cleaning, scratch removal, and rhodium electroplating.",
     ],
     sections: [
@@ -238,7 +238,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
           caption: "Laser Welding vs Conventional Gas Torch Repair",
           headers: ["Feature / Metric", "Precision Laser Welding (Niraj)", "Traditional Gas Torch Soldering"],
           rows: [
-            ["Heat Zone Radius", "0.2mm – 0.5mm localized spot", "Entire shank & stone setting (over 800°C)"],
+            ["Heat Zone Radius", "0.2mm to 0.5mm localized spot", "Entire shank & stone setting (over 800°C)"],
             ["Gemstone Safety", "Stones remain mounted safely in place", "Heat-sensitive gems must be removed"],
             ["Hallmark Preservation", "Preserves UK Leopard hallmarks intact", "Frequently erodes or burns off hallmarks"],
             ["Turnaround Time", "Same-Day (2 to 4 Hours)", "2 to 4 Weeks (third-party shipping)"],
@@ -292,7 +292,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
       name: "Master Goldsmith Atelier",
       role: "Principal Goldsmith at Niraj Jewellers Ltd",
     },
-    coverImage: "https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=1200&auto=format&fit=crop",
+    coverImage: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
     tags: ["Gold Bullion", "LBMA Rates", "Gold Bars 24ct", "Scrap Gold London", "Sovereigns", "Tax-Free Gold"],
     keyTakeaways: [
       "LBMA (London Bullion Market Association) sets the global benchmark spot price for physical gold twice daily.",

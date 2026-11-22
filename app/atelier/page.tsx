@@ -23,7 +23,7 @@ export default function AtelierPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "JewelryStore",
-    name: "Niraj Jewellers Ltd — Digital Flagship Atelier",
+    name: "Niraj Jewellers Ltd: Digital Flagship Atelier",
     url: "https://www.niraj-jewellers.co.uk/atelier",
     logo: "https://www.niraj-jewellers.co.uk/favicon.ico",
     telephone: "+442085739323",

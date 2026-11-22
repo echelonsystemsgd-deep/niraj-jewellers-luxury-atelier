@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { SubpageNav } from "@/components/header/subpage-nav";
+import Image from "next/image";
+import { AtelierNavbar } from "@/components/atelier/AtelierNavbar";
 import { Footer } from "@/components/footer/footer";
 import { ARTICLES_DATA, ArticleItem } from "@/data/articles-data";
 import {
   Calendar,
   Clock,
-  User,
   ShieldCheck,
-  ChevronRight,
   ArrowLeft,
   Sparkles,
   MessageCircle,
@@ -93,10 +92,9 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
   const whatsappInquiryLink = buildWhatsAppLink({
     source: `article_${article.slug}`,
-    customNote: `Hi Niraj Jewellers team, I just read your article "${article.title}" and would like to ask a question.`,
+    customNote: `Hi Niraj Jewellers team, I just read your article "${article.title}" and would like to ask a goldsmith question.`,
   });
 
-  // Linked JSON-LD Graph for this Article
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -174,22 +172,22 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#141416] flex flex-col selection:bg-gold-200 selection:text-gold-900">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#141416] flex flex-col selection:bg-[#F3E8D2] selection:text-[#141416]">
       {/* Article Schema Script */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
 
-      <SubpageNav currentTitle="Atelier Guides" />
+      <AtelierNavbar />
 
       <main className="flex-1 pt-24 sm:pt-28 pb-20">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Trail */}
-          <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center space-x-2 text-xs text-platinum-muted">
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <ol className="flex items-center space-x-2 text-xs font-mono text-[#78716C]">
               <li>
-                <Link href="/" className="hover:text-gold-400 transition-colors">
+                <Link href="/" className="hover:text-[#996515] transition-colors">
                   Home
                 </Link>
               </li>
@@ -197,30 +195,30 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               <li>
                 <Link
                   href="/articles"
-                  className="hover:text-gold-400 transition-colors"
+                  className="hover:text-[#996515] transition-colors"
                 >
                   Articles
                 </Link>
               </li>
               <li>/</li>
-              <li className="text-gold-400 font-medium truncate max-w-[200px] sm:max-w-xs" aria-current="page">
+              <li className="text-[#996515] font-semibold truncate max-w-[200px] sm:max-w-xs" aria-current="page">
                 {article.title}
               </li>
             </ol>
           </nav>
 
           {/* Header Metadata */}
-          <header className="mb-10 space-y-4">
+          <header className="mb-8 space-y-4">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-gold-400 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#996515] px-2.5 py-1 bg-white border border-[#EAE6DF]">
                 {article.category}
               </span>
-              <span className="text-xs text-platinum-muted flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-gold-400" />
+              <span className="text-xs font-mono text-[#78716C] flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-[#996515]" />
                 <span>{article.readTime}</span>
               </span>
-              <span className="text-xs text-platinum-muted flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-gold-400" />
+              <span className="text-xs font-mono text-[#78716C] flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#996515]" />
                 <span>Updated Nov 2026</span>
               </span>
             </div>
@@ -229,23 +227,23 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               {article.title}
             </h1>
 
-            <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
               {article.excerpt}
             </p>
 
             {/* Author Credential Card */}
-            <div className="pt-4 border-t border-[#E8DEC8] flex items-center justify-between gap-4">
+            <div className="pt-4 border-t border-[#EAE6DF] flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/50 flex items-center justify-center font-serif font-bold text-[#8C6212]">
+                <div className="w-10 h-10 bg-white border border-[#EAE6DF] flex items-center justify-center font-serif font-bold text-[#8C6212]">
                   NJ
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#141416] flex items-center gap-1.5">
+                  <div className="text-sm font-medium text-[#141416] flex items-center gap-1.5">
                     <span>{article.author.name}</span>
                     <ShieldCheck className="w-4 h-4 text-[#996515]" />
                   </div>
-                  <span className="text-xs text-[#5A5960]">
-                    {article.author.role}
+                  <span className="text-xs font-mono text-[#78716C]">
+                    136 Uxbridge Road, Hayes
                   </span>
                 </div>
               </div>
@@ -254,24 +252,39 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 href={whatsappInquiryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#25D366]/50 text-[#128C7E] font-semibold text-xs transition-all shadow-sm"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-[#FAF8F5] border border-[#25D366] text-[#128C7E] font-mono text-xs uppercase tracking-wider transition-colors"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>Direct Workbench Question</span>
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                <span>Ask Goldsmith Bench</span>
               </a>
             </div>
           </header>
 
-          {/* AEO / GEO "Key Takeaways" Executive Summary Block */}
-          <section className="mb-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-atelier via-gold-950/20 to-atelier border border-gold-500/40 shadow-xl shadow-gold-500/5">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold-400 mb-4">
+          {/* Featured Hero Image per Captain requirement */}
+          <div className="mb-10 relative aspect-[16/9] w-full overflow-hidden bg-[#F5F2EB] border border-[#EAE6DF]">
+            <Image
+              src={article.coverImage}
+              alt={article.title}
+              fill
+              priority
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="object-cover"
+            />
+            <div className="absolute bottom-3 left-3 bg-white/95 px-3 py-1 border border-[#EAE6DF] text-[10px] font-mono uppercase tracking-widest text-[#57534E]">
+              Authentic Hayes Goldsmith Atelier Documentation
+            </div>
+          </div>
+
+          {/* Key Takeaways Executive Summary Block */}
+          <section className="mb-12 p-6 sm:p-8 bg-white border border-[#EAE6DF]">
+            <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-widest text-[#996515] mb-4">
               <Sparkles className="w-4 h-4" />
-              <span>Key Takeaways for Answer Engines &amp; Clients</span>
+              <span>Key Workshop Takeaways &amp; Facts</span>
             </div>
             <ul className="space-y-3">
               {article.keyTakeaways.map((takeaway, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-platinum leading-relaxed">
-                  <CheckCircle2 className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
+                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#141416] leading-relaxed">
+                  <CheckCircle2 className="w-4 h-4 text-[#996515] shrink-0 mt-0.5" />
                   <span>{takeaway}</span>
                 </li>
               ))}
@@ -282,10 +295,10 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
           <div className="space-y-12">
             {article.sections.map((section, sIdx) => (
               <section key={sIdx} className="space-y-4">
-                <h2 className="font-serif text-2xl sm:text-3xl font-medium text-white tracking-tight border-b border-atelier-border/80 pb-3">
+                <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#141416] tracking-tight border-b border-[#EAE6DF] pb-3">
                   {section.heading}
                 </h2>
-                <p className="text-sm sm:text-base text-platinum-muted leading-relaxed">
+                <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
                   {section.subtext}
                 </p>
 
@@ -293,8 +306,8 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 {section.bullets && (
                   <ul className="space-y-2.5 pt-2">
                     {section.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-platinum">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold-400 mt-2 shrink-0" />
+                      <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#141416]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#996515] mt-2 shrink-0" />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -303,27 +316,27 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
                 {/* Technical Comparison Table if present */}
                 {section.table && (
-                  <div className="my-6 overflow-x-auto rounded-2xl border border-atelier-border bg-atelier/40">
+                  <div className="my-6 overflow-x-auto border border-[#EAE6DF] bg-white">
                     {section.table.caption && (
-                      <div className="p-3 bg-obsidian/80 border-b border-atelier-border text-xs font-semibold text-gold-400 uppercase tracking-wider">
+                      <div className="p-3 bg-[#FAF8F5] border-b border-[#EAE6DF] text-xs font-mono font-semibold text-[#8C6212] uppercase tracking-wider">
                         {section.table.caption}
                       </div>
                     )}
                     <table className="w-full text-left text-xs sm:text-sm">
-                      <thead className="bg-obsidian/60 text-white font-medium border-b border-atelier-border">
+                      <thead className="bg-[#FAF8F5] text-[#141416] font-medium border-b border-[#EAE6DF]">
                         <tr>
                           {section.table.headers.map((h, hIdx) => (
-                            <th key={hIdx} className="p-3.5 sm:p-4 text-xs font-semibold text-gold-400 uppercase tracking-wider">
+                            <th key={hIdx} className="p-3.5 sm:p-4 text-xs font-mono font-semibold text-[#8C6212] uppercase tracking-wider">
                               {h}
                             </th>
                           ))}
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-atelier-border/60">
+                      <tbody className="divide-y divide-[#EAE6DF]">
                         {section.table.rows.map((row, rIdx) => (
-                          <tr key={rIdx} className="hover:bg-gold-500/5 transition-colors">
+                          <tr key={rIdx} className="hover:bg-[#FAF8F5] transition-colors">
                             {row.map((cell, cIdx) => (
-                              <td key={cIdx} className="p-3.5 sm:p-4 text-platinum-muted font-normal">
+                              <td key={cIdx} className="p-3.5 sm:p-4 text-[#57534E] font-normal">
                                 {cell}
                               </td>
                             ))}
@@ -336,15 +349,15 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
                 {/* Master Goldsmith Quote if present */}
                 {section.quote && (
-                  <blockquote className="my-6 p-6 rounded-2xl bg-[#FAF7F2] border-l-4 border-[#996515] border border-[#E8DEC8] shadow-sm">
+                  <blockquote className="my-6 p-6 bg-white border-l-2 border-[#996515] border border-[#EAE6DF]">
                     <div className="flex items-start gap-3">
                       <Quote className="w-5 h-5 text-[#996515] shrink-0 mt-1" />
                       <div>
-                        <p className="font-serif italic text-sm sm:text-base text-[#141416] leading-relaxed mb-2">
+                        <p className="font-serif italic text-base sm:text-lg text-[#141416] leading-relaxed mb-2">
                           &ldquo;{section.quote.text}&rdquo;
                         </p>
-                        <footer className="text-xs text-[#8C6212] font-semibold uppercase tracking-wider">
-                          — {section.quote.author}, {section.quote.role}
+                        <footer className="text-xs font-mono text-[#8C6212] uppercase tracking-wider">
+                          : {section.quote.author}, {section.quote.role}
                         </footer>
                       </div>
                     </div>
@@ -354,16 +367,16 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
             ))}
           </div>
 
-          {/* In-Article FAQ Accordion Section for AEO & GEO */}
+          {/* In-Article FAQ Accordion Section */}
           {article.faqs.length > 0 && (
-            <section className="mt-16 pt-12 border-t border-[#E8DEC8] space-y-6">
+            <section className="mt-16 pt-12 border-t border-[#EAE6DF] space-y-6">
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#996515]">
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#996515]">
                   <HelpCircle className="w-3.5 h-3.5" />
-                  <span>Article Clarifications &amp; Answers</span>
+                  <span>Topic FAQs &amp; Standards</span>
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#141416]">
-                  Frequently Asked Questions About This Topic
+                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#141416]">
+                  Frequently Asked Questions
                 </h3>
               </div>
 
@@ -371,12 +384,12 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 {article.faqs.map((faq, fIdx) => (
                   <div
                     key={fIdx}
-                    className="p-5 sm:p-6 rounded-2xl bg-[#FAF7F2] border border-[#E8DEC8] shadow-sm"
+                    className="p-5 sm:p-6 bg-white border border-[#EAE6DF]"
                   >
                     <h4 className="font-serif text-base sm:text-lg font-medium text-[#141416] mb-2">
                       {faq.question}
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#4A4A52] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -386,30 +399,33 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
           )}
 
           {/* Bottom WhatsApp CTA & Back to Articles */}
-          <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#FAF7F2] via-white to-[#FAF7F2] border border-[#E8DEC8] text-center space-y-4 shadow-sm">
-            <h3 className="font-serif text-2xl text-[#141416]">
-              Have a Specific Goldsmithing or Gold Investment Question?
+          <div className="mt-16 p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#996515] block">
+              [ DIRECT WORKSHOP CONCIERGE ]
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl text-[#141416] font-normal">
+              Have a Specific Goldsmithing or Bullion Question?
             </h3>
-            <p className="text-xs sm:text-sm text-[#4A4A52] max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-[#57534E] max-w-xl mx-auto leading-relaxed">
               Our master goldsmiths are available directly on WhatsApp to answer technical metallurgical questions, inspect reference photos, or verify live bullion spot rates.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
               <a
                 href={whatsappInquiryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
               >
                 <MessageCircle className="w-4 h-4 fill-white text-transparent" />
-                <span>Chat with Atelier Concierge</span>
+                <span>WhatsApp Atelier Concierge</span>
               </a>
 
               <Link
                 href="/articles"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] text-[#141416] font-semibold text-xs tracking-wider transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
-                <span>All Atelier Articles</span>
+                <span>All Articles &amp; Guides</span>
               </Link>
             </div>
           </div>

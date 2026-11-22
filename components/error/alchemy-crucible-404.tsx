@@ -748,7 +748,7 @@ export function AlchemyCrucible404() {
             <p className="text-sm sm:text-base text-platinum-muted max-w-2xl leading-relaxed">
               The page, vault archive, or jewellery reference you are looking for
               has been melted in our atelier crucible. In our
-              Hayes workshop, no precious metal is wasted — it is continuously
+              Hayes workshop, no precious metal is wasted: it is continuously
               refined into bespoke bridal suites, certified diamond rings, and
               hallmarked bullion.
             </p>

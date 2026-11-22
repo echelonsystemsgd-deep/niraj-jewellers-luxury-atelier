@@ -143,7 +143,7 @@ export default function BespokePage() {
             Sculpted with passion in our Hayes goldsmith studio
           </p>
           <p className="text-sm sm:text-base text-[#4A4A52] max-w-2xl mx-auto leading-relaxed">
-            Collaborate directly with our master goldsmiths on Uxbridge Road. Bring an Instagram photo, family heirloom sketch, or rough idea — we convert it into a photorealistic 3D CAD render and cast it in solid precious metal.
+            Collaborate directly with our master goldsmiths on Uxbridge Road. Bring an Instagram photo, family heirloom sketch, or rough idea: we convert it into a photorealistic 3D CAD render and cast it in solid precious metal.
           </p>
 
           <div className="pt-2 flex justify-center">

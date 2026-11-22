@@ -1,15 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { MapPin, Clock, Car, Train, Phone, Navigation, ChevronDown, ChevronUp, Mail, ShieldCheck } from "lucide-react";
+import { MapPin, Clock, Car, Train, Phone, Navigation, ChevronDown, ChevronUp, Mail, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/luxury-icons";
 import { ShowroomStatusBadge } from "@/components/header/showroom-status";
 import {
   NIRAJ_MAPS_LINK,
   NIRAJ_SHOWROOM_ADDRESS,
-  NIRAJ_UK_PHONE,
-  NIRAJ_DISPLAY_PHONE,
   NIRAJ_LANDLINE_PHONE,
   NIRAJ_MOBILE_PHONE,
   NIRAJ_EMAIL,
@@ -23,8 +20,9 @@ interface ShowroomHubProps {
   address?: string;
 }
 
-export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) {
-  const [hoursOpen, setHoursOpen] = useState(false);
+export function ShowroomHub({ openingHours }: ShowroomHubProps) {
+  // Hours are OPEN by default per Captain feedback
+  const [hoursOpen, setHoursOpen] = useState(true);
   const [londonInfo, setLondonInfo] = useState<{ dayName: string; formattedTime: string; dateStr: string } | null>(null);
 
   useEffect(() => {
@@ -38,169 +36,187 @@ export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) 
   const whatsappDirections = buildWhatsAppLink({
     source: "showroom_hub_directions",
     visitPurpose: "Showroom Visit & Directions Inquiry",
-    customNote: "Hi Niraj Jewellers team, I am planning to visit your Hayes showroom today / this week. Could you confirm if you have availability for a consultation?",
+    customNote: "Hi Niraj Jewellers team, I am planning to visit your Hayes showroom today or this week. Could you confirm if you have availability for a consultation?",
   });
 
   const hoursList = [
-    { day: "Monday", hours: openingHours?.monday || "12:00 – 17:00", note: "Afternoon workshop hours" },
-    { day: "Tuesday", hours: openingHours?.tuesday || "11:00 – 17:30", note: "Full atelier bench access" },
-    { day: "Wednesday", hours: openingHours?.wednesday || "11:00 – 17:30", note: "Full atelier bench access" },
-    { day: "Thursday", hours: openingHours?.thursday || "11:00 – 17:30", note: "Full atelier bench access" },
-    { day: "Friday", hours: openingHours?.friday || "11:00 – 17:30", note: "Full atelier bench access" },
-    { day: "Saturday", hours: openingHours?.saturday || "11:00 – 17:30", note: "Weekend bridal consultations" },
-    { day: "Sunday", hours: openingHours?.sunday || "Closed", note: "Open select Sundays prior to Diwali, Karva Chauth & Christmas" },
+    { day: "Monday", hours: openingHours?.monday || "12:00 to 17:00", note: "Afternoon workshop hours" },
+    { day: "Tuesday", hours: openingHours?.tuesday || "11:00 to 17:30", note: "Full atelier bench access" },
+    { day: "Wednesday", hours: openingHours?.wednesday || "11:00 to 17:30", note: "Full atelier bench access" },
+    { day: "Thursday", hours: openingHours?.thursday || "11:00 to 17:30", note: "Full atelier bench access" },
+    { day: "Friday", hours: openingHours?.friday || "11:00 to 17:30", note: "Full atelier bench access" },
+    { day: "Saturday", hours: openingHours?.saturday || "11:00 to 17:30", note: "Weekend bridal consultations" },
+    { day: "Sunday", hours: openingHours?.sunday || "Closed", note: "Open select Sundays prior to Diwali, Karva Chauth and Christmas" },
   ];
 
   return (
-    <section id="showroom" className="py-20 sm:py-28 bg-white border-y border-[#E8DEC8] relative">
+    <section id="showroom" className="py-16 sm:py-24 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#996515]">
-            <MapPin className="w-3.5 h-3.5" />
-            <span>Flagship Hayes Atelier &amp; Bullion Showroom</span>
-          </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
-            Visit Us on Uxbridge Road
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#996515] block mb-2">
+            [ 02 / LOCATION, HOURS &amp; LOGISTICS ]
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#141416] font-normal tracking-tight mb-4">
+            Visit the Hayes Atelier on Uxbridge Road
           </h2>
-          <p className="font-vivaldi text-2xl sm:text-3xl text-[#996515] font-normal">
-            West London&apos;s premier bespoke goldsmith destination
-          </p>
-          <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
-            Located in the heart of Hayes, West London. Experience direct workshop goldsmithing, certified diamond testing, and live bullion transactions.
+          <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
+            Conveniently positioned along the A40 / M4 corridor in Hayes, West London. Direct walk-in access for same-day repairs, private bridal viewings, and physical bullion testing.
           </p>
         </div>
 
-        {/* Showroom Hub Grid */}
+        {/* 3 Showroom Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#EAE6DF] border border-[#EAE6DF] mb-12">
+          <div className="bg-white p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#996515] block mb-2">
+                SERVICE 01
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl text-[#141416] font-normal mb-3">
+                Walk-ins &amp; Instant Repairs
+              </h3>
+              <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed mb-4">
+                No appointment needed for urgent chain soldering, ring sizing, claw retipping, or ultrasonic jewelry cleaning. Speak directly to the goldsmith at the bench.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-[#EAE6DF] text-xs font-mono text-[#8C6212]">
+              Typical turnaround: 2 to 4 hours
+            </div>
+          </div>
+
+          <div className="bg-white p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#996515] block mb-2">
+                SERVICE 02
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl text-[#141416] font-normal mb-3">
+                Private Bridal Suites
+              </h3>
+              <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed mb-4">
+                Try on handcrafted 22ct chokers, raani haars, kadas, and Polki suites in our private viewing lounge. Review 3D CAD renders and gemstone options with our master team.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-[#EAE6DF] text-xs font-mono text-[#8C6212]">
+              Complimentary velvet tray viewing
+            </div>
+          </div>
+
+          <div className="bg-white p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#996515] block mb-2">
+                SERVICE 03
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl text-[#141416] font-normal mb-3">
+                LBMA Bullion &amp; Scrap Gold
+              </h3>
+              <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed mb-4">
+                Transparent physical bullion trading. Minted 24ct bars, sovereigns, and ancestral gold scrap weighed on certified Class II balances with instant bank payouts.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-[#EAE6DF] text-xs font-mono text-[#8C6212]">
+              Live market spot rates locked on site
+            </div>
+          </div>
+        </div>
+
+        {/* Map & Live Hours Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Location & Live Status Card */}
-          <div className="lg:col-span-7 bg-[#FAF7F2] p-7 sm:p-8 rounded-2xl border border-[#E8DEC8] shadow-sm space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#E8DEC8]">
+          {/* Left: Google Map Embed per Captain instruction */}
+          <div className="lg:col-span-7 bg-white border border-[#EAE6DF] overflow-hidden flex flex-col">
+            <div className="p-5 sm:p-6 border-b border-[#EAE6DF] flex flex-wrap items-center justify-between gap-3">
               <div>
-                <span className="text-[11px] font-bold text-[#8C6212] uppercase tracking-wider block">
-                  Showroom Address
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#996515] block">
+                  FLAGSHIP WORKSHOP LOCATION
                 </span>
-                <h3 className="font-serif text-2xl font-medium text-[#141416] mt-0.5">
-                  Niraj Jewellers Ltd
+                <h3 className="font-serif text-xl sm:text-2xl text-[#141416] font-normal mt-0.5">
+                  136 Uxbridge Road, Hayes UB4 0JH
                 </h3>
               </div>
               <ShowroomStatusBadge />
             </div>
 
-            {/* Address & Direct Map Launcher */}
-            <div className="p-5 rounded-xl bg-white border border-[#E8DEC8] space-y-3.5 shadow-sm">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#996515] shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-[#141416] font-semibold text-sm sm:text-base">
-                    {NIRAJ_SHOWROOM_ADDRESS}
-                  </p>
-                  <p className="text-xs text-[#5A5960] mt-0.5">
-                    Hayes, Middlesex (M4 / A40 corridor, West London)
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-2 flex flex-wrap gap-2.5">
-                <a
-                  href={NIRAJ_MAPS_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#C5A059] to-[#996515] text-white font-bold text-xs uppercase tracking-wide transition-all shadow-sm hover:shadow min-h-[44px]"
-                >
-                  <Navigation className="w-3.5 h-3.5" />
-                  <span>Open in Google Maps</span>
-                </a>
-
-                <a
-                  href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all font-mono min-h-[44px]"
-                  title="Call Showroom Landline"
-                >
-                  <Phone className="w-3.5 h-3.5 text-[#996515]" />
-                  <span>Landline: {NIRAJ_LANDLINE_PHONE}</span>
-                </a>
-
-                <a
-                  href={`tel:${NIRAJ_MOBILE_PHONE.replace(/\s+/g, "")}`}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all font-mono min-h-[44px]"
-                  title="Call Workshop Mobile"
-                >
-                  <Phone className="w-3.5 h-3.5 text-[#996515]" />
-                  <span>Mobile: {NIRAJ_MOBILE_PHONE}</span>
-                </a>
-
-                <a
-                  href={`mailto:${NIRAJ_EMAIL}`}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-[#141416] text-xs font-semibold transition-all min-h-[44px]"
-                >
-                  <Mail className="w-3.5 h-3.5 text-[#996515]" />
-                  <span>{NIRAJ_EMAIL}</span>
-                </a>
-              </div>
+            {/* Embedded Google Map */}
+            <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] min-h-[340px] bg-[#F5F2EB]">
+              <iframe
+                title="Niraj Jewellers Showroom Google Map"
+                src="https://maps.google.com/maps?q=136+Uxbridge+Road,+Hayes,+UB4+0JH,+UK&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
 
-            {/* Nearby Logistics & Parking */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-              <div className="p-4 rounded-xl bg-white border border-[#E8DEC8] space-y-1.5 shadow-sm">
-                <div className="flex items-center gap-2 text-[#996515] font-bold">
-                  <Car className="w-4 h-4" />
+            {/* Parking & Transport Notice */}
+            <div className="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-[#EAE6DF] bg-[#FAF8F5] text-xs">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 font-mono font-semibold text-[#141416]">
+                  <Car className="w-4 h-4 text-[#996515]" />
                   <span>Roadside Parking</span>
                 </div>
-                <p className="text-[#4A4A52] leading-relaxed">
-                  Convenient roadside customer parking available directly outside and along Uxbridge Road.
+                <p className="text-[#57534E] leading-relaxed">
+                  Available roadside customer parking directly outside and along Uxbridge Road.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white border border-[#E8DEC8] space-y-1.5 shadow-sm">
-                <div className="flex items-center gap-2 text-[#996515] font-bold">
-                  <Train className="w-4 h-4" />
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 font-mono font-semibold text-[#141416]">
+                  <Train className="w-4 h-4 text-[#996515]" />
                   <span>Public Transport</span>
                 </div>
-                <p className="text-[#4A4A52] leading-relaxed">
-                  Minutes from <strong>Hayes &amp; Harlington</strong> (Elizabeth Line) and direct bus routes 427, 207, 607 stopping near the showroom.
+                <p className="text-[#57534E] leading-relaxed">
+                  Minutes from <strong>Hayes &amp; Harlington</strong> (Elizabeth Line) with direct bus connections (427, 207, 607) stopping near the door.
                 </p>
               </div>
             </div>
 
-            {/* Action Bar */}
-            <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              <a
-                href={NIRAJ_MAPS_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-1/2 py-3.5 rounded-xl bg-white hover:bg-[#FAF7F2] border border-[#D4AF37]/50 text-[#8C6212] hover:text-[#996515] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm min-h-[48px]"
-              >
-                <Navigation className="w-4 h-4 text-[#996515]" />
-                <span>Get Driving Directions</span>
-              </a>
-
+            {/* Action Buttons */}
+            <div className="p-5 sm:p-6 border-t border-[#EAE6DF] flex flex-wrap gap-3">
               <a
                 href={whatsappDirections}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-1/2 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md min-h-[48px]"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#1ebd59] text-white font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4" fill="white" />
-                <span>WhatsApp Ahead of Arrival</span>
+                <span>WhatsApp Ahead</span>
+              </a>
+
+              <a
+                href={NIRAJ_MAPS_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
+              >
+                <Navigation className="w-3.5 h-3.5 text-[#996515]" />
+                <span>Open in Google Maps</span>
+              </a>
+
+              <a
+                href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`}
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#996515]" />
+                <span>Call {NIRAJ_LANDLINE_PHONE}</span>
               </a>
             </div>
           </div>
 
-          {/* Right Column: Interactive Operating Hours Accordion */}
-          <div className="lg:col-span-5 bg-[#FAF7F2] p-7 sm:p-8 rounded-2xl border border-[#E8DEC8] shadow-sm space-y-6">
+          {/* Right: Opening Hours (Open by Default per Captain feedback) */}
+          <div className="lg:col-span-5 bg-white border border-[#EAE6DF] p-6 sm:p-8 space-y-6">
             <div
               onClick={() => setHoursOpen(!hoursOpen)}
-              className="flex items-center justify-between pb-4 border-b border-[#E8DEC8] cursor-pointer group select-none"
+              className="flex items-center justify-between pb-4 border-b border-[#EAE6DF] cursor-pointer group select-none"
             >
               <div className="flex items-center gap-2.5 text-[#996515]">
-                <Clock className="w-5 h-5 text-[#996515] group-hover:scale-105 transition-transform" />
+                <Clock className="w-5 h-5 text-[#996515]" />
                 <div>
-                  <h3 className="font-serif text-xl font-medium text-[#141416] group-hover:text-[#996515] transition-colors leading-tight">
+                  <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#141416] group-hover:text-[#996515] transition-colors leading-tight">
                     Opening Hours
                   </h3>
                   {londonInfo && (
-                    <span className="text-[11px] text-[#5A5960] font-mono block mt-0.5">
+                    <span className="text-xs text-[#78716C] font-mono block mt-0.5">
                       London: <strong className="text-[#8C6212] font-semibold">{londonInfo.dayName}</strong>, {londonInfo.formattedTime}
                     </span>
                   )}
@@ -208,13 +224,13 @@ export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) 
               </div>
               <div className="flex items-center gap-2">
                 {londonInfo && (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-medium bg-emerald-50 border border-emerald-300 text-emerald-800">
+                  <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-mono font-medium bg-[#FAF8F5] border border-[#EAE6DF] text-[#8C6212]">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     Live GMT
                   </span>
                 )}
                 <div
-                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-white border border-[#E8DEC8] group-hover:border-[#D4AF37] flex items-center justify-center text-[#5A5960] group-hover:text-[#996515] transition-colors shadow-sm"
+                  className="w-8 h-8 bg-[#FAF8F5] border border-[#EAE6DF] flex items-center justify-center text-[#57534E]"
                   aria-label="Toggle hours"
                 >
                   {hoursOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -223,7 +239,7 @@ export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) 
             </div>
 
             {hoursOpen && (
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 {hoursList.map((item, idx) => {
                   const isToday = londonInfo?.dayName === item.day;
                   const isSunday = item.day === "Sunday";
@@ -231,32 +247,32 @@ export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) 
                   return (
                     <div
                       key={idx}
-                      className={`p-3.5 rounded-xl border text-xs flex items-center justify-between transition-all ${
+                      className={`p-3 border text-xs flex items-center justify-between transition-colors ${
                         isToday
-                          ? "bg-white border-[#D4AF37] ring-1 ring-[#D4AF37]/50 shadow-md text-[#141416]"
+                          ? "bg-[#FAF8F5] border-[#996515] text-[#141416]"
                           : isSunday
-                          ? "bg-white/50 border-[#E8DEC8] text-[#7A7880]"
-                          : "bg-white border-[#E8DEC8] text-[#4A4A52]"
+                          ? "bg-[#FAF8F5]/60 border-[#EAE6DF] text-[#78716C]"
+                          : "bg-white border-[#EAE6DF] text-[#57534E]"
                       }`}
                     >
-                      <div className="flex items-center gap-2.5">
+                      <div className="flex items-center gap-2">
                         {isToday && (
-                          <span className="px-1.5 py-0.5 rounded text-[9px] font-mono uppercase tracking-wider font-bold bg-[#996515] text-white shadow-sm">
+                          <span className="px-1.5 py-0.5 text-[9px] font-mono uppercase tracking-wider font-bold bg-[#996515] text-white">
                             Today
                           </span>
                         )}
                         <div>
-                          <span className={`font-semibold block ${isToday ? "text-[#8C6212]" : isSunday ? "text-[#7A7880]" : "text-[#141416]"}`}>
+                          <span className={`font-medium block ${isToday ? "text-[#8C6212]" : isSunday ? "text-[#78716C]" : "text-[#141416]"}`}>
                             {item.day}
                           </span>
-                          <span className="text-[10px] text-[#7A7880] block">{item.note}</span>
+                          <span className="text-[10px] text-[#78716C] block">{item.note}</span>
                         </div>
                       </div>
-                      <span className={`font-mono font-semibold ${
+                      <span className={`font-mono ${
                         isToday
                           ? "text-[#8C6212] font-bold text-sm"
                           : isSunday
-                          ? "text-[#A19FA8]"
+                          ? "text-[#A8A29E]"
                           : "text-[#141416]"
                       }`}>
                         {item.hours}
@@ -265,12 +281,12 @@ export function ShowroomHub({ openingHours, phone, address }: ShowroomHubProps) 
                   );
                 })}
 
-                {/* Sunday Festive Exceptions Callout */}
-                <div className="p-3.5 rounded-xl bg-white border border-[#D4AF37]/40 text-[11px] text-[#4A4A52] leading-relaxed shadow-sm">
-                  <span className="font-bold text-[#8C6212] block mb-0.5">
+                {/* Festive Sunday Opening Notice */}
+                <div className="mt-4 p-4 bg-[#FAF8F5] border border-[#EAE6DF] text-xs text-[#57534E] leading-relaxed">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#996515] font-bold block mb-1">
                     Festive &amp; Bridal Sunday Openings:
                   </span>
-                  We open on selected Sundays in the weeks leading up to Diwali, Karva Chauth, Dhanteras, and Christmas. Special festive bridal viewings and custom consultations can also be arranged outside standard hours.
+                  We open on selected Sundays in the weeks leading up to Diwali, Karva Chauth, Dhanteras, and Christmas. Private bridal viewings can also be arranged outside standard hours.
                 </div>
               </div>
             )}
