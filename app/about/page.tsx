@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { SubpageNav } from "@/components/header/subpage-nav";
+import { AtelierNavbar } from "@/components/atelier/AtelierNavbar";
 import { Footer } from "@/components/footer/footer";
 import { 
-  Sparkles, 
   ShieldCheck, 
   Gem, 
   Hammer, 
@@ -13,21 +12,24 @@ import {
   Clock, 
   MapPin, 
   Phone, 
-  MessageCircle, 
+  MessageSquare, 
   ArrowRight, 
-  CheckCircle2 
+  CheckCircle2,
+  Sparkles,
+  Zap,
+  Check
 } from "lucide-react";
-import { buildWhatsAppLink, NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE, NIRAJ_SHOWROOM_ADDRESS } from "@/lib/whatsapp";
+import { NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE, NIRAJ_SHOWROOM_ADDRESS } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "About Us | Niraj Jewellers Ltd — Hayes, London Goldsmith Heritage Since 1984",
+  title: "About Us | Niraj Jewellers Ltd · Hayes London Goldsmith Heritage Since 1984",
   description:
-    "Discover the 40+ year heritage of Niraj Jewellers Ltd. London's premier 22ct South Asian bridal goldsmith atelier and direct bullion dealer on Uxbridge Road, Hayes.",
+    "Discover the 42-year workshop lineage of Niraj Jewellers Ltd. London's premier 22ct South Asian bridal goldsmith atelier and direct bullion dealer on Uxbridge Road, Hayes.",
   alternates: {
     canonical: "https://www.niraj-jewellers.co.uk/about",
   },
   openGraph: {
-    title: "About Us | Niraj Jewellers Ltd — London Goldsmith Atelier Since 1984",
+    title: "About Us | Niraj Jewellers Ltd · London Goldsmith Atelier Since 1984",
     description:
       "Four decades of generational goldsmithing. Handcrafted 22ct bridal suites, certified natural diamonds, London Assay Office hallmarking, and direct workshop access.",
     url: "https://www.niraj-jewellers.co.uk/about",
@@ -43,10 +45,9 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const whatsappAboutLink = buildWhatsAppLink({
-    source: "about_page",
-    customNote: "Hello Niraj Jewellers team, I was reading your About Us page and would like to learn more about visiting your Hayes showroom or commissioning a bespoke piece.",
-  });
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=447955565137&text=${encodeURIComponent(
+    "Hello Niraj Jewellers workshop team, I was reading your About Us page and would like to learn more about visiting your Hayes showroom or commissioning a bespoke piece."
+  )}`;
 
   const aboutJsonLd = {
     "@context": "https://schema.org",
@@ -93,235 +94,334 @@ export default function AboutPage() {
 
   const pillars = [
     {
+      num: "01",
       icon: Hammer,
       title: "In-House Workshop Exclusivity",
       subtitle: "Zero Middleman Markups",
-      description: "Unlike high-street retailers who outsource to overseas mass-production factories, our master goldsmiths craft, set, and polish every piece inside our Hayes workshop.",
+      description: "Unlike high-street retailers who outsource casting to mass factories, our master goldsmiths forge, set, and polish every piece inside our Hayes benches.",
+      spec: "100% PREMISES CRAFT",
     },
     {
+      num: "02",
       icon: ShieldCheck,
-      title: "100% London Assay Hallmarking",
+      title: "London Assay Leopard's Head",
       subtitle: "British Legal Guarantee",
-      description: "Every single piece of 22ct (916) and 18ct (750) jewellery is independently tested and struck by the Goldsmiths' Company Assay Office in London.",
+      description: "Every single creation in 22ct (916) and 18ct (750) gold is independently tested and struck at Goldsmiths' Hall by the UK London Assay Office.",
+      spec: "HALLMARKING ACT 1973",
     },
     {
+      num: "03",
       icon: Scale,
-      title: "Live Bullion Transparency",
-      subtitle: "Trade-Approved Scales",
-      description: "We weigh and test ancestral gold directly before your eyes on government-stamped precision scales, applying live LBMA bullion spot prices with complete integrity.",
+      title: "Trade-Approved Bullion Scales",
+      subtitle: "Full Weight Transparency",
+      description: "We weigh gold directly in front of you on government-stamped precision Class II balances calibrated to 0.01g, referencing live spot rates.",
+      spec: "CALIBRATED TO GRAIN",
     },
     {
+      num: "04",
       icon: Gem,
-      title: "Natural Gems & Syndicate Polki",
+      title: "Syndicate Polki & Natural Gems",
       subtitle: "Uncut Certified Stones",
-      description: "From unheated Burmese rubies and carved Zambian emeralds to certified natural diamonds, we source authentic gemstones directly from certified gemological cutters.",
+      description: "From unheated Burmese rubies and carved Zambian emeralds to certified natural diamonds, every stone is handset in pure Kundan 24ct foil.",
+      spec: "CERTIFIED NATURAL",
+    },
+  ];
+
+  const milestones = [
+    {
+      year: "1984",
+      era: "Founding Era",
+      title: "Founding the Hayes Bench",
+      desc: "Niraj Jewellers Ltd opened at 136 Uxbridge Road with a traditional anvil and torch bench to craft genuine solid 22ct bridal gold for London families.",
+      image: "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
+      imageAlt: "1984 Founding Hayes goldsmith bench and order ledger",
+      tag: "EST. 1984 BENCH",
+    },
+    {
+      year: "1998",
+      era: "Laser Expansion",
+      title: "In-House Laser Technology",
+      desc: "Integrated micro-pulse laser welding and ultrasonic restoration, bringing end-to-end manufacturing and same-day sizing in-house with zero outsourcing delays.",
+      image: "/images/workshop/workshop-bench-velvet-trays.jpg",
+      imageAlt: "Hayes atelier workshop consultation trays and benchcraft",
+      tag: "SAME-DAY REPAIRS",
+    },
+    {
+      year: "2012",
+      era: "Digital Precision",
+      title: "3D CAD & Resin Prototyping",
+      desc: "Integrated advanced CAD modeling, allowing bridal couples to inspect photorealistic 360-degree renders and high-density resin prototypes before casting.",
+      image: "/images/cad/bespoke-evil-eye-sapphire-cad.jpg",
+      imageAlt: "Photorealistic 3D CAD jewellery rendering",
+      tag: "3D CAD MODELING",
+    },
+    {
+      year: "Today",
+      era: "Digital Flagship",
+      title: "London's Premier 22ct Destination",
+      desc: "Over 42 years of continuous family heritage, thousands of bespoke heirloom commissions, and an undisputed reputation as direct bridal masters.",
+      image: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
+      imageAlt: "Handcrafted 22ct gold filigree bridal suite",
+      tag: "DIRECT ATELIER ACCESS",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#141416] selection:bg-[#DFBF7A]/30">
+    <div className="min-h-screen bg-[#FAF9F5] text-[#141416] selection:bg-[#C6A75E]/30 selection:text-[#141416]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
       />
 
-      <SubpageNav currentTitle="About Us" />
+      {/* Unified Digital Flagship Navigation */}
+      <AtelierNavbar />
 
-      <main className="pt-28 pb-20 sm:pt-36 sm:pb-28">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden mb-20 sm:mb-28">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto text-center space-y-4">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#D4AF37]/40 shadow-sm text-xs font-bold text-[#8C6212] uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-[#996515]" />
-                <span>Established 1984 • 40+ Years of Craftsmanship</span>
+      <main className="pt-24 sm:pt-28 pb-20 sm:pb-28">
+        {/* Editorial Hero Section */}
+        <section className="w-full border-b border-[#E7E2DA] pb-16 sm:pb-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center space-y-6">
+              <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E]">
+                <span className="w-2 h-2 rounded-full bg-[#C6A75E]"></span>
+                <span>[ 01 / GENERATIONAL GOLDSMITH LINEAGE · EST. 1984 ]</span>
               </div>
 
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#141416] tracking-tight leading-tight">
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#141416] tracking-tight leading-[1.15]">
                 Generational Goldsmithing on Uxbridge Road
               </h1>
 
-              <p className="font-vivaldi text-3xl sm:text-4xl text-[#996515] font-normal">
-                Four Decades of British &amp; South Asian Gold Heritage
+              <p className="font-sans text-xs sm:text-sm md:text-base text-[#57534E] leading-relaxed max-w-2xl mx-auto">
+                Four decades of authentic British and South Asian master benchwork. Every bridal choker, kada, and solitaire is born on our own Hayes benches with zero high-street retail markups.
               </p>
 
-              <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed max-w-2xl mx-auto pt-2">
-                At Niraj Jewellers Ltd, every bridal choker, kada, and solitaire is born on our own workbenches. We bridge ancient royal Kundan and Polki artistry with uncompromising British London Assay hallmarking.
-              </p>
-
-              <div className="pt-4 flex flex-wrap items-center justify-center gap-3.5">
+              {/* Dual Action CTAs */}
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
                 <a
-                  href={whatsappAboutLink}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md transform hover:-translate-y-0.5"
+                  className="px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-mono text-xs tracking-[0.14em] uppercase font-bold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.99] cursor-pointer min-h-[44px]"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white text-transparent" />
-                  <span>Speak with Our Workshop Team</span>
+                  <MessageSquare className="w-4 h-4 fill-white text-white shrink-0" />
+                  <span>WHATSAPP WORKSHOP TEAM</span>
                 </a>
 
                 <Link
                   href="/collections"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-xs font-semibold text-[#141416] tracking-wider transition-colors shadow-sm"
+                  className="px-6 py-3.5 bg-[#141416] hover:bg-[#C6A75E] text-[#FAF9F5] hover:text-[#141416] font-mono text-xs tracking-[0.16em] uppercase font-bold flex items-center justify-center gap-2 transition-all shadow-xs min-h-[44px] group"
                 >
-                  <span>Explore Masterpieces</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#8C6212]" />
+                  <span>EXPLORE 54-PIECE VAULT</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* The Heritage Story & Workshop Photos */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Workshop Image Collage */}
-            <div className="space-y-4">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-xl bg-white">
-                <Image
-                  src="/images/workshop/goldsmith-bench-order-book-22ct.jpg"
-                  alt="Niraj Jewellers Workshop Order Book and Bench"
-                  fill
-                  unoptimized
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E8DEC8] flex items-center justify-between shadow-md">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#8C6212] block">
-                      Authentic Workshop Record
-                    </span>
-                    <span className="text-xs font-semibold text-[#141416]">
-                      Hayes Goldsmith Bench • 136 Uxbridge Road
-                    </span>
-                  </div>
-                  <ShieldCheck className="w-5 h-5 text-[#996515]" />
+              {/* 4 Architectural Trust Badges */}
+              <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto font-mono text-[10px] text-[#7A705E] uppercase tracking-wider">
+                <div className="p-3 bg-white border border-[#E7E2DA] flex items-center justify-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C6A75E]"></span>
+                  <span className="text-[#141416] font-semibold">1984 ESTABLISHED</span>
                 </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#E8DEC8] shadow-md bg-white">
-                  <Image
-                    src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
-                    alt="22ct Gold Filigree Craftsmanship"
-                    fill
-                    unoptimized
-                    sizes="(max-width: 1024px) 50vw, 25vw"
-                    className="object-cover"
-                  />
+                <div className="p-3 bg-white border border-[#E7E2DA] flex items-center justify-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C6A75E]"></span>
+                  <span className="text-[#141416] font-semibold">42-YEAR LINEAGE</span>
                 </div>
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#E8DEC8] shadow-md bg-white">
-                  <Image
-                    src="/images/workshop/workshop-bench-velvet-trays.jpg"
-                    alt="Velvet Trays in Workshop"
-                    fill
-                    unoptimized
-                    sizes="(max-width: 1024px) 50vw, 25vw"
-                    className="object-cover"
-                  />
+                <div className="p-3 bg-white border border-[#E7E2DA] flex items-center justify-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C6A75E]"></span>
+                  <span className="text-[#141416] font-semibold">100% IN-HOUSE</span>
                 </div>
-              </div>
-            </div>
-
-            {/* Right: Narrative */}
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#996515]">
-                <Award className="w-4 h-4" />
-                <span>Our Story &amp; Philosophy</span>
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#141416] leading-tight">
-                Why Families Have Trusted Niraj Jewellers for 40+ Years
-              </h2>
-
-              <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
-                When Niraj Jewellers opened in 1984 on Uxbridge Road in Hayes, the vision was simple: provide South Asian families with authentic, uncompromised 22ct (916) gold craftsmanship, crafted on-site with total transparency and zero high-street markups.
-              </p>
-
-              <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
-                Over four decades, high-street retail jewelers shifted their business models toward commercial marketing, overseas casting factories, and inflated retail margins. Niraj Jewellers Ltd remained committed to the anvil, torch, and jeweler&apos;s loupe.
-              </p>
-
-              <div className="space-y-3 pt-2">
-                {[
-                  "No third-party workshop transfers — your jewellery stays securely in Hayes.",
-                  "Transparent electronic bullion weighing in front of you at all times.",
-                  "Complimentary unlimited 3D CAD design revisions on custom commissions.",
-                  "Full legal documentation and official London Assay Office certification.",
-                ].map((point, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#996515] shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-[#141416] font-medium">
-                      {point}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-4 flex items-center gap-6">
-                <div>
-                  <span className="font-serif text-3xl font-bold text-[#8C6212] block">1984</span>
-                  <span className="text-[11px] uppercase tracking-wider text-[#5A5960]">Year Established</span>
-                </div>
-                <div className="w-px h-10 bg-[#E8DEC8]" />
-                <div>
-                  <span className="font-serif text-3xl font-bold text-[#8C6212] block">40+</span>
-                  <span className="text-[11px] uppercase tracking-wider text-[#5A5960]">Years Experience</span>
-                </div>
-                <div className="w-px h-10 bg-[#E8DEC8]" />
-                <div>
-                  <span className="font-serif text-3xl font-bold text-[#8C6212] block">100%</span>
-                  <span className="text-[11px] uppercase tracking-wider text-[#5A5960]">London Hallmarked</span>
+                <div className="p-3 bg-white border border-[#E7E2DA] flex items-center justify-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C6A75E]"></span>
+                  <span className="text-[#141416] font-semibold">LONDON ASSAY</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4 Pillars of Excellence with Hammered Gold Accents */}
-        <section className="bg-[#FAF9F5] texture-ivory-paper py-20 sm:py-28 border-y border-[#E8DEC8] mb-24 relative overflow-hidden">
+        {/* The Direct Workshop Advantage: Authentic Proof & Differentiators */}
+        <section className="w-full border-b border-[#E7E2DA] py-16 sm:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#996515]">
-                Atelier Standards &amp; Verification
-              </span>
-              <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
-                The Four Pillars of Niraj Jewellers Ltd
-              </h2>
-              <p className="text-sm text-[#4A4A52] leading-relaxed">
-                Every heirloom piece leaving our Hayes atelier reflects our uncompromising standard of metallurgical purity, workshop security, and physical proof.
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* Left Column: Workshop Photography & Evidence */}
+              <div className="lg:col-span-6 space-y-4">
+                <div className="relative aspect-[4/3] w-full border border-[#E7E2DA] bg-[#0E0D0C] overflow-hidden">
+                  <Image
+                    src="/images/workshop/goldsmith-bench-order-book-22ct.jpg"
+                    alt="Authentic Niraj Jewellers Hayes Goldsmith Bench"
+                    fill
+                    unoptimized
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute bottom-3 left-3 right-3 p-3 bg-[#141416]/90 backdrop-blur-md border border-[#2C2825] flex items-center justify-between text-[#FAF9F5] font-mono text-[10px] tracking-wider uppercase">
+                    <span>HAYES BENCH · 136 UXBRIDGE ROAD</span>
+                    <span className="text-[#C6A75E] font-semibold">HISTORIC BENCH LEDGER</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="relative aspect-[4/3] border border-[#E7E2DA] bg-[#F6F3ED] overflow-hidden">
+                    <Image
+                      src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
+                      alt="22ct Gold Filigree Craftsmanship"
+                      fill
+                      unoptimized
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-[#141416]/90 text-[9px] font-mono text-[#FAF9F5] uppercase">
+                      Solid 22ct Filigree
+                    </div>
+                  </div>
+                  <div className="relative aspect-[4/3] border border-[#E7E2DA] bg-[#F6F3ED] overflow-hidden">
+                    <Image
+                      src="/images/workshop/workshop-bench-velvet-trays.jpg"
+                      alt="Velvet Display Trays on Workshop Bench"
+                      fill
+                      unoptimized
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-[#141416]/90 text-[9px] font-mono text-[#FAF9F5] uppercase">
+                      Client Viewing Trays
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Authentic Differentiators */}
+              <div className="lg:col-span-6 space-y-6">
+                <div>
+                  <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E] block mb-2">
+                    [ 02 / THE DIRECT WORKSHOP ADVANTAGE ]
+                  </span>
+                  <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
+                    Why Generations of Families Choose Niraj Jewellers
+                  </h2>
+                </div>
+
+                <p className="font-sans text-xs sm:text-sm text-[#57534E] leading-relaxed">
+                  When Niraj Jewellers opened in 1984 on Uxbridge Road in Hayes, the foundation was straightforward: provide families with authentic, uncompromised 22ct (916) gold craftsmanship, crafted on-site with total transparency and zero high-street markups.
+                </p>
+
+                {/* 4 Distinct Concrete Truths */}
+                <div className="space-y-4 pt-2">
+                  <div className="p-4 bg-white border border-[#E7E2DA] flex items-start gap-3.5">
+                    <div className="w-5 h-5 rounded-full bg-[#C6A75E]/10 border border-[#C6A75E]/30 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-[#C6A75E]" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-base font-semibold text-[#141416]">
+                        Zero Third-Party Brokerage
+                      </h3>
+                      <p className="font-sans text-xs text-[#57534E] mt-0.5 leading-relaxed">
+                        Your jewellery never leaves our secure premises. Every sizing, setting, and repair is executed right behind our Hayes showroom counter.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 bg-white border border-[#E7E2DA] flex items-start gap-3.5">
+                    <div className="w-5 h-5 rounded-full bg-[#C6A75E]/10 border border-[#C6A75E]/30 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-[#C6A75E]" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-base font-semibold text-[#141416]">
+                        Live Trade Digital Balances
+                      </h3>
+                      <p className="font-sans text-xs text-[#57534E] mt-0.5 leading-relaxed">
+                        We test and weigh ancestral gold in front of you on certified Class II electronic scales, applying live LBMA bullion rates with complete honesty.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 bg-white border border-[#E7E2DA] flex items-start gap-3.5">
+                    <div className="w-5 h-5 rounded-full bg-[#C6A75E]/10 border border-[#C6A75E]/30 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-[#C6A75E]" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-base font-semibold text-[#141416]">
+                        Independent London Assay Office Stamping
+                      </h3>
+                      <p className="font-sans text-xs text-[#57534E] mt-0.5 leading-relaxed">
+                        We never self-certify. Every piece complies with the British Hallmarking Act 1973 and carries the iconic London Leopard&apos;s Head stamp.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 bg-white border border-[#E7E2DA] flex items-start gap-3.5">
+                    <div className="w-5 h-5 rounded-full bg-[#C6A75E]/10 border border-[#C6A75E]/30 flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-[#C6A75E]" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-base font-semibold text-[#141416]">
+                        Deliberate Solid Mass
+                      </h3>
+                      <p className="font-sans text-xs text-[#57534E] mt-0.5 leading-relaxed">
+                        Commercial fast-fashion jewellery relies on hollow stampings. Niraj Jewellers casts solid walls engineered for 50+ years of ceremonial wear.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* The Four Pillars of Atelier Excellence */}
+        <section className="w-full border-b border-[#E7E2DA] py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7E2DA] pb-8 mb-12 gap-6">
+              <div>
+                <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E] block mb-2">
+                  [ 03 / METALLURGICAL PURITY &amp; STANDARDS ]
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
+                  The Four Pillars of Niraj Jewellers
+                </h2>
+              </div>
+              <p className="font-sans text-xs sm:text-sm text-[#57534E] max-w-md leading-relaxed">
+                Every bespoke piece leaving our Hayes atelier adheres to an uncompromising standard of metallurgical purity, workshop security, and physical verification.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {pillars.map((pillar, pIdx) => {
+            {/* 4-Column Hairline Architectural Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#E7E2DA]">
+              {pillars.map((pillar) => {
                 const IconComponent = pillar.icon;
                 return (
                   <div
-                    key={pIdx}
-                    className="p-6 sm:p-7 rounded-2xl bg-white border border-[#E8DEC8] hover:border-[#D4AF37] transition-all hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group"
+                    key={pillar.num}
+                    className="border-r border-b border-[#E7E2DA] bg-white p-6 sm:p-7 flex flex-col justify-between hover:bg-[#FAF9F5] transition-colors"
                   >
-                    <div className="space-y-4">
-                      <div className="w-12 h-12 rounded-xl texture-hammered-gold border border-white flex items-center justify-center text-[#141416] shadow-md">
-                        <IconComponent className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#8C6212] block">
-                          {pillar.subtitle}
+                    <div>
+                      <div className="flex items-center justify-between font-mono text-xs text-[#7A705E] mb-4">
+                        <span>[ {pillar.num} ]</span>
+                        <span className="text-[#C6A75E] text-[10px] tracking-wider uppercase font-semibold">
+                          {pillar.spec}
                         </span>
-                        <h3 className="font-serif text-xl font-medium text-[#141416] mt-1 group-hover:text-[#996515] transition-colors">
-                          {pillar.title}
-                        </h3>
                       </div>
-                      <p className="text-xs text-[#5A5960] leading-relaxed">
+
+                      <div className="w-10 h-10 border border-[#E7E2DA] bg-[#FAF9F5] flex items-center justify-center text-[#C6A75E] mb-4">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+
+                      <div className="font-mono text-[10px] tracking-wider uppercase text-[#C6A75E] mb-1">
+                        {pillar.subtitle}
+                      </div>
+
+                      <h3 className="font-serif text-lg font-semibold text-[#141416] mb-2 leading-snug">
+                        {pillar.title}
+                      </h3>
+
+                      <p className="font-sans text-xs text-[#57534E] leading-relaxed">
                         {pillar.description}
                       </p>
                     </div>
 
-                    <div className="mt-5 pt-4 border-t border-[#EFE8DA] flex items-center gap-1.5 text-[11px] text-[#8C6212] font-semibold">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-                      <span>Verified Atelier Standard</span>
+                    <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center gap-1.5 font-mono text-[10px] text-[#7A705E]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C6A75E]" />
+                      <span>ATELIER CERTIFIED</span>
                     </div>
                   </div>
                 );
@@ -330,121 +430,69 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Generational Journey — Visual Chronological Timeline with Real Photography */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#996515]">
-              Generational Journey Timeline
-            </span>
-            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
-              Four Decades of Goldsmithing Milestones
-            </h2>
-            <p className="text-sm text-[#4A4A52] leading-relaxed">
-              Trace the evolution of our Hayes atelier from hand-forged 1984 beginnings to advanced 3D CAD bespoke suites.
-            </p>
-          </div>
+        {/* Generational Journey Timeline: Visual Track with Real Workshop Photography */}
+        <section className="w-full border-b border-[#E7E2DA] py-16 sm:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7E2DA] pb-8 mb-12 gap-6">
+              <div>
+                <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E] block mb-2">
+                  [ 04 / CHRONOLOGICAL WORKSHOP TIMELINE ]
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
+                  Four Decades of Goldsmithing Milestones
+                </h2>
+              </div>
+              <p className="font-sans text-xs sm:text-sm text-[#57534E] max-w-md leading-relaxed">
+                Trace the evolution of our Hayes atelier from hand-forged 1984 origins to 3D CAD bespoke technology.
+              </p>
+            </div>
 
-          {/* Timeline Grid with Images & Connecting Track */}
-          <div className="relative">
-            {/* Desktop connecting rule */}
-            <div
-              className="hidden lg:block absolute top-[120px] left-[10%] right-[10%] h-[1.5px] bg-gradient-to-r from-[#DFBF7A]/40 via-[#996515]/60 to-[#DFBF7A]/40 z-0"
-              aria-hidden="true"
-            />
-
-            {/* Vertical Connecting Spine for Mobile */}
-            <div
-              className="md:hidden absolute top-6 bottom-6 left-3.5 w-[2px] bg-gradient-to-b from-[#DFBF7A] via-[#996515] to-[#DFBF7A] z-0"
-              aria-hidden="true"
-            />
-
-            <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative z-10">
-              {[
-                {
-                  year: "1984",
-                  title: "Founding the Hayes Atelier",
-                  desc: "Niraj Jewellers Ltd opened at 136 Uxbridge Road with a traditional goldsmith bench to craft genuine 22ct bridal gold for West London.",
-                  image: "/images/workshop/goldsmith-bench-order-book-22ct.jpg",
-                  imageAlt: "1984 Founding Hayes goldsmith bench and order ledger",
-                  tag: "Founding Benchwork",
-                },
-                {
-                  year: "1998",
-                  title: "In-House Laser Bench Expansion",
-                  desc: "Expanded into high-precision laser welding and ultrasonic restoration, bringing end-to-end manufacturing and repairs in-house without outsourcing.",
-                  image: "/images/workshop/workshop-bench-velvet-trays.jpg",
-                  imageAlt: "Hayes atelier workshop consultation trays and benchcraft",
-                  tag: "Precision Benchwork",
-                },
-                {
-                  year: "2012",
-                  title: "3D CAD & Resin Prototyping",
-                  desc: "Pioneered computer-aided design integration, allowing bridal couples to inspect photorealistic 360° renders and resin prototypes before casting.",
-                  image: "/images/cad/bespoke-evil-eye-sapphire-cad.jpg",
-                  imageAlt: "Photorealistic 3D CAD jewellery rendering",
-                  tag: "Digital Precision",
-                },
-                {
-                  year: "Today",
-                  title: "London's Premier 22ct Destination",
-                  desc: "Over 40 years of continuous service, thousands of bespoke heirloom commissions, and a trusted reputation as direct bullion and bridal specialists.",
-                  image: "/images/workshop/22ct-gold-filigree-bridal-suite.jpg",
-                  imageAlt: "Handcrafted 22ct gold filigree bridal suite",
-                  tag: "Flagship Masterworks",
-                },
-              ].map((ms, idx) => (
+            {/* 4-Column Timeline Track */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#E7E2DA]">
+              {milestones.map((ms, idx) => (
                 <div
-                  key={idx}
-                  className="relative pl-8 md:pl-0 flex flex-col"
+                  key={ms.year}
+                  className="border-r border-b border-[#E7E2DA] bg-white p-6 sm:p-7 flex flex-col justify-between hover:bg-[#FAF9F5] transition-colors"
                 >
-                  {/* Mobile Chronological Node Marker (Hammered Gold) */}
-                  <div
-                    className="md:hidden absolute left-0 top-5 w-7 h-7 rounded-full texture-hammered-gold border border-white flex items-center justify-center text-[9px] font-bold text-[#141416] shadow-md z-20 font-mono"
-                    aria-hidden="true"
-                  >
-                    0{idx + 1}
+                  <div>
+                    {/* Visual Card Top */}
+                    <div className="flex items-center justify-between font-mono text-xs text-[#7A705E] mb-4">
+                      <span className="font-serif text-2xl font-bold text-[#141416]">
+                        {ms.year}
+                      </span>
+                      <span className="text-[#C6A75E] text-[10px] tracking-wider uppercase font-semibold">
+                        {ms.tag}
+                      </span>
+                    </div>
+
+                    {/* Milestone Archival Image */}
+                    <div className="relative aspect-[16/11] w-full border border-[#E7E2DA] bg-[#0E0D0C] overflow-hidden mb-5">
+                      <Image
+                        src={ms.image}
+                        alt={ms.imageAlt}
+                        fill
+                        unoptimized
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                      />
+                    </div>
+
+                    <div className="font-mono text-[10px] tracking-wider uppercase text-[#7A705E] mb-1">
+                      {ms.era}
+                    </div>
+
+                    <h3 className="font-serif text-lg font-semibold text-[#141416] mb-2 leading-snug">
+                      {ms.title}
+                    </h3>
+
+                    <p className="font-sans text-xs text-[#57534E] leading-relaxed">
+                      {ms.desc}
+                    </p>
                   </div>
 
-                  <div className="bg-white rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group h-full">
-                    <div>
-                      {/* Real Workshop / Process Visual */}
-                      <div className="relative aspect-[16/11] w-full rounded-xl overflow-hidden mb-4 sm:mb-5 border border-[#E8DEC8] bg-[#FAF7F2] group-hover:border-[#D4AF37] transition-colors">
-                        <Image
-                          src={ms.image}
-                          alt={ms.imageAlt}
-                          fill
-                          unoptimized
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                        <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-full bg-black/80 backdrop-blur-sm border border-[#D4AF37]/40 text-[10px] font-mono font-semibold text-[#DFBF7A]">
-                          {ms.tag}
-                        </div>
-                      </div>
-
-                      {/* Milestone Year & Title */}
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-serif text-2xl sm:text-3xl font-bold text-[#8C6212]">
-                          {ms.year}
-                        </span>
-                        <span className="text-[10px] font-mono text-[#5A5960] uppercase">
-                          Milestone 0{idx + 1}
-                        </span>
-                      </div>
-
-                      <h3 className="font-serif text-base sm:text-lg font-medium text-[#141416] group-hover:text-[#996515] transition-colors mb-2">
-                        {ms.title}
-                      </h3>
-                      <p className="text-xs text-[#5A5960] leading-relaxed">
-                        {ms.desc}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 sm:mt-5 pt-3 border-t border-[#EFE8DA] flex items-center justify-between text-[11px] text-[#8C6212] font-semibold">
-                      <span>Era 0{idx + 1} of 04</span>
-                      <span className="text-[#C5A059] group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
+                  <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between font-mono text-[10px] text-[#7A705E]">
+                    <span>ERA 0{idx + 1} OF 04</span>
+                    <span className="text-[#C6A75E] font-semibold">PROVENANCE →</span>
                   </div>
                 </div>
               ))}
@@ -452,52 +500,70 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA Banner */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#FAF7F2] via-white to-[#FAF7F2] border border-[#D4AF37]/50 shadow-md text-center space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#D4AF37]/40 text-xs font-bold text-[#8C6212] uppercase tracking-wider">
-              <MapPin className="w-3.5 h-3.5 text-[#996515]" />
-              <span>136 Uxbridge Road, Hayes, London UB4 0JH</span>
-            </div>
+        {/* Showroom Consultation & Bench Invitation */}
+        <section className="w-full py-16 sm:py-24">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="border border-[#141416] bg-[#141416] p-8 sm:p-12 text-[#FAF9F5] text-center space-y-6">
+              <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#C6A75E]">
+                <MapPin className="w-3.5 h-3.5" />
+                <span>136 UXBRIDGE ROAD · HAYES · MIDDLESEX UB4 0JH</span>
+              </div>
 
-            <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#141416]">
-              Experience Direct Workshop Access in Person
-            </h2>
+              <h2 className="font-serif text-2xl sm:text-4xl text-[#FAF9F5] font-semibold">
+                Experience Direct Workshop Access in Person
+              </h2>
 
-            <p className="text-xs sm:text-sm text-[#4A4A52] max-w-xl mx-auto leading-relaxed">
-              Whether you are commissioning a bespoke bridal suite, inspecting certified diamonds, or resizing an heirloom ring, our workshop team welcomes you.
-            </p>
+              <p className="font-sans text-xs sm:text-sm text-[#A89F91] max-w-xl mx-auto leading-relaxed">
+                Whether you are commissioning a bespoke bridal suite, inspecting certified diamonds, or seeking a same-day ring resize, our master goldsmiths welcome you to our Hayes showroom.
+              </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
-              <a
-                href={whatsappAboutLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
-              >
-                <MessageCircle className="w-4 h-4 fill-white text-transparent" />
-                <span>Chat with Workshop Concierge</span>
-              </a>
+              {/* Showroom Logistics Summary */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto font-mono text-xs text-[#A89F91] text-left pt-2">
+                <div className="p-4 border border-[#2C2825] bg-[#1A1816]">
+                  <div className="text-[#C6A75E] text-[10px] uppercase font-semibold mb-1">OPENING HOURS</div>
+                  <div className="text-[#FAF9F5]">Mon 12:00 to 17:00</div>
+                  <div className="text-[#FAF9F5]">Tue to Sat 11:00 to 17:30</div>
+                </div>
+                <div className="p-4 border border-[#2C2825] bg-[#1A1816]">
+                  <div className="text-[#C6A75E] text-[10px] uppercase font-semibold mb-1">PARKING &amp; ACCESS</div>
+                  <div className="text-[#FAF9F5]">Available roadside customer parking</div>
+                  <div className="text-[#A89F91] text-[11px]">12 Mins from Elizabeth Line</div>
+                </div>
+              </div>
 
-              <a
-                href={`tel:${NIRAJ_UK_PHONE.replace(/\s+/g, "")}`}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] text-xs font-semibold text-[#141416] tracking-wider transition-colors shadow-sm"
-              >
-                <Phone className="w-3.5 h-3.5 text-[#996515]" />
-                <span>Call {NIRAJ_DISPLAY_PHONE}</span>
-              </a>
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-mono text-xs tracking-[0.14em] uppercase font-bold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.99] cursor-pointer min-h-[44px]"
+                >
+                  <MessageSquare className="w-4 h-4 fill-white text-white shrink-0" />
+                  <span>CHAT WITH WORKSHOP CONCIERGE</span>
+                </a>
 
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#FAF8F5] hover:bg-[#F4ECE1] border border-[#E8DEC8] text-xs font-semibold text-[#141416] tracking-wider transition-colors"
-              >
-                <span>Find Showroom Directions</span>
-              </Link>
+                <a
+                  href="tel:02085739323"
+                  className="px-6 py-3.5 border border-[#FAF9F5] bg-transparent hover:bg-white hover:text-[#141416] text-[#FAF9F5] font-mono text-xs tracking-[0.16em] uppercase font-bold flex items-center justify-center gap-2 transition-all min-h-[44px]"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>CALL: 020 8573 9323</span>
+                </a>
+
+                <Link
+                  href="/contact"
+                  className="px-6 py-3.5 border border-[#2C2825] bg-[#1A1816] hover:bg-[#2C2825] text-[#FAF9F5] font-mono text-xs tracking-[0.16em] uppercase font-bold flex items-center justify-center gap-2 transition-all min-h-[44px]"
+                >
+                  <span>FIND DIRECTIONS</span>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
+      {/* Official Luxury Footer */}
       <Footer />
     </div>
   );

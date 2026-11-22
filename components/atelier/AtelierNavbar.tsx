@@ -110,14 +110,15 @@ export function AtelierNavbar() {
 
           {/* Right: Direct Workshop Landline & WhatsApp Concierge */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Direct Landline Phone CTA (Visible across all screens, including mobile) */}
+            {/* Direct Landline Phone CTA */}
             <a
               href="tel:02085739323"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full bg-white border border-[#E7E2DA] hover:border-[#141416] text-[#141416] font-mono text-[11px] sm:text-xs font-semibold transition-all shadow-xs shrink-0"
+              className="inline-flex items-center justify-center gap-1.5 p-2 sm:px-3 sm:py-1.5 rounded-full bg-white border border-[#E7E2DA] hover:border-[#141416] text-[#141416] font-mono text-xs font-semibold transition-all shadow-xs shrink-0 w-9 h-9 sm:w-auto sm:h-auto"
               title="Call Workshop: 020 8573 9323"
+              aria-label="Call Hayes Workshop at 020 8573 9323"
             >
               <Phone className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
-              <span>020 8573 9323</span>
+              <span className="hidden sm:inline">020 8573 9323</span>
             </a>
 
             {/* Direct WhatsApp Line (Desktop/Tablet only, hidden on mobile per client specification) */}
