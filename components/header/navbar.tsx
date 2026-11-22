@@ -143,6 +143,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                   <Link
                     key={link.label}
                     href={link.href}
+                    onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "instant" })}
                     className={`py-1 px-1 relative group transition-colors ${
                       isActive ? "text-[#996515] font-bold" : "text-[#3D3C42] hover:text-[#996515]"
                     }`}
@@ -308,7 +309,10 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                     <Link
                       key={link.label}
                       href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+                      }}
                       className={`group flex items-center justify-between py-3.5 px-3 rounded-xl transition-all min-h-[48px] ${
                         isActive
                           ? "bg-white text-[#996515] border-l-4 border-[#996515] shadow-sm"

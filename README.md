@@ -24,6 +24,11 @@ Official digital atelier, luxury showroom, and direct client acquisition platfor
 * **Official Facebook:** `https://www.facebook.com/p/Niraj-Jewellers-Ltd-100063525010609/`
 * **Assay Office Accreditation:** London Assay Office Leopard's Head Hallmarked (`916` 22ct / `750` 18ct / `999` 24ct Fine Gold)
 * **Showroom Access Policy:** **No appointment required** — walk-in consultations, jewellery viewings, on-site bench repairs, and bullion transactions are warmly welcomed anytime during opening hours.
+* **Official Opening Hours:**
+  - **Monday:** 12:00 – 17:00 (12:00 PM – 5:00 PM)
+  - **Tuesday – Saturday:** 11:00 – 17:30 (11:00 AM – 5:30 PM)
+  - **Sunday:** Closed (Open select festive Sundays prior to Diwali, Karva Chauth & Christmas)
+* **Google Business Profile:** [https://share.google/UzzobueZI6BXs8GZQ](https://share.google/UzzobueZI6BXs8GZQ) (4.3★ Verified Rating)
 
 ---
 
@@ -50,6 +55,12 @@ The platform is designed in accordance with the **Mayfair Vault Luxury Palette**
 * **Repeated Diamond Vitrine:** Hero incorporates a central diamond jewellery vitrine video loop with gold hairline borders and crisp contrast — 0 dark muddy blur overlays.
 * **Zero Layout Clutter:** Ample whitespace, balanced column structures, and subtle gold hairline separators.
 * **Touch & Accessibility:** Strict minimum 44px tap targets for all interactive controls, buttons, and drawer toggles.
+
+### 2.4 Unified Navigation & Instant Scroll Architecture
+* **Fixed Pinned Header:** Pinned navigation (`fixed top-0 left-0 right-0 z-50`) across all pages with zero layout shift via `<div className="h-18 sm:h-20 shrink-0" />` spacer.
+* **Dynamic Scroll Glass:** Switches from subtle ivory foundation to backdrop-blurred translucent glass with warm shadow elevation (`bg-[#FAF9F5]/95 backdrop-blur-md border-b border-[#E7E2DA] shadow-[0_4px_24px_-4px_rgba(20,20,22,0.08)]`) on scroll.
+* **Mobile Header Landline:** Direct `020 8573 9323` telephone button visible right on mobile header alongside the full-screen hamburger menu.
+* **Universal Scroll Restoration (`components/common/ScrollRestorationHandler.tsx`):** Listens to `pathname` changes and instantly resets viewport coordinates (`window.scrollTo({ top: 0, left: 0, behavior: 'instant' })`), ensuring users navigating between pages always start at the very top.
 
 ---
 

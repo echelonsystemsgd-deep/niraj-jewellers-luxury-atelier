@@ -40,7 +40,7 @@ export function AtelierClientView() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#FAF9F5] text-[#141416] flex flex-col selection:bg-[#C6A75E]/30 selection:text-[#141416] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#FAF9F5] text-[#141416] flex flex-col selection:bg-[#C6A75E]/30 selection:text-[#141416]">
       {/* 1. Official Atelier Header (Official Navigation Pages, Direct Phone & WhatsApp) */}
       <AtelierNavbar />
 

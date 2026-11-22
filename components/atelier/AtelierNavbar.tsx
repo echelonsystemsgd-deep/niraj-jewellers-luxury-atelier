@@ -19,23 +19,17 @@ export function AtelierNavbar() {
     return () => clearInterval(interval);
   }, []);
 
-  // Background body scroll & interaction lock:
-  // When mobile menu is open, the background site is 100% frozen, non-scrollable, and non-interactive
+  // Background body scroll lock:
+  // When mobile menu is open, freeze background scrolling cleanly without distorting scroll coordinates
   useEffect(() => {
     if (mobileMenuOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
+      const originalOverflow = document.body.style.overflow;
+      const originalTouchAction = document.body.style.touchAction;
       document.body.style.overflow = "hidden";
       document.body.style.touchAction = "none";
       return () => {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        document.body.style.overflow = "";
-        document.body.style.touchAction = "";
-        window.scrollTo(0, scrollY);
+        document.body.style.overflow = originalOverflow;
+        document.body.style.touchAction = originalTouchAction;
       };
     }
   }, [mobileMenuOpen]);
@@ -61,17 +55,17 @@ export function AtelierNavbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#FAF9F5]/95 backdrop-blur-md border-b border-[#E7E2DA] shadow-xs"
+            ? "bg-[#FAF9F5]/95 backdrop-blur-md border-b border-[#E7E2DA] shadow-[0_4px_24px_-4px_rgba(20,20,22,0.08)]"
             : "bg-[#FAF9F5] border-b border-[#E7E2DA]"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+        <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-1.5 sm:gap-4">
           {/* Left: Official Royal Crest Logo & Brand */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 group focus:outline-none">
-              <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden shrink-0 border border-[#D4AF37] shadow-xs p-0.5 bg-white group-hover:border-[#996515] transition-colors">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <Link href="/" className="flex items-center gap-1.5 sm:gap-3 group focus:outline-none">
+              <div className="relative w-8 h-8 sm:w-11 sm:h-11 rounded-xl overflow-hidden shrink-0 border border-[#D4AF37] shadow-xs p-0.5 bg-white group-hover:border-[#996515] transition-colors">
                 <div className="relative w-full h-full rounded-lg overflow-hidden bg-white">
                   <Image
                     src="/NIRAJ_LOGO9.png"
@@ -85,10 +79,10 @@ export function AtelierNavbar() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-sm sm:text-base font-bold tracking-wider uppercase text-[#141416] group-hover:text-[#996515] transition-colors leading-tight">
-                  NIRAJ JEWELLERS <span className="text-[10px] sm:text-xs font-semibold text-[#996515]">LTD</span>
+                <span className="font-serif text-xs sm:text-base font-bold tracking-wider uppercase text-[#141416] group-hover:text-[#996515] transition-colors leading-tight whitespace-nowrap">
+                  NIRAJ JEWELLERS <span className="text-[9px] sm:text-xs font-semibold text-[#996515]">LTD</span>
                 </span>
-                <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.2em] uppercase text-[#7A705E] leading-none mt-0.5">
+                <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.2em] uppercase text-[#7A705E] leading-none mt-0.5 hidden sm:inline">
                   HAYES · LONDON · SINCE 1984
                 </span>
               </div>
@@ -96,11 +90,12 @@ export function AtelierNavbar() {
           </div>
 
           {/* Center: Official 6 Navigation Pages (Desktop) */}
-          <nav className="hidden lg:flex items-center space-x-6 text-xs uppercase tracking-wider font-semibold whitespace-nowrap text-[#3D3C42]">
+          <nav className="hidden lg:flex items-center space-x-3.5 xl:space-x-6 text-[11px] xl:text-xs uppercase tracking-wider font-semibold whitespace-nowrap text-[#3D3C42]">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
+                onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "instant" })}
                 className="py-1 px-1 relative hover:text-[#996515] transition-colors"
               >
                 {link.label}
@@ -109,40 +104,44 @@ export function AtelierNavbar() {
           </nav>
 
           {/* Right: Direct Workshop Landline & WhatsApp Concierge */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Direct Landline Phone CTA */}
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            {/* Direct Landline Phone CTA - Number displayed on both Mobile & Desktop */}
             <a
               href="tel:02085739323"
-              className="inline-flex items-center justify-center gap-1.5 p-2 sm:px-3 sm:py-1.5 rounded-full bg-white border border-[#E7E2DA] hover:border-[#141416] text-[#141416] font-mono text-xs font-semibold transition-all shadow-xs shrink-0 w-9 h-9 sm:w-auto sm:h-auto"
+              className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white border border-[#E7E2DA] hover:border-[#141416] text-[#141416] font-mono text-[10px] sm:text-xs font-semibold transition-all shadow-xs shrink-0"
               title="Call Workshop: 020 8573 9323"
               aria-label="Call Hayes Workshop at 020 8573 9323"
             >
-              <Phone className="w-3.5 h-3.5 text-[#C6A75E] shrink-0" />
-              <span className="hidden sm:inline">020 8573 9323</span>
+              <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C6A75E] shrink-0" />
+              <span>020 8573 9323</span>
             </a>
 
-            {/* Direct WhatsApp Line (Desktop/Tablet only, hidden on mobile per client specification) */}
+            {/* Direct WhatsApp Line (Hidden on mobile, compact on lg, full on xl) */}
             <a
               href="https://wa.me/447955565137?text=Hi%20Niraj%20Jewellers%20team%2C%20I%20am%20browsing%20your%20website%20and%20would%20like%20to%20inquire%20with%20a%20master%20goldsmith."
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold text-xs tracking-wide transition-all shadow-xs shrink-0"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 xl:px-3.5 py-1.5 xl:py-2 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold text-[11px] xl:text-xs tracking-wide transition-all shadow-xs shrink-0"
             >
               <MessageSquare className="w-3.5 h-3.5 fill-white text-white shrink-0" />
-              <span>WhatsApp Concierge</span>
+              <span className="hidden xl:inline">WhatsApp Concierge</span>
+              <span className="xl:hidden">WhatsApp</span>
             </a>
 
             {/* Mobile Menu Hamburger (Strict 44px tap target) */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden w-10 h-10 min-w-[40px] min-h-[40px] sm:w-11 sm:h-11 sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center text-[#141416] hover:bg-[#E8DEC8]/20 border border-[#E7E2DA] transition-colors shrink-0 rounded-xl shadow-xs cursor-pointer"
+              className="lg:hidden w-9 h-9 min-w-[36px] min-h-[36px] sm:w-11 sm:h-11 sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center text-[#141416] hover:bg-[#E8DEC8]/20 border border-[#E7E2DA] transition-colors shrink-0 rounded-xl shadow-xs cursor-pointer"
               aria-label="Open navigation menu"
             >
-              <Menu className="w-5 h-5 text-[#141416]" />
+              <Menu className="w-4 h-4 sm:w-5 sm:h-5 text-[#141416]" />
             </button>
           </div>
         </div>
       </header>
+
+      {/* Header Spacer for Fixed Navigation */}
+      <div className="h-18 sm:h-20 shrink-0" aria-hidden="true" />
 
       {/* FULL-SCREEN ALL-ENCOMPASSING LUXURY MOBILE MENU OVERLAY */}
       {mobileMenuOpen && (
@@ -191,7 +190,7 @@ export function AtelierNavbar() {
           </div>
 
           {/* Middle: Official 6 Navigation Portals */}
-          <div className="px-5 sm:px-8 pt-8 pb-12 flex-1 max-w-2xl mx-auto w-full space-y-6">
+          <div className="px-5 sm:px-8 pt-5 pb-28 flex-1 max-w-2xl mx-auto w-full space-y-4 sm:space-y-5">
             {/* Dynamic London Showroom Status Indicator */}
             <div className="pb-3 border-b border-[#E8DEC8] flex items-center justify-between text-xs text-[#57534E] font-mono">
               <span className="uppercase tracking-wider">SHOWROOM ACCESS:</span>
@@ -260,7 +259,10 @@ export function AtelierNavbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+                  }}
                   className="group flex items-center justify-between py-3.5 px-3.5 rounded-xl hover:bg-white hover:text-[#996515] transition-all min-h-[48px] border border-transparent hover:border-[#E8DEC8]"
                 >
                   <div className="flex items-center gap-4">

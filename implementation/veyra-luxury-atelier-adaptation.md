@@ -116,3 +116,39 @@
 - **36/36 Static Routes Generated**: Fully optimized with Next.js 15 SSG.
 - **Mobile Responsive**: 100% responsive across 360px–430px viewports with **0px horizontal scroll overflow**.
 - **Interaction Freeze**: Modal and mobile drawer freeze body scrolling to prevent background bleed.
+
+---
+
+## 5. RECENT UX POLISH & ARCHITECTURAL VERIFICATION (NOVEMBER 2026)
+
+1. **Root Route Elevation (`app/page.tsx`)**:
+   - The digital atelier (`<AtelierClientView />`) is the primary, production root route (`/`).
+   - Clean, luxury aesthetic with real video reels, zero booking forms, zero prototype pills.
+
+2. **Unified Sticky Header Architecture**:
+   - `AtelierNavbar` uses `fixed top-0 left-0 right-0 z-50` with dynamic blur and scroll shadow.
+   - Pinned with `<div className="h-18 sm:h-20 shrink-0" aria-hidden="true" />` spacer to guarantee zero layout shift.
+   - Mobile header features the direct showroom landline (`020 8573 9323`) and touch-target hamburger drawer.
+   - Drawer middle padding increased to `pb-28` to ensure all 6 navigation items (including `06 Contact`) are 100% visible and never occluded by the sticky bottom bar.
+
+3. **Universal Route-Change Scroll Restoration (`components/common/ScrollRestorationHandler.tsx`)**:
+   - Client component mounted in `app/layout.tsx` that listens to `pathname` changes.
+   - Instantly resets `window.scrollTo({ top: 0, left: 0, behavior: 'instant' })` on every route transition.
+   - Eliminates the previous issue where navigating from halfway down one page left the user halfway down the destination page.
+
+4. **Accurate Live London Showroom Timings (`lib/showroom-hours.ts`)**:
+   - Monday: 12:00 – 17:00
+   - Tuesday – Saturday: 11:00 – 17:30
+   - Sunday: Closed (Open select festive Sundays prior to Diwali, Karva Chauth & Christmas)
+   - Calculated via `Intl.DateTimeFormat.formatToParts` with 24-hour cycle (`hourCycle: "h23"`), accurately reflecting the live closed state during London evenings and Sundays.
+
+5. **Authentic Google Reviews & Trust Plaque**:
+   - Google Profile: `https://share.google/UzzobueZI6BXs8GZQ`
+   - Official Rating: 4.3 / 5.0 (10 verified Google reviews).
+   - Displayed reviews: Lisa Kishtwari (5★), Peter O'Reilly (5★), Charanjit Singh (5★), Kryz Woodhouse (5★), Kamal Bhangoo (5★).
+   - Direct CTA to view all reviews and directions on Google Maps.
+
+6. **Showroom Dossier Modal UX Refinement**:
+   - Compact desktop proportions (`lg:h-[620px] lg:max-h-[88vh]`) fitting completely within standard desktop viewports without forcing page scroll.
+   - Strictly **ONE** primary WhatsApp CTA (`INQUIRE ON WHATSAPP (INSTANT GOLDSMITH)`).
+   - Dual prominent exit routes: `[ CLOSE ✕ ]` pill in top-right header, and `[ CLOSE DOSSIER & RETURN TO SHOWROOM ]` at the bottom of the right column.

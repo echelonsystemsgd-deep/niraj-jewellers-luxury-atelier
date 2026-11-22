@@ -257,7 +257,18 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
                 </div>
               </div>
             </div>
-            {/* Exactly ONE close button in top right; redundant bottom close button removed */}
+
+            {/* Dedicated Bottom Exit / Close Button */}
+            <div className="pt-2 border-t border-[#EFE8DA]">
+              <button
+                type="button"
+                onClick={onClose}
+                className="w-full py-2.5 px-3 rounded-xl border border-[#D4AF37]/50 hover:border-[#141416] bg-[#FAF9F5] hover:bg-[#141416] text-[#8C6212] hover:text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+              >
+                <X className="w-3.5 h-3.5" />
+                <span>CLOSE DOSSIER &amp; RETURN TO SHOWROOM</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

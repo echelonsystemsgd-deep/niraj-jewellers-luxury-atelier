@@ -4,6 +4,7 @@ import { Alex_Brush } from "next/font/google";
 import "./globals.css";
 import { MobileDock } from "@/components/mobile/mobile-dock";
 import { BackToTop } from "@/components/header/back-to-top";
+import { ScrollRestorationHandler } from "@/components/common/ScrollRestorationHandler";
 
 const alexBrush = Alex_Brush({
   weight: "400",
@@ -324,7 +325,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${alexBrush.variable} ${vivaldi.variable} scroll-smooth`}>
+    <html lang="en" className={`${alexBrush.variable} ${vivaldi.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -332,6 +333,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white text-[#141416] antialiased selection:bg-gold-200 selection:text-gold-900">
+        <ScrollRestorationHandler />
         {children}
         <MobileDock />
         <BackToTop />
