@@ -18,14 +18,14 @@ import {
 import { NIRAJ_UK_PHONE, NIRAJ_SHOWROOM_ADDRESS } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "About Us | Niraj Jewellers Ltd · Hayes London Goldsmith Heritage Since 1984",
+  title: "About Us | Niraj Jewellers Ltd — Hayes, London Goldsmith Heritage Since 1984",
   description:
     "Discover the 42-year workshop lineage of Niraj Jewellers Ltd. London's premier 22ct South Asian bridal goldsmith atelier and direct bullion dealer on Uxbridge Road, Hayes.",
   alternates: {
     canonical: "https://www.niraj-jewellers.co.uk/about",
   },
   openGraph: {
-    title: "About Us | Niraj Jewellers Ltd · London Goldsmith Atelier Since 1984",
+    title: "About Us | Niraj Jewellers Ltd — London Goldsmith Atelier Since 1984",
     description:
       "Four decades of generational goldsmithing. Handcrafted 22ct bridal suites, certified natural diamonds, London Assay Office hallmarking, and direct workshop access.",
     url: "https://www.niraj-jewellers.co.uk/about",

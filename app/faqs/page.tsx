@@ -7,14 +7,14 @@ import { FaqsClientView } from "@/components/faq/faqs-client-view";
 import { FAQS_FULL_DIRECTORY } from "@/data/faqs-data";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions & UK Hallmarking | Niraj Jewellers Ltd London",
+  title: "Frequently Asked Questions | Niraj Jewellers Ltd London",
   description:
     "Everything you need to know about bespoke 22ct bridal commissions, London Assay Office hallmarking, same-day workshop repairs, and live gold bullion rates at Niraj Jewellers Ltd.",
   alternates: {
     canonical: "https://www.niraj-jewellers.co.uk/faqs",
   },
   openGraph: {
-    title: "Frequently Asked Questions & UK Hallmarking | Niraj Jewellers Ltd London",
+    title: "Frequently Asked Questions | Niraj Jewellers Ltd London",
     description:
       "Answers on bespoke CAD commissions, London Assay hallmarked gold, same-day laser repairs, and wholesale bullion trading in Hayes, London.",
     url: "https://www.niraj-jewellers.co.uk/faqs",

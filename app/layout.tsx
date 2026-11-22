@@ -19,12 +19,9 @@ const vivaldi = localFont({
   display: "swap",
 });
 
-// Dynamic site URL resolution supporting production, Vercel previews, and custom domains
+// Canonical site URL resolution (strict production domain standard)
 const getBaseUrl = (): string => {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return "https://www.niraj-jewellers.co.uk";
+  return process.env.NEXT_PUBLIC_SITE_URL || "https://www.niraj-jewellers.co.uk";
 };
 
 const siteUrl = getBaseUrl();
