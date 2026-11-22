@@ -83,39 +83,6 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
 
   return (
     <section className="relative w-full bg-[#FAF9F5] border-b border-[#E7E2DA] overflow-hidden">
-      {/* Niche Artisan Side Framing on Wide Viewports (The Goldsmith Atelier Benchmark) */}
-      <div className="hidden 2xl:block absolute left-4 top-1/2 -translate-y-1/2 w-32 pointer-events-none opacity-40 select-none">
-        <div className="border border-[#E7E2DA] bg-white p-2.5 space-y-2 shadow-xs">
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
-            <Image
-              src="/images/workshop/workshop-bench-velvet-trays.jpg"
-              alt="Goldsmith Bench Trays"
-              fill
-              className="object-cover grayscale"
-            />
-          </div>
-          <span className="font-mono text-[9px] uppercase tracking-wider text-[#7A705E] block text-center">
-            BENCH TRAY
-          </span>
-        </div>
-      </div>
-
-      <div className="hidden 2xl:block absolute right-4 top-1/2 -translate-y-1/2 w-32 pointer-events-none opacity-40 select-none">
-        <div className="border border-[#E7E2DA] bg-white p-2.5 space-y-2 shadow-xs">
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
-            <Image
-              src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
-              alt="22ct Gold Filigree Craft"
-              fill
-              className="object-cover grayscale"
-            />
-          </div>
-          <span className="font-mono text-[9px] uppercase tracking-wider text-[#7A705E] block text-center">
-            22CT FILIGREE
-          </span>
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18">
         {/* Top Header Badge & Social Proof Pill */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 sm:mb-10">

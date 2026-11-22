@@ -298,7 +298,7 @@ export function AtelierNavbar() {
                 <MapPin className="w-3 h-3 text-[#C6A75E]" />
                 <span>136 Uxbridge Road, Hayes UB4 0JH</span>
               </span>
-              <span>Mon 12–17:00 | Tue–Sat 11–17:30</span>
+              <span>Mon 12:00 to 17:00 | Tue to Sat 11:00 to 17:30</span>
             </div>
           </div>
         </div>

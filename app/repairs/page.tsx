@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { SubpageNav } from "@/components/header/subpage-nav";
+import { AtelierNavbar } from "@/components/atelier/AtelierNavbar";
 import { RepairsBento } from "@/components/repairs/repairs-bento";
 import { HallmarkGuide } from "@/components/trust/hallmark-guide";
 import { SubpageFaq } from "@/components/faq/subpage-faq";
@@ -98,7 +98,7 @@ export default function RepairsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(repairsJsonLd) }}
       />
 
-      <SubpageNav currentTitle="In-House Workshop Repairs" />
+      <AtelierNavbar />
 
       <main className="flex-1 pt-24 sm:pt-28">
         {/* Editorial Subpage Header */}

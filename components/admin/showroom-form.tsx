@@ -180,19 +180,19 @@ export function ShowroomForm({ initialSettings }: ShowroomFormProps) {
               setFormData((prev) => ({
                 ...prev,
                 opening_hours: {
-                  monday: "11:00 AM – 6:30 PM",
-                  tuesday: "11:00 AM – 6:30 PM",
-                  wednesday: "11:00 AM – 6:30 PM",
-                  thursday: "11:00 AM – 6:30 PM",
-                  friday: "11:00 AM – 6:30 PM",
-                  saturday: "11:00 AM – 6:30 PM",
-                  sunday: "Closed (Workshop & Bullion Vaulting)",
+                  monday: "12:00 to 17:00",
+                  tuesday: "11:00 to 17:30",
+                  wednesday: "11:00 to 17:30",
+                  thursday: "11:00 to 17:30",
+                  friday: "11:00 to 17:30",
+                  saturday: "11:00 to 17:30",
+                  sunday: "Closed (Festive Sundays Open)",
                 },
               }));
             }}
             className="text-[11px] font-bold text-[#8C6212] bg-[#FAF5E8] hover:bg-[#E8DEC8] px-3 py-1.5 rounded-xl border border-[#D4AF37]/50 transition-colors self-start sm:self-auto"
           >
-            ⚡ Apply Standard Mon–Sat (11:00 AM – 6:30 PM)
+            Apply Official Hayes Atelier Schedule
           </button>
         </div>
 
@@ -210,7 +210,7 @@ export function ShowroomForm({ initialSettings }: ShowroomFormProps) {
                   type="text"
                   value={formData.opening_hours[day.key] || ""}
                   onChange={(e) => handleHourChange(day.key, e.target.value)}
-                  placeholder="e.g. 11:00 AM – 6:30 PM or Closed"
+                  placeholder="e.g. 11:00 to 17:30 or Closed"
                   className="flex-1 h-9 px-3 rounded-lg border border-[#E8DEC8] bg-white text-xs text-[#141416] focus:border-[#996515] focus:outline-none"
                 />
               </div>
@@ -219,10 +219,9 @@ export function ShowroomForm({ initialSettings }: ShowroomFormProps) {
               <div className="flex flex-wrap items-center gap-1.5 pl-0 sm:pl-28">
                 <span className="text-[9.5px] font-semibold text-[#7A705E]">Presets:</span>
                 {[
-                  "11:00 AM – 6:30 PM",
-                  "11:30 AM – 5:30 PM",
-                  "12:00 PM – 5:00 PM",
-                  "Closed (Workshop & Vaulting)",
+                  "11:00 to 17:30",
+                  "12:00 to 17:00",
+                  "Closed (Festive Sundays Open)",
                   "By Appointment Only",
                 ].map((preset) => (
                   <button

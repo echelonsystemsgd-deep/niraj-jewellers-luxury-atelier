@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { SubpageNav } from "@/components/header/subpage-nav";
+import { AtelierNavbar } from "@/components/atelier/AtelierNavbar";
 import { CadJourney } from "@/components/craftsmanship/cad-journey";
 import { BespokeEstimator } from "@/components/estimator/bespoke-estimator";
 import { SubpageFaq } from "@/components/faq/subpage-faq";
@@ -127,7 +127,7 @@ export default function BespokePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bespokeJsonLd) }}
       />
 
-      <SubpageNav currentTitle="Bespoke Atelier" />
+      <AtelierNavbar />
 
       <main className="flex-1 pt-24 sm:pt-28">
         {/* Editorial Subpage Header */}

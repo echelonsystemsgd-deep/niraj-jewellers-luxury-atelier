@@ -216,7 +216,7 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
             </p>
             <p className="flex items-center gap-1.5 text-[10px] text-[#7A705E]">
               <Clock className="w-3.5 h-3.5 text-[#8C6212] shrink-0" />
-              <span>Mon: 12–17:00 | Tue–Sat: 11–17:30</span>
+              <span>Mon: 12:00 to 17:00 | Tue to Sat: 11:00 to 17:30</span>
             </p>
             <p className="flex items-center gap-1.5 text-[10px] text-[#7A705E]">
               <Phone className="w-3.5 h-3.5 text-[#8C6212] shrink-0" />

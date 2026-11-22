@@ -199,9 +199,9 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <a href="/#faq" className="hover:text-[#996515] transition-colors">
+                  <Link href="/faqs" className="hover:text-[#996515] transition-colors">
                     Client FAQs &amp; Scale Testing
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -258,12 +258,12 @@ export function Footer() {
               >
                 Atelier Terms &amp; Hallmarking Guarantee
               </Link>
-              <a
-                href="/#faq"
+              <Link
+                href="/faqs"
                 className="text-[#5A5960] hover:text-[#996515] transition-colors"
               >
                 Client FAQs
-              </a>
+              </Link>
               <Link
                 href="/contact"
                 className="text-[#5A5960] hover:text-[#996515] transition-colors"
