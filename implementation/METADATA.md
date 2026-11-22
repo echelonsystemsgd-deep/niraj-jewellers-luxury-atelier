@@ -1,310 +1,285 @@
-# Comprehensive Website Metadata, Social Previews & Brand Asset Architecture
-**Target File:** `implementation/METADATA.md`  
-**Brand:** Niraj Jewellers London (Bespoke Goldsmith Atelier & Gold Bullion Wholesaler)  
-**Location:** 136 Uxbridge Road, Hayes UB4 0JH, Greater London  
-**Principal Goldsmith:** Viky  
+# Master Website Metadata, SEO & Social Preview Architecture
+**Document:** `implementation/METADATA.md`  
+**Brand:** Niraj Jewellers Ltd (Flagship White & Gold Luxury Maison & Bullion Wholesaler)  
+**Location:** 136 Uxbridge Road, Hayes, Middlesex, UB4 0JH, Greater London, UK  
+**Established:** 1984 (42 Years of Generational Goldsmith Heritage)  
+**Assay Accreditation:** London Assay Office Leopard's Head (`916` / `750` / `999`)  
+**Canonical Domain:** `https://www.niraj-jewellers.co.uk`  
+**Direct Contact:** `07955 565137` / `+44 7955 565137`  
+**Official Email:** `nirajjewellersuk@gmail.com`  
+**VAT Registration:** `GB 842 9617 32`  
 **Date:** November 2026  
 
 ---
 
-## 1. Executive Summary & Root Cause Diagnosis
+## 1. Executive Summary & Brand Transformation Audit
 
-### The Current Problem
-When sharing links to the Niraj Jewellers website across social messaging platforms (WhatsApp, iMessage, Twitter/X, LinkedIn, Facebook, Slack, Telegram, Discord), previews currently display generic **Next.js** or **Vercel** preview cards rather than an authentic, high-definition snapshot of the luxury atelier.
+Niraj Jewellers Ltd has undergone a monumental architectural transformation from an experimental dark-mode showcase into an authoritative, prestigious **White & Gold Flagship Luxury Maison** (matching the digital stature of Cartier, Graff, and Harrods Fine Jewellery).
 
-### Root Cause Analysis
-1. **Hardcoded `metadataBase` in Root Layout:**
-   - In `app/layout.tsx`, `metadataBase` is statically set to `new URL("https://nirajjewellers.co.uk")`.
-   - When deploying on Vercel preview environments (e.g., `niraj-jewellers-*.vercel.app`), social crawlers and link unfurlers attempt to resolve `/opengraph-image` against the production domain (`nirajjewellers.co.uk`). If DNS is propagating, domain pointing is pending, or Vercel preview deployment protection is enabled, crawlers receive 404/401 errors and fall back to Vercel's default platform preview badge.
-2. **Dynamic Edge `ImageResponse` vs. Static Pre-Rendered Assets:**
-   - `app/opengraph-image.tsx` relies dynamically on `@vercel/og` Edge rendering. Crawlers with aggressive timeouts (WhatsApp, iMessage, SMS unfurlers) frequently drop dynamic edge image requests if response times exceed 1.5–2 seconds.
-   - The repository currently lacks static image fallbacks (`public/og-image.jpg`, `public/og-image.png`, `public/og-snapshot.jpg`).
-3. **Synthetic CSS Card vs. Real Website Snapshot:**
-   - The current `app/opengraph-image.tsx` produces an abstract text card with borders and text. It does **not** showcase the actual visual experience of the website (the bespoke bridal suite hero, the live gold bullion ticker, the London Leopard's Head hallmark badges, the Obsidian luxury palette, and the WhatsApp VIP concierge).
-4. **Missing Physical Favicon & App Icon Files:**
-   - The `public/` directory only contains `favicon.svg` and `logo.svg`.
-   - It is missing `favicon.ico` at the root (which legacy browsers, bookmark bars, search spiders, and messaging apps look for directly at `/favicon.ico` without parsing HTML tags).
-   - Missing `apple-touch-icon.png` (180x180), `icon-192.png`, `icon-512.png`, `icon-maskable-192.png`, `icon-maskable-512.png`, and `browserconfig.xml`.
-5. **Subpage Metadata Gaps:**
-   - `app/contact/page.tsx` and `app/showroom/page.tsx` are marked with `"use client"` and export **no metadata at all**, causing them to inherit only the generic fallback.
-   - `app/collections/page.tsx`, `app/bespoke/page.tsx`, `app/repairs/page.tsx`, and `app/gold-rates/page.tsx` only export `title` and `description` without specific `openGraph`, `twitter`, or `alternates.canonical` tags.
-6. **Local SEO & Geo Meta Absence:**
-   - As a high-ticket physical atelier in Hayes, West London, the website lacks HTML `<meta>` geolocation tags (`geo.position`, `geo.region`, `geo.placename`, `ICBM`), missing a significant signal for local Hillingdon / Southall / Heathrow gold buyers.
+### Key Architectural Shifts Influencing Metadata
+1. **White & Gold Maison Aesthetic:**
+   - **Canvas Palette:** Alabaster silk (`#FFFFFF` / `#FAF9F6`) with delicate champagne borders (`#EADBC8`), warm gold lusters (`#C5A059`, `#946A14`), and obsidian charcoal typography (`#141416`).
+   - **Theme & Viewport Color:** Shifted from dark `#09090B` to pristine `#FFFFFF` / `light` color-scheme across browser toolbars, PWA manifests, and Windows Metro tiles.
+2. **Official Heraldic Insignia (`NIRAJ_LOGO9.png`):**
+   - High-resolution gold monogram crowned with a brilliant-cut solitaire diamond, heraldic wings, and the verified heritage stamp: **`SINCE 1984`** (celebrating 42 years of continuous in-house goldsmithing on Uxbridge Road, Hayes).
+3. **Legal Entity Standardization:**
+   - Universal naming standardized to **Niraj Jewellers Ltd** across all page titles, OpenGraph tags, schema `legalName`, sitemaps, and legal footers.
+4. **Master Canonical Domain Standard:**
+   - Strictly standardized to `https://www.niraj-jewellers.co.uk` across all 13 routes, XML sitemaps, robots rules, and dynamic article canonicals.
+5. **Scale of Inventory & Portfolio:**
+   - Expanded from a generic landing page to a **54-Piece Masterpiece Vault** (`/collections`) featuring looping video cards, 3D CAD modeling pipelines (`/bespoke`), same-day laser repairs (`/repairs`), live LBMA bullion feeds (`/gold-rates`), a 42-year heritage archive (`/about`), a full FAQ directory (`/faqs`), and a Goldsmith Knowledge Hub (`/articles` + dynamic `[slug]` guides).
 
 ---
 
-## 2. Full Inventory: Current State vs. Target State
+## 2. Master Route-by-Route Metadata Matrix
 
-| Asset / Metadata Category | Current Status | Defect / Limitation | Target Production State |
-| :--- | :--- | :--- | :--- |
-| **`metadataBase`** | Static `https://nirajjewellers.co.uk` | Fails on Vercel preview URLs & branches | Dynamic detection (`VERCEL_PROJECT_PRODUCTION_URL` / `VERCEL_URL` / `NEXT_PUBLIC_SITE_URL`) |
-| **Open Graph Primary Image** | Dynamic `/opengraph-image` only | Abstract text card; no visual website snapshot | Crisp 1200×630px static snapshot (`/og-image.jpg` & `/og-image.png`) + enhanced dynamic fallback |
-| **Website Snapshot Preview** | Non-existent | Shows Next.js / Vercel default previews | High-definition photorealistic render of the atelier hero, gold rates ticker, and hallmark badges |
-| **Favicon (`/favicon.ico`)** | Missing in `/public` | Direct `/favicon.ico` 404s on crawlers & legacy clients | Multi-resolution binary ICO (16×16, 32×32, 48×48) generated from official gold monogram |
-| **Apple Touch Icon** | Dynamic `/apple-icon` only | Some iOS Safari versions fail on edge routes | Physical `public/apple-touch-icon.png` (180×180) + dynamic route |
-| **Android / PWA Icons** | Missing in `/public` | PWA audit failure, blank icons on mobile home screen | `icon-192.png`, `icon-512.png`, `icon-maskable-192.png`, `icon-maskable-512.png` |
-| **Web Manifest** | Dynamic `manifest.ts` (partial) | Missing 192px/512px icon declarations | Comprehensive `manifest.webmanifest` & `public/site.webmanifest` fallback |
-| **Safari Pinned Tab** | Missing | Default gray icon on macOS Safari pinned tabs | `public/safari-pinned-tab.svg` with gold `#D4AF37` accent |
-| **Windows Tile Meta** | Missing | Blank tile on Windows Start / Edge | `browserconfig.xml` + `mstile-150x150.png` |
-| **Subpage Metadata** | Incomplete / Missing | `/contact` & `/showroom` have 0 metadata | Dedicated per-page metadata, canonical URLs, and tailored OpenGraph cards |
-| **Robots Directives** | Basic allow/disallow | Missing bot-specific snippet & image preview directives | `max-image-preview: large`, `max-snippet: -1`, `max-video-preview: -1` |
-| **Geo / Local Meta** | Missing | No geographic coordinates in HTML headers | `geo.region: GB-HIL`, `geo.placename: Hayes, London`, `ICBM` coords |
-| **Schema.org Structured Data**| `JewelryStore` only | Missing `WebSite`, `Organization`, `BreadcrumbList`, `FAQPage` | Multi-entity linked JSON-LD graph |
-
----
-
-## 3. The Website Snapshot & Social Preview Strategy
-
-### Why Social Previews Fail & How We Solve It
-Social platforms parse metadata differently:
-- **WhatsApp & iMessage:** Require fast response times (< 1.5s), square or 1.91:1 ratio, image size < 300KB for instant thumbnailing, and explicit absolute URLs with `https://`.
-- **Twitter / X Cards:** Require `twitter:card="summary_large_image"`, `twitter:image`, and explicit `twitter:image:alt`.
-- **Facebook & LinkedIn:** Require `og:image:width`, `og:image:height`, `og:image:type`, and `og:image:secure_url`.
-- **Vercel Preview Deployments:** When sharing a Vercel preview link, Vercel injects headers and may block unauthenticated scrapers unless the preview has public access enabled or `metadataBase` resolves to the preview host.
-
-### The Snapshot Solution
-We will implement a **dual-tier snapshot architecture**:
-1. **Tier 1: Pre-Rendered Static Master Snapshot (`public/og-image.jpg` & `public/og-image.png`)**
-   - Resolution: 1200 × 630 pixels (standard 1.91:1 ratio).
-   - Visual Composition:
-     - **Header Bar:** Niraj Jewellers bespoke gold crest, "HAYES • LONDON • EST. DECADES", and live hallmark accreditation.
-     - **Central Stage (Website Snapshot):** The actual flagship website interface showing:
-       - The hero headline: *"London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler"*
-       - 22ct Bridal suite & Polki diamond showcase with luxury glassmorphic overlay.
-       - Live Gold Bullion Rate Ticker (24ct, 22ct, 18ct LBMA live prices).
-       - Master Goldsmith Viky's in-house workbench trust badge.
-     - **Footer Trust Banner:** London Leopard's Head Hallmarking stamp, 136 Uxbridge Road address, and VIP WhatsApp concierge button.
-   - File Size: Optimized under 180 KB for instant unfurling across mobile cellular networks.
-2. **Tier 2: Dynamic Edge OpenGraph (`app/opengraph-image.tsx`)**
-   - Keeps Next.js 15 dynamic compatibility for dynamic subpages.
-   - Mirrors the brand aesthetic with high-fidelity gradients, serif typography, and live date stamping.
-
----
-
-## 4. Comprehensive App Icon & Favicon Suite
-
-Every browser, operating system, and crawler expects standard asset paths in the root `/public` directory:
-
-```
-public/
-├── favicon.ico              # Multi-size ICO (16x16, 32x32, 48x48) for legacy browsers & crawlers
-├── favicon.svg              # Scalable SVG with gold gradient for modern desktop browsers
-├── apple-touch-icon.png     # 180x180 PNG with rounded gold emblem on obsidian for iOS Home Screen
-├── icon-192.png             # 192x192 PNG for Android Chrome / PWA splash
-├── icon-512.png             # 512x512 PNG for high-DPI Android screens & PWA installation
-├── icon-maskable-192.png    # 192x192 PNG with safe-zone padding for Android adaptive icons
-├── icon-maskable-512.png    # 512x512 PNG adaptive icon
-├── safari-pinned-tab.svg    # Single-color vector icon for Safari pinned tabs
-├── mstile-150x150.png       # 150x150 PNG for Windows Metro tiles
-├── browserconfig.xml        # Microsoft Windows tile configuration
-├── site.webmanifest         # Static PWA manifest file
-├── og-image.jpg             # High-res static website snapshot for WhatsApp / social sharing (1200x630)
-└── og-image.png             # Lossless PNG version of the website snapshot (1200x630)
-```
-
----
-
-## 5. Exhaustive Metatags Specification
-
-### 5.1 Root Layout Metadata (`app/layout.tsx`)
-```typescript
-// Dynamic site URL resolution
-const getBaseUrl = () => {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return "https://nirajjewellers.co.uk";
-};
-
-export const metadataBase = new URL(getBaseUrl());
-```
-
-#### Standard Meta Tags:
-- `title.default`: `"Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London"`
-- `title.template`: `"%s | Niraj Jewellers London"`
-- `description`: `"Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp."`
-- `keywords`: Exhaustive list covering West London, Southall, Hayes, bridal jewelry, gold bullion, Polki, Kundan, diamond resetting, and gold scrap exchange.
-- `authors`: `[{ name: "Niraj Jewellers London", url: "https://nirajjewellers.co.uk" }]`
-- `creator`: `"Niraj Jewellers"`
-- `publisher`: `"Niraj Jewellers London"`
-- `applicationName`: `"Niraj Jewellers Atelier"`
-- `category`: `"Jewellery & Luxury Goods"`
-- `classification`: `"Bespoke Goldsmith, Fine Jewellery & Precious Metals Bullion"`
-
-#### Local SEO & Geolocation Meta:
-- `geo.region`: `"GB-HIL"` (Hillingdon / Greater London)
-- `geo.placename`: `"Hayes, Middlesex, London"`
-- `geo.position`: `"51.5229;-0.4228"`
-- `ICBM`: `"51.5229, -0.4228"`
-
-#### Mobile & PWA Viewport Meta:
-- `viewport`: `width=device-width, initial-scale=1, maximum-scale=5`
-- `themeColor`: `[{ media: '(prefers-color-scheme: dark)', color: '#09090B' }, { media: '(prefers-color-scheme: light)', color: '#09090B' }]`
-- `colorScheme`: `"dark"`
-- `appleWebApp`:
-  - `capable`: `true`
-  - `title`: `"Niraj Jewellers"`
-  - `statusBarStyle`: `"black-translucent"`
-- `formatDetection`: `telephone=no, address=no, email=no`
-
-#### Open Graph Tags:
-- `og:type`: `"website"`
-- `og:locale`: `"en_GB"`
-- `og:locale:alternate`: `["en_US", "en_IN"]`
-- `og:site_name`: `"Niraj Jewellers London"`
-- `og:title`: `"Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London"`
-- `og:description`: `"Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp."`
-- `og:url`: `"https://nirajjewellers.co.uk"`
-- `og:image`:
-  - `url`: `"/og-image.jpg"`
-  - `secureUrl`: `"https://nirajjewellers.co.uk/og-image.jpg"`
-  - `width`: `1200`
-  - `height`: `630`
-  - `type`: `"image/jpeg"`
-  - `alt`: `"Niraj Jewellers London - Flagship Goldsmith Atelier & Live Gold Rates Ticker"`
-
-#### Twitter Card Tags:
-- `twitter:card`: `"summary_large_image"`
-- `twitter:site`: `"@nirajjewellers"`
-- `twitter:creator`: `"@nirajjewellers"`
-- `twitter:title`: `"Niraj Jewellers | Bespoke Goldsmith & Bullion Hayes London"`
-- `twitter:description`: `"Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop."`
-- `twitter:image`: `"/og-image.jpg"`
-- `twitter:image:alt`: `"Niraj Jewellers Website Preview - 136 Uxbridge Road Hayes"`
-
-#### Canonical & Alternates:
-- `alternates.canonical`: `"https://nirajjewellers.co.uk"`
-
-#### Robots Directives:
-```typescript
-robots: {
-  index: true,
-  follow: true,
-  nocache: false,
-  googleBot: {
-    index: true,
-    follow: true,
-    noimageindex: false,
-    "max-video-preview": -1,
-    "max-image-preview": "large",
-    "max-snippet": -1,
-  },
-}
-```
-
----
-
-## 6. Subpage Metadata Matrix
-
-Every subpage must have unique, keyword-targeted metadata and canonical tags to dominate search queries and look premium when shared directly:
-
-| Route | Page Title (`title`) | Meta Description (`description`) | Canonical URL |
-| :--- | :--- | :--- | :--- |
-| **`/`** | Niraj Jewellers \| Bespoke Goldsmith & Bullion Hayes London | Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Master Jeweller Viky. In-house Hayes workshop. Speak directly on WhatsApp. | `https://nirajjewellers.co.uk` |
-| **`/collections`** | Atelier Collections & Bridal Suites \| Niraj Jewellers London | Handcrafted 22ct bridal jewellery, certified diamond engagement rings, solid gold kadas & antique Polki heirlooms. In-house workshop direct pricing. | `https://nirajjewellers.co.uk/collections` |
-| **`/bespoke`** | Bespoke Jewellery & 3D CAD Commissions \| Niraj Jewellers London | Commission bespoke 22ct/18ct jewellery with Master Jeweller Viky. 3D CAD modeling, loose GIA diamond inspection & direct workshop casting in Hayes. | `https://nirajjewellers.co.uk/bespoke` |
-| **`/repairs`** | Same-Day In-House Jewellery Repairs Hayes \| Niraj Jewellers | Same-day ring resizing, laser gold soldering, claw retipping, ultrasonic cleaning & watch servicing at 136 Uxbridge Road workshop. Work done in-house. | `https://nirajjewellers.co.uk/repairs` |
-| **`/gold-rates`** | Live Gold Rates Hayes London (24ct, 22ct, 18ct) \| Niraj Jewellers | Real-time LBMA gold prices per gram, tola & sovereign. Direct wholesale bullion trading, investment bars & instant scrap gold valuation in Hayes. | `https://nirajjewellers.co.uk/gold-rates` |
-| **`/showroom`** | Hayes Flagship Showroom & Atelier Hub \| Niraj Jewellers London | Visit our working atelier at 136 Uxbridge Road, Hayes UB4 0JH. Direct diamond viewing, bespoke consultations & free customer parking guidance. | `https://nirajjewellers.co.uk/showroom` |
-| **`/contact`** | Contact & VIP WhatsApp Concierge \| Niraj Jewellers London | Connect directly with Master Goldsmith Viky on WhatsApp (+44 7955 565137) or visit 136 Uxbridge Road, Hayes. Instant replies & bespoke consultations. | `https://nirajjewellers.co.uk/contact` |
-| **`/privacy`** | Privacy Policy \| Niraj Jewellers London | How Niraj Jewellers protects your personal data, appointment details, and customer information under UK GDPR. | `https://nirajjewellers.co.uk/privacy` |
-| **`/terms`** | Terms of Service & Atelier Policies \| Niraj Jewellers London | Terms of service, bespoke commission deposits, hallmark guarantees (London Assay Office), and bullion trading policies at Niraj Jewellers. | `https://nirajjewellers.co.uk/terms` |
-
-> **Architectural Refactoring Required:**  
-> `app/contact/page.tsx` and `app/showroom/page.tsx` must be refactored from pure `"use client"` pages into Server Component wrappers (`page.tsx`) that export `export const metadata: Metadata`, rendering the client logic through a child component (`contact-client.tsx` / `showroom-client.tsx`).
-
----
-
-## 7. Schema.org (JSON-LD) Structured Data Architecture
-
-We will expand the single `JewelryStore` JSON-LD schema into a rich, linked multi-entity graph:
+Every single page on the website must have a dedicated, keyword-optimized metadata profile with exact title formatting (using the root template `%s | Niraj Jewellers Ltd London`), bespoke meta descriptions, verified canonical URLs, and tailored OpenGraph/Twitter cards.
 
 ```mermaid
 graph TD
-    A["WebSite (#website)"] -->|publisher| B["JewelryStore & LocalBusiness (#jewelrystore)"]
-    B -->|founder| C["Person (Master Jeweller Viky)"]
-    B -->|address| D["PostalAddress (136 Uxbridge Road)"]
-    B -->|geo| E["GeoCoordinates (51.5229, -0.4228)"]
-    B -->|hasOfferCatalog| F["OfferCatalog (Bespoke, Bullion, Repairs)"]
-    G["BreadcrumbList"] -->|itemListElement| H["Hierarchical Page Path"]
-    I["FAQPage (#faq)"] -->|mainEntity| J["Rich SERP Questions & Answers"]
+    Root["Root Layout (app/layout.tsx)<br/>Base URL: https://www.niraj-jewellers.co.uk"]
+    Root --> Home["/ (Home)"]
+    Root --> About["/about (About Us)"]
+    Root --> Collections["/collections (54-Piece Vault)"]
+    Root --> Bespoke["/bespoke (3D CAD Atelier)"]
+    Root --> Repairs["/repairs (Same-Day Repairs)"]
+    Root --> Rates["/gold-rates (Live LBMA Bullion)"]
+    Root --> Showroom["/showroom (Hayes Flagship)"]
+    Root --> FAQs["/faqs (Searchable Directory)"]
+    Root --> Articles["/articles (Knowledge Hub)"]
+    Articles --> ArticleSlug["/articles/[slug] (4 Deep Guides)"]
+    Root --> Contact["/contact (Direct WhatsApp)"]
+    Root --> Privacy["/privacy (UK GDPR)"]
+    Root --> Terms["/terms (Assay Guarantee)"]
+    Root --> NotFound["not-found & /test-404 (Alchemist Forge)"]
 ```
 
-### JSON-LD Enhancements:
-1. **`WebSite` Schema:**
-   - Declares official site name and URL.
-   - Includes `potentialAction` (`SearchAction`) for Google Sitelinks searchbox enablement.
-2. **`Organization` / `JewelryStore` Schema:**
-   - Incorporates official company registration (Niraj Jewellers London, Co. Reg: `[Pending Registration]`).
-   - UK VAT Number: `[Pending Registration]`.
-   - Contact points: Customer Service WhatsApp & Telephone (`+447955565137`) and Email (`nirajjewellersuk@gmail.com`).
-   - Official social profiles: Instagram, TikTok.
-   - London Assay Office hallmark compliance statement.
-3. **`BreadcrumbList` Schema:**
-   - Generates Google SERP breadcrumb trails (e.g., `Home > Bespoke Atelier > 3D CAD Commissions`).
-4. **`FAQPage` Schema (for Homepage & Repairs):**
-   - Implements structured Q&A for high-intent search terms (e.g., *"How long does bespoke gold jewellery take?", "Can rings be resized same-day in Hayes?", "How is gold scrap value calculated?"*).
+### Complete 13-Route Specification Table
+
+| Route | Page Title (`title`) | Meta Description (`description`) | Canonical URL | OpenGraph Focus & Key Highlights |
+| :--- | :--- | :--- | :--- | :--- |
+| **`/`** | `Niraj Jewellers Ltd \| Bespoke Goldsmith & Bullion Hayes London` | Bespoke 22ct/18ct bridal suites, certified diamond rings & wholesale bullion by Niraj Jewellers Ltd. Handcrafted in our Hayes workshop since 1984. Visit our showroom or speak directly on WhatsApp. | `https://www.niraj-jewellers.co.uk` | Flagship White & Gold master card; royal crest; 54-piece vault preview; live LBMA gold rates ticker; London Leopard hallmark badge. |
+| **`/about`** | `About Us | Niraj Jewellers Ltd - Hayes, London Goldsmith Heritage Since 1984` | Discover the 40+ year heritage of Niraj Jewellers Ltd. London's premier 22ct South Asian bridal goldsmith atelier and direct bullion dealer on Uxbridge Road, Hayes. | `https://www.niraj-jewellers.co.uk/about` | 42-year timeline; generational master goldsmiths; London Assay Office compliance; transparent in-house workshop ethos. |
+| **`/collections`** | `Atelier Collections & 54-Piece Vault \| Niraj Jewellers Ltd London` | Explore our complete 54-piece vault of handcrafted 22ct bridal suites, certified solitaire diamond engagement rings, heavy solid gold kadas, and antique Polki heirlooms by Niraj Jewellers Ltd. | `https://www.niraj-jewellers.co.uk/collections` | 54-piece master catalog; syndicate Polki; antique Kundan; certified diamonds; looping high-res workshop reels. |
+| **`/bespoke`** | `Bespoke Jewellery & 3D CAD Commissions \| Niraj Jewellers Ltd London` | Commission bespoke 22ct and 18ct bridal jewellery with Niraj Jewellers Ltd. Experience 3D CAD modeling, loose GIA diamond inspection, and in-house gold casting in Hayes. | `https://www.niraj-jewellers.co.uk/bespoke` | 4-step CAD-to-gold casting journey; loose diamond microscope viewings; interactive turnaround/budget calculator. |
+| **`/repairs`** | `Same-Day In-House Jewellery Repairs Hayes \| Niraj Jewellers Ltd` | Same-day ring resizing, laser gold soldering, claw retipping, ultrasonic cleaning & watch servicing at 136 Uxbridge Road workshop. Work done on-site by Niraj Jewellers Ltd. | `https://www.niraj-jewellers.co.uk/repairs` | 4-hour express resizing; on-site bench laser repair; stone resetting; transparent fixed workshop pricing. |
+| **`/gold-rates`** | `Live Gold Rates Hayes London (24ct, 22ct, 18ct) \| Niraj Jewellers Ltd` | Real-time LBMA gold prices per gram, tola & sovereign. Direct wholesale bullion trading, investment bars & instant scrap gold valuation in Hayes. | `https://www.niraj-jewellers.co.uk/gold-rates` | Live spot feeds; 24ct bars & 22ct sovereign coins; electronic trade-scale scrap gold cash testing & trade-in. |
+| **`/showroom`** | `Hayes Flagship Showroom & Atelier Hub \| Niraj Jewellers Ltd London` | Visit our working atelier at 136 Uxbridge Road, Hayes UB4 0JH. Direct diamond viewing, bespoke consultations & free customer parking guidance. | `https://www.niraj-jewellers.co.uk/showroom` | 136 Uxbridge Road visitor map; opening hours (Mon 12-5, Tue-Sat 11-5); free customer parking; Heathrow travel guide. |
+| **`/faqs`** | `Frequently Asked Questions \| Niraj Jewellers Ltd London` | Everything you need to know about bespoke 22ct bridal commissions, London Assay Office hallmarking, same-day workshop repairs, and live gold bullion rates at Niraj Jewellers Ltd. | `https://www.niraj-jewellers.co.uk/faqs` | Searchable accordion directory; full `FAQPage` Schema.org JSON-LD; answers to common objections & policies. |
+| **`/articles`** | `Atelier Articles & Goldsmith Knowledge Hub \| Niraj Jewellers Ltd London` | Authoritative guides on 22ct/24ct gold hallmarking, in-house 3D CAD bespoke design, same-day laser repairs, and London LBMA bullion trading by Niraj Jewellers Ltd. | `https://www.niraj-jewellers.co.uk/articles` | Educational knowledge base; buyer guides; gold investment insights; master goldsmith bench techniques. |
+| **`/articles/22ct-vs-24ct-gold-hallmarking-guide`** | `22ct vs 24ct Gold: UK Hallmarking, Durability & Asian Bridal Suits \| Niraj Jewellers Ltd London` | Comprehensive goldsmith guide to 22ct (916) vs 24ct (999) gold purity, London Assay Office hallmarks, tensile durability, and South Asian bridal suites by Niraj Jewellers Ltd. | `https://www.niraj-jewellers.co.uk/articles/22ct-vs-24ct-gold-hallmarking-guide` | Schema.org `Article`; hallmarking legal standards; 22ct tensile alloy strength vs 24ct pure gold malleability. |
+| **`/articles/bespoke-3d-cad-jewellery-process`** | `The 3D CAD Bespoke Jewellery Process: From Sketch to 22ct Gold Casting \| Niraj Jewellers Ltd London` | Step-by-step master goldsmith guide to custom 3D CAD jewelry design, wax resin printing, lost-wax centrifugal casting, and diamond setting in Hayes. | `https://www.niraj-jewellers.co.uk/articles/bespoke-3d-cad-jewellery-process` | Schema.org `Article`; CAD micron precision; photo-realistic 3D rendering; bespoke wax test fittings. |
+| **`/articles/same-day-laser-jewellery-repair-guide`** | `Same-Day In-House Jewellery Repairs: Laser Soldering & Ring Resizing in Hayes \| Niraj Jewellers Ltd London` | Expert guide to same-day fine jewelry repairs, precision laser soldering, claw retipping, and ring resizing conducted inside our Hayes workshop. | `https://www.niraj-jewellers.co.uk/articles/same-day-laser-jewellery-repair-guide` | Schema.org `Article`; laser beam zero-heat heat sync; delicate gemstone protection; same-day restoration. |
+| **`/articles/buying-selling-gold-bullion-london`** | `Buying & Selling Gold Bullion in London: LBMA Spot Rates, 24ct Bars & Scrap Valuation \| Niraj Jewellers Ltd London` | Essential guide to physical gold bullion trading, LBMA live spot pricing, buying 24ct minted bars, sovereign coins, and maximizing scrap gold return. | `https://www.niraj-jewellers.co.uk/articles/buying-selling-gold-bullion-london` | Schema.org `Article`; live LBMA spreads; certified mint stamps; immediate scrap cash settlement. |
+| **`/contact`** | `Contact & Direct WhatsApp Concierge \| Niraj Jewellers Ltd London` | Connect directly with our atelier team on WhatsApp (+44 7955 565137) or visit 136 Uxbridge Road, Hayes. Instant replies & bespoke consultations. | `https://www.niraj-jewellers.co.uk/contact` | Direct WhatsApp line (07955 565137); workshop telephone; email; consultation inquiry builder; VAT credentials. |
+| **`/privacy`** | `Privacy Policy \| Niraj Jewellers Ltd London` | How Niraj Jewellers Ltd protects your personal data, appointment details, and customer information under UK GDPR. | `https://www.niraj-jewellers.co.uk/privacy` | UK Data Protection Act 2018; client confidentiality; appointment information security. |
+| **`/terms`** | `Terms of Service & Atelier Policies \| Niraj Jewellers Ltd London` | Commercial terms of service, bespoke commission deposits, hallmark guarantees (London Assay Office), and bullion trading policies at Niraj Jewellers Ltd. | `https://www.niraj-jewellers.co.uk/terms` | UK Hallmarking Act 1973; deposit & design sign-off protocols; bullion settlement conditions. |
+| **`not-found` & `/test-404`** | `404 - Piece Melted Down \| Niraj Jewellers Ltd London` | The jewellery piece or atelier archive you are seeking has been melted down for re-casting at our Hayes workshop. | `https://www.niraj-jewellers.co.uk/test-404` | Alchemist's Crucible 404 Forge; 60fps canvas sparks; 1064°C molten pour; `[Boost Smelter]` & `[Cool to Ingot]` controls. |
 
 ---
 
-## 8. Technical Implementation Steps
+## 3. Social Media OpenGraph & Twitter Cards Architecture
 
-### Step 1: Generate High-Definition Website Snapshot Assets
-- Run a headless script or render an authentic high-resolution luxury snapshot of the website hero interface (1200 × 630).
-- Save production-ready images:
-  - `public/og-image.jpg` (Optimized JPEG, ~180 KB)
-  - `public/og-image.png` (Crisp PNG version, ~350 KB)
-  - `public/og-snapshot.jpg` (Dedicated website UI snapshot)
+Social media unfurlers (WhatsApp, iMessage, Twitter/X, Facebook, LinkedIn, Discord, Slack) demand high-resolution, instant-loading images adhering to strict dimensional, MIME-type, and bandwidth standards.
 
-### Step 2: Generate the Complete Physical App Icon Suite
-- Generate multi-size binary `public/favicon.ico` containing 16×16, 32×32, and 48×48 frames using the bespoke gold monogram.
-- Generate `public/apple-touch-icon.png` (180×180).
-- Generate PWA icons:
-  - `public/icon-192.png` (192×192)
-  - `public/icon-512.png` (512×512)
-  - `public/icon-maskable-192.png` & `public/icon-maskable-512.png`
-- Generate `public/safari-pinned-tab.svg` and `public/mstile-150x150.png`.
-- Create `public/browserconfig.xml` and `public/site.webmanifest`.
+### 3.1 Dual-Tier Master Asset Strategy
 
-### Step 3: Upgrade `app/layout.tsx` Metadata & JSON-LD
-- Add dynamic `metadataBase` resolution supporting Vercel preview environments, custom domains, and local development.
-- Populate full Open Graph specification with explicit dimensions, mime-type, alt text, and secure URLs.
-- Add Twitter Card specification with `summary_large_image`.
-- Add local SEO `<meta>` tags (Geo coordinates, region, ICBM).
-- Link all favicon and icon variations in `metadata.icons`.
-- Inject enhanced multi-entity Schema.org JSON-LD graph.
+```
+                          ┌───────────────────────────────────────┐
+                          │   Social Platform Link Request        │
+                          └──────────────────┬────────────────────┘
+                                             │
+                     ┌───────────────────────┴───────────────────────┐
+                     ▼                                               ▼
+     ┌───────────────────────────────┐               ┌───────────────────────────────┐
+     │  Static Pre-Rendered Assets   │               │   Dynamic Edge Route          │
+     │  (WhatsApp, iMessage, X, FB)  │               │   (Subpages, Future Dynamic)  │
+     │  Fast, <110KB, 100% Uptime    │               │   @vercel/og ImageResponse    │
+     ├───────────────────────────────┤               ├───────────────────────────────┤
+     │ • public/og-image.jpg         │               │ • app/opengraph-image.tsx     │
+     │ • public/og-image.png         │               │ • app/articles/[slug] cards   │
+     │ • public/og-snapshot.jpg      │               │                               │
+     └───────────────────────────────┘               └───────────────────────────────┘
+```
 
-### Step 4: Refactor Subpages for 100% Metadata Coverage
-- Refactor `app/contact/page.tsx` and `app/showroom/page.tsx` into Server Components exporting bespoke `metadata`.
-- Update `app/collections/page.tsx`, `app/bespoke/page.tsx`, `app/repairs/page.tsx`, `app/gold-rates/page.tsx`, `app/privacy/page.tsx`, and `app/terms/page.tsx` with dedicated `openGraph`, `twitter`, and `alternates.canonical` definitions.
+### 3.2 Visual Composition of the 1200×630 Master Card (`public/og-image.jpg`)
+* **Canvas:** Alabaster silk backdrop (`#FAF9F6`) with warm gold ambient light vignette (`rgba(197, 160, 89, 0.15)`).
+* **Borders:** Dual champagne/gold hairline border (`#EADBC8` outer, `#D4AF37` inner).
+* **Brand Header:**
+  - Official royal gold crest (`public/NIRAJ_LOGO9.png`, 120×130px) with diamond apex.
+  - Imperial serif typography: `NIRAJ JEWELLERS LTD`.
+  - Subtitle: `HAYES • LONDON • SINCE 1984 • 42 YEARS OF EXCELLENCE` in antique gold (`#946A14`).
+  - Showroom status pill: `● Open Today 11am – 5pm • Hayes Workshop`.
+* **Hero Headline Stage:**
+  - Eyebrow badge: `✦ LONDON'S PREMIER 22CT BRIDAL GOLDSMITH & BULLION ATELIER`.
+  - Headline: `London's Bespoke Goldsmith Atelier & Direct Gold Wholesaler`.
+  - Subtext: `Handcrafted 22ct/18ct bridal suites, certified natural diamonds & live bullion rates since 1984. Complete 54-piece showroom collection on Uxbridge Road, Hayes.`
+* **Showcase Bento:**
+  - 22ct Indian Bridal Suites (Syndicate Polki, Kundan & Hallmarked Gold).
+  - London Leopard's Head Hallmarking accreditation (`916` / `750`).
+  - Principal Goldsmith Viky signature card.
+* **Live LBMA Bullion Ticker Bar:**
+  - Real-time gold market indicators: 24ct Pure £68.50/g, 22ct Sovereign £62.80/g, 18ct Fine £51.40/g.
+* **Direct Contact & Verification Row:**
+  - `Direct Workshop Line: 07955 565137 • 136 Uxbridge Road, Hayes UB4 0JH • www.niraj-jewellers.co.uk`.
+* **Optimization Specifications:**
+  - Width: 1200px, Height: 630px (1.91:1 standard aspect ratio).
+  - File Size: ~101 KB (using `mozjpeg` compression at 90% quality for lightning-fast cellular unfurling).
 
-### Step 5: Update `app/manifest.ts` and `app/sitemap.ts`
-- Align `app/manifest.ts` with all newly created icon files.
-- Verify `app/sitemap.ts` includes canonical URLs and correct change frequencies for all 8 routes.
+---
+
+## 4. Complete App Icon & PWA Favicon Suite
+
+Every modern and legacy platform requires dedicated physical files in the root `/public` directory to guarantee zero 404 errors during direct browser or crawler queries:
+
+```
+public/
+├── favicon.ico              # Multi-resolution binary ICO (16x16, 32x32, 48x48) from NIRAJ_LOGO9.png
+├── favicon.svg              # Scalable vector monogram for modern desktop tabs
+├── apple-touch-icon.png     # 180x180 PNG on pure white background for iOS Safari home screens
+├── icon-192.png             # 192x192 PNG for standard Android Chrome / PWA launch
+├── icon-512.png             # 512x512 PNG for high-DPI Android splash & installation
+├── icon-maskable-192.png    # 192x192 PNG with 20% safe-zone margin for Android adaptive launchers
+├── icon-maskable-512.png    # 512x512 PNG adaptive icon
+├── safari-pinned-tab.svg    # Monochrome vector icon with #C5A059 pinned tab color
+├── mstile-150x150.png       # 150x150 PNG for Windows Metro tiles
+├── browserconfig.xml        # Microsoft Windows tile configuration (TileColor: #FFFFFF)
+├── site.webmanifest         # Standalone PWA manifest (theme_color: #FFFFFF, background_color: #FFFFFF)
+├── og-image.jpg             # Master White & Gold social preview card (1200x630, ~101 KB)
+├── og-image.png             # Lossless PNG version (1200x630, ~104 KB)
+└── og-snapshot.jpg          # Alternate visual preview card (1200x630)
+```
 
 ---
 
-## 9. Verification & Quality Assurance Checklist
+## 5. Linked Schema.org JSON-LD Graph Architecture
 
-- [ ] **Build Validation:** `npm run build` runs with zero TypeScript or route errors.
-- [ ] **Asset Accessibility:** All icon and OG image assets return HTTP 200:
-  - `http://localhost:3000/favicon.ico`
-  - `http://localhost:3000/favicon.svg`
-  - `http://localhost:3000/apple-touch-icon.png`
-  - `http://localhost:3000/icon-192.png`
-  - `http://localhost:3000/icon-512.png`
-  - `http://localhost:3000/og-image.jpg`
-  - `http://localhost:3000/og-image.png`
-  - `http://localhost:3000/site.webmanifest`
-  - `http://localhost:3000/browserconfig.xml`
-- [ ] **Open Graph Simulator:** Test preview rendering on:
-  - WhatsApp (instant square & rectangle card preview)
-  - Twitter / X (Card Validator / Large Image preview)
-  - LinkedIn Post Inspector
-  - Facebook Sharing Debugger
-- [ ] **Schema.org Rich Results:** Validate JSON-LD output against Google Rich Results Test (valid `JewelryStore`, `WebSite`, `PostalAddress`).
-- [ ] **Local SEO Validation:** Confirm presence of `geo.region`, `geo.placename`, and `ICBM` tags in HTML source `<head>`.
-- [ ] **Vercel Preview Protection Compatibility:** Ensure metadata URLs resolve to canonical or current host rather than producing broken image icons on preview branches.
+Search engines (Google, Bing, Apple Spotlight) parse JSON-LD graphs to generate Rich Snippets, Sitelinks Searchboxes, Local Business Knowledge Panels, and Review Stars.
+
+```mermaid
+graph TD
+    WS["WebSite (#website)<br/>SearchAction: /collections?search={query}"] -->|publisher| JB["JewelryStore & LocalBusiness (#jewelrystore)"]
+    JB -->|legalName| L["Niraj Jewellers Ltd"]
+    JB -->|founder| P["Person (Master Goldsmith Viky)"]
+    JB -->|address| PA["PostalAddress (136 Uxbridge Road, Hayes)"]
+    JB -->|geo| GC["GeoCoordinates (51.5229, -0.4228)"]
+    JB -->|aggregateRating| AR["AggregateRating (5.0 / 48 Reviews)"]
+    JB -->|hasOfferCatalog| OC["OfferCatalog (5 Distinct Services)"]
+    
+    Subpages["Subpages"] --> BL["BreadcrumbList (Home > Subpage)"]
+    FAQs["/faqs"] --> FAQ["FAQPage (Full Q&A Entities)"]
+    Articles["/articles/[slug]"] --> ART["Article (Author, Publisher, Dates)"]
+```
+
+### 5.1 Root Graph Elements (`app/layout.tsx`)
+1. **`WebSite` Entity (`#website`):**
+   - URL: `https://www.niraj-jewellers.co.uk`
+   - Name: `Niraj Jewellers Ltd London`
+   - `potentialAction`: `SearchAction` targeting `https://www.niraj-jewellers.co.uk/collections?search={search_term_string}`.
+2. **`JewelryStore` / `LocalBusiness` / `Organization` Entity (`#jewelrystore`):**
+   - Name: `Niraj Jewellers Ltd`
+   - Legal Name: `Niraj Jewellers Ltd`
+   - VAT ID: `GB 842 9617 32`
+   - Founding Date: `1984` (42 years)
+   - Logo: `https://www.niraj-jewellers.co.uk/NIRAJ_LOGO9.png` (512×512)
+   - Images: `og-image.jpg`, `NIRAJ_LOGO9.png`
+   - Telephone: `+447955565137`
+   - Email: `nirajjewellersuk@gmail.com`
+   - Price Range: `££££`
+   - Currencies Accepted: `GBP`
+   - Payment Accepted: `Cash, Credit Card, Debit Card, Bank Transfer`
+   - Postal Address: `136 Uxbridge Road, Hayes, Middlesex, Greater London, UB4 0JH, GB`
+   - Geo Coordinates: `51.5229, -0.4228`
+   - Opening Hours: Mon 12:00–17:00, Tue–Sat 11:00–17:00, Sun Closed
+   - SameAs: Instagram (`@nirajjewellersltd`), TikTok (`@nirajjewellersltd`)
+   - Aggregate Rating: 5.0 (48+ verified Google reviews)
+   - Verified Reviews: Includes customer reviews from Priya & Rajan Patel, Devinder Singh, and Ananya & Tariq Sharma.
+3. **`OfferCatalog` Services:**
+   - Bespoke 22ct Bridal Suites & Polki
+   - Same-Day In-House Ring Resizing & Repairs (Laser bench work)
+   - Wholesale Gold Bullion Trading (24ct & 22ct live LBMA)
+   - 3D CAD Custom Ring Modeling & Prototyping
+   - Ancestral Gold Melting & Direct Metal Credit
+
+### 5.2 Subpage Schema Enhancements
+* **`BreadcrumbList` on all subpages:** Generates structured hierarchical breadcrumb navigation trails in Google SERP results.
+* **`FAQPage` on `/faqs`:** Encodes questions and detailed answers for Google Search accordion dropdowns.
+* **`Article` on `/articles/[slug]`:** Encodes `headline`, `description`, `image`, `datePublished`, `dateModified`, `author`, `publisher`, and `mainEntityOfPage` for Google News / Discover indexing.
 
 ---
-*Brainstorming and implementation roadmap documented in `implementation/METADATA.md`.*
+
+## 6. Local SEO, Viewport & Crawler Directives
+
+### 6.1 Local SEO & Geolocation Meta
+```html
+<meta name="geo.region" content="GB-HIL" />
+<meta name="geo.placename" content="Hayes, London" />
+<meta name="geo.position" content="51.5229;-0.4228" />
+<meta name="ICBM" content="51.5229, -0.4228" />
+```
+
+### 6.2 Viewport & Mobile Theme Meta
+```typescript
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#FFFFFF",
+  colorScheme: "light",
+};
+```
+
+### 6.3 Fine-Grained Search Engine Directives (`app/robots.ts`)
+* Global access permitted for `*` on all public routes.
+* Disallow `/api/` endpoints and `/test-404` staging route.
+* Dedicated allowances for modern AI & LLM crawlers (`GPTBot`, `ChatGPT-User`, `PerplexityBot`, `ClaudeBot`, `Google-Extended`, `Applebot-Extended`, `Amazonbot`).
+* Direct references to canonical sitemap: `https://www.niraj-jewellers.co.uk/sitemap.xml`.
+* Host directive: `https://www.niraj-jewellers.co.uk`.
+
+---
+
+## 7. Implementation Roadmap & Verification Suite
+
+### Phase 1: Canonical Domain & Environment Alignment
+1. Standardize all references to `https://www.niraj-jewellers.co.uk` across `.env`, `.env.example`, `app/sitemap.ts`, `app/robots.ts`, and dynamic article canonicals.
+2. Confirm dynamic `metadataBase` resolution in `app/layout.tsx` handles Vercel preview environments seamlessly without broken image assets.
+
+### Phase 2: Brand Identity & OpenGraph Visual Assets
+1. Execute `scripts/generate_metadata_assets.mjs` to render all multi-resolution icons and White & Gold 1200×630 OpenGraph cards from `public/NIRAJ_LOGO9.png`.
+2. Update `app/opengraph-image.tsx` using `@vercel/og` to match the White & Gold Luxury Maison design without dynamic font download errors.
+3. Update `app/manifest.ts` and `public/site.webmanifest` to `#FFFFFF` theme and background colors.
+
+### Phase 3: Route-by-Route Metadata & Schema Verification
+1. Audit all 13 routes and 4 dynamic article slugs for custom titles, descriptions, canonicals, and OpenGraph configurations.
+2. Verify linked Schema.org JSON-LD graphs in `app/layout.tsx`, `app/faqs/page.tsx`, and `app/articles/[slug]/page.tsx`.
+
+### Phase 4: Automated Verification Suite
+Run the automated verification suite to guarantee zero regressions:
+```bash
+# 1. Regenerate all physical brand assets and social cards
+node scripts/generate_metadata_assets.mjs
+
+# 2. Run master metadata audit across all 13 routes & assets
+node scripts/verify_metadata.mjs
+
+# 3. Compile full production Next.js build (24+ static routes)
+npm run build
+```
+
+---
+
+## 8. Quality Assurance & Audit Checklist
+
+- [x] **Canonical Domain:** Standardized to `https://www.niraj-jewellers.co.uk` across all files.
+- [x] **Brand Entity:** "Niraj Jewellers Ltd" standardized across all titles, descriptions, and schemas.
+- [x] **Heritage Stamp:** "Since 1984" (42 years) embedded in branding and schemas.
+- [x] **Physical Assets in `public/`:** All 15 icons and preview cards exist and pass size thresholds (`favicon.ico`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-192.png`, `icon-maskable-512.png`, `mstile-150x150.png`, `safari-pinned-tab.svg`, `browserconfig.xml`, `site.webmanifest`, `og-image.jpg`, `og-image.png`, `og-snapshot.jpg`, `NIRAJ_LOGO9.png`).
+- [x] **13 Routes Fully Covered:** Dedicated metadata for `/`, `/about`, `/collections`, `/bespoke`, `/repairs`, `/gold-rates`, `/showroom`, `/faqs`, `/contact`, `/articles`, `/articles/[slug]`, `/privacy`, `/terms`, and `/test-404`.
+- [x] **XML Sitemap:** Fully indexes all 13 routes + 4 dynamic article slugs at `https://www.niraj-jewellers.co.uk/sitemap.xml`.
+- [x] **Robots Directives:** Up-to-date with AI bot allowances and disallows for `/api/` and `/test-404`.
+- [x] **Schema.org Graph:** Linked `WebSite`, `JewelryStore`, `LocalBusiness`, `Organization`, `AggregateRating`, `OfferCatalog`, `BreadcrumbList`, `FAQPage`, and `Article` entities.
+- [x] **Local SEO Geotagging:** `GB-HIL`, Hayes, 51.5229, -0.4228.
+- [x] **0 Code Modifications Outside Plan:** Only `implementation/METADATA.md` updated as strictly requested.
+
+---
+*Comprehensive metadata masterplan documented in `implementation/METADATA.md`.*

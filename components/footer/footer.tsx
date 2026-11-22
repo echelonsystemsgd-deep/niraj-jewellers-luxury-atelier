@@ -219,20 +219,20 @@ export function Footer() {
                 <p className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 text-[#996515] shrink-0" />
                   <span className="text-[#7A7880] text-[11px]">Landline:</span>
-                  <a href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`} className="hover:text-[#996515] font-mono font-semibold text-[#141416]">
+                  <a href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`} className="hover:text-[#996515] font-sans font-semibold text-[#141416]">
                     {NIRAJ_LANDLINE_PHONE}
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 text-[#996515] shrink-0" />
                   <span className="text-[#7A7880] text-[11px]">Mobile:</span>
-                  <a href={`tel:${NIRAJ_MOBILE_PHONE.replace(/\s+/g, "")}`} className="hover:text-[#996515] font-mono font-semibold text-[#141416]">
+                  <a href={`tel:${NIRAJ_MOBILE_PHONE.replace(/\s+/g, "")}`} className="hover:text-[#996515] font-sans font-semibold text-[#141416]">
                     {NIRAJ_MOBILE_PHONE}
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail className="w-3.5 h-3.5 text-[#996515] shrink-0" />
-                  <a href={`mailto:${NIRAJ_EMAIL}`} className="hover:text-[#996515] font-mono truncate">
+                  <a href={`mailto:${NIRAJ_EMAIL}`} className="hover:text-[#996515] font-sans truncate">
                     {NIRAJ_EMAIL}
                   </a>
                 </p>

@@ -82,7 +82,7 @@ export function AtelierNavbar() {
                 <span className="font-serif text-xs sm:text-base font-bold tracking-wider uppercase text-[#141416] group-hover:text-[#996515] transition-colors leading-tight whitespace-nowrap">
                   NIRAJ JEWELLERS <span className="text-[9px] sm:text-xs font-semibold text-[#996515]">LTD</span>
                 </span>
-                <span className="font-mono text-[8px] sm:text-[9px] tracking-[0.2em] uppercase text-[#7A705E] leading-none mt-0.5 hidden sm:inline">
+                <span className="font-sans text-[8px] sm:text-[9px] tracking-[0.2em] uppercase text-[#7A705E] leading-none mt-0.5 hidden sm:inline font-medium">
                   HAYES · LONDON · SINCE 1984
                 </span>
               </div>
@@ -108,7 +108,7 @@ export function AtelierNavbar() {
             {/* Direct Landline Phone CTA - Number displayed on both Mobile & Desktop */}
             <a
               href="tel:02085739323"
-              className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white border border-[#E7E2DA] hover:border-[#141416] text-[#141416] font-mono text-[10px] sm:text-xs font-semibold transition-all shadow-xs shrink-0"
+              className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white border border-[#E7E2DA] hover:border-[#141416] text-[#141416] font-sans text-[10px] sm:text-xs font-semibold transition-all shadow-xs shrink-0"
               title="Call Workshop: 020 8573 9323"
               aria-label="Call Hayes Workshop at 020 8573 9323"
             >
@@ -192,8 +192,8 @@ export function AtelierNavbar() {
           {/* Middle: Official 6 Navigation Portals */}
           <div className="px-5 sm:px-8 pt-5 pb-28 flex-1 max-w-2xl mx-auto w-full space-y-4 sm:space-y-5">
             {/* Dynamic London Showroom Status Indicator */}
-            <div className="pb-3 border-b border-[#E8DEC8] flex items-center justify-between text-xs text-[#57534E] font-mono">
-              <span className="uppercase tracking-wider">SHOWROOM ACCESS:</span>
+            <div className="pb-3 border-b border-[#E8DEC8] flex items-center justify-between text-xs text-[#57534E] font-sans">
+              <span className="uppercase tracking-wider font-medium">SHOWROOM ACCESS:</span>
               {showroomStatus ? (
                 showroomStatus.isOpen ? (
                   <span className="inline-flex items-center gap-1.5 text-[#128C7E] font-semibold">
@@ -223,7 +223,7 @@ export function AtelierNavbar() {
                   </div>
                   <div>
                     <p className="text-[9px] uppercase font-bold tracking-wider text-[#8C6212]">Showroom Landline</p>
-                    <p className="font-mono text-xs font-semibold text-[#141416]">020 8573 9323</p>
+                    <p className="font-sans text-xs font-semibold text-[#141416]">020 8573 9323</p>
                   </div>
                 </div>
                 <a
@@ -241,7 +241,7 @@ export function AtelierNavbar() {
                   </div>
                   <div>
                     <p className="text-[9px] uppercase font-bold tracking-wider text-[#8C6212]">Workshop Mobile</p>
-                    <p className="font-mono text-xs font-semibold text-[#141416]">07955 565137</p>
+                    <p className="font-sans text-xs font-semibold text-[#141416]">07955 565137</p>
                   </div>
                 </div>
                 <a
@@ -266,7 +266,7 @@ export function AtelierNavbar() {
                   className="group flex items-center justify-between py-3.5 px-3.5 rounded-xl hover:bg-white hover:text-[#996515] transition-all min-h-[48px] border border-transparent hover:border-[#E8DEC8]"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="font-mono text-xs text-[#8C6212] font-semibold">{link.num}</span>
+                    <span className="font-sans text-xs text-[#8C6212] font-semibold">{link.num}</span>
                     <div>
                       <div className="font-serif text-lg font-medium tracking-wide text-[#141416] group-hover:text-[#996515]">
                         {link.label}
@@ -295,7 +295,7 @@ export function AtelierNavbar() {
               <span>WhatsApp Master Goldsmith Concierge</span>
             </a>
 
-            <div className="flex items-center justify-between text-[11px] font-mono text-[#7A705E] px-1">
+            <div className="flex items-center justify-between text-[11px] font-sans text-[#7A705E] px-1">
               <span className="flex items-center gap-1">
                 <MapPin className="w-3 h-3 text-[#C6A75E]" />
                 <span>136 Uxbridge Road, Hayes UB4 0JH</span>

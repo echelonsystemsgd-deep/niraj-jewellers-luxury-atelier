@@ -14,8 +14,8 @@ export function ShowroomLogistics() {
           <div className="lg:col-span-6 flex flex-col gap-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#C6A75E] block mb-2">
-                  [ 05 / SHOWROOM &amp; ATELIER LOGISTICS ]
+                <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#C6A75E] block mb-2 font-semibold">
+                  HAYES SHOWROOM &amp; WORKSHOP
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl text-[#FAF9F5] tracking-tight">
                   Visit the Hayes Bench
@@ -29,7 +29,7 @@ export function ShowroomLogistics() {
             </p>
 
             {/* Address & Hours Grid: Open and Visible by Default (No Accordions) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs text-[#A89F91]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-sans text-xs text-[#A89F91]">
               <div className="p-5 border border-[#2C2825] bg-[#1A1816]">
                 <div className="flex items-center gap-2 text-[#FAF9F5] font-semibold mb-2">
                   <MapPin className="w-4 h-4 text-[#C6A75E]" />
@@ -56,7 +56,7 @@ export function ShowroomLogistics() {
             </div>
 
             {/* Parking & Transit Guidance (Roadside parking, no mention of bays) */}
-            <div className="p-4 border border-[#2C2825] bg-[#1A1816]/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] font-mono text-[#A89F91]">
+            <div className="p-4 border border-[#2C2825] bg-[#1A1816]/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-sans text-[#A89F91]">
               <span className="flex items-center gap-2">
                 <Car className="w-4 h-4 text-[#C6A75E] shrink-0" />
                 <span>Available roadside customer parking on Uxbridge Road</span>
@@ -69,7 +69,7 @@ export function ShowroomLogistics() {
             </div>
 
             {/* Direct Contact Links */}
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs tracking-wider uppercase pt-2">
+            <div className="flex flex-wrap items-center gap-3 font-sans text-xs tracking-wider uppercase pt-2 font-semibold">
               <a
                 href="tel:02085739323"
                 onClick={() => sound.playTick()}
@@ -112,7 +112,7 @@ export function ShowroomLogistics() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => sound.playTick()}
-              className="w-full py-3.5 bg-[#C6A75E] hover:bg-white text-[#141416] transition-colors font-mono text-xs tracking-[0.18em] uppercase font-bold flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-[#C6A75E] hover:bg-white text-[#141416] transition-colors font-sans text-xs tracking-[0.2em] uppercase font-bold flex items-center justify-center gap-2"
             >
               <Navigation className="w-4 h-4" />
               <span>OPEN DIRECTIONS IN GOOGLE MAPS ↗</span>

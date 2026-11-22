@@ -102,7 +102,7 @@ export function InfiniteMotionRibbon({ onSelectItem, items }: InfiniteMotionRibb
                 <h3 className="font-serif text-sm font-semibold leading-tight line-clamp-1 group-hover:text-[#DFBF7A] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-[11px] text-[#E8DEC8] font-mono mt-0.5">
+                <p className="text-[11px] text-[#E8DEC8] font-sans mt-0.5">
                   {item.specs.weight || item.specs.carat || item.metalPurity}
                 </p>
               </div>

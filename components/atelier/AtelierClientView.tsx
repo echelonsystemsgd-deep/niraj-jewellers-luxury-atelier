@@ -8,6 +8,7 @@ import { ShowroomDossierModal } from "./ShowroomDossierModal";
 import { RepairsShowcase } from "./RepairsShowcase";
 import { ProvenanceSection } from "./ProvenanceSection";
 import { EditorialManifesto } from "./EditorialManifesto";
+import { ConsultationSection } from "./ConsultationSection";
 import { ShowroomLogistics } from "./ShowroomLogistics";
 import { ReviewsSection } from "@/components/trust/reviews-section";
 import { Footer } from "@/components/footer/footer";
@@ -66,6 +67,9 @@ export function AtelierClientView() {
 
         {/* Editorial Goldsmith Manifesto */}
         <EditorialManifesto />
+
+        {/* On-Site Consultation & Direct Quote Request */}
+        <ConsultationSection />
 
         {/* Showroom Logistics & Hayes Navigation */}
         <ShowroomLogistics />

@@ -32,9 +32,9 @@ export function ProductGrid({ onSelectPiece }: ProductGridProps) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7E2DA] pb-8 mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E] mb-2">
-              <Sparkles className="w-3 h-3 text-[#C6A75E]" />
-              <span>[ 01 / CURATED BENCH MASTERPIECES ]</span>
+            <div className="inline-flex items-center gap-1.5 font-sans text-xs tracking-widest uppercase text-[#8C6212] font-semibold mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#C6A75E]" />
+              <span>Curated Bench Masterpieces</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
               Curated Masterpieces &amp; Bridal Suites
@@ -56,12 +56,12 @@ export function ProductGrid({ onSelectPiece }: ProductGridProps) {
                 className="group border-r border-b border-[#E7E2DA] bg-white p-6 sm:p-7 flex flex-col justify-between hover:bg-[#FAF9F5] transition-colors cursor-pointer relative"
               >
                 <div>
-                  {/* Card Header: Category & Benchmark Number (No redundant tags) */}
-                  <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.2em] text-[#7A705E] mb-4">
-                    <span className="uppercase text-[#C6A75E] font-semibold">
-                      [ {item.metalPurity.split("(")[0].trim().toUpperCase()} ]
+                  {/* Card Header: Category & Benchmark Number */}
+                  <div className="flex items-center justify-between font-sans text-xs tracking-wider text-[#7A705E] mb-4">
+                    <span className="uppercase text-[#8C6212] font-semibold">
+                      {item.metalPurity.split("(")[0].trim().toUpperCase()}
                     </span>
-                    <span className="text-[#A89F91]">0{index + 1} / 03</span>
+                    <span className="text-[#A89F91] text-[11px]">Piece 0{index + 1}</span>
                   </div>
 
                   {/* Looping Video Showcase (Autoplay, Loop, Muted, PlaysInline) */}
@@ -86,18 +86,18 @@ export function ProductGrid({ onSelectPiece }: ProductGridProps) {
                     )}
 
                     {/* Subtle Hover Inspect Tag */}
-                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#141416]/90 backdrop-blur-md text-[#FAF9F5] px-3 py-1 font-mono text-[10px] tracking-wider uppercase">
-                      INSPECT DOSSIER ⊙
+                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#141416]/90 backdrop-blur-md text-[#FAF9F5] px-3.5 py-1.5 font-sans text-[11px] tracking-wider uppercase font-semibold">
+                      Inspect Dossier ⊙
                     </div>
                   </div>
 
                   {/* Clean Metadata: Title & Concise Artisan Description */}
                   <div className="space-y-2">
-                    <div className="font-mono text-[11px] text-[#7A705E] tracking-wider">
+                    <div className="font-sans text-xs text-[#7A705E]">
                       {item.metalPurity} · <strong className="text-[#141416] font-semibold">{massText}</strong>
                     </div>
 
-                    <h3 className="font-serif text-lg font-semibold text-[#141416] group-hover:text-[#C6A75E] transition-colors leading-snug">
+                    <h3 className="font-serif text-xl font-normal text-[#141416] group-hover:text-[#996515] transition-colors leading-snug">
                       {item.title}
                     </h3>
 
@@ -108,12 +108,12 @@ export function ProductGrid({ onSelectPiece }: ProductGridProps) {
                 </div>
 
                 {/* Specs Footer */}
-                <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between font-mono text-xs">
-                  <span className="text-[#141416] font-medium text-[11px]">
+                <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between font-sans text-xs">
+                  <span className="text-[#78716C] font-medium text-xs">
                     Hayes Workshop
                   </span>
-                  <span className="text-[#C6A75E] text-[11px] font-semibold underline underline-offset-4 group-hover:text-[#141416] transition-colors">
-                    RESERVE BENCH VIEWING →
+                  <span className="text-[#996515] text-xs font-semibold uppercase tracking-wider group-hover:text-[#141416] transition-colors">
+                    Reserve Bench Viewing →
                   </span>
                 </div>
               </article>
@@ -124,17 +124,17 @@ export function ProductGrid({ onSelectPiece }: ProductGridProps) {
         {/* Complete 54-Piece Vault Link Button */}
         <div className="mt-12 text-center border-t border-[#E7E2DA] pt-10">
           <div className="max-w-xl mx-auto space-y-4">
-            <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-[#7A705E] block">
-              [ 54 BESPOKE PIECES AUDITED ON HAYES BENCHES ]
+            <span className="font-sans text-xs tracking-widest uppercase text-[#8C6212] font-semibold block">
+              The 54-Piece Atelier Vault
             </span>
             <Link
               href="/collections"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#141416] hover:bg-[#C6A75E] text-[#FAF9F5] hover:text-[#141416] font-mono text-xs tracking-[0.18em] uppercase font-bold transition-all duration-300 shadow-md group min-h-[46px]"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#141416] hover:bg-[#996515] text-[#FAF9F5] font-sans text-xs tracking-widest uppercase font-semibold transition-all duration-300 shadow-sm group min-h-[46px]"
             >
               <span>View Complete 54-Piece Showroom Vault</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <p className="text-xs font-sans text-[#7A705E] leading-relaxed">
+            <p className="text-xs font-sans text-[#78716C] leading-relaxed">
               Explore our full collection of 22ct bridal suites, Polki Kundan chokers, solid gold kadas, and certified diamond rings.
             </p>
           </div>

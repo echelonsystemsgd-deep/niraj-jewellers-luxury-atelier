@@ -1,4 +1,4 @@
-// Niraj Jewellers Ltd — Official 54-Piece Atelier Collection Data
+// Niraj Jewellers Ltd: Official 54-Piece Atelier Collection Data
 // 100% Truthful Asset Matching: Every item visually audited and verified.
 // Photographs are mediaType: 'image' (no mismatched videos).
 // Videos are mediaType: 'video' (with matching extracted poster frames).
@@ -170,25 +170,28 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
   },
   {
     "id": "piece-7-high-gallery-pave-solitaire-ring",
-    "title": "The High-Gallery Pavé Solitaire Engagement Ring",
-    "category": "bridal",
-    "metalPurity": "950 Platinum & 18ct White Gold",
-    "hallmarkText": "London Assay Certified",
-    "description": "Brilliant cut solitaire diamond engagement ring elevated in an open four-prong basket with micro-pavé set shoulders and bridge.",
+    "title": "The Koh-i-Noor Inspired Solitaire Engagement Ring",
+    "category": "rings",
+    "metalPurity": "18ct White Gold (750) & 950 Platinum",
+    "hallmarkText": "London Assay Leopard's Head 750 / 950",
+    "description": "Brilliant-cut solitaire diamond engagement ring elevated in a handcrafted high-gallery crown setting with micro-claw diamond shoulders and solid platinum prongs.",
     "priceNote": "Bespoke Engagement Ring • Custom Diamond Sizing",
     "mediaType": "video",
     "thumbnailUrl": "/images/collections/posters/482c070d-7614-41e2-8811-d76441020509.jpg",
     "videoUrl": "/images/collections/482c070d-7614-41e2-8811-d76441020509.mov",
     "tags": [
       "Solitaire",
+      "Koh-i-Noor",
+      "Engagement Ring",
       "Platinum",
-      "Pavé Gallery",
-      "Engagement Ring"
+      "18ct White Gold",
+      "Rings"
     ],
     "specs": {
-      "carat": "1.50ct Certified Solitaire + 0.45ct Pavé",
-      "metal": "950 Platinum",
-      "craftsmanship": "Micro-Claw Hand Setting"
+      "weight": "8.4 grams solid mount",
+      "carat": "2.05ct Certified Solitaire + 0.45ct Pavé",
+      "metal": "18ct White Gold (750) & 950 Platinum",
+      "craftsmanship": "Hand-Forged High Gallery Micro-Claw Setting"
     }
   },
   {

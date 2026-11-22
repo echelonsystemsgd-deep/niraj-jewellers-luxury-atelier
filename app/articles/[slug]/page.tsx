@@ -185,7 +185,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Trail */}
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex items-center space-x-2 text-xs font-mono text-[#78716C]">
+            <ol className="flex items-center space-x-2 text-xs font-sans text-[#78716C]">
               <li>
                 <Link href="/" className="hover:text-[#996515] transition-colors">
                   Home
@@ -209,15 +209,15 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
           {/* Header Metadata */}
           <header className="mb-8 space-y-4">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[#996515] px-2.5 py-1 bg-white border border-[#EAE6DF]">
+            <div className="flex flex-wrap items-center gap-3 font-sans">
+              <span className="text-xs uppercase tracking-widest text-[#996515] px-2.5 py-1 bg-white border border-[#EAE6DF] font-semibold">
                 {article.category}
               </span>
-              <span className="text-xs font-mono text-[#78716C] flex items-center gap-1.5">
+              <span className="text-xs text-[#78716C] flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#996515]" />
                 <span>{article.readTime}</span>
               </span>
-              <span className="text-xs font-mono text-[#78716C] flex items-center gap-1.5">
+              <span className="text-xs text-[#78716C] flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-[#996515]" />
                 <span>Updated Nov 2026</span>
               </span>
@@ -227,22 +227,22 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               {article.title}
             </h1>
 
-            <p className="text-base sm:text-lg text-[#57534E] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#57534E] leading-relaxed font-sans">
               {article.excerpt}
             </p>
 
             {/* Author Credential Card */}
             <div className="pt-4 border-t border-[#EAE6DF] flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white border border-[#EAE6DF] flex items-center justify-center font-serif font-bold text-[#8C6212]">
+                <div className="w-10 h-10 bg-white border border-[#EAE6DF] flex items-center justify-center font-serif font-bold text-[#8C6212] rounded-full">
                   NJ
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-[#141416] flex items-center gap-1.5">
+                  <div className="text-sm font-medium text-[#141416] flex items-center gap-1.5 font-sans">
                     <span>{article.author.name}</span>
                     <ShieldCheck className="w-4 h-4 text-[#996515]" />
                   </div>
-                  <span className="text-xs font-mono text-[#78716C]">
+                  <span className="text-xs font-sans text-[#78716C]">
                     136 Uxbridge Road, Hayes
                   </span>
                 </div>
@@ -252,7 +252,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 href={whatsappInquiryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-[#FAF8F5] border border-[#25D366] text-[#128C7E] font-mono text-xs uppercase tracking-wider transition-colors"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-[#FAF8F5] border border-[#25D366] text-[#128C7E] font-sans text-xs uppercase tracking-wider font-semibold transition-colors rounded-lg"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
                 <span>Ask Goldsmith Bench</span>
@@ -261,7 +261,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
           </header>
 
           {/* Featured Hero Image per Captain requirement */}
-          <div className="mb-10 relative aspect-[16/9] w-full overflow-hidden bg-[#F5F2EB] border border-[#EAE6DF]">
+          <div className="mb-10 relative aspect-[16/9] w-full overflow-hidden bg-[#F5F2EB] border border-[#EAE6DF] rounded-2xl shadow-xs">
             <Image
               src={article.coverImage}
               alt={article.title}
@@ -270,18 +270,18 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               sizes="(max-width: 896px) 100vw, 896px"
               className="object-cover"
             />
-            <div className="absolute bottom-3 left-3 bg-white/95 px-3 py-1 border border-[#EAE6DF] text-[10px] font-mono uppercase tracking-widest text-[#57534E]">
+            <div className="absolute bottom-3 left-3 bg-white/95 px-3 py-1 border border-[#EAE6DF] text-xs font-sans uppercase tracking-widest text-[#57534E] font-medium rounded-sm">
               Authentic Hayes Goldsmith Atelier Documentation
             </div>
           </div>
 
           {/* Key Takeaways Executive Summary Block */}
-          <section className="mb-12 p-6 sm:p-8 bg-white border border-[#EAE6DF]">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-widest text-[#996515] mb-4">
+          <section className="mb-12 p-6 sm:p-8 bg-white border border-[#EAE6DF] rounded-2xl shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-sans font-semibold uppercase tracking-widest text-[#996515] mb-4">
               <Sparkles className="w-4 h-4" />
               <span>Key Workshop Takeaways &amp; Facts</span>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-3 font-sans">
               {article.keyTakeaways.map((takeaway, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#141416] leading-relaxed">
                   <CheckCircle2 className="w-4 h-4 text-[#996515] shrink-0 mt-0.5" />
@@ -316,9 +316,9 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
                 {/* Technical Comparison Table if present */}
                 {section.table && (
-                  <div className="my-6 overflow-x-auto border border-[#EAE6DF] bg-white">
+                  <div className="my-6 overflow-x-auto border border-[#EAE6DF] bg-white rounded-xl">
                     {section.table.caption && (
-                      <div className="p-3 bg-[#FAF8F5] border-b border-[#EAE6DF] text-xs font-mono font-semibold text-[#8C6212] uppercase tracking-wider">
+                      <div className="p-3 bg-[#FAF8F5] border-b border-[#EAE6DF] text-xs font-sans font-semibold text-[#8C6212] uppercase tracking-wider">
                         {section.table.caption}
                       </div>
                     )}
@@ -326,13 +326,13 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                       <thead className="bg-[#FAF8F5] text-[#141416] font-medium border-b border-[#EAE6DF]">
                         <tr>
                           {section.table.headers.map((h, hIdx) => (
-                            <th key={hIdx} className="p-3.5 sm:p-4 text-xs font-mono font-semibold text-[#8C6212] uppercase tracking-wider">
+                            <th key={hIdx} className="p-3.5 sm:p-4 text-xs font-sans font-semibold text-[#8C6212] uppercase tracking-wider">
                               {h}
                             </th>
                           ))}
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-[#EAE6DF]">
+                      <tbody className="divide-y divide-[#EAE6DF] font-sans">
                         {section.table.rows.map((row, rIdx) => (
                           <tr key={rIdx} className="hover:bg-[#FAF8F5] transition-colors">
                             {row.map((cell, cIdx) => (
@@ -349,14 +349,14 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
                 {/* Master Goldsmith Quote if present */}
                 {section.quote && (
-                  <blockquote className="my-6 p-6 bg-white border-l-2 border-[#996515] border border-[#EAE6DF]">
+                  <blockquote className="my-6 p-6 bg-white border-l-2 border-[#996515] border border-[#EAE6DF] rounded-r-xl">
                     <div className="flex items-start gap-3">
                       <Quote className="w-5 h-5 text-[#996515] shrink-0 mt-1" />
                       <div>
                         <p className="font-serif italic text-base sm:text-lg text-[#141416] leading-relaxed mb-2">
                           &ldquo;{section.quote.text}&rdquo;
                         </p>
-                        <footer className="text-xs font-mono text-[#8C6212] uppercase tracking-wider">
+                        <footer className="text-xs font-sans text-[#8C6212] uppercase tracking-wider font-semibold">
                           : {section.quote.author}, {section.quote.role}
                         </footer>
                       </div>
@@ -371,7 +371,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
           {article.faqs.length > 0 && (
             <section className="mt-16 pt-12 border-t border-[#EAE6DF] space-y-6">
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#996515]">
+                <div className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-widest text-[#996515] font-semibold">
                   <HelpCircle className="w-3.5 h-3.5" />
                   <span>Topic FAQs &amp; Standards</span>
                 </div>
@@ -384,12 +384,12 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 {article.faqs.map((faq, fIdx) => (
                   <div
                     key={fIdx}
-                    className="p-5 sm:p-6 bg-white border border-[#EAE6DF]"
+                    className="p-5 sm:p-6 bg-white border border-[#EAE6DF] rounded-xl"
                   >
                     <h4 className="font-serif text-base sm:text-lg font-medium text-[#141416] mb-2">
                       {faq.question}
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed font-sans">
                       {faq.answer}
                     </p>
                   </div>
@@ -399,14 +399,14 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
           )}
 
           {/* Bottom WhatsApp CTA & Back to Articles */}
-          <div className="mt-16 p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#996515] block">
-              [ DIRECT WORKSHOP CONCIERGE ]
+          <div className="mt-16 p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4 rounded-2xl shadow-xs">
+            <span className="font-sans text-xs uppercase tracking-widest text-[#8C6212] block font-semibold">
+              DIRECT WORKSHOP CONCIERGE
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl text-[#141416] font-normal">
               Have a Specific Goldsmithing or Bullion Question?
             </h3>
-            <p className="text-xs sm:text-sm text-[#57534E] max-w-xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#57534E] max-w-xl mx-auto leading-relaxed font-sans">
               Our master goldsmiths are available directly on WhatsApp to answer technical metallurgical questions, inspect reference photos, or verify live bullion spot rates.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 pt-3">
@@ -414,7 +414,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 href={whatsappInquiryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white font-sans text-xs uppercase tracking-widest font-semibold transition-colors rounded-xl"
               >
                 <MessageCircle className="w-4 h-4 fill-white text-transparent" />
                 <span>WhatsApp Atelier Concierge</span>
@@ -422,7 +422,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
               <Link
                 href="/articles"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-sans text-xs uppercase tracking-widest font-semibold transition-colors rounded-xl"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>All Articles &amp; Guides</span>

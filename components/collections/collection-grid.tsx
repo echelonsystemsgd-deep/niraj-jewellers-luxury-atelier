@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import { COLLECTIONS_DATA, CollectionItem } from "@/data/collections-data";
 import { ShowroomDossierModal } from "@/components/atelier/ShowroomDossierModal";
-import { Search, Play, ShieldCheck, Sparkles } from "lucide-react";
+import { Search, Play } from "lucide-react";
 
 interface CollectionGridProps {
   isHomepage?: boolean;
@@ -35,10 +35,16 @@ export function CollectionGrid({ items }: CollectionGridProps) {
 
   const filteredItems = useMemo(() => {
     return allItems.filter((item) => {
-      // Category match
+      // Category match with intelligent cross-category matching
       const matchesCategory =
         selectedCategory === "all" ||
-        item.category.toLowerCase().includes(selectedCategory.toLowerCase());
+        (selectedCategory === "rings"
+          ? item.category.toLowerCase().includes("ring") ||
+            item.title.toLowerCase().includes("ring") ||
+            item.title.toLowerCase().includes("solitaire") ||
+            item.title.toLowerCase().includes("band") ||
+            item.tags.some((t) => t.toLowerCase().includes("ring") || t.toLowerCase().includes("solitaire"))
+          : item.category.toLowerCase().includes(selectedCategory.toLowerCase()));
 
       // Media filter match
       const matchesMedia = mediaFilter === "all" || item.mediaType === mediaFilter;
@@ -81,7 +87,7 @@ export function CollectionGrid({ items }: CollectionGridProps) {
     <section id="vault" className="w-full bg-[#FAF9F5] border-b border-[#E7E2DA] py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Filter Toolbar: Categories, Search & Media Type */}
-        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-8 font-mono text-xs">
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-8 font-sans text-xs">
           {/* Category Pills */}
           <div className="flex flex-wrap items-center gap-2">
             {categories.map((cat) => {
@@ -91,7 +97,7 @@ export function CollectionGrid({ items }: CollectionGridProps) {
                   key={cat.id}
                   type="button"
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-3.5 py-2 border transition-all cursor-pointer text-[11px] uppercase tracking-wider font-mono ${
+                  className={`px-3.5 py-2 border transition-all cursor-pointer text-xs uppercase tracking-wider font-sans font-medium ${
                     isActive
                       ? "border-[#141416] bg-[#141416] text-[#FAF9F5] font-semibold shadow-xs"
                       : "border-[#E7E2DA] bg-white text-[#57534E] hover:border-[#141416] hover:text-[#141416]"
@@ -113,14 +119,14 @@ export function CollectionGrid({ items }: CollectionGridProps) {
                 aria-label="Search 54 bespoke pieces by title, category, or gemstone"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-8 pr-3 py-2 border border-[#E7E2DA] bg-white text-xs text-[#141416] focus:outline-none focus:border-[#141416] placeholder:text-[#A89F91]"
+                className="w-full pl-8 pr-3 py-2 border border-[#E7E2DA] bg-white text-xs text-[#141416] focus:outline-hidden focus:border-[#141416] placeholder:text-[#A89F91] font-sans"
               />
             </div>
 
             <select
               value={mediaFilter}
               onChange={(e) => setMediaFilter(e.target.value as "all" | "video" | "image")}
-              className="border border-[#E7E2DA] bg-white px-3 py-2 text-[11px] text-[#57534E] uppercase focus:outline-none focus:border-[#141416] font-mono cursor-pointer"
+              className="border border-[#E7E2DA] bg-white px-3 py-2 text-xs text-[#57534E] uppercase focus:outline-hidden focus:border-[#141416] font-sans cursor-pointer font-medium"
               aria-label="Filter vault pieces by media type"
             >
               <option value="all">ALL MEDIA</option>
@@ -131,8 +137,8 @@ export function CollectionGrid({ items }: CollectionGridProps) {
         </div>
 
         {/* Results Counter Bar */}
-        <div className="font-mono text-[11px] text-[#7A705E] uppercase tracking-wider mb-6 flex flex-wrap items-center justify-between gap-2 border-b border-[#E7E2DA] pb-3">
-          <span>SHOWING {filteredItems.length} OF {allItems.length} CERTIFIED ATELIER PIECES</span>
+        <div className="font-sans text-xs text-[#7A705E] uppercase tracking-wider mb-6 flex flex-wrap items-center justify-between gap-2 border-b border-[#E7E2DA] pb-3">
+          <span className="font-semibold text-[#141416]">SHOWING {filteredItems.length} OF {allItems.length} CERTIFIED ATELIER PIECES</span>
           <span>100% IN-HOUSE HAYES BENCHWORK · LONDON ASSAY STAMPED</span>
         </div>
 
@@ -148,23 +154,23 @@ export function CollectionGrid({ items }: CollectionGridProps) {
               >
                 <div>
                   {/* Card Header: Category & Media Badge (No redundant tags) */}
-                  <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.16em] text-[#7A705E] mb-3">
-                    <span className="uppercase text-[#C6A75E] font-semibold truncate max-w-[180px]">
-                      [ {item.metalPurity.split("(")[0].replace(/&.*$/, "").trim().toUpperCase()} ]
+                  <div className="flex items-center justify-between font-sans text-xs tracking-wider text-[#7A705E] mb-3">
+                    <span className="uppercase text-[#8C6212] font-semibold truncate max-w-[180px]">
+                      {item.metalPurity.split("(")[0].replace(/&.*$/, "").trim().toUpperCase()}
                     </span>
                     {item.mediaType === "video" ? (
-                      <span className="inline-flex items-center gap-1 text-[#C6A75E] bg-[#C6A75E]/10 px-2 py-0.5 font-semibold">
+                      <span className="inline-flex items-center gap-1 text-[#8C6212] bg-[#FAF8F5] border border-[#E7E2DA] px-2 py-0.5 font-semibold text-[11px]">
                         <Play className="w-2.5 h-2.5 fill-current" />
                         <span>1080P REEL</span>
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-[#7A705E]">
+                      <span className="inline-flex items-center gap-1 text-[#7A705E] text-[11px]">
                         <span>STILL PHOTOGRAPHY</span>
                       </span>
                     )}
                   </div>
 
-                  {/* Clean Visual Container (NO tag overlays, NO eye icon, NO motion badge) */}
+                  {/* Clean Visual Container */}
                   <div className="relative aspect-square w-full mb-5 overflow-hidden bg-[#F6F3ED] border border-[#E7E2DA]/60">
                     <Image
                       src={item.thumbnailUrl}
@@ -177,18 +183,18 @@ export function CollectionGrid({ items }: CollectionGridProps) {
                     />
 
                     {/* Subtle Hover Inspect Tag */}
-                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#141416]/90 backdrop-blur-md text-[#FAF9F5] px-3 py-1 font-mono text-[10px] tracking-wider uppercase">
+                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#141416]/90 backdrop-blur-md text-[#FAF9F5] px-3 py-1 font-sans text-[11px] tracking-wider uppercase font-semibold">
                       INSPECT DOSSIER ⊙
                     </div>
                   </div>
 
                   {/* Card Meta Content (Clean, Honest, Zero AI Slop) */}
                   <div className="space-y-2">
-                    <div className="font-mono text-[11px] text-[#7A705E] tracking-wider">
+                    <div className="font-sans text-xs text-[#7A705E] tracking-wider">
                       {item.metalPurity} · <strong className="text-[#141416] font-semibold">{massText}</strong>
                     </div>
 
-                    <h3 className="font-serif text-lg font-semibold text-[#141416] group-hover:text-[#C6A75E] transition-colors leading-snug line-clamp-2">
+                    <h3 className="font-serif text-lg font-semibold text-[#141416] group-hover:text-[#8C6212] transition-colors leading-snug line-clamp-2">
                       {item.title}
                     </h3>
 
@@ -199,11 +205,11 @@ export function CollectionGrid({ items }: CollectionGridProps) {
                 </div>
 
                 {/* Specs Footer: Mass & Direct Link */}
-                <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between font-mono text-xs">
-                  <span className="text-[#141416] font-semibold text-[11px]">
+                <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between font-sans text-xs">
+                  <span className="text-[#141416] font-semibold text-xs">
                     {item.specs.weight ? item.specs.weight : "Hayes Workshop"}
                   </span>
-                  <span className="text-[#C6A75E] text-[11px] font-semibold underline underline-offset-4 group-hover:text-[#141416] transition-colors">
+                  <span className="text-[#8C6212] text-xs font-semibold uppercase tracking-wider group-hover:text-[#141416] transition-colors">
                     INSPECT DOSSIER →
                   </span>
                 </div>
@@ -212,7 +218,7 @@ export function CollectionGrid({ items }: CollectionGridProps) {
           })}
         </div>
 
-        {/* Showroom Dossier Modal (Single top-right close button, 100% visible on mobile) */}
+        {/* Showroom Dossier Modal */}
         <ShowroomDossierModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}

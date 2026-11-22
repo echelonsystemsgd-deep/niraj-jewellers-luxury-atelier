@@ -61,7 +61,7 @@ export function HeroSection() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-3 right-3 text-center">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#1F2A44] border border-[#C6A75E]/60 text-[10px] font-mono tracking-wider text-[#FAF7F2] font-semibold uppercase shadow-sm">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#1F2A44] border border-[#C6A75E]/60 text-xs font-sans tracking-wider text-[#FAF7F2] font-semibold uppercase shadow-sm">
               Hayes Goldsmith Bench
             </span>
           </div>
@@ -87,7 +87,7 @@ export function HeroSection() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-3 right-3 text-center">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#1F2A44] border border-[#C6A75E]/60 text-[10px] font-mono tracking-wider text-[#FAF7F2] font-semibold uppercase shadow-sm">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#1F2A44] border border-[#C6A75E]/60 text-xs font-sans tracking-wider text-[#FAF7F2] font-semibold uppercase shadow-sm">
               22ct Filigree Atelier
             </span>
           </div>
@@ -189,7 +189,7 @@ export function HeroSection() {
                 <span className="font-serif italic tracking-wide text-[#FAF7F2] drop-shadow-sm">
                   Hand-set Syndicate Diamonds &amp; Chased 22ct Gold
                 </span>
-                <span className="hidden sm:inline-block font-mono text-[10px] uppercase text-[#C6A75E] tracking-wider font-semibold">
+                <span className="hidden sm:inline-block font-sans text-xs uppercase text-[#C6A75E] tracking-wider font-semibold">
                   136 Uxbridge Road • Hayes
                 </span>
               </div>

@@ -8,18 +8,14 @@ import {
   Gem, 
   Hammer, 
   Scale, 
-  Award, 
-  Clock, 
   MapPin, 
   Phone, 
   MessageSquare, 
   ArrowRight, 
   CheckCircle2,
-  Sparkles,
-  Zap,
   Check
 } from "lucide-react";
-import { NIRAJ_UK_PHONE, NIRAJ_DISPLAY_PHONE, NIRAJ_SHOWROOM_ADDRESS } from "@/lib/whatsapp";
+import { NIRAJ_UK_PHONE, NIRAJ_SHOWROOM_ADDRESS } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "About Us | Niraj Jewellers Ltd · Hayes London Goldsmith Heritage Since 1984",
@@ -181,9 +177,9 @@ export default function AboutPage() {
         <section className="w-full border-b border-[#E7E2DA] pb-16 sm:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center space-y-6">
-              <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E]">
+              <div className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.25em] text-[#8C6212] font-semibold">
                 <span className="w-2 h-2 rounded-full bg-[#C6A75E]"></span>
-                <span>[ 01 / GENERATIONAL GOLDSMITH LINEAGE · EST. 1984 ]</span>
+                <span>GENERATIONAL GOLDSMITH LINEAGE · EST. 1984</span>
               </div>
 
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#141416] tracking-tight leading-[1.15]">
@@ -200,7 +196,7 @@ export default function AboutPage() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-mono text-xs tracking-[0.14em] uppercase font-bold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.99] cursor-pointer min-h-[44px]"
+                  className="px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-sans text-xs tracking-wider uppercase font-semibold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.99] cursor-pointer min-h-[44px]"
                 >
                   <MessageSquare className="w-4 h-4 fill-white text-white shrink-0" />
                   <span>WHATSAPP WORKSHOP TEAM</span>
@@ -208,7 +204,7 @@ export default function AboutPage() {
 
                 <Link
                   href="/collections"
-                  className="px-6 py-3.5 bg-[#141416] hover:bg-[#C6A75E] text-[#FAF9F5] hover:text-[#141416] font-mono text-xs tracking-[0.16em] uppercase font-bold flex items-center justify-center gap-2 transition-all shadow-xs min-h-[44px] group"
+                  className="px-6 py-3.5 bg-[#141416] hover:bg-[#C6A75E] text-[#FAF9F5] hover:text-[#141416] font-sans text-xs tracking-wider uppercase font-semibold flex items-center justify-center gap-2 transition-all shadow-xs min-h-[44px] group"
                 >
                   <span>EXPLORE 54-PIECE VAULT</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -216,7 +212,7 @@ export default function AboutPage() {
               </div>
 
               {/* 4 Architectural Trust Badges */}
-              <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto font-mono text-[10px] text-[#7A705E] uppercase tracking-wider">
+              <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto font-sans text-xs text-[#7A705E] uppercase tracking-wider">
                 <div className="p-3 bg-white border border-[#E7E2DA] flex items-center justify-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C6A75E]"></span>
                   <span className="text-[#141416] font-semibold">1984 ESTABLISHED</span>
@@ -254,7 +250,7 @@ export default function AboutPage() {
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute bottom-3 left-3 right-3 p-3 bg-[#141416]/90 backdrop-blur-md border border-[#2C2825] flex items-center justify-between text-[#FAF9F5] font-mono text-[10px] tracking-wider uppercase">
+                  <div className="absolute bottom-3 left-3 right-3 p-3 bg-[#141416]/90 backdrop-blur-md border border-[#2C2825] flex items-center justify-between text-[#FAF9F5] font-sans text-xs tracking-wider uppercase">
                     <span>HAYES BENCH · 136 UXBRIDGE ROAD</span>
                     <span className="text-[#C6A75E] font-semibold">HISTORIC BENCH LEDGER</span>
                   </div>
@@ -270,7 +266,7 @@ export default function AboutPage() {
                       sizes="(max-width: 1024px) 50vw, 25vw"
                       className="object-cover"
                     />
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-[#141416]/90 text-[9px] font-mono text-[#FAF9F5] uppercase">
+                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-[#141416]/90 text-[10px] font-sans text-[#FAF9F5] uppercase">
                       Solid 22ct Filigree
                     </div>
                   </div>
@@ -283,7 +279,7 @@ export default function AboutPage() {
                       sizes="(max-width: 1024px) 50vw, 25vw"
                       className="object-cover"
                     />
-                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-[#141416]/90 text-[9px] font-mono text-[#FAF9F5] uppercase">
+                    <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-[#141416]/90 text-[10px] font-sans text-[#FAF9F5] uppercase">
                       Client Viewing Trays
                     </div>
                   </div>
@@ -293,8 +289,8 @@ export default function AboutPage() {
               {/* Right Column: Authentic Differentiators */}
               <div className="lg:col-span-6 space-y-6">
                 <div>
-                  <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E] block mb-2">
-                    [ 02 / THE DIRECT WORKSHOP ADVANTAGE ]
+                  <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#8C6212] block mb-2 font-semibold">
+                    THE DIRECT WORKSHOP ADVANTAGE
                   </span>
                   <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
                     Why Generations of Families Choose Niraj Jewellers
@@ -373,8 +369,8 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7E2DA] pb-8 mb-12 gap-6">
               <div>
-                <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E] block mb-2">
-                  [ 03 / METALLURGICAL PURITY &amp; STANDARDS ]
+                <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#8C6212] block mb-2 font-semibold">
+                  METALLURGICAL PURITY &amp; STANDARDS
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
                   The Four Pillars of Niraj Jewellers
@@ -395,9 +391,9 @@ export default function AboutPage() {
                     className="border-r border-b border-[#E7E2DA] bg-white p-6 sm:p-7 flex flex-col justify-between hover:bg-[#FAF9F5] transition-colors"
                   >
                     <div>
-                      <div className="flex items-center justify-between font-mono text-xs text-[#7A705E] mb-4">
-                        <span>[ {pillar.num} ]</span>
-                        <span className="text-[#C6A75E] text-[10px] tracking-wider uppercase font-semibold">
+                      <div className="flex items-center justify-between font-sans text-xs text-[#7A705E] mb-4">
+                        <span className="font-semibold text-xs text-[#141416]">Pillar {pillar.num}</span>
+                        <span className="text-[#8C6212] text-[10px] tracking-wider uppercase font-semibold">
                           {pillar.spec}
                         </span>
                       </div>
@@ -406,7 +402,7 @@ export default function AboutPage() {
                         <IconComponent className="w-5 h-5" />
                       </div>
 
-                      <div className="font-mono text-[10px] tracking-wider uppercase text-[#C6A75E] mb-1">
+                      <div className="font-sans text-xs tracking-wider uppercase text-[#8C6212] mb-1 font-semibold">
                         {pillar.subtitle}
                       </div>
 
@@ -419,7 +415,7 @@ export default function AboutPage() {
                       </p>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center gap-1.5 font-mono text-[10px] text-[#7A705E]">
+                    <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center gap-1.5 font-sans text-xs text-[#8C6212] font-medium">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#C6A75E]" />
                       <span>ATELIER CERTIFIED</span>
                     </div>
@@ -435,8 +431,8 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7E2DA] pb-8 mb-12 gap-6">
               <div>
-                <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E] block mb-2">
-                  [ 04 / CHRONOLOGICAL WORKSHOP TIMELINE ]
+                <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#8C6212] block mb-2 font-semibold">
+                  CHRONOLOGICAL WORKSHOP TIMELINE
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
                   Four Decades of Goldsmithing Milestones
@@ -456,11 +452,11 @@ export default function AboutPage() {
                 >
                   <div>
                     {/* Visual Card Top */}
-                    <div className="flex items-center justify-between font-mono text-xs text-[#7A705E] mb-4">
+                    <div className="flex items-center justify-between font-sans text-xs text-[#7A705E] mb-4">
                       <span className="font-serif text-2xl font-bold text-[#141416]">
                         {ms.year}
                       </span>
-                      <span className="text-[#C6A75E] text-[10px] tracking-wider uppercase font-semibold">
+                      <span className="text-[#8C6212] text-[10px] tracking-wider uppercase font-semibold">
                         {ms.tag}
                       </span>
                     </div>
@@ -477,7 +473,7 @@ export default function AboutPage() {
                       />
                     </div>
 
-                    <div className="font-mono text-[10px] tracking-wider uppercase text-[#7A705E] mb-1">
+                    <div className="font-sans text-xs tracking-wider uppercase text-[#7A705E] mb-1 font-semibold">
                       {ms.era}
                     </div>
 
@@ -490,9 +486,9 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between font-mono text-[10px] text-[#7A705E]">
-                    <span>ERA 0{idx + 1} OF 04</span>
-                    <span className="text-[#C6A75E] font-semibold">PROVENANCE →</span>
+                  <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between font-sans text-xs text-[#7A705E]">
+                    <span>Era 0{idx + 1} of 04</span>
+                    <span className="text-[#8C6212] font-semibold">Provenance &rarr;</span>
                   </div>
                 </div>
               ))}
@@ -503,8 +499,8 @@ export default function AboutPage() {
         {/* Showroom Consultation & Bench Invitation */}
         <section className="w-full py-16 sm:py-24">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="border border-[#141416] bg-[#141416] p-8 sm:p-12 text-[#FAF9F5] text-center space-y-6">
-              <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#C6A75E]">
+            <div className="border border-[#141416] bg-[#141416] p-8 sm:p-12 text-[#FAF9F5] text-center space-y-6 rounded-2xl shadow-sm">
+              <div className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.25em] text-[#C6A75E] font-semibold">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>136 UXBRIDGE ROAD · HAYES · MIDDLESEX UB4 0JH</span>
               </div>
@@ -518,16 +514,16 @@ export default function AboutPage() {
               </p>
 
               {/* Showroom Logistics Summary */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto font-mono text-xs text-[#A89F91] text-left pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto font-sans text-xs text-[#A89F91] text-left pt-2">
                 <div className="p-4 border border-[#2C2825] bg-[#1A1816]">
-                  <div className="text-[#C6A75E] text-[10px] uppercase font-semibold mb-1">OPENING HOURS</div>
+                  <div className="text-[#C6A75E] text-xs uppercase font-semibold mb-1">OPENING HOURS</div>
                   <div className="text-[#FAF9F5]">Mon 12:00 to 17:00</div>
                   <div className="text-[#FAF9F5]">Tue to Sat 11:00 to 17:30</div>
                 </div>
                 <div className="p-4 border border-[#2C2825] bg-[#1A1816]">
-                  <div className="text-[#C6A75E] text-[10px] uppercase font-semibold mb-1">PARKING &amp; ACCESS</div>
+                  <div className="text-[#C6A75E] text-xs uppercase font-semibold mb-1">PARKING &amp; ACCESS</div>
                   <div className="text-[#FAF9F5]">Available roadside customer parking</div>
-                  <div className="text-[#A89F91] text-[11px]">12 Mins from Elizabeth Line</div>
+                  <div className="text-[#A89F91] text-xs">12 Mins from Elizabeth Line</div>
                 </div>
               </div>
 
@@ -537,7 +533,7 @@ export default function AboutPage() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-mono text-xs tracking-[0.14em] uppercase font-bold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.99] cursor-pointer min-h-[44px]"
+                  className="px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-sans text-xs tracking-wider uppercase font-semibold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.99] cursor-pointer min-h-[44px]"
                 >
                   <MessageSquare className="w-4 h-4 fill-white text-white shrink-0" />
                   <span>CHAT WITH WORKSHOP CONCIERGE</span>
@@ -545,7 +541,7 @@ export default function AboutPage() {
 
                 <a
                   href="tel:02085739323"
-                  className="px-6 py-3.5 border border-[#FAF9F5] bg-transparent hover:bg-white hover:text-[#141416] text-[#FAF9F5] font-mono text-xs tracking-[0.16em] uppercase font-bold flex items-center justify-center gap-2 transition-all min-h-[44px]"
+                  className="px-6 py-3.5 border border-[#FAF9F5] bg-transparent hover:bg-white hover:text-[#141416] text-[#FAF9F5] font-sans text-xs tracking-wider uppercase font-semibold flex items-center justify-center gap-2 transition-all min-h-[44px]"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>CALL: 020 8573 9323</span>
@@ -553,7 +549,7 @@ export default function AboutPage() {
 
                 <Link
                   href="/contact"
-                  className="px-6 py-3.5 border border-[#2C2825] bg-[#1A1816] hover:bg-[#2C2825] text-[#FAF9F5] font-mono text-xs tracking-[0.16em] uppercase font-bold flex items-center justify-center gap-2 transition-all min-h-[44px]"
+                  className="px-6 py-3.5 border border-[#2C2825] bg-[#1A1816] hover:bg-[#2C2825] text-[#FAF9F5] font-sans text-xs tracking-wider uppercase font-semibold flex items-center justify-center gap-2 transition-all min-h-[44px]"
                 >
                   <span>FIND DIRECTIONS</span>
                 </Link>

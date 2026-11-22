@@ -168,7 +168,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 aria-label={`Call direct workshop line: ${NIRAJ_DISPLAY_PHONE}`}
               >
                 <Phone className="w-3.5 h-3.5 text-[#996515] group-hover:scale-110 transition-transform" />
-                <span className="font-mono text-[11px] sm:text-xs text-[#141416] group-hover:text-[#996515]">{NIRAJ_UK_PHONE}</span>
+                <span className="font-sans text-[11px] sm:text-xs text-[#141416] group-hover:text-[#996515] font-semibold">{NIRAJ_UK_PHONE}</span>
               </a>
 
               {/* Mobile Call Icon Button (Strict 44px+ tap target) */}
@@ -270,7 +270,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                     </div>
                     <div>
                       <p className="text-[10px] uppercase font-bold tracking-wider text-[#8C6212]">Showroom Landline</p>
-                      <p className="font-mono text-sm font-semibold text-[#141416]">{NIRAJ_LANDLINE_PHONE}</p>
+                      <p className="font-sans text-sm font-semibold text-[#141416]">{NIRAJ_LANDLINE_PHONE}</p>
                     </div>
                   </div>
                   <a
@@ -289,7 +289,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                     </div>
                     <div>
                       <p className="text-[10px] uppercase font-bold tracking-wider text-[#8C6212]">Workshop Mobile</p>
-                      <p className="font-mono text-sm font-semibold text-[#141416]">{NIRAJ_MOBILE_PHONE}</p>
+                      <p className="font-sans text-sm font-semibold text-[#141416]">{NIRAJ_MOBILE_PHONE}</p>
                     </div>
                   </div>
                   <a
@@ -320,7 +320,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                       }`}
                     >
                       <div className="flex items-center gap-4">
-                        <span className="font-mono text-xs text-[#8C6212] font-semibold">{link.num}</span>
+                        <span className="font-sans text-xs text-[#8C6212] font-semibold">{link.num}</span>
                         <div>
                           <div className="font-serif text-lg font-medium tracking-wide">
                             {link.label}

@@ -80,7 +80,7 @@ export default function FaqsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
             {/* Breadcrumb Trail */}
             <nav aria-label="Breadcrumb" className="mb-6">
-              <ol className="flex items-center space-x-2 text-xs font-mono text-[#78716C]">
+              <ol className="flex items-center space-x-2 text-xs font-sans text-[#78716C]">
                 <li>
                   <Link href="/" className="hover:text-[#996515] transition-colors">
                     Home
@@ -94,8 +94,8 @@ export default function FaqsPage() {
             </nav>
 
             <div className="max-w-3xl">
-              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#996515] block mb-3">
-                [ 00 / WORKSHOP TRANSPARENCY &amp; STATUTORY STANDARDS ]
+              <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#8C6212] block mb-3 font-semibold">
+                WORKSHOP TRANSPARENCY &amp; STATUTORY STANDARDS
               </span>
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#141416] font-normal tracking-tight leading-[1.1] mb-5">
                 Standards, Hallmarking &amp; Atelier Inquiries
@@ -103,7 +103,7 @@ export default function FaqsPage() {
               <p className="font-serif italic text-xl sm:text-2xl text-[#8C6212] mb-4">
                 Statutory British compliance and straightforward answers from the bench.
               </p>
-              <p className="text-sm sm:text-base text-[#57534E] leading-relaxed">
+              <p className="text-sm sm:text-base text-[#57534E] leading-relaxed font-sans">
                 Review UK Hallmarking Act standards, precious metal purity benchmarks, 3D CAD bespoke workflows, and same-day repair protocols practiced daily at our Hayes atelier.
               </p>
             </div>
@@ -117,8 +117,8 @@ export default function FaqsPage() {
         <section className="py-16 sm:py-24 bg-[#FAF8F5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-12 sm:mb-16">
-              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#996515] block mb-2">
-                [ 02 / FREQUENTLY ASKED QUESTIONS ]
+              <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#8C6212] block mb-2 font-semibold">
+                FREQUENTLY ASKED QUESTIONS
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#141416] font-normal tracking-tight mb-4">
                 Answers Directly from Our Goldsmiths

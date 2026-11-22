@@ -79,7 +79,7 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header Bar: Crystal-Clear Title + Fully Visible Close Button */}
-        <div className="flex items-center justify-between px-3 sm:px-6 py-2.5 sm:py-3 border-b border-[#E7E2DA] bg-white font-mono text-xs tracking-[0.2em] uppercase text-[#141416] shrink-0 w-full">
+        <div className="flex items-center justify-between px-3 sm:px-6 py-2.5 sm:py-3 border-b border-[#E7E2DA] bg-white font-sans text-xs tracking-wider uppercase text-[#141416] shrink-0 w-full">
           <div className="flex items-center gap-2 min-w-0 flex-1 mr-3 overflow-hidden">
             <span className="w-2 h-2 rounded-full bg-[#C6A75E] animate-pulse shrink-0"></span>
             <span className="truncate font-semibold text-[10px] sm:text-xs">
@@ -103,7 +103,7 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
           <div className="lg:col-span-7 bg-[#0E0D0C] flex flex-col justify-between relative border-b lg:border-b-0 lg:border-r border-[#2C2825] shrink-0 overflow-hidden">
             {/* Media Selector Tabs (if video exists) */}
             {piece.videoUrl && (
-              <div className="absolute top-3 left-3 z-10 flex items-center gap-2 font-mono text-[10px] tracking-[0.16em] uppercase">
+              <div className="absolute top-3 left-3 z-10 flex items-center gap-2 font-sans text-[10px] tracking-wider uppercase font-semibold">
                 <button
                   type="button"
                   onClick={() => setMediaTab("video")}
@@ -159,12 +159,12 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
             </div>
 
             {/* Media Bottom Status */}
-            <div className="p-2.5 sm:p-3 bg-[#141416] border-t border-[#2C2825] flex items-center justify-between font-mono text-[10px] text-[#A89F91] tracking-[0.18em] shrink-0">
+            <div className="p-2.5 sm:p-3 bg-[#141416] border-t border-[#2C2825] flex items-center justify-between font-sans text-[10px] text-[#A89F91] tracking-wider uppercase shrink-0">
               <span className="flex items-center gap-1.5 text-[#C6A75E] truncate">
                 <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
                 <span className="truncate">{piece.hallmarkText || "London Assay Leopard's Head Stamped"}</span>
               </span>
-              <span className="hidden sm:inline shrink-0">100% SOLID GOLD</span>
+              <span className="hidden sm:inline shrink-0 font-medium">100% SOLID GOLD</span>
             </div>
           </div>
 
@@ -173,14 +173,14 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
             <div className="space-y-4">
               {/* Category, Title & Purity */}
               <div>
-                <div className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.2em] text-[#C6A75E] uppercase mb-1">
+                <div className="flex items-center gap-1.5 font-sans text-[11px] tracking-widest text-[#C6A75E] uppercase mb-1 font-semibold">
                   <Sparkles className="w-3 h-3" />
                   <span>{piece.category.toUpperCase()}</span>
                 </div>
                 <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#141416] leading-tight">
                   {piece.title}
                 </h2>
-                <div className="font-mono text-xs text-[#7A705E] mt-1.5 tracking-wider flex flex-wrap items-center gap-2">
+                <div className="font-sans text-xs text-[#7A705E] mt-1.5 tracking-wider flex flex-wrap items-center gap-2">
                   {piece.specs.weight && (
                     <span>MASS: <strong className="text-[#141416]">{piece.specs.weight}</strong></span>
                   )}
@@ -195,12 +195,12 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-4 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-mono text-xs tracking-[0.14em] uppercase font-bold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.99] cursor-pointer min-h-[44px]"
+                  className="w-full py-3.5 px-4 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-sans text-xs tracking-wider uppercase font-semibold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.99] cursor-pointer min-h-[44px]"
                 >
                   <MessageSquare className="w-4 h-4 fill-white text-white shrink-0" />
                   <span>INQUIRE ON WHATSAPP (INSTANT GOLDSMITH)</span>
                 </a>
-                <p className="text-[10.5px] font-mono text-[#7A705E] text-center">
+                <p className="text-xs font-sans text-[#7A705E] text-center">
                   Direct chat with our master goldsmiths and workshop team for pricing and private viewing.
                 </p>
               </div>
@@ -211,37 +211,37 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
               </p>
 
               {/* Specification Summary */}
-              <div className="border border-[#E7E2DA] bg-[#FAF9F5] p-3 text-[11px] font-mono space-y-1 text-[#57534E]">
-                <div>CRAFTSMANSHIP: {piece.specs.craftsmanship || "In-House Hayes Benchwork"}</div>
-                <div>AUTHENTICITY: London Assay Leopard&apos;s Head Stamped</div>
-                <div>ACCESS: Walk-ins welcome · Zero appointment needed</div>
+              <div className="border border-[#E7E2DA] bg-[#FAF9F5] p-3 text-xs font-sans space-y-1 text-[#57534E]">
+                <div><span className="font-semibold text-[#141416]">CRAFTSMANSHIP:</span> {piece.specs.craftsmanship || "In-House Hayes Benchwork"}</div>
+                <div><span className="font-semibold text-[#141416]">AUTHENTICITY:</span> London Assay Leopard&apos;s Head Stamped</div>
+                <div><span className="font-semibold text-[#141416]">ACCESS:</span> Walk-ins welcome · Zero appointment needed</div>
               </div>
 
-              {/* Showroom Direct Info */}
-              <div className="border border-[#E7E2DA] bg-white p-3 font-mono text-xs space-y-2">
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-[#C6A75E] shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-bold uppercase tracking-wider text-[11px] text-[#141416]">
-                        HAYES SHOWROOM
-                      </div>
-                      <div className="font-sans text-xs text-[#57534E]">
-                        136 Uxbridge Road, Hayes UB4 0JH
-                      </div>
+              {/* Showroom Direct Info: Clean Stacking to Prevent Awkward Mobile Wrapping */}
+              <div className="border border-[#E7E2DA] bg-white p-3.5 font-sans text-xs space-y-2.5">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-[#C6A75E] shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-semibold uppercase tracking-wider text-xs text-[#141416]">
+                      HAYES SHOWROOM
                     </div>
-                  </div>
-                  <div className="text-[10px] text-[#7A705E] shrink-0">
-                    Mon 12:00 to 17:00 | Tue to Sat 11:00 to 17:30
+                    <div className="text-xs text-[#57534E]">
+                      136 Uxbridge Road, Hayes UB4 0JH
+                    </div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 pt-1">
+                <div className="pt-2 border-t border-[#F5F2EB] flex flex-col sm:flex-row sm:items-center justify-between text-xs text-[#78716C] gap-1">
+                  <span className="font-semibold text-[#141416]">Opening Hours:</span>
+                  <span>Mon: 12:00 to 17:00 &bull; Tue to Sat: 11:00 to 17:30</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 pt-1 font-sans">
                   <a
                     href="https://maps.google.com/?q=136+Uxbridge+Road+Hayes+UB4+0JH"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="py-2 px-2.5 bg-[#141416] text-[#FAF9F5] hover:bg-[#C6A75E] hover:text-[#141416] transition-colors font-semibold text-[10px] uppercase tracking-wider flex items-center justify-center gap-1"
+                    className="py-2.5 px-3 bg-[#141416] text-[#FAF9F5] hover:bg-[#C6A75E] hover:text-[#141416] transition-colors font-semibold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5"
                   >
                     <Navigation className="w-3 h-3" />
                     <span>DIRECTIONS ↗</span>
@@ -249,25 +249,13 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
 
                   <a
                     href="tel:02085739323"
-                    className="py-2 px-2.5 border border-[#141416] bg-white text-[#141416] hover:bg-[#FAF9F5] transition-colors font-semibold text-[10px] uppercase tracking-wider flex items-center justify-center gap-1"
+                    className="py-2.5 px-3 border border-[#141416] bg-white text-[#141416] hover:bg-[#FAF9F5] transition-colors font-semibold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5"
                   >
                     <Phone className="w-3 h-3 text-[#C6A75E]" />
                     <span>020 8573 9323</span>
                   </a>
                 </div>
               </div>
-            </div>
-
-            {/* Dedicated Bottom Exit / Close Button */}
-            <div className="pt-2 border-t border-[#EFE8DA]">
-              <button
-                type="button"
-                onClick={onClose}
-                className="w-full py-2.5 px-3 rounded-xl border border-[#D4AF37]/50 hover:border-[#141416] bg-[#FAF9F5] hover:bg-[#141416] text-[#8C6212] hover:text-white font-mono text-[11px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
-              >
-                <X className="w-3.5 h-3.5" />
-                <span>CLOSE DOSSIER &amp; RETURN TO SHOWROOM</span>
-              </button>
             </div>
           </div>
         </div>

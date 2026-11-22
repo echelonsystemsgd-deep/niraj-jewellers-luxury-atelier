@@ -309,7 +309,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="w-full py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] hover:bg-[#141416] text-[#8C6212] hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] hover:bg-[#141416] text-[#8C6212] hover:text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <X className="w-3.5 h-3.5" />
                   <span>CLOSE &amp; RETURN TO COLLECTION</span>

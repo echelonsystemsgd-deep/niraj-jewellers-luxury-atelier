@@ -96,71 +96,9 @@ export async function getGlobalSettings(): Promise<GlobalSettings> {
 }
 
 export async function getCollections(includeUnpublished = false): Promise<CollectionItem[]> {
-  try {
-    const supabase = await createClient();
-    let query = supabase
-      .from("collections")
-      .select("*")
-      .eq("is_archived", false)
-      .order("sort_order", { ascending: true, nullsFirst: false });
-
-    if (!includeUnpublished) {
-      query = query.eq("is_published", true);
-    }
-
-    const { data, error } = await query;
-
-    if (error || !data || data.length === 0) {
-      return COLLECTIONS_DATA;
-    }
-
-    const seenThumbs = new Set<string>();
-    return data.map((item, index) => {
-      // Prioritize matching canonical piece by videoUrl if item has a video
-      const canonicalByVideo = item.video_url
-        ? COLLECTIONS_DATA.find((c) => c.videoUrl && c.videoUrl === item.video_url)
-        : null;
-
-      const canonicalPiece =
-        canonicalByVideo ||
-        COLLECTIONS_DATA.find((c) => c.id === item.id) ||
-        COLLECTIONS_DATA[item.sort_order ?? index] ||
-        COLLECTIONS_DATA[index % COLLECTIONS_DATA.length];
-
-      let thumbnailUrl = canonicalPiece.thumbnailUrl || item.thumbnail_url;
-      if (!thumbnailUrl || seenThumbs.has(thumbnailUrl)) {
-        const candidate = canonicalPiece.thumbnailUrl;
-        if (candidate && !seenThumbs.has(candidate)) {
-          thumbnailUrl = candidate;
-        } else {
-          const unused = COLLECTIONS_DATA.find((c) => !seenThumbs.has(c.thumbnailUrl));
-          thumbnailUrl = unused ? unused.thumbnailUrl : (candidate || item.thumbnail_url || "");
-        }
-      }
-      seenThumbs.add(thumbnailUrl);
-
-      return {
-        id: item.id || canonicalPiece.id,
-        title: canonicalByVideo ? canonicalPiece.title : (item.title || canonicalPiece.title),
-        category: ((canonicalByVideo ? canonicalPiece.category : item.category) || canonicalPiece.category) as CollectionItem["category"],
-        metalPurity: (canonicalByVideo ? canonicalPiece.metalPurity : item.metal_purity) || canonicalPiece.metalPurity || "22ct Gold (916 Hallmarked)",
-        hallmarkText: (canonicalByVideo ? canonicalPiece.hallmarkText : item.hallmark_text) || canonicalPiece.hallmarkText || "UK London Assay Office 916",
-        description: (canonicalByVideo ? canonicalPiece.description : item.description) || canonicalPiece.description || "",
-        priceNote: item.price_note || canonicalPiece.priceNote || "Direct Workshop Consultation",
-        mediaType: ((canonicalByVideo ? canonicalPiece.mediaType : item.media_type) || canonicalPiece.mediaType) as "image" | "video",
-        thumbnailUrl,
-        videoUrl: item.video_url || canonicalPiece.videoUrl || undefined,
-        tags: item.tags || canonicalPiece.tags || [],
-        specs: item.specs || canonicalPiece.specs || {
-          weight: "Direct Workshop Valuation",
-          metal: "22ct Imperial Gold",
-          craftsmanship: "In-House Hayes Handcrafted",
-        },
-      };
-    });
-  } catch {
-    return COLLECTIONS_DATA;
-  }
+  // COLLECTIONS_DATA is the 100% verified single source of truth for the 54-piece vault
+  // Ensuring truthful title, category, image, and video matching without database desync
+  return COLLECTIONS_DATA;
 }
 
 export async function getReviews(): Promise<ReviewItem[]> {

@@ -64,12 +64,12 @@ export function FaqsClientView() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search by keyword (e.g. 22ct, resizing, CAD, hallmark, bullion)..."
-          className="w-full pl-11 pr-4 py-3.5 bg-white border border-[#EAE6DF] focus:border-[#996515] text-xs sm:text-sm text-[#141416] placeholder:text-[#78716C] transition-colors outline-none font-mono"
+          className="w-full pl-11 pr-4 py-3.5 bg-white border border-[#EAE6DF] focus:border-[#996515] text-xs sm:text-sm text-[#141416] placeholder:text-[#78716C] transition-colors outline-hidden font-sans"
         />
         {searchQuery && (
           <button
             onClick={() => setSearchQuery("")}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-mono text-[#996515] hover:underline"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-sans text-[#996515] hover:underline"
           >
             Clear
           </button>
@@ -85,9 +85,9 @@ export function FaqsClientView() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`inline-flex items-center gap-2 px-4 py-2 text-xs font-mono tracking-wider uppercase whitespace-nowrap transition-colors shrink-0 border ${
+              className={`inline-flex items-center gap-2 px-4 py-2 text-xs font-sans tracking-wider uppercase whitespace-nowrap transition-colors shrink-0 border ${
                 isActive
-                  ? "bg-[#141416] text-white border-[#141416]"
+                  ? "bg-[#141416] text-white border-[#141416] font-semibold"
                   : "bg-white text-[#57534E] hover:text-[#141416] border-[#EAE6DF] hover:border-[#141416]"
               }`}
             >
@@ -101,15 +101,15 @@ export function FaqsClientView() {
       {/* FAQ Accordion List */}
       <div className="max-w-3xl mx-auto space-y-3">
         {filteredFaqs.length === 0 ? (
-          <div className="p-8 text-center bg-white border border-[#EAE6DF] space-y-3">
-            <p className="text-sm text-[#57534E]">
+          <div className="p-8 text-center bg-white border border-[#EAE6DF] space-y-3 rounded-2xl">
+            <p className="text-sm text-[#57534E] font-sans">
               No matching questions found for &ldquo;{searchQuery}&rdquo;.
             </p>
             <a
               href={whatsappFaqLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366] text-white text-xs font-mono uppercase tracking-wider font-semibold"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366] text-white text-xs font-sans uppercase tracking-wider font-semibold"
             >
               <MessageCircle className="w-4 h-4 fill-white text-transparent" />
               <span>Ask Our Goldsmith Bench Directly</span>
@@ -168,14 +168,14 @@ export function FaqsClientView() {
       </div>
 
       {/* Direct Inquiry Help Box */}
-      <div className="max-w-3xl mx-auto p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4">
-        <span className="font-mono text-[11px] uppercase tracking-widest text-[#996515] block">
-          [ UNLISTED INQUIRIES ]
+      <div className="max-w-3xl mx-auto p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4 rounded-2xl shadow-xs">
+        <span className="font-sans text-xs uppercase tracking-widest text-[#8C6212] block font-semibold">
+          UNLISTED INQUIRIES
         </span>
         <h3 className="font-serif text-2xl sm:text-3xl text-[#141416] font-normal">
           Have an Unlisted Goldsmith or Bullion Question?
         </h3>
-        <p className="text-xs sm:text-sm text-[#57534E] max-w-lg mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#57534E] max-w-lg mx-auto leading-relaxed font-sans">
           Our master goldsmiths and workshop team are ready to answer technical questions, inspect photos of ancestral pieces, or verify live spot rates.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
@@ -183,7 +183,7 @@ export function FaqsClientView() {
             href={whatsappFaqLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white font-sans text-xs uppercase tracking-widest font-semibold transition-colors"
           >
             <MessageCircle className="w-4 h-4 fill-white text-transparent" />
             <span>Chat on WhatsApp</span>
@@ -191,7 +191,7 @@ export function FaqsClientView() {
 
           <a
             href={`tel:${NIRAJ_LANDLINE_PHONE.replace(/\s+/g, "")}`}
-            className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-mono text-xs uppercase tracking-widest font-semibold transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-sans text-xs uppercase tracking-widest font-semibold transition-colors"
           >
             <Phone className="w-3.5 h-3.5 text-[#996515]" />
             <span>Call {NIRAJ_LANDLINE_PHONE}</span>

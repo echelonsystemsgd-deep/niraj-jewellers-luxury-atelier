@@ -98,7 +98,7 @@ export default function ArticlesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
             {/* Breadcrumb Trail */}
             <nav aria-label="Breadcrumb" className="mb-6">
-              <ol className="flex items-center space-x-2 text-xs font-mono text-[#78716C]">
+              <ol className="flex items-center space-x-2 text-xs font-sans text-[#78716C]">
                 <li>
                   <Link href="/" className="hover:text-[#996515] transition-colors">
                     Home
@@ -112,8 +112,8 @@ export default function ArticlesPage() {
             </nav>
 
             <div className="max-w-3xl">
-              <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#996515] block mb-3">
-                [ 01 / GOLDSMITH KNOWLEDGE &amp; EDUCATION ]
+              <span className="font-sans text-xs uppercase tracking-[0.25em] text-[#8C6212] block mb-3 font-semibold">
+                GOLDSMITH KNOWLEDGE &amp; EDUCATION
               </span>
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#141416] font-normal tracking-tight leading-[1.1] mb-5">
                 Atelier Editorial &amp; Master Goldsmith Guides
@@ -134,7 +134,7 @@ export default function ArticlesPage() {
                   London Assay Office Hallmarking Act 1973 Verified
                 </span>
               </div>
-              <div className="flex items-center gap-4 font-mono text-[11px] text-[#78716C]">
+              <div className="flex items-center gap-4 font-sans text-xs text-[#78716C]">
                 <span>BENCH LOCATION: 136 UXBRIDGE ROAD, HAYES</span>
                 <span>EST. 1984</span>
               </div>
@@ -164,15 +164,15 @@ export default function ArticlesPage() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="inline-block px-2.5 py-1 text-[10px] font-mono tracking-widest uppercase bg-white/95 text-[#141416] border border-[#EAE6DF]">
+                      <span className="inline-block px-2.5 py-1 text-xs font-sans tracking-widest uppercase bg-white/95 text-[#141416] border border-[#EAE6DF] font-medium">
                         {article.category}
                       </span>
                     </div>
                   </Link>
 
                   {/* Header Meta */}
-                  <div className="flex items-center justify-between text-xs text-[#78716C] mb-3 font-mono">
-                    <span>GUIDE 0{idx + 1}</span>
+                  <div className="flex items-center justify-between text-xs text-[#78716C] mb-3 font-sans">
+                    <span className="font-semibold text-[#8C6212]">Guide 0{idx + 1}</span>
                     <span className="flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5 text-[#996515]" />
                       {article.readTime}
@@ -185,16 +185,16 @@ export default function ArticlesPage() {
                     </Link>
                   </h2>
 
-                  <p className="text-sm text-[#57534E] leading-relaxed mb-6">
+                  <p className="text-sm text-[#57534E] leading-relaxed mb-6 font-sans">
                     {article.excerpt}
                   </p>
 
                   {/* Key Takeaway Snippet */}
                   <div className="p-4 bg-[#FAF8F5] border border-[#EAE6DF] mb-6">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#996515] block mb-1">
+                    <span className="font-sans text-xs uppercase tracking-wider text-[#996515] block mb-1 font-semibold">
                       KEY WORKSHOP TAKEAWAY
                     </span>
-                    <p className="text-xs text-[#141416] leading-relaxed">
+                    <p className="text-xs text-[#141416] leading-relaxed font-sans">
                       {article.keyTakeaways[0]}
                     </p>
                   </div>
@@ -202,7 +202,7 @@ export default function ArticlesPage() {
 
                 {/* Footer Link & Author */}
                 <div className="pt-4 border-t border-[#EAE6DF] flex items-center justify-between">
-                  <div className="text-xs">
+                  <div className="text-xs font-sans">
                     <span className="font-medium text-[#141416] block">
                       {article.author.name}
                     </span>
@@ -213,7 +213,7 @@ export default function ArticlesPage() {
 
                   <Link
                     href={`/articles/${article.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#996515] font-semibold group-hover:text-[#141416] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-sans uppercase tracking-wider text-[#996515] font-semibold group-hover:text-[#141416] transition-colors"
                   >
                     <span>Read Guide</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -224,15 +224,15 @@ export default function ArticlesPage() {
           </div>
 
           {/* In-Person Goldsmith Consultation Plaque */}
-          <div className="mt-12 p-8 sm:p-10 bg-white border border-[#EAE6DF] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="mt-12 p-8 sm:p-10 bg-white border border-[#EAE6DF] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl shadow-xs">
             <div className="max-w-2xl">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#996515] block mb-2">
-                [ DIRECT BENCH CONSULTATION ]
+              <span className="font-sans text-xs uppercase tracking-widest text-[#996515] block mb-2 font-semibold">
+                DIRECT BENCH CONSULTATION
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl text-[#141416] font-normal mb-2">
                 Have a bespoke commission or gold purity inquiry?
               </h3>
-              <p className="text-sm text-[#57534E] leading-relaxed">
+              <p className="text-sm text-[#57534E] leading-relaxed font-sans">
                 Speak directly with our goldsmiths at our Hayes workshop. We inspect diamond loupe certificates, provide live LBMA gold bullion valuations, and draft 3D CAD renders.
               </p>
             </div>
@@ -241,13 +241,13 @@ export default function ArticlesPage() {
                 href="https://wa.me/447955565137?text=Hi%20Niraj%20Jewellers%20team,%20I%20have%20a%20question%20regarding%20one%20of%20your%20goldsmith%20articles."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white text-xs font-mono uppercase tracking-widest font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white text-xs font-sans uppercase tracking-widest font-semibold transition-colors"
               >
                 <span>WhatsApp Goldsmith</span>
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] text-xs font-mono uppercase tracking-widest font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] text-xs font-sans uppercase tracking-widest font-semibold transition-colors"
               >
                 <span>Visit Hayes Bench</span>
               </Link>

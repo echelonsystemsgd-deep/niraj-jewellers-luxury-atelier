@@ -16,6 +16,7 @@ class SoundEngine {
   }
   public stop(): void {}
   public playTick(): void {}
+  public playSuccess(): void {}
   public getStatus(): boolean {
     return false;
   }
