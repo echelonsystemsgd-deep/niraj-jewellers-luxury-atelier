@@ -13,7 +13,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Atelier Handbook & Help Guide | Niraj Jewellers Ltd",
-  description: "Plain English step-by-step guide for Viky.",
+  description: "Plain English step-by-step guide for store management.",
 };
 
 export default function AdminHelpGuidePage() {
@@ -78,7 +78,7 @@ export default function AdminHelpGuidePage() {
     <div className="p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto w-full space-y-6">
       <div>
         <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#141416]">
-          Viky&apos;s Store Management Handbook
+          Atelier Store Management Handbook
         </h1>
         <p className="text-xs text-[#5A5960] mt-1">
           Simple, plain-English instructions for managing Niraj Jewellers Ltd from your smartphone.

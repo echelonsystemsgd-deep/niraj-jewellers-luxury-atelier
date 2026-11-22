@@ -37,7 +37,7 @@ interface PieceFormProps {
 }
 
 // ------------------------------------------------------------------------------
-// PRESET OPTIONS FOR THE OWNER (VIKY)
+// PRESET OPTIONS FOR THE ATELIER TEAM
 // ------------------------------------------------------------------------------
 
 const PRESET_CATEGORIES = [
@@ -101,7 +101,7 @@ const QUICK_TAG_PRESETS = [
   "Bullion Bar",
 ];
 
-// Curated high-res showroom vault photos Viky can select in 1 click
+// Curated high-res showroom vault photos atelier team can select in 1 click
 const SHOWROOM_PHOTO_PRESETS = [
   {
     title: "Imperial Polki Choker Suite",
@@ -186,7 +186,7 @@ export function PieceForm({ initialData, isNew = false }: PieceFormProps) {
     }
   );
 
-  // Custom states for fields when Viky chooses "custom"
+  // Custom states for fields when user chooses "custom"
   const isPresetCategory = PRESET_CATEGORIES.some(
     (c) => c.value === formData.category && c.value !== "custom"
   );

@@ -95,7 +95,7 @@ export function AtelierNavbar() {
             </Link>
           </div>
 
-          {/* Center: Viky's 6 Official Navigation Pages (Desktop) */}
+          {/* Center: Official 6 Navigation Pages (Desktop) */}
           <nav className="hidden lg:flex items-center space-x-6 text-xs uppercase tracking-wider font-semibold whitespace-nowrap text-[#3D3C42]">
             {navLinks.map((link) => (
               <Link
@@ -189,7 +189,7 @@ export function AtelierNavbar() {
             </button>
           </div>
 
-          {/* Middle: Viky's 6 Official Navigation Portals */}
+          {/* Middle: Official 6 Navigation Portals */}
           <div className="px-5 sm:px-8 pt-8 pb-12 flex-1 max-w-2xl mx-auto w-full space-y-6">
             {/* Dynamic London Showroom Status Indicator */}
             <div className="pb-3 border-b border-[#E8DEC8] flex items-center justify-between text-xs text-[#57534E] font-mono">
@@ -253,7 +253,7 @@ export function AtelierNavbar() {
               </div>
             </div>
 
-            {/* Navigation Links in Viky's Exact Order */}
+            {/* Navigation Links in Official Atelier Order */}
             <nav className="space-y-1 pt-2">
               {navLinks.map((link) => (
                 <Link

@@ -84,7 +84,7 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
       groupTitle: "SUPPORT & GOVERNANCE",
       items: [
         {
-          label: "Viky's Handbook",
+          label: "Atelier Handbook",
           href: "/admin/help",
           icon: HelpCircle,
           badge: "Help",

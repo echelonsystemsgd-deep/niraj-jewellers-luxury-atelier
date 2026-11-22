@@ -64,7 +64,7 @@ export function CollectionGrid({ isHomepage = false, items }: CollectionGridProp
     const standardOrder = ["bridal", "polki-heritage", "22ct-gold", "rings"];
     const catsInVault = Array.from(new Set(allItems.map((i) => i.category))).filter(Boolean);
 
-    // Standard categories first, then any custom categories added by Viky
+    // Standard categories first, then any custom categories added by atelier team
     const sortedCats = [
       ...standardOrder.filter((c) => catsInVault.includes(c)),
       ...catsInVault.filter((c) => !standardOrder.includes(c)),

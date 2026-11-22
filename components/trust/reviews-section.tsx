@@ -1,8 +1,9 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
-import { ShieldCheck, ArrowUpRight } from "lucide-react";
-import { GoogleGIcon, LuxuryStarIcon } from "@/components/icons/luxury-icons";
+import { ArrowUpRight, ShieldCheck, Star } from "lucide-react";
+import { GoogleGIcon } from "@/components/icons/luxury-icons";
 import { REVIEWS_DATA, ReviewItem } from "@/data/reviews-data";
 
 interface ReviewsSectionProps {
@@ -22,91 +23,87 @@ export function ReviewsSection({ items }: ReviewsSectionProps) {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FAF9F5] texture-ivory-paper border-t border-[#E8DEC8] relative">
+    <section id="reviews" className="w-full bg-[#FAF9F5] border-b border-[#E7E2DA] py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#996515]">
-            <LuxuryStarIcon className="w-3.5 h-3.5" fill="#996515" />
-            <span>Verified Client Reputation</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7E2DA] pb-8 mb-12 gap-6">
+          <div>
+            <div className="inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase text-[#7A705E] mb-2">
+              <span className="w-2 h-2 rounded-full bg-[#C6A75E]"></span>
+              <span>[ 04 / CLIENT REPUTATION &amp; GOOGLE REVIEWS ]</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
+              Loved Across London &amp; Middlesex
+            </h2>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
-            Loved Across London &amp; Middlesex
-          </h2>
-          <p className="font-vivaldi text-2xl sm:text-3xl text-[#996515] font-normal">
-            Five-star bespoke craftsmanship &amp; showroom honesty
-          </p>
-          <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
-            Read authentic experiences from bridal couples, gold bullion investors, and repair clients who visit our Hayes atelier.
-          </p>
 
-          {/* Official Google Reviews Trust Banner (Hammered Gold Plaque) */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto">
-            <a
-              href="https://share.google/UzzobueZI6BXs8GZQ"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full texture-hammered-card border-hammered-gold text-xs shadow-sm hover:border-[#996515] transition-all group"
-              title="View Niraj Jewellers Ltd on Google"
-            >
-              <div className="flex items-center gap-1.5">
-                <GoogleGIcon className="w-4 h-4 shrink-0" />
-                <span className="font-bold text-[#141416]">Google Rating</span>
-              </div>
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <LuxuryStarIcon key={i} className="w-3.5 h-3.5" fill="#C5A059" />
-                ))}
-              </div>
-              <span className="font-bold text-[#141416]">4.3 / 5.0</span>
-              <span className="text-[#8C6212] font-semibold">• 10 Google Reviews</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#996515] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </div>
+          {/* Official Google Reviews Trust Badge */}
+          <a
+            href="https://share.google/UzzobueZI6BXs8GZQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-4 py-2.5 border border-[#E7E2DA] bg-white hover:border-[#141416] transition-colors shadow-xs group"
+          >
+            <div className="flex items-center gap-2">
+              <GoogleGIcon className="w-4 h-4 shrink-0" />
+              <span className="font-mono text-xs font-semibold text-[#141416]">Google Reviews</span>
+            </div>
+            <div className="flex items-center gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 fill-[#C6A75E] text-[#C6A75E]" />
+              ))}
+            </div>
+            <span className="font-mono text-xs font-bold text-[#141416]">4.3 / 5.0</span>
+            <span className="font-mono text-[11px] text-[#7A705E]">(10 Reviews)</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#7A705E] group-hover:text-[#141416] group-hover:translate-x-0.5 transition-transform" />
+          </a>
         </div>
 
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        {/* 3-Column Hairline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#E7E2DA]">
           {reviewsToDisplay.slice(0, 6).map((review) => (
-            <div
+            <article
               key={review.id}
-              className="bg-white p-6 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md"
+              className="border-r border-b border-[#E7E2DA] bg-white p-6 sm:p-7 flex flex-col justify-between hover:bg-[#FAF9F5] transition-colors"
             >
-              <div className="space-y-3">
-                {/* Header: Stars & Google / Atelier Icon */}
+              <div className="space-y-4">
+                {/* Header: Stars & Google Badge */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-0.5">
                     {[...Array(review.rating)].map((_, i) => (
-                      <LuxuryStarIcon key={i} className="w-3.5 h-3.5" fill="#C5A059" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#C6A75E] text-[#C6A75E]" />
                     ))}
                   </div>
-                  <div className="flex items-center gap-1.5 text-[10px] text-[#7A7880]">
+
+                  <div className="flex items-center gap-1.5 font-mono text-[10px] text-[#7A705E]">
                     {review.source === "Google" ? (
-                      <span className="inline-flex items-center gap-1 font-medium text-[#1A73E8]">
+                      <span className="inline-flex items-center gap-1 font-semibold text-[#1A73E8]">
                         <GoogleGIcon className="w-3 h-3" />
-                        Google
+                        Google Verified
                       </span>
                     ) : (
-                      <span className="font-medium text-[#8C6212]">Showroom</span>
+                      <span className="font-semibold text-[#C6A75E]">Hayes Showroom</span>
                     )}
-                    <span>•</span>
+                    <span>·</span>
                     <span>{review.date}</span>
                   </div>
                 </div>
 
-                <div className="text-[11px] sm:text-xs font-bold text-[#8C6212] font-mono">
-                  {review.service}
+                {/* Service Tag */}
+                <div className="font-mono text-[10.5px] uppercase tracking-wider text-[#C6A75E] font-semibold">
+                  [ {review.service} ]
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#4A4A52] leading-relaxed italic">
-                  &quot;{review.text}&quot;
+                {/* Testimonial Quote */}
+                <p className="font-sans text-xs sm:text-sm text-[#57534E] leading-relaxed italic">
+                  &ldquo;{review.text}&rdquo;
                 </p>
               </div>
 
-              {/* Reviewer Profile Row with Verified Profile Photo Avatar */}
-              <div className="pt-3.5 border-t border-[#EFE8DA] flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-hammered-gold shrink-0 shadow-sm bg-[#FAF7F2] flex items-center justify-center font-serif text-xs font-bold text-[#8C6212]">
+              {/* Reviewer Profile Row */}
+              <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-9 h-9 rounded-full overflow-hidden border border-[#E7E2DA] shrink-0 bg-[#FAF9F5] flex items-center justify-center font-mono text-xs font-bold text-[#141416]">
                     {review.avatarUrl ? (
                       <Image
                         src={review.avatarUrl}
@@ -121,33 +118,33 @@ export function ReviewsSection({ items }: ReviewsSectionProps) {
                     )}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-[#141416]">{review.author}</h4>
-                    <span className="text-[9.5px] sm:text-[10px] text-[#7A7880]">{review.location}</span>
+                    <h4 className="font-serif text-xs font-bold text-[#141416]">{review.author}</h4>
+                    <span className="font-mono text-[10px] text-[#7A705E]">{review.location}</span>
                   </div>
                 </div>
 
                 {review.verified && (
-                  <span className="inline-flex items-center gap-1 text-[9.5px] text-emerald-800 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300">
-                    <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                  <span className="inline-flex items-center gap-1 text-[10px] font-mono text-[#0F6848] bg-[#0F6848]/10 px-2 py-0.5">
+                    <ShieldCheck className="w-3 h-3" />
                     <span>Verified</span>
                   </span>
                 )}
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        {/* Action Link to Google Profile */}
-        <div className="mt-12 text-center flex flex-wrap items-center justify-center gap-3">
+        {/* Read More on Google */}
+        <div className="mt-10 text-center">
           <a
             href="https://share.google/UzzobueZI6BXs8GZQ"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] text-xs font-bold text-[#141416] hover:text-[#996515] transition-all shadow-sm min-h-[44px]"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-[#141416] bg-white hover:bg-[#141416] text-[#141416] hover:text-[#FAF9F5] font-mono text-xs tracking-[0.16em] uppercase font-bold transition-all shadow-xs"
           >
             <GoogleGIcon className="w-4 h-4" />
-            <span>Read All 10 Reviews on Google</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-[#996515]" />
+            <span>Read All 10 Reviews on Google Maps</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>

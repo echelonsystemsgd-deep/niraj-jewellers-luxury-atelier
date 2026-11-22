@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { ShieldCheck, Play, Pause, ArrowDown, Eye, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { ShieldCheck, Play, Pause, ArrowDown, Eye, Sparkles, MessageSquare } from "lucide-react";
+import { sound } from "@/lib/sound";
 
 interface FeaturedVideo {
   pieceId: string;
@@ -37,17 +39,6 @@ const FEATURED_VIDEOS: FeaturedVideo[] = [
     videoUrl: "/images/collections/39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.mp4",
     posterUrl: "/images/collections/posters/39b5ba11-da50-4ab0-bc84-3d952b8b2a8d.jpg",
     description: "Handcrafted band featuring dual beaded milgrain borders framing a central channel of micro-pavé diamonds.",
-  },
-  {
-    pieceId: "piece-16-sovereign-6-prong-solitaire-ring",
-    title: "The Sovereign 6-Prong Round Solitaire Ring",
-    category: "Solitaire Rings",
-    purity: "18ct Solid Yellow Gold (750)",
-    weight: "18.2g solid shank",
-    hallmark: "London Assay Leopard's Head · 750",
-    videoUrl: "/images/collections/86e9bedc-c2df-4ad8-81f5-a2f038596d60.mp4",
-    posterUrl: "/images/collections/posters/86e9bedc-c2df-4ad8-81f5-a2f038596d60.jpg",
-    description: "Iconic six-prong crown collet holding a round brilliant natural diamond on a solid polished yellow gold rounded shank.",
   },
   {
     pieceId: "piece-5-sovereign-shared-prong-eternity-band",
@@ -92,25 +83,124 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
 
   return (
     <section className="relative w-full bg-[#FAF9F5] border-b border-[#E7E2DA] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
-        {/* Top Header Badge */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 border border-[#E7E2DA] bg-white text-[#7A705E] font-mono text-[10px] sm:text-[11px] tracking-[0.24em] uppercase mb-4 shadow-xs">
-            <Sparkles className="w-3 h-3 text-[#C6A75E]" />
-            <span>BESPOKE GOLDSMITH BENCHWORK · HAYES · EST. 1984</span>
+      {/* Niche Artisan Side Framing on Wide Viewports (The Goldsmith Atelier Benchmark) */}
+      <div className="hidden 2xl:block absolute left-4 top-1/2 -translate-y-1/2 w-32 pointer-events-none opacity-40 select-none">
+        <div className="border border-[#E7E2DA] bg-white p-2.5 space-y-2 shadow-xs">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
+            <Image
+              src="/images/workshop/workshop-bench-velvet-trays.jpg"
+              alt="Goldsmith Bench Trays"
+              fill
+              className="object-cover grayscale"
+            />
           </div>
+          <span className="font-mono text-[9px] uppercase tracking-wider text-[#7A705E] block text-center">
+            BENCH TRAY
+          </span>
+        </div>
+      </div>
+
+      <div className="hidden 2xl:block absolute right-4 top-1/2 -translate-y-1/2 w-32 pointer-events-none opacity-40 select-none">
+        <div className="border border-[#E7E2DA] bg-white p-2.5 space-y-2 shadow-xs">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
+            <Image
+              src="/images/workshop/22ct-gold-filigree-bridal-suite.jpg"
+              alt="22ct Gold Filigree Craft"
+              fill
+              className="object-cover grayscale"
+            />
+          </div>
+          <span className="font-mono text-[9px] uppercase tracking-wider text-[#7A705E] block text-center">
+            22CT FILIGREE
+          </span>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18">
+        {/* Top Header Badge & Social Proof Pill */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          {/* Social Proof Pill (Stacked Avatars + Rating + Review Count) */}
+          <a
+            href="https://share.google/UzzobueZI6BXs8GZQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => sound.playTick()}
+            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/50 bg-white hover:border-[#141416] transition-all shadow-xs mb-4 cursor-pointer group"
+          >
+            <div className="flex -space-x-1.5 overflow-hidden">
+              <div className="w-5 h-5 rounded-full bg-[#141416] text-[#C6A75E] font-bold text-[9px] flex items-center justify-center border border-white">
+                V
+              </div>
+              <div className="w-5 h-5 rounded-full bg-[#C6A75E] text-[#141416] font-bold text-[9px] flex items-center justify-center border border-white">
+                S
+              </div>
+              <div className="w-5 h-5 rounded-full bg-[#57534E] text-white font-bold text-[9px] flex items-center justify-center border border-white">
+                P
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#141416]">
+              <span className="text-[#C6A75E] tracking-tighter">★★★★★</span>
+              <span>4.9</span>
+              <span className="text-[#7A705E] font-normal">· 120+ Google &amp; Atelier Reviews</span>
+            </div>
+          </a>
+
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#141416] tracking-tight leading-[1.1] mb-4">
             Masterpieces in 22ct Gold. <br />
             <span className="font-light italic text-[#7A705E]">Forged for Generations.</span>
           </h1>
-          <p className="text-sm sm:text-base text-[#57534E] font-sans max-w-xl font-normal leading-relaxed">
+
+          <p className="text-sm sm:text-base text-[#57534E] font-sans max-w-xl font-normal leading-relaxed mb-6">
             Authentic lost-wax casting, certified natural Polki diamonds, and heavy solid-mass kadas.
             Crafted on premises at 136 Uxbridge Road under London Assay hallmarking.
           </p>
+
+          {/* Strictly 2 Clean, Decisive Primary CTAs (Zero phone line bloat below) */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+            <button
+              type="button"
+              onClick={onExploreVault}
+              className="w-full sm:w-auto px-7 py-3.5 bg-[#141416] text-[#FAF9F5] hover:bg-[#C6A75E] hover:text-[#141416] transition-colors font-mono text-xs tracking-[0.2em] uppercase font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm border border-[#141416]"
+            >
+              <span>EXPLORE 3 CURATED MASTERPIECES</span>
+              <ArrowDown className="w-3.5 h-3.5" />
+            </button>
+
+            <a
+              href="https://wa.me/447955565137?text=Hi%20Niraj%20Jewellers%2C%20I%20am%20enquiring%20about%20your%20bespoke%2022ct%20goldsmith%20commissions%20and%20bridal%20suites."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => sound.playTick()}
+              className="w-full sm:w-auto px-7 py-3.5 border border-[#25D366] bg-[#25D366] hover:bg-[#1ebe5b] text-white transition-all font-mono text-xs tracking-[0.16em] uppercase font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+            >
+              <MessageSquare className="w-4 h-4 fill-white text-white" />
+              <span>WHATSAPP CONCIERGE</span>
+            </a>
+          </div>
+
+          {/* 4 Sleek Horizontal Trust Pills */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 font-mono text-[10px] sm:text-[11px] text-[#57534E]">
+            <div className="px-3 py-1 bg-white border border-[#E7E2DA] flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C6A75E]" />
+              <span>42-YEAR GOLDSMITH LINEAGE</span>
+            </div>
+            <div className="px-3 py-1 bg-white border border-[#E7E2DA] flex items-center gap-1.5">
+              <ShieldCheck className="w-3 h-3 text-[#C6A75E]" />
+              <span>LONDON ASSAY LEOPARD&apos;S HEAD</span>
+            </div>
+            <div className="px-3 py-1 bg-white border border-[#E7E2DA] flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C6A75E]" />
+              <span>100% IN-HOUSE BENCHWORK</span>
+            </div>
+            <div className="px-3 py-1 bg-white border border-[#E7E2DA] flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C6A75E]" />
+              <span>DIRECT BULLION TRADE VALUE</span>
+            </div>
+          </div>
         </div>
 
-        {/* Centerpiece: Real Product Video Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Centerpiece: Real Product Video Vitrine */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
           {/* Left Column: Video Reel Selector Tabs */}
           <div className="lg:col-span-4 order-2 lg:order-1 flex flex-col gap-4">
             <div className="border border-[#E7E2DA] bg-white p-5">
@@ -175,9 +265,9 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
 
           {/* Center Column: Live Looping High-Definition Video Player */}
           <div className="lg:col-span-8 order-1 lg:order-2 flex flex-col">
-            {/* Top Micro-HUD (Responsive flex-col on mobile, zero collision) */}
+            {/* Top Micro-HUD */}
             <div className="w-full flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-mono text-[10px] sm:text-[11px] tracking-[0.18em] sm:tracking-[0.2em] text-[#7A705E] px-2 mb-2">
-              <span>HAYES BENCH REEL [ 0{activeVideoIdx + 1} / 04 ]</span>
+              <span>HAYES BENCH REEL [ 0{activeVideoIdx + 1} / 03 ]</span>
               <span className="text-[#C6A75E] flex items-center gap-1 font-semibold">
                 1080P MASTERWORK RECORDING
               </span>
@@ -197,7 +287,6 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
                 className="w-full h-full object-cover object-center filter brightness-105 contrast-110"
               />
 
-              {/* Gradient Overlays */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
               {/* Bottom Video Badge & Info */}
@@ -214,7 +303,6 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
                   </div>
                 </div>
 
-                {/* Play/Pause Control Button */}
                 <button
                   type="button"
                   onClick={handleTogglePlay}
@@ -234,7 +322,7 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
                 className="w-full sm:flex-1 py-3.5 bg-[#141416] text-[#FAF9F5] hover:bg-[#C6A75E] hover:text-[#141416] transition-colors font-mono text-xs tracking-[0.2em] uppercase font-semibold flex items-center justify-center gap-2 cursor-pointer border border-[#141416]"
               >
                 <Eye className="w-4 h-4" />
-                <span>INSPECT PIECE & INQUIRE</span>
+                <span>INSPECT PIECE &amp; INQUIRE</span>
               </button>
 
               <button
@@ -242,7 +330,7 @@ export function CinematicHero({ onInspectPiece, onExploreVault }: CinematicHeroP
                 onClick={onExploreVault}
                 className="w-full sm:w-auto px-6 py-3.5 bg-white text-[#141416] border border-[#E7E2DA] hover:border-[#141416] transition-colors font-mono text-xs tracking-[0.2em] uppercase flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>54-PIECE VAULT</span>
+                <span>3 CURATED PIECES</span>
                 <ArrowDown className="w-3.5 h-3.5" />
               </button>
             </div>

@@ -41,7 +41,7 @@ export function AtelierClientView() {
 
   return (
     <div className="relative min-h-screen bg-[#FAF9F5] text-[#141416] flex flex-col selection:bg-[#C6A75E]/30 selection:text-[#141416] overflow-x-hidden">
-      {/* 1. Official Atelier Header (Viky's 6 Navigation Pages, Direct Phone & WhatsApp) */}
+      {/* 1. Official Atelier Header (Official Navigation Pages, Direct Phone & WhatsApp) */}
       <AtelierNavbar />
 
       {/* 2. Main Experience */}

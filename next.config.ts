@@ -10,6 +10,7 @@ const securityHeaders = [
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https://images.unsplash.com https://*.cdninstagram.com https://maps.googleapis.com",
       "media-src 'self' blob: https://*",
+      "frame-src 'self' https://maps.google.com https://www.google.com https://www.openstreetmap.org https://*.openstreetmap.org",
       "connect-src 'self' https://www.goldapi.io https://open.er-api.com https://va.vercel-scripts.com",
       "frame-ancestors 'none'",
     ].join("; "),
