@@ -138,6 +138,7 @@ export const COLLECTIONS_DATA: CollectionItem[] = [
       "Wedding Ring"
     ],
     "specs": {
+      "weight": "24.6 grams",
       "carat": "2.40ct F/G VS Diamonds",
       "metal": "950 Platinum",
       "craftsmanship": "Shared-Prong Eternity Setting"

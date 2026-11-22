@@ -1,125 +1,100 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import React, { useState, useMemo } from "react";
+import Image from "next/image";
 import { COLLECTIONS_DATA, CollectionItem } from "@/data/collections-data";
-import { AtelierVideoCard } from "./atelier-video-card";
-import { ReelModal } from "./reel-modal";
+import { ShowroomDossierModal } from "@/components/atelier/ShowroomDossierModal";
+import { Search, Play, ShieldCheck, Sparkles } from "lucide-react";
 
 interface CollectionGridProps {
   isHomepage?: boolean;
   items?: CollectionItem[];
 }
 
-const formatCategoryLabel = (cat: string) => {
-  if (cat === "bridal") return "Bridal Suites";
-  if (cat === "polki-heritage") return "Polki & Heritage";
-  if (cat === "22ct-gold") return "22ct Gold & Kadas";
-  if (cat === "rings") return "Bespoke Rings & CAD";
-  if (cat === "featured") return "Featured Masterpieces";
-  if (cat === "bangles-kadas") return "Bangles & Kadas";
-  if (cat === "mangalsutra") return "Sacred Mangalsutras";
-  if (cat === "necklaces") return "Necklaces & Chokers";
-  if (cat === "coins-bullion") return "Gold Coins & Bullion";
-  // Custom categories: convert kebab-case or snake_case to Title Case
-  return cat
-    .split(/[-_ ]+/)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-};
-
-export function CollectionGrid({ isHomepage = false, items }: CollectionGridProps) {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [selectedItem, setSelectedItem] = useState<CollectionItem | null>(null);
+export function CollectionGrid({ items }: CollectionGridProps) {
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [mediaFilter, setMediaFilter] = useState<"all" | "video" | "image">("all");
+  const [selectedPiece, setSelectedPiece] = useState<CollectionItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const allItems = useMemo(
     () => (items && items.length > 0 ? items : COLLECTIONS_DATA),
     [items]
   );
 
-  // Top 3 Verified Video Masterpieces for Clean Homepage Showcase
-  const topThreeMasterpieces: CollectionItem[] = useMemo(() => {
-    const videoPieces = allItems.filter(
-      (item) => item.mediaType === "video" && Boolean(item.videoUrl)
-    );
-    return videoPieces.slice(0, 3);
-  }, [allItems]);
-
-  // Compute category counts dynamically across all live pieces
-  const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = {
-      all: allItems.length,
-    };
-    allItems.forEach((item) => {
-      const cat = item.category || "other";
-      counts[cat] = (counts[cat] || 0) + 1;
-    });
-    return counts;
-  }, [allItems]);
-
-  // Dynamic category pills
   const categories = useMemo(() => {
-    const standardOrder = ["bridal", "polki-heritage", "22ct-gold", "rings"];
-    const catsInVault = Array.from(new Set(allItems.map((i) => i.category))).filter(Boolean);
-
-    // Standard categories first, then any custom categories added by atelier team
-    const sortedCats = [
-      ...standardOrder.filter((c) => catsInVault.includes(c)),
-      ...catsInVault.filter((c) => !standardOrder.includes(c)),
-    ];
-
     return [
-      { id: "all", label: `All Masterpieces (${categoryCounts.all || 0})` },
-      ...sortedCats.map((cat) => ({
-        id: cat,
-        label: `${formatCategoryLabel(cat)} (${categoryCounts[cat] || 0})`,
-      })),
+      { id: "all", label: `ALL PIECES (${allItems.length})` },
+      { id: "bridal", label: "22CT BRIDAL" },
+      { id: "22ct-gold", label: "SOLID GOLD & KADAS" },
+      { id: "polki-heritage", label: "POLKI & KUNDAN" },
+      { id: "rings", label: "RINGS & SOLITAIRES" },
     ];
-  }, [allItems, categoryCounts]);
+  }, [allItems.length]);
 
   const filteredItems = useMemo(() => {
-    if (activeCategory === "all") return allItems;
-    return allItems.filter((item) => item.category === activeCategory);
-  }, [allItems, activeCategory]);
+    return allItems.filter((item) => {
+      // Category match
+      const matchesCategory =
+        selectedCategory === "all" ||
+        item.category.toLowerCase().includes(selectedCategory.toLowerCase());
 
-  const displayedItems = isHomepage ? topThreeMasterpieces : filteredItems;
+      // Media filter match
+      const matchesMedia = mediaFilter === "all" || item.mediaType === mediaFilter;
+
+      // Search match with intelligent jewelry synonyms
+      const q = searchQuery.toLowerCase().trim();
+      const synonyms: Record<string, string[]> = {
+        kada: ["kada", "bangle", "band", "cuff", "bracelet"],
+        kadas: ["kada", "bangle", "band", "cuff", "bracelet"],
+        bangle: ["bangle", "kada", "cuff", "band"],
+        bangles: ["bangle", "kada", "cuff", "band"],
+        necklace: ["necklace", "choker", "collar", "suite", "lariat"],
+        choker: ["choker", "collar", "necklace", "suite"],
+        emerald: ["emerald", "zambian", "melon"],
+        ruby: ["ruby", "rubies", "crimson"],
+        polki: ["polki", "kundan", "jadau"],
+      };
+
+      const searchTerms = [q, ...(synonyms[q] || [])];
+      const matchesSearch =
+        !q ||
+        searchTerms.some(
+          (term) =>
+            item.title.toLowerCase().includes(term) ||
+            item.description.toLowerCase().includes(term) ||
+            item.category.toLowerCase().includes(term) ||
+            item.tags.some((tag) => tag.toLowerCase().includes(term))
+        );
+
+      return matchesCategory && matchesMedia && matchesSearch;
+    });
+  }, [allItems, selectedCategory, mediaFilter, searchQuery]);
+
+  const handleOpenPiece = (piece: CollectionItem) => {
+    setSelectedPiece(piece);
+    setIsModalOpen(true);
+  };
 
   return (
-    <section id="collections" className="py-16 sm:py-24 bg-[#FAF9F5] texture-ivory-paper relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#996515]">
-            <span>Showroom Vault &amp; Craft Portfolio</span>
-          </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#141416] tracking-tight">
-            {isHomepage ? "Curated Flagship Showpieces" : "The Complete Showroom Vault"}
-          </h2>
-          <p className="font-vivaldi text-2xl sm:text-3xl text-[#996515] font-normal">
-            Bespoke artistry forged with micron precision
-          </p>
-          <p className="text-sm sm:text-base text-[#4A4A52] leading-relaxed">
-            {isHomepage
-              ? "A preview of our master goldsmith pieces handcrafted on Uxbridge Road. Official London Assay Office hallmarked with transparent bullion weight."
-              : "Explore our archive of bridal suites, antique Polki heritage chokers, and 3D CAD bespoke solitaire rings."}
-          </p>
-        </div>
-
-        {/* Category Filter Pills (Only shown on full /collections page) */}
-        {!isHomepage && (
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+    <section id="vault" className="w-full bg-[#FAF9F5] border-b border-[#E7E2DA] py-12 sm:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Filter Toolbar: Categories, Search & Media Type */}
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-8 font-mono text-xs">
+          {/* Category Pills */}
+          <div className="flex flex-wrap items-center gap-2">
             {categories.map((cat) => {
-              const isSelected = activeCategory === cat.id;
+              const isActive = selectedCategory === cat.id;
               return (
                 <button
                   key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 min-h-[44px] ${
-                    isSelected
-                      ? "bg-[#141416] text-[#DFBF7A] shadow-md border border-[#D4AF37]/50"
-                      : "bg-white text-[#4A4A52] hover:bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37]"
+                  type="button"
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`px-3.5 py-2 border transition-all cursor-pointer text-[11px] uppercase tracking-wider font-mono ${
+                    isActive
+                      ? "border-[#141416] bg-[#141416] text-[#FAF9F5] font-semibold shadow-xs"
+                      : "border-[#E7E2DA] bg-white text-[#57534E] hover:border-[#141416] hover:text-[#141416]"
                   }`}
                 >
                   {cat.label}
@@ -127,100 +102,123 @@ export function CollectionGrid({ isHomepage = false, items }: CollectionGridProp
               );
             })}
           </div>
-        )}
 
-        {/* Collections Grid with Clean Cards (Single Metal Tag, Zero Tag Clutter) */}
-        <motion.div
-          layout
-          className={`grid grid-cols-1 ${
-            isHomepage ? "md:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-4"
-          } gap-6 sm:gap-8`}
-        >
-          <AnimatePresence mode="popLayout">
-            {displayedItems.map((item) => (
-              <motion.div
+          {/* Search Bar & Media Filter */}
+          <div className="flex items-center gap-2.5">
+            <div className="relative flex-1 sm:w-64">
+              <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#7A705E]" />
+              <input
+                type="text"
+                placeholder="Search 54 bespoke pieces..."
+                aria-label="Search 54 bespoke pieces by title, category, or gemstone"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-8 pr-3 py-2 border border-[#E7E2DA] bg-white text-xs text-[#141416] focus:outline-none focus:border-[#141416] placeholder:text-[#A89F91]"
+              />
+            </div>
+
+            <select
+              value={mediaFilter}
+              onChange={(e) => setMediaFilter(e.target.value as "all" | "video" | "image")}
+              className="border border-[#E7E2DA] bg-white px-3 py-2 text-[11px] text-[#57534E] uppercase focus:outline-none focus:border-[#141416] font-mono cursor-pointer"
+              aria-label="Filter vault pieces by media type"
+            >
+              <option value="all">ALL MEDIA</option>
+              <option value="video">VIDEOS ONLY</option>
+              <option value="image">PHOTOS ONLY</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Results Counter Bar */}
+        <div className="font-mono text-[11px] text-[#7A705E] uppercase tracking-wider mb-6 flex flex-wrap items-center justify-between gap-2 border-b border-[#E7E2DA] pb-3">
+          <span>SHOWING {filteredItems.length} OF {allItems.length} CERTIFIED ATELIER PIECES</span>
+          <span>100% IN-HOUSE HAYES BENCHWORK · LONDON ASSAY STAMPED</span>
+        </div>
+
+        {/* 3-Column Hairline Architectural Grid (Zero Tag Clutter) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#E7E2DA]">
+          {filteredItems.map((item) => {
+            const massText = item.specs.weight || item.specs.carat || item.metalPurity.split("(")[0].trim();
+            return (
+              <article
                 key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                onClick={() => setSelectedItem(item)}
-                className="group relative bg-white rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/15 flex flex-col justify-between"
+                onClick={() => handleOpenPiece(item)}
+                className="group border-r border-b border-[#E7E2DA] bg-white p-6 sm:p-7 flex flex-col justify-between hover:bg-[#FAF9F5] transition-colors cursor-pointer relative"
               >
-                {/* Media Container with Clean Aspect Ratio */}
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
-                  <AtelierVideoCard item={item} hideMotionBadge={true} preferImage={false} />
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity pointer-events-none" />
-
-                  {/* Single Clean Metal Purity Tag (Hammered Gold Bullion Card) */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full texture-hammered-card border-hammered-gold text-[11px] font-bold text-[#141416] shadow-sm z-10 pointer-events-none">
-                    {item.metalPurity.split("(")[0].replace(/&.*$/, "").trim()}
+                <div>
+                  {/* Card Header: Category & Media Badge (No redundant tags) */}
+                  <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.16em] text-[#7A705E] mb-3">
+                    <span className="uppercase text-[#C6A75E] font-semibold truncate max-w-[180px]">
+                      [ {item.metalPurity.split("(")[0].replace(/&.*$/, "").trim().toUpperCase()} ]
+                    </span>
+                    {item.mediaType === "video" ? (
+                      <span className="inline-flex items-center gap-1 text-[#C6A75E] bg-[#C6A75E]/10 px-2 py-0.5 font-semibold">
+                        <Play className="w-2.5 h-2.5 fill-current" />
+                        <span>1080P REEL</span>
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-[#7A705E]">
+                        <span>STILL PHOTOGRAPHY</span>
+                      </span>
+                    )}
                   </div>
-                </div>
 
-                {/* Card Meta Content: Title, Short Description, Single Verified Spec, and Clean Link */}
-                <div className="p-6 space-y-3 bg-white flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-serif text-lg sm:text-xl font-medium text-[#141416] group-hover:text-[#996515] transition-colors leading-snug line-clamp-1">
+                  {/* Clean Visual Container (NO tag overlays, NO eye icon, NO motion badge) */}
+                  <div className="relative aspect-square w-full mb-5 overflow-hidden bg-[#F6F3ED] border border-[#E7E2DA]/60">
+                    <Image
+                      src={item.thumbnailUrl}
+                      alt={item.title}
+                      fill
+                      unoptimized
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+
+                    {/* Subtle Hover Inspect Tag */}
+                    <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-[#141416]/90 backdrop-blur-md text-[#FAF9F5] px-3 py-1 font-mono text-[10px] tracking-wider uppercase">
+                      INSPECT DOSSIER ⊙
+                    </div>
+                  </div>
+
+                  {/* Card Meta Content (Clean, Honest, Zero AI Slop) */}
+                  <div className="space-y-2">
+                    <div className="font-mono text-[11px] text-[#7A705E] tracking-wider">
+                      {item.metalPurity} · <strong className="text-[#141416] font-semibold">{massText}</strong>
+                    </div>
+
+                    <h3 className="font-serif text-lg font-semibold text-[#141416] group-hover:text-[#C6A75E] transition-colors leading-snug line-clamp-2">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-[#5A5960] line-clamp-2 leading-relaxed pt-1.5">
+
+                    <p className="font-sans text-xs text-[#57534E] line-clamp-2 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
-
-                  <div className="pt-4 border-t border-[#EFE8DA] space-y-2.5">
-                    {/* Clean Spec Display */}
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-[#8C6212] font-semibold">
-                        {item.specs.metal || "Bespoke Suite"}
-                      </span>
-                      <span className="font-mono text-xs text-[#141416] font-medium">
-                        {item.specs.weight || item.specs.carat || "In-House Crafted"}
-                      </span>
-                    </div>
-
-                    {/* Action Line */}
-                    <div className="flex items-center justify-between pt-1">
-                      <span className="text-xs font-bold text-[#996515] group-hover:underline">
-                        View Piece Specifications
-                      </span>
-                      <span className="text-[#996515] group-hover:translate-x-1.5 transition-transform text-sm font-bold">
-                        →
-                      </span>
-                    </div>
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
 
-        {/* Homepage Bottom CTA: Links cleanly to /collections without hardcoded numbers */}
-        {isHomepage && (
-          <div className="mt-14 text-center p-8 sm:p-12 rounded-3xl bg-white border border-[#E8DEC8] shadow-sm">
-            <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#141416]">
-              Explore the Complete Showroom Vault
-            </h3>
-            <p className="text-sm text-[#4A4A52] max-w-xl mx-auto mt-2 mb-6 leading-relaxed">
-              View our full collection of solid 22ct gold kadas, antique Jadau Polki bridal sets, 3D CAD solitaire engagement rings, and gold bullion suites.
-            </p>
-            <Link
-              href="/collections"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#C5A059] via-[#DFBF7A] to-[#B88E3E] hover:from-[#B88E3E] hover:to-[#996515] text-[#141416] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 min-h-[48px]"
-            >
-              <span>View Full Collections Archive</span>
-              <ArrowRight className="w-4 h-4 text-[#141416]" />
-            </Link>
-          </div>
-        )}
+                {/* Specs Footer: Mass & Direct Link */}
+                <div className="mt-6 pt-4 border-t border-[#E7E2DA] flex items-center justify-between font-mono text-xs">
+                  <span className="text-[#141416] font-semibold text-[11px]">
+                    {item.specs.weight ? item.specs.weight : "Hayes Workshop"}
+                  </span>
+                  <span className="text-[#C6A75E] text-[11px] font-semibold underline underline-offset-4 group-hover:text-[#141416] transition-colors">
+                    INSPECT DOSSIER →
+                  </span>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Showroom Dossier Modal (Single top-right close button, 100% visible on mobile) */}
+        <ShowroomDossierModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          piece={selectedPiece}
+        />
       </div>
-
-      {/* Fullscreen Video / Photo Reel Modal */}
-      <ReelModal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </section>
   );
 }
