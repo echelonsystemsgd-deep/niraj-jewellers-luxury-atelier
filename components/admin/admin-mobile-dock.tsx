@@ -2,17 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Gem, LayoutGrid, Store, Star, HelpCircle } from "lucide-react";
+import { Gem, Inbox, Store, Star, LayoutGrid } from "lucide-react";
 
 export function AdminMobileDock() {
   const pathname = usePathname();
 
   const navItems = [
     { label: "Vault", href: "/admin", icon: Gem, exact: true },
+    { label: "Leads", href: "/admin/leads", icon: Inbox },
     { label: "Store", href: "/admin/homepage", icon: LayoutGrid },
     { label: "Hours", href: "/admin/showroom", icon: Store },
     { label: "Reviews", href: "/admin/reviews", icon: Star },
-    { label: "Guide", href: "/admin/help", icon: HelpCircle },
   ];
 
   return (

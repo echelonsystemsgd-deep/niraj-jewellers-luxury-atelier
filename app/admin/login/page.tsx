@@ -48,10 +48,10 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
             <h1 className="font-serif text-2xl font-bold tracking-wider uppercase text-[#141416]">
               NIRAJ JEWELLERS <span className="text-[#996515]">LTD</span>
             </h1>
-            <p className="font-mono text-[9px] tracking-[0.22em] uppercase text-[#7A705E] mt-1">
+            <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#7A705E] mt-1">
               HAYES · LONDON · SINCE 1984
             </p>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8C6212] mt-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#8C6212] mt-1">
               Atelier Proprietor & Staff Portal
             </p>
           </div>
@@ -70,7 +70,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
           <input type="hidden" name="next" value={next} />
 
           <div>
-            <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#7A705E] mb-1.5">
+            <label className="block font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#544D42] mb-1.5">
               Staff Email Address
             </label>
             <input
@@ -80,12 +80,12 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
               placeholder="name@niraj-jewellers.co.uk"
               autoComplete="off"
               defaultValue=""
-              className="w-full h-12 px-4 rounded-xl border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#C6A75E] focus:bg-white transition-all font-sans"
+              className="w-full h-12 px-4 rounded-xl border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder:text-[#6B665E] focus:outline-none focus:border-[#C6A75E] focus:bg-white transition-all font-sans"
             />
           </div>
 
           <div>
-            <label className="block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#7A705E] mb-1.5">
+            <label className="block font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#544D42] mb-1.5">
               Security Password
             </label>
             <input
@@ -95,7 +95,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
               placeholder="••••••••••••"
               autoComplete="new-password"
               defaultValue=""
-              className="w-full h-12 px-4 rounded-xl border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder:text-[#9A98A0] focus:outline-none focus:border-[#C6A75E] focus:bg-white transition-all font-sans"
+              className="w-full h-12 px-4 rounded-xl border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder:text-[#6B665E] focus:outline-none focus:border-[#C6A75E] focus:bg-white transition-all font-sans"
             />
           </div>
 
@@ -109,18 +109,18 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
         </form>
 
         {/* Security Disclaimers */}
-        <div className="mt-8 pt-6 border-t border-[#E7E2DA] text-center space-y-2 text-[11px] text-[#7A7880]">
-          <p className="flex items-center justify-center gap-1.5 font-medium text-[#8C6212] font-mono text-[10.5px] uppercase tracking-wider">
+        <div className="mt-8 pt-6 border-t border-[#E7E2DA] text-center space-y-2 text-xs text-[#544D42]">
+          <p className="flex items-center justify-center gap-1.5 font-medium text-[#8C6212] font-mono text-xs uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-[#C6A75E]" />
             <span>Private Goldsmith Administration</span>
           </p>
-          <p className="font-sans text-[11px] text-[#7A705E]">
+          <p className="font-sans text-xs text-[#544D42]">
             Restricted access to authorized Niraj Jewellers Ltd personnel only.
           </p>
           <div className="pt-2">
             <Link
               href="/"
-              className="text-[#141416] hover:text-[#996515] font-mono text-[11px] font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
+              className="text-[#141416] hover:text-[#996515] font-mono text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Return to Public Showroom</span>

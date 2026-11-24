@@ -20,6 +20,7 @@ import {
   Phone,
   CheckCircle2,
   X,
+  Inbox,
 } from "lucide-react";
 import { logoutAction } from "@/app/admin/actions";
 
@@ -60,6 +61,12 @@ export function AdminSidebar({ userEmail, isMobileDrawer = false, onClose }: Adm
     {
       groupTitle: "STORE & CLIENTS",
       items: [
+        {
+          label: "Client Enquiries",
+          href: "/admin/leads",
+          icon: Inbox,
+          badge: "Leads",
+        },
         {
           label: "Homepage Layout",
           href: "/admin/homepage",

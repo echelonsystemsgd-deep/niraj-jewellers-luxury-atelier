@@ -217,6 +217,29 @@ CREATE TABLE IF NOT EXISTS public.audit_logs (
 
 CREATE INDEX IF NOT EXISTS idx_audit_logs_created ON public.audit_logs(created_at DESC);
 
+-- ------------------------------------------------------------------------------
+-- 11. LEADS & CONSULTATIONS TABLE (Private In-House Enquiries & Appointments)
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.leads (
+    id TEXT PRIMARY KEY,
+    full_name TEXT NOT NULL,
+    contact TEXT NOT NULL,
+    phone TEXT,
+    email TEXT,
+    service TEXT NOT NULL DEFAULT 'Bespoke Bridal Commission',
+    preferred_contact TEXT NOT NULL DEFAULT 'Phone Call',
+    message TEXT,
+    source TEXT NOT NULL DEFAULT 'in_house_quote',
+    status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'contacted', 'consultation_booked', 'completed', 'archived')),
+    notes TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_leads_created_at ON public.leads(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_leads_status ON public.leads(status);
+
+
 -- ==============================================================================
 -- ROW LEVEL SECURITY (RLS) POLICIES
 -- ==============================================================================
@@ -232,6 +255,22 @@ ALTER TABLE public.reviews ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.articles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.redirects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.audit_logs ENABLE ROW LEVEL SECURITY;
+
+ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
+
+-- Leads RLS Policies
+CREATE POLICY "Public anonymous visitors can submit leads"
+    ON public.leads FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Admins can view leads"
+    ON public.leads FOR SELECT USING (public.is_admin() OR auth.role() = 'authenticated');
+
+CREATE POLICY "Admins can update leads"
+    ON public.leads FOR UPDATE USING (public.is_admin() OR auth.role() = 'authenticated');
+
+CREATE POLICY "Admins can delete leads"
+    ON public.leads FOR DELETE USING (public.is_admin() OR auth.role() = 'authenticated');
+
 
 -- Helper function: is_admin(auth.email())
 CREATE OR REPLACE FUNCTION public.is_admin()

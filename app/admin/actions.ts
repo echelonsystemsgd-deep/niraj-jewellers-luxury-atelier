@@ -451,3 +451,63 @@ export async function toggleReviewAction(
 
   return { success: true };
 }
+
+// ------------------------------------------------------------------------------
+// LEADS & CONSULTATIONS ACTIONS (In-House Quotes & Atelier Appointments)
+// ------------------------------------------------------------------------------
+
+export async function submitPublicLeadAction(payload: {
+  full_name: string;
+  contact: string;
+  phone?: string;
+  email?: string;
+  service: string;
+  preferred_contact?: "Phone Call" | "WhatsApp" | "Email";
+  message?: string;
+  source: "in_house_quote" | "atelier_consultation";
+}) {
+  if (!payload.full_name?.trim()) {
+    return { error: "Please enter your full name." };
+  }
+  const contactInfo = (payload.contact || payload.phone || payload.email || "").trim();
+  if (!contactInfo) {
+    return { error: "Please provide a contact phone number or email address." };
+  }
+
+  const { createLead } = await import("@/lib/db/leads");
+  const res = await createLead({
+    ...payload,
+    contact: contactInfo,
+  });
+
+  revalidatePath("/admin/leads");
+  return res;
+}
+
+export async function updateLeadStatusAction(
+  id: string,
+  status: "new" | "contacted" | "consultation_booked" | "completed" | "archived"
+) {
+  await requireAdminUser();
+  const { updateLeadStatus } = await import("@/lib/db/leads");
+  const res = await updateLeadStatus(id, status);
+  revalidatePath("/admin/leads");
+  return res;
+}
+
+export async function updateLeadNotesAction(id: string, notes: string) {
+  await requireAdminUser();
+  const { updateLeadNotes } = await import("@/lib/db/leads");
+  const res = await updateLeadNotes(id, notes);
+  revalidatePath("/admin/leads");
+  return res;
+}
+
+export async function deleteLeadAction(id: string) {
+  await requireAdminUser();
+  const { deleteLead } = await import("@/lib/db/leads");
+  const res = await deleteLead(id);
+  revalidatePath("/admin/leads");
+  return res;
+}
+

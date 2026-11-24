@@ -3,24 +3,39 @@
 import React, { useState } from "react";
 import { CheckCircle2, Send, Phone, MessageSquare, Clock, ShieldCheck } from "lucide-react";
 import { sound } from "@/lib/sound";
+import { submitPublicLeadAction } from "@/app/admin/actions";
 
 export function ConsultationSection() {
   const [fullName, setFullName] = useState("");
   const [contact, setContact] = useState("");
   const [service, setService] = useState("Bespoke Bridal Commission");
   const [message, setMessage] = useState("");
-  const [preferredMethod, setPreferredMethod] = useState("Phone Call");
+  const [preferredMethod, setPreferredMethod] = useState<"Phone Call" | "WhatsApp" | "Email">("Phone Call");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName.trim() || !contact.trim()) return;
 
     setIsSubmitting(true);
     sound.playTick();
 
-    // Store in localStorage as fallback / audit log
+    // 1. Submit lead to database backend dashboard
+    try {
+      await submitPublicLeadAction({
+        full_name: fullName.trim(),
+        contact: contact.trim(),
+        service,
+        preferred_contact: preferredMethod,
+        message: message.trim(),
+        source: "in_house_quote",
+      });
+    } catch (err) {
+      console.warn("Server lead submission error:", err);
+    }
+
+    // 2. Store in localStorage as resilient client backup
     try {
       const existing = JSON.parse(localStorage.getItem("niraj_enquiries") || "[]");
       existing.push({
@@ -39,7 +54,7 @@ export function ConsultationSection() {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 600);
+    }, 400);
   };
 
   return (
@@ -186,7 +201,11 @@ export function ConsultationSection() {
                       </label>
                       <select
                         value={preferredMethod}
-                        onChange={(e) => setPreferredMethod(e.target.value)}
+                        onChange={(e) =>
+                          setPreferredMethod(
+                            e.target.value as "Phone Call" | "WhatsApp" | "Email"
+                          )
+                        }
                         className="w-full px-4 py-3 border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
                       >
                         <option value="Phone Call">Phone Call</option>

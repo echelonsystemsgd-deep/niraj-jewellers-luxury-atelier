@@ -24,6 +24,7 @@ import {
   buildWhatsAppLink,
 } from "@/lib/whatsapp";
 import { ShowroomStatusBadge } from "@/components/header/showroom-status";
+import { submitPublicLeadAction } from "@/app/admin/actions";
 
 export function ContactClientView() {
   const [name, setName] = useState("");
@@ -39,9 +40,28 @@ export function ContactClientView() {
     customNote: `Phone: ${phone}. Message: ${message}`,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!name.trim()) return;
+
     setSent(true);
+
+    // Save lead into backend dashboard table
+    try {
+      await submitPublicLeadAction({
+        full_name: name.trim(),
+        contact: phone.trim() || "WhatsApp Enquiry",
+        phone: phone.trim() || undefined,
+        service,
+        preferred_contact: "WhatsApp",
+        message: message.trim(),
+        source: "atelier_consultation",
+      });
+    } catch (err) {
+      console.warn("Backend lead recording notice:", err);
+    }
+
+    // Launch WhatsApp concierge
     window.open(whatsappDirectLink, "_blank");
   };
 
