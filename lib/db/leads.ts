@@ -29,69 +29,8 @@ export interface CreateLeadPayload {
   source: "in_house_quote" | "atelier_consultation";
 }
 
-// Initial realistic London client inquiries for immediate luxury presentation
-export const INITIAL_LEADS: LeadItem[] = [
-  {
-    id: "lead-20261124-001",
-    created_at: "2026-11-24T14:22:00.000Z",
-    full_name: "Jaspreet Kaur",
-    contact: "07955 565137",
-    phone: "07955 565137",
-    email: "jaspreet.kaur@outlook.com",
-    service: "Bespoke Bridal Commission",
-    preferred_contact: "Phone Call",
-    message: "Looking for a 22ct gold royal bridal choker set for our wedding this Autumn. Interested in natural Basra pearls and syndicate Polki matching earrings.",
-    source: "in_house_quote",
-    status: "new",
-    notes: "Requested weekend morning viewing for bride and mother.",
-    updated_at: "2026-11-24T14:22:00.000Z",
-  },
-  {
-    id: "lead-20261124-002",
-    created_at: "2026-11-24T11:45:00.000Z",
-    full_name: "Priya Sharma",
-    contact: "+44 7700 900142",
-    phone: "+44 7700 900142",
-    email: "priya.sharma@gmail.com",
-    service: "Custom Diamond Engagement Ring",
-    preferred_contact: "WhatsApp",
-    message: "Seeking a 2.50ct oval solitaire with delicate hidden halo in 950 Platinum. Have GIA specs in mind and looking for in-house CAD consultation.",
-    source: "atelier_consultation",
-    status: "consultation_booked",
-    notes: "Appointment booked for Saturday 11:30 AM at 136 Uxbridge Road.",
-    updated_at: "2026-11-24T12:10:00.000Z",
-  },
-  {
-    id: "lead-20261123-003",
-    created_at: "2026-11-23T16:15:00.000Z",
-    full_name: "Rajesh & Ananya Patel",
-    contact: "07891 234567",
-    phone: "07891 234567",
-    email: "rajesh.patel@btconnect.com",
-    service: "22ct Gold Kadas & Bangles",
-    preferred_contact: "WhatsApp",
-    message: "Need a pair of heavy solid hand-hammered 22ct lion-face kadas (approx 90-100g total). Enquiring about current bullion spot rate pricing.",
-    source: "in_house_quote",
-    status: "contacted",
-    notes: "Quoted live bullion weight + craft premium over WhatsApp. Awaiting measurement confirmation.",
-    updated_at: "2026-11-23T17:00:00.000Z",
-  },
-  {
-    id: "lead-20261122-004",
-    created_at: "2026-11-22T10:30:00.000Z",
-    full_name: "Harpreet Gill",
-    contact: "harpreet.gill@icloud.com",
-    email: "harpreet.gill@icloud.com",
-    phone: "07700 900891",
-    service: "Same-Day Workshop Repair",
-    preferred_contact: "Email",
-    message: "Inherited grandmother's antique 22ct necklace. Several claws need retipping and ultrasonic restoration. Can bring in this Thursday.",
-    source: "in_house_quote",
-    status: "completed",
-    notes: "Workshop inspection completed. Necklace restored and collected.",
-    updated_at: "2026-11-23T15:30:00.000Z",
-  },
-];
+// Initial inquiries array starts 100% clean so only genuine customer form submissions appear
+export const INITIAL_LEADS: LeadItem[] = [];
 
 const LEADS_FILE_PATH = path.join(process.cwd(), "data", "leads-store.json");
 
@@ -101,14 +40,14 @@ function getLocalLeads(): LeadItem[] {
     if (fs.existsSync(LEADS_FILE_PATH)) {
       const data = fs.readFileSync(LEADS_FILE_PATH, "utf8");
       const parsed = JSON.parse(data);
-      if (Array.isArray(parsed) && parsed.length > 0) {
+      if (Array.isArray(parsed)) {
         return parsed;
       }
     }
   } catch {
     // Ignore read errors
   }
-  return INITIAL_LEADS;
+  return [];
 }
 
 // Helper to write leads to local filesystem fallback

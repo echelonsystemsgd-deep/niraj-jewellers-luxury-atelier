@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import {
   Search,
   Filter,
@@ -77,6 +77,11 @@ const STATUS_CONFIG: Record<
 
 export function LeadsTable({ initialLeads }: LeadsTableProps) {
   const [leads, setLeads] = useState<LeadItem[]>(initialLeads);
+
+  // Sync state with server updates / revalidations
+  useEffect(() => {
+    setLeads(initialLeads);
+  }, [initialLeads]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedStatus, setSelectedStatus] = useState<string>("all");
   const [selectedSource, setSelectedSource] = useState<string>("all");
@@ -90,6 +95,18 @@ export function LeadsTable({ initialLeads }: LeadsTableProps) {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3000);
   };
+
+  // Lock background scroll when modal is open
+  useEffect(() => {
+    if (activeLeadModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [activeLeadModal]);
 
   // Filtered Leads
   const filteredLeads = useMemo(() => {
