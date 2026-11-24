@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-[#FAF8F5] text-[#4A4A52] py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-3xl border border-[#E8DEC8] shadow-sm">
+      <div className="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-none border border-[#E8DEC8] shadow-sm">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm text-[#8C6212] hover:text-[#996515] font-semibold transition-colors mb-8 group"
@@ -67,13 +67,13 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-lg font-serif text-[#141416] font-medium">3. Lawful Basis for Processing</h2>
             <p>We process your data under the following Article 6 UK GDPR lawful bases:</p>
             <div className="grid sm:grid-cols-2 gap-4 my-4">
-              <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8]">
+              <div className="p-4 rounded-none bg-[#FAF7F2] border border-[#E8DEC8]">
                 <h3 className="font-semibold text-[#141416] mb-1 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Contractual Necessity
                 </h3>
                 <p className="text-xs text-[#5A5960]">Handcrafting custom jewellery, processing deposits, and arranging insured Royal Mail Special Delivery dispatch.</p>
               </div>
-              <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8]">
+              <div className="p-4 rounded-none bg-[#FAF7F2] border border-[#E8DEC8]">
                 <h3 className="font-semibold text-[#141416] mb-1 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Legal Compliance
                 </h3>

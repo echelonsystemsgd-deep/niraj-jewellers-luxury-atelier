@@ -50,7 +50,7 @@ export function Footer() {
                 aria-label="Scroll back to top"
               >
                 {/* Official Crest Logo */}
-                <div className="relative w-12 h-12 rounded-xl bg-white border border-[#D4AF37]/50 flex items-center justify-center shrink-0 shadow-sm group-hover:border-[#996515] transition-colors overflow-hidden p-1">
+                <div className="relative w-12 h-12 rounded-none bg-white border border-[#D4AF37]/50 flex items-center justify-center shrink-0 shadow-sm group-hover:border-[#996515] transition-colors overflow-hidden p-1">
                   <Image
                     src="/NIRAJ_LOGO9.png"
                     alt="Niraj Jewellers Ltd Crest"
@@ -279,16 +279,15 @@ export function Footer() {
           </div>
 
           {/* Agency Attribution Row (Mercian Wealth Automation) */}
-          <div className="py-5 border-b border-[#E8DEC8] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs bg-white/70 px-4 rounded-xl mt-4">
+          <div className="py-5 border-b border-[#E8DEC8] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs bg-white/70 px-4 mt-4">
             <div className="flex items-center gap-2 text-[#5A5960]">
-              <Sparkles className="w-3.5 h-3.5 text-[#996515]" />
               <span>Digital Architecture &amp; Luxury Engineering:</span>
             </div>
             <a
               href="https://mercianwealth.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/50 text-[#141416] hover:text-[#996515] font-semibold text-xs transition-all shadow-sm group"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#FAF7F2] hover:bg-[#F4ECE1] border border-[#D4AF37]/50 text-[#141416] hover:text-[#996515] font-semibold text-xs transition-all shadow-xs group"
             >
               <span>Designed &amp; Built by <strong className="font-bold text-[#8C6212] group-hover:underline">Mercian Wealth Automation</strong></span>
               <ExternalLink className="w-3.5 h-3.5 text-[#996515] group-hover:translate-x-0.5 transition-transform" />

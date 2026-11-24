@@ -48,8 +48,7 @@ export function InfiniteMotionRibbon({ onSelectItem, items }: InfiniteMotionRibb
     <section className="py-12 sm:py-16 bg-[#FAF7F2] border-y border-[#E8DEC8] relative overflow-hidden">
       {/* Editorial Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#D4AF37]/50 text-[#8C6212] text-[11px] font-bold uppercase tracking-widest shadow-sm">
-          <Film className="w-3.5 h-3.5 text-[#996515]" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white border border-[#D4AF37]/50 text-[#8C6212] text-[11px] font-semibold uppercase tracking-widest shadow-xs">
           <span>The Atelier Motion Ribbon</span>
           <span className="text-[#C5A059]">•</span>
           <span className="text-[#5A5960]">Continuous Workshop Showcase</span>
@@ -83,7 +82,7 @@ export function InfiniteMotionRibbon({ onSelectItem, items }: InfiniteMotionRibb
             <button
               key={`${item.id}-${index}`}
               onClick={() => handleCardClick(item)}
-              className="group relative w-60 sm:w-72 shrink-0 aspect-[4/5] rounded-2xl overflow-hidden bg-white border border-[#E8DEC8] hover:border-[#D4AF37] shadow-sm hover:shadow-xl hover:shadow-[#D4AF37]/15 transition-all duration-300 text-left focus:outline-none focus:ring-2 focus:ring-[#996515] touch-target"
+              className="group relative w-60 sm:w-72 shrink-0 aspect-[4/5] overflow-hidden bg-white border border-[#E8DEC8] hover:border-[#D4AF37] shadow-sm hover:shadow-xl hover:shadow-[#D4AF37]/15 transition-all duration-300 text-left focus:outline-none focus:ring-2 focus:ring-[#996515] touch-target"
               aria-label={`Inspect ${item.title}`}
             >
               {/* Media Container with Inline Video Looper */}
@@ -93,7 +92,7 @@ export function InfiniteMotionRibbon({ onSelectItem, items }: InfiniteMotionRibb
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity" />
 
               {/* Top Floating Badge */}
-              <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] font-bold text-[#8C6212] shadow-sm z-10 pointer-events-none">
+              <div className="absolute top-3 left-3 px-2.5 py-1 bg-white/95 backdrop-blur-md border border-[#D4AF37]/40 text-[10px] font-bold text-[#8C6212] shadow-sm z-10 pointer-events-none">
                 {item.metalPurity.split("(")[0].trim()}
               </div>
 

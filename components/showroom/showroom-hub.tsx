@@ -88,7 +88,7 @@ export function ShowroomHub() {
         </div>
 
         {/* 3 Showroom Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#EAE6DF] border border-[#EAE6DF] mb-12 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#EAE6DF] border border-[#EAE6DF] mb-12 overflow-hidden">
           <div className="bg-white p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <span className="font-sans text-xs uppercase tracking-widest text-[#8C6212] block mb-2 font-semibold">
@@ -144,7 +144,7 @@ export function ShowroomHub() {
         {/* Map & Live Hours Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left: Google Map Embed */}
-          <div className="lg:col-span-7 bg-white border border-[#EAE6DF] overflow-hidden flex flex-col rounded-2xl shadow-xs">
+          <div className="lg:col-span-7 bg-white border border-[#EAE6DF] overflow-hidden flex flex-col shadow-xs">
             <div className="p-5 sm:p-6 border-b border-[#EAE6DF] flex flex-wrap items-center justify-between gap-3">
               <div>
                 <span className="font-sans text-xs uppercase tracking-widest text-[#8C6212] block font-semibold">
@@ -226,7 +226,7 @@ export function ShowroomHub() {
           </div>
 
           {/* Right: Opening Hours (Open by Default) */}
-          <div className="lg:col-span-5 bg-white border border-[#EAE6DF] p-6 sm:p-8 space-y-6 rounded-2xl shadow-xs">
+          <div className="lg:col-span-5 bg-white border border-[#EAE6DF] p-6 sm:p-8 space-y-6 shadow-xs">
             <div
               onClick={() => setHoursOpen(!hoursOpen)}
               className="flex items-center justify-between pb-4 border-b border-[#EAE6DF] cursor-pointer group select-none"
@@ -252,7 +252,7 @@ export function ShowroomHub() {
                   </span>
                 )}
                 <div
-                  className="w-8 h-8 bg-[#FAF8F5] border border-[#EAE6DF] flex items-center justify-center text-[#57534E] rounded-md"
+                  className="w-8 h-8 bg-[#FAF8F5] border border-[#EAE6DF] flex items-center justify-center text-[#57534E]"
                   aria-label="Toggle hours"
                 >
                   {hoursOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -269,7 +269,7 @@ export function ShowroomHub() {
                   return (
                     <div
                       key={idx}
-                      className={`p-3 border text-xs flex items-center justify-between transition-colors rounded-lg font-sans ${
+                      className={`p-3 border text-xs flex items-center justify-between transition-colors font-sans ${
                         isToday
                           ? "bg-[#FAF8F5] border-[#996515] text-[#141416]"
                           : isSunday
@@ -279,7 +279,7 @@ export function ShowroomHub() {
                     >
                       <div className="flex items-center gap-2">
                         {isToday && (
-                          <span className="px-1.5 py-0.5 text-[9px] font-sans uppercase tracking-wider font-bold bg-[#996515] text-white rounded-xs">
+                          <span className="px-1.5 py-0.5 text-[9px] font-sans uppercase tracking-wider font-bold bg-[#996515] text-white">
                             Today
                           </span>
                         )}
@@ -304,7 +304,7 @@ export function ShowroomHub() {
                 })}
 
                 {/* Festive Sunday Opening Notice */}
-                <div className="mt-4 p-4 bg-[#FAF8F5] border border-[#EAE6DF] text-xs text-[#57534E] leading-relaxed rounded-lg font-sans">
+                <div className="mt-4 p-4 bg-[#FAF8F5] border border-[#EAE6DF] text-xs text-[#57534E] leading-relaxed font-sans">
                   <span className="font-sans text-xs uppercase tracking-wider text-[#996515] font-bold block mb-1">
                     Festive &amp; Bridal Sunday Openings:
                   </span>

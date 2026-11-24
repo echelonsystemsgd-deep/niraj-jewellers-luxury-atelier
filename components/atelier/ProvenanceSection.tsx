@@ -57,7 +57,7 @@ export function ProvenanceSection({ onOpenBooking }: ProvenanceSectionProps) {
           {stories.map((story, idx) => (
             <article
               key={idx}
-              className="bg-white rounded-2xl overflow-hidden border border-[#E7E2DA] shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+              className="bg-white overflow-hidden border border-[#E7E2DA] shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
                 <div className="relative aspect-[4/3] min-h-[220px] w-full bg-[#FAF8F5] overflow-hidden">
@@ -69,7 +69,7 @@ export function ProvenanceSection({ onOpenBooking }: ProvenanceSectionProps) {
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-3 left-3 bg-[#141416]/85 backdrop-blur-xs text-[#FAF9F5] text-[11px] font-sans uppercase tracking-widest px-3 py-1 rounded-full font-medium">
+                  <div className="absolute top-3 left-3 bg-[#141416]/85 backdrop-blur-xs text-[#FAF9F5] text-[11px] font-sans uppercase tracking-widest px-3 py-1 font-medium">
                     {story.eyebrow}
                   </div>
                 </div>

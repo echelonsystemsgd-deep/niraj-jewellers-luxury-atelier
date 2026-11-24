@@ -90,7 +90,7 @@ export function ContactClientView() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Consultation Request Form + Operating Hours Plaque */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="bg-white border border-[#EAE6DF] p-6 sm:p-8 rounded-2xl shadow-xs">
+              <div className="bg-white border border-[#EAE6DF] p-6 sm:p-8 shadow-xs">
                 <div className="mb-6">
                   <span className="font-sans text-xs uppercase tracking-widest text-[#8C6212] block mb-1 font-semibold">
                     APPOINTMENT &amp; BESPOKE INQUIRY
@@ -115,7 +115,7 @@ export function ContactClientView() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="e.g. Priya Sharma"
-                        className="w-full px-3.5 py-3 bg-[#FAF8F5] border border-[#EAE6DF] focus:border-[#996515] focus:outline-hidden text-xs text-[#141416] placeholder-[#78716C] transition-colors font-sans rounded-lg"
+                        className="w-full px-3.5 py-3 bg-[#FAF8F5] border border-[#EAE6DF] focus:border-[#996515] focus:outline-hidden text-xs text-[#141416] placeholder-[#78716C] transition-colors font-sans"
                       />
                     </div>
 
@@ -128,7 +128,7 @@ export function ContactClientView() {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="+44 7..."
-                        className="w-full px-3.5 py-3 bg-[#FAF8F5] border border-[#EAE6DF] focus:border-[#996515] focus:outline-hidden text-xs text-[#141416] placeholder-[#78716C] transition-colors font-sans rounded-lg"
+                        className="w-full px-3.5 py-3 bg-[#FAF8F5] border border-[#EAE6DF] focus:border-[#996515] focus:outline-hidden text-xs text-[#141416] placeholder-[#78716C] transition-colors font-sans"
                       />
                     </div>
                   </div>
@@ -140,7 +140,7 @@ export function ContactClientView() {
                     <select
                       value={service}
                       onChange={(e) => setService(e.target.value)}
-                      className="w-full px-3.5 py-3 bg-[#FAF8F5] border border-[#EAE6DF] focus:border-[#996515] focus:outline-hidden text-xs text-[#141416] transition-colors font-sans rounded-lg"
+                      className="w-full px-3.5 py-3 bg-[#FAF8F5] border border-[#EAE6DF] focus:border-[#996515] focus:outline-hidden text-xs text-[#141416] transition-colors font-sans"
                     >
                       <option value="Bespoke Bridal Commission">Bespoke Bridal Suite (22ct / Polki)</option>
                       <option value="Custom Diamond Engagement Ring">Custom Diamond Engagement Ring (GIA / IGI)</option>
@@ -160,13 +160,13 @@ export function ContactClientView() {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Tell us about the design, estimated timeline, gold weight, or gemstones you have in mind..."
-                      className="w-full px-3.5 py-3 bg-[#FAF8F5] border border-[#EAE6DF] focus:border-[#996515] focus:outline-hidden text-xs text-[#141416] placeholder-[#78716C] transition-colors font-sans rounded-lg"
+                      className="w-full px-3.5 py-3 bg-[#FAF8F5] border border-[#EAE6DF] focus:border-[#996515] focus:outline-hidden text-xs text-[#141416] placeholder-[#78716C] transition-colors font-sans"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-4 bg-[#25D366] hover:bg-[#1ebd59] text-white font-sans text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 transition-colors rounded-xl shadow-xs"
+                    className="w-full py-4 bg-[#25D366] hover:bg-[#1ebd59] text-white font-sans text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 transition-colors shadow-xs cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4 fill-white text-transparent" />
                     <span>Send Enquiry via WhatsApp Concierge</span>
@@ -182,7 +182,7 @@ export function ContactClientView() {
               </div>
 
               {/* Operating Hours Plaque Underneath Form */}
-              <div className="bg-white border border-[#EAE6DF] p-6 sm:p-8 rounded-2xl shadow-xs">
+              <div className="bg-white border border-[#EAE6DF] p-6 sm:p-8 shadow-xs">
                 <div className="flex items-center justify-between pb-4 border-b border-[#EAE6DF] mb-4">
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-[#996515]" />
@@ -218,7 +218,7 @@ export function ContactClientView() {
             {/* Right Column: Embedded Google Map + Contact Touchpoints Grid */}
             <div className="lg:col-span-6 space-y-6">
               {/* Embedded Google Map */}
-              <div className="bg-white border border-[#EAE6DF] overflow-hidden rounded-2xl shadow-xs">
+              <div className="bg-white border border-[#EAE6DF] overflow-hidden shadow-xs">
                 <div className="p-5 sm:p-6 border-b border-[#EAE6DF] flex flex-wrap items-center justify-between gap-2">
                   <div>
                     <span className="font-sans text-xs uppercase tracking-widest text-[#8C6212] block font-semibold">
@@ -264,7 +264,7 @@ export function ContactClientView() {
               </div>
 
               {/* Direct Channels Hairline Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#EAE6DF] border border-[#EAE6DF] rounded-2xl overflow-hidden shadow-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#EAE6DF] border border-[#EAE6DF] overflow-hidden shadow-xs">
                 {/* WhatsApp */}
                 <a
                   href={buildWhatsAppLink({
@@ -348,7 +348,7 @@ export function ContactClientView() {
               </div>
 
               {/* Social Channels Hairline Plaque */}
-              <div className="bg-white border border-[#EAE6DF] p-5 rounded-2xl shadow-xs">
+              <div className="bg-white border border-[#EAE6DF] p-5 shadow-xs">
                 <span className="font-sans text-xs uppercase tracking-widest text-[#78716C] block mb-3 font-semibold">
                   OFFICIAL WORKSHOP CHANNELS
                 </span>
@@ -357,7 +357,7 @@ export function ContactClientView() {
                     href="https://www.instagram.com/nirajjewellersltd"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 border border-[#EAE6DF] hover:border-[#996515] transition-colors text-[#141416] rounded-lg font-medium"
+                    className="p-2.5 border border-[#EAE6DF] hover:border-[#996515] transition-colors text-[#141416] font-medium"
                   >
                     Instagram
                   </a>
@@ -365,7 +365,7 @@ export function ContactClientView() {
                     href={NIRAJ_FACEBOOK_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 border border-[#EAE6DF] hover:border-[#996515] transition-colors text-[#141416] rounded-lg font-medium"
+                    className="p-2.5 border border-[#EAE6DF] hover:border-[#996515] transition-colors text-[#141416] font-medium"
                   >
                     Facebook
                   </a>
@@ -373,7 +373,7 @@ export function ContactClientView() {
                     href="https://www.tiktok.com/@nirajjewellersltd"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 border border-[#EAE6DF] hover:border-[#996515] transition-colors text-[#141416] rounded-lg font-medium"
+                    className="p-2.5 border border-[#EAE6DF] hover:border-[#996515] transition-colors text-[#141416] font-medium"
                   >
                     TikTok
                   </a>

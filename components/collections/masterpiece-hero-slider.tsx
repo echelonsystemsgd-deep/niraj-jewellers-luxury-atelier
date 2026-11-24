@@ -185,7 +185,7 @@ export function MasterpieceHeroSlider({ onSelectItem }: MasterpieceHeroSliderPro
 
         {/* The Masterpiece Slide Card */}
         <div
-          className="relative bg-white rounded-3xl border border-[#E8DEC8] hover:border-[#D4AF37] overflow-hidden shadow-xl shadow-[#D4AF37]/10 transition-all duration-500"
+          className="relative bg-white rounded-none border border-[#E8DEC8] hover:border-[#D4AF37] overflow-hidden shadow-xl shadow-[#D4AF37]/10 transition-all duration-500"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onTouchStart={handleTouchStart}
@@ -244,7 +244,7 @@ export function MasterpieceHeroSlider({ onSelectItem }: MasterpieceHeroSliderPro
                 </p>
 
                 {/* Craft Specs Bento */}
-                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E8DEC8] space-y-2">
+                <div className="p-4 rounded-none bg-[#FAF8F5] border border-[#E8DEC8] space-y-2">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#8C6212] block">
                     Bench Craft Specifications
                   </span>
@@ -277,7 +277,7 @@ export function MasterpieceHeroSlider({ onSelectItem }: MasterpieceHeroSliderPro
                 </div>
 
                 {/* Pricing / Workshop note */}
-                <div className="p-3 rounded-xl bg-[#FAF7F2] border border-[#D4AF37]/30 flex items-center justify-between text-xs">
+                <div className="p-3 rounded-none bg-[#FAF7F2] border border-[#D4AF37]/30 flex items-center justify-between text-xs">
                   <span className="text-[#5A5960] font-medium">Workshop Guarantee:</span>
                   <span className="font-bold text-[#8C6212]">{currentPiece.priceNote}</span>
                 </div>

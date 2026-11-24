@@ -142,7 +142,7 @@ export default function GoldRatesPage() {
         {/* Scrap Trade-in Reassurance Card */}
         <section className="py-16 bg-[#FAF8F5] border-t border-[#E8DEC8]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#D4AF37]/40 space-y-4 shadow-sm">
+            <div className="p-6 sm:p-8 rounded-none bg-white border border-[#D4AF37]/40 space-y-4 shadow-sm">
               <div className="flex items-center gap-3 text-[#141416] font-serif text-xl sm:text-2xl font-medium">
                 <Scale className="w-6 h-6 text-[#996515] shrink-0" />
                 <span>Trade-In Your Scrap Gold Directly Against Bespoke Creations</span>

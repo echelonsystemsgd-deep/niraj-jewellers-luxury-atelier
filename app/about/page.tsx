@@ -499,7 +499,7 @@ export default function AboutPage() {
         {/* Showroom Consultation & Bench Invitation */}
         <section className="w-full py-16 sm:py-24">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="border border-[#141416] bg-[#141416] p-8 sm:p-12 text-[#FAF9F5] text-center space-y-6 rounded-2xl shadow-sm">
+            <div className="border border-[#141416] bg-[#141416] p-8 sm:p-12 text-[#FAF9F5] text-center space-y-6 shadow-sm">
               <div className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.25em] text-[#C6A75E] font-semibold">
                 <MapPin className="w-3.5 h-3.5" />
                 <span>136 UXBRIDGE ROAD · HAYES · MIDDLESEX UB4 0JH</span>

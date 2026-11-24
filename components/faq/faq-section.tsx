@@ -103,7 +103,7 @@ export function FaqSection() {
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                className={`rounded-none border transition-all duration-300 overflow-hidden ${
                   isOpen
                     ? "bg-[#FAF7F2] border-[#D4AF37] shadow-md"
                     : "bg-white border-[#E8DEC8] hover:border-[#D4AF37]/60"
@@ -154,14 +154,13 @@ export function FaqSection() {
         </div>
 
         {/* WhatsApp Callout if questions remain */}
-        <div className="mt-10 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-[#FAF7F2] via-white to-[#FAF7F2] border border-[#D4AF37]/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+        <div className="mt-10 p-6 sm:p-7 bg-white border border-[#E7E2DA] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
           <div className="space-y-1">
-            <h4 className="text-sm font-bold text-[#141416] flex items-center justify-center sm:justify-start gap-1.5">
-              <Sparkles className="w-4 h-4 text-[#996515]" />
-              <span>Have a question about a bespoke piece or gold melting?</span>
+            <h4 className="text-sm font-semibold text-[#141416]">
+              Have a question about a bespoke piece or gold melting?
             </h4>
-            <p className="text-xs text-[#5A5960]">
-              Speak directly with our atelier team on WhatsApp or call <strong className="font-mono text-[#141416]">{NIRAJ_UK_PHONE}</strong>.
+            <p className="text-xs text-[#57534E] font-sans">
+              Speak directly with our atelier team on WhatsApp or call <strong className="font-sans font-semibold text-[#141416]">{NIRAJ_UK_PHONE}</strong>.
             </p>
           </div>
 
@@ -169,7 +168,7 @@ export function FaqSection() {
             href={whatsappFaqLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm shrink-0 min-h-[44px]"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-sans text-xs uppercase tracking-wider font-semibold transition-all shadow-xs shrink-0 min-h-[44px]"
           >
             <WhatsAppIcon className="w-4 h-4" fill="white" />
             <span>Ask Atelier on WhatsApp</span>

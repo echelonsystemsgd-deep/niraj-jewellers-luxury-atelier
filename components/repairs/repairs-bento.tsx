@@ -38,12 +38,12 @@ export function RepairsBento() {
             return (
               <div
                 key={service.id}
-                className="bg-white p-5 sm:p-7 rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
+                className="bg-white p-5 sm:p-7 rounded-none border border-[#E8DEC8] hover:border-[#D4AF37] transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-lg"
               >
                 <div className="space-y-3.5 sm:space-y-4">
                   {/* Real Bench Task Visual & Turnaround/Price Bar */}
                   <div className="flex items-center justify-between gap-3">
-                    <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-xl overflow-hidden border-2 border-hammered-gold bg-[#FAF7F2] shrink-0">
+                    <div className="relative w-14 h-14 sm:w-20 sm:h-20 rounded-none overflow-hidden border-2 border-hammered-gold bg-[#FAF7F2] shrink-0">
                       <Image
                         src={service.image}
                         alt={service.imageAlt}
@@ -55,7 +55,7 @@ export function RepairsBento() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-end sm:items-center gap-1.5 sm:gap-2">
-                      <span className="text-xs font-bold text-[#8C6212] texture-hammered-card border-hammered-gold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
+                      <span className="text-xs font-bold text-[#8C6212] texture-hammered-card border-hammered-gold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-none whitespace-nowrap">
                         {service.priceDisplay}
                       </span>
                       <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
@@ -91,7 +91,7 @@ export function RepairsBento() {
                     href={repairWhatsApp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm hover:shadow-md min-h-[44px]"
+                    className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-none bg-[#25D366] hover:bg-[#1ebe5b] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm hover:shadow-md min-h-[44px]"
                   >
                     <WhatsAppIcon className="w-4 h-4" fill="white" />
                     <span>Book Repair on WhatsApp</span>

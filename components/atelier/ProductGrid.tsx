@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { COLLECTIONS_DATA, CollectionItem } from "@/data/collections-data";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface ProductGridProps {
   onSelectPiece: (piece: CollectionItem) => void;
@@ -32,10 +32,9 @@ export function ProductGrid({ onSelectPiece }: ProductGridProps) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E7E2DA] pb-8 mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 font-sans text-xs tracking-widest uppercase text-[#8C6212] font-semibold mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#C6A75E]" />
-              <span>Curated Bench Masterpieces</span>
-            </div>
+            <p className="text-xs font-sans uppercase tracking-[0.25em] text-[#8C6212] font-semibold mb-2">
+              Curated Bench Masterpieces
+            </p>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#141416] tracking-tight">
               Curated Masterpieces &amp; Bridal Suites
             </h2>

@@ -89,10 +89,10 @@ export function CadJourney() {
                   {item.num}
                 </div>
 
-                <div className="bg-white rounded-2xl border border-[#E8DEC8] hover:border-[#D4AF37] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group h-full">
+                <div className="bg-white rounded-none border border-[#E8DEC8] hover:border-[#D4AF37] p-5 sm:p-6 transition-all duration-300 hover:shadow-xl hover:shadow-[#D4AF37]/10 flex flex-col justify-between group h-full">
                   <div>
                     {/* Step Image */}
-                    <div className="relative aspect-[16/11] w-full rounded-xl overflow-hidden mb-4 sm:mb-5 border border-[#E8DEC8] bg-[#FAF7F2] group-hover:border-[#D4AF37] transition-colors">
+                    <div className="relative aspect-[16/11] w-full rounded-none overflow-hidden mb-4 sm:mb-5 border border-[#E8DEC8] bg-[#FAF7F2] group-hover:border-[#D4AF37] transition-colors">
                       <Image
                         src={item.image}
                         alt={item.imageAlt}

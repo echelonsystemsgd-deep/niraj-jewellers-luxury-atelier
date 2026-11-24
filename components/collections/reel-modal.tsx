@@ -87,7 +87,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 15 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
-        className="relative w-full max-w-4xl max-h-[92vh] flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl"
+        className="relative w-full max-w-4xl max-h-[92vh] flex flex-col md:flex-row bg-white rounded-none overflow-hidden border border-[#D4AF37]/40 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* High-Contrast Close Button */}
@@ -108,7 +108,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
           {/* Ambient Warm Glow */}
           <div className="absolute inset-0 bg-gradient-to-tr from-[#DFBF7A]/15 via-transparent to-transparent pointer-events-none" />
 
-          <div className="relative w-full h-full max-h-[460px] rounded-2xl overflow-hidden shadow-md border border-[#E8DEC8] bg-[#FAF7F2]">
+          <div className="relative w-full h-full max-h-[460px] rounded-none overflow-hidden shadow-md border border-[#E8DEC8] bg-[#FAF7F2]">
             {/* Always Render High-Resolution Poster Layer (Prevents Black Flash on Mobile) */}
             {item.thumbnailUrl && (
               <Image
@@ -205,7 +205,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
             </p>
 
             {/* Workshop Specifications Bento */}
-            <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E8DEC8] space-y-2.5">
+            <div className="p-4 rounded-none bg-[#FAF8F5] border border-[#E8DEC8] space-y-2.5">
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#8C6212] block">
                 Atelier Craft Specifications
               </span>
@@ -239,7 +239,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
             </div>
 
             {/* Price Note Guarantee */}
-            <div className="p-3 rounded-xl bg-white border border-[#D4AF37]/30 flex items-center justify-between text-xs">
+            <div className="p-3 rounded-none bg-white border border-[#D4AF37]/30 flex items-center justify-between text-xs">
               <span className="text-[#5A5960]">Workshop Pricing:</span>
               <span className="font-bold text-[#8C6212]">{item.priceNote}</span>
             </div>
@@ -309,7 +309,7 @@ export function ReelModal({ item, onClose }: ReelModalProps) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="w-full py-2.5 rounded-xl border border-[#E8DEC8] bg-[#FAF8F5] hover:bg-[#141416] text-[#8C6212] hover:text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2.5 rounded-none border border-[#E8DEC8] bg-[#FAF8F5] hover:bg-[#141416] text-[#8C6212] hover:text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <X className="w-3.5 h-3.5" />
                   <span>CLOSE &amp; RETURN TO COLLECTION</span>

@@ -107,7 +107,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                 aria-label="Niraj Jewellers Ltd Home"
               >
                 {/* Official Royal Crest Logo with Hammered Gold Accent */}
-                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden shrink-0 border border-hammered-gold shadow-sm group-hover:border-[#996515] transition-all texture-hammered-subtle p-0.5">
+                <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-none overflow-hidden shrink-0 border border-hammered-gold shadow-sm group-hover:border-[#996515] transition-all texture-hammered-subtle p-0.5">
                   <div className="relative w-full h-full rounded-lg overflow-hidden bg-white/90">
                     <Image
                       src="/NIRAJ_LOGO9.png"
@@ -194,7 +194,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
               {/* Mobile / Tablet Menu Toggle Button (guaranteed min 44px tap target) */}
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl text-[#141416] hover:text-[#996515] bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] transition-colors flex items-center justify-center shrink-0 shadow-sm"
+                className="lg:hidden w-11 h-11 min-w-[44px] min-h-[44px] rounded-none text-[#141416] hover:text-[#996515] bg-[#FAF7F2] border border-[#E8DEC8] hover:border-[#D4AF37] transition-colors flex items-center justify-center shrink-0 shadow-sm"
                 aria-label="Open navigation menu"
               >
                 <Menu className="w-5 h-5 text-[#996515]" />
@@ -263,7 +263,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
 
               {/* Dual Direct Phone Highlights in Mobile Menu (Landline + Mobile) */}
               <div className="space-y-2">
-                <div className="p-3 rounded-xl bg-white border border-[#E8DEC8] flex items-center justify-between shadow-sm">
+                <div className="p-3 rounded-none bg-white border border-[#E8DEC8] flex items-center justify-between shadow-sm">
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
                       <Phone className="w-4 h-4" />
@@ -282,7 +282,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                   </a>
                 </div>
 
-                <div className="p-3 rounded-xl bg-white border border-[#E8DEC8] flex items-center justify-between shadow-sm">
+                <div className="p-3 rounded-none bg-white border border-[#E8DEC8] flex items-center justify-between shadow-sm">
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
                       <Phone className="w-4 h-4" />
@@ -313,7 +313,7 @@ export function Navbar({ subpageTitle }: NavbarProps = {}) {
                         setMobileMenuOpen(false);
                         window.scrollTo({ top: 0, left: 0, behavior: "instant" });
                       }}
-                      className={`group flex items-center justify-between py-3.5 px-3 rounded-xl transition-all min-h-[48px] ${
+                      className={`group flex items-center justify-between py-3.5 px-3 rounded-none transition-all min-h-[48px] ${
                         isActive
                           ? "bg-white text-[#996515] border-l-4 border-[#996515] shadow-sm"
                           : "text-[#141416] hover:bg-white hover:text-[#996515]"

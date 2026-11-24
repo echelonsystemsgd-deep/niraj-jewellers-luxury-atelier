@@ -23,7 +23,7 @@ export function ShowroomStatusBadge({ variant = "full", className = "" }: Showro
 
   if (!status) {
     return (
-      <div className={`flex items-center gap-1.5 text-[11px] text-[#5A5960] bg-[#FAF7F2] px-2.5 py-1 rounded-full border border-[#E8DEC8] ${className}`}>
+      <div className={`flex items-center gap-1.5 text-[11px] text-[#5A5960] bg-[#FAF7F2] px-2.5 py-1 border border-[#E8DEC8] ${className}`}>
         <Clock className="w-3 h-3 text-[#996515] animate-pulse" />
         <span>London Showroom</span>
       </div>
@@ -34,7 +34,7 @@ export function ShowroomStatusBadge({ variant = "full", className = "" }: Showro
 
   return (
     <div
-      className={`inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-[11px] font-medium border transition-colors ${
+      className={`inline-flex items-center gap-2 px-2.5 py-1 text-[11px] font-medium border transition-colors ${
         status.isOpen
           ? "bg-emerald-50 border-emerald-300/80 text-emerald-800 shadow-sm"
           : "bg-amber-50 border-amber-300/80 text-amber-800 shadow-sm"

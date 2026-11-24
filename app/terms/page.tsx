@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function TermsOfServicePage() {
   return (
     <main className="min-h-screen bg-[#FAF8F5] text-[#4A4A52] py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-3xl border border-[#E8DEC8] shadow-sm">
+      <div className="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-none border border-[#E8DEC8] shadow-sm">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm text-[#8C6212] hover:text-[#996515] font-semibold transition-colors mb-8 group"
@@ -45,7 +45,7 @@ export default function TermsOfServicePage() {
 
         <div className="space-y-10 text-sm leading-relaxed text-[#4A4A52]">
           {/* Statutory Hallmarking Callout */}
-          <div className="p-6 rounded-2xl bg-[#FAF7F2] border border-[#D4AF37]/50 shadow-sm">
+          <div className="p-6 rounded-none bg-[#FAF7F2] border border-[#D4AF37]/50 shadow-sm">
             <div className="flex items-center gap-2.5 text-[#8C6212] font-bold text-base mb-2">
               <Award className="w-5 h-5 text-[#996515] shrink-0" />
               <span>Statutory UK Hallmarking Act 1973 Guarantee</span>
@@ -87,17 +87,17 @@ export default function TermsOfServicePage() {
               All Niraj Jewellers Ltd bespoke mountings include a <strong>Complimentary Lifetime Craftsmanship Warranty</strong> covering:
             </p>
             <div className="grid sm:grid-cols-3 gap-3 my-3">
-              <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8] text-center">
+              <div className="p-4 rounded-none bg-[#FAF7F2] border border-[#E8DEC8] text-center">
                 <ShieldCheck className="w-5 h-5 text-[#996515] mx-auto mb-1.5" />
                 <span className="text-xs font-bold text-[#141416] block">Prong Tightening</span>
                 <span className="text-[11px] text-[#5A5960]">Annual claw tension inspection</span>
               </div>
-              <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8] text-center">
+              <div className="p-4 rounded-none bg-[#FAF7F2] border border-[#E8DEC8] text-center">
                 <Gem className="w-5 h-5 text-[#996515] mx-auto mb-1.5" />
                 <span className="text-xs font-bold text-[#141416] block">Ultrasonic Cleaning</span>
                 <span className="text-[11px] text-[#5A5960]">Complimentary showroom spa polish</span>
               </div>
-              <div className="p-4 rounded-xl bg-[#FAF7F2] border border-[#E8DEC8] text-center">
+              <div className="p-4 rounded-none bg-[#FAF7F2] border border-[#E8DEC8] text-center">
                 <Scale className="w-5 h-5 text-[#996515] mx-auto mb-1.5" />
                 <span className="text-xs font-bold text-[#141416] block">First Resizing</span>
                 <span className="text-[11px] text-[#5A5960]">Complimentary 1-size adjustment</span>

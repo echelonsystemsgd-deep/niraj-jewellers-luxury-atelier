@@ -65,8 +65,8 @@ export function AtelierNavbar() {
           {/* Left: Official Royal Crest Logo & Brand */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <Link href="/" className="flex items-center gap-1.5 sm:gap-3 group focus:outline-none">
-              <div className="relative w-8 h-8 sm:w-11 sm:h-11 rounded-xl overflow-hidden shrink-0 border border-[#D4AF37] shadow-xs p-0.5 bg-white group-hover:border-[#996515] transition-colors">
-                <div className="relative w-full h-full rounded-lg overflow-hidden bg-white">
+              <div className="relative w-8 h-8 sm:w-11 sm:h-11 overflow-hidden shrink-0 border border-[#D4AF37] shadow-xs p-0.5 bg-white group-hover:border-[#996515] transition-colors">
+                <div className="relative w-full h-full overflow-hidden bg-white">
                   <Image
                     src="/NIRAJ_LOGO9.png"
                     alt="Niraj Jewellers Ltd Official Crest"
@@ -108,7 +108,7 @@ export function AtelierNavbar() {
             {/* Direct Landline Phone CTA - Number displayed on both Mobile & Desktop */}
             <a
               href="tel:02085739323"
-              className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white border border-[#E7E2DA] hover:border-[#141416] text-[#141416] font-sans text-[10px] sm:text-xs font-semibold transition-all shadow-xs shrink-0"
+              className="inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-white border border-[#E7E2DA] hover:border-[#141416] text-[#141416] font-sans text-[10px] sm:text-xs font-semibold transition-all shadow-xs shrink-0"
               title="Call Workshop: 020 8573 9323"
               aria-label="Call Hayes Workshop at 020 8573 9323"
             >
@@ -121,7 +121,7 @@ export function AtelierNavbar() {
               href="https://wa.me/447955565137?text=Hi%20Niraj%20Jewellers%20team%2C%20I%20am%20browsing%20your%20website%20and%20would%20like%20to%20inquire%20with%20a%20master%20goldsmith."
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-1.5 px-3 xl:px-3.5 py-1.5 xl:py-2 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold text-[11px] xl:text-xs tracking-wide transition-all shadow-xs shrink-0"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 xl:px-3.5 py-1.5 xl:py-2 bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold text-[11px] xl:text-xs tracking-wide transition-all shadow-xs shrink-0"
             >
               <MessageSquare className="w-3.5 h-3.5 fill-white text-white shrink-0" />
               <span className="hidden xl:inline">WhatsApp Concierge</span>
@@ -131,7 +131,7 @@ export function AtelierNavbar() {
             {/* Mobile Menu Hamburger (Strict 44px tap target) */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden w-9 h-9 min-w-[36px] min-h-[36px] sm:w-11 sm:h-11 sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center text-[#141416] hover:bg-[#E8DEC8]/20 border border-[#E7E2DA] transition-colors shrink-0 rounded-xl shadow-xs cursor-pointer"
+              className="lg:hidden w-9 h-9 min-w-[36px] min-h-[36px] sm:w-11 sm:h-11 sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center text-[#141416] hover:bg-[#E8DEC8]/20 border border-[#E7E2DA] transition-colors shrink-0 rounded-none shadow-xs cursor-pointer"
               aria-label="Open navigation menu"
             >
               <Menu className="w-4 h-4 sm:w-5 sm:h-5 text-[#141416]" />
@@ -158,7 +158,7 @@ export function AtelierNavbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-2.5"
             >
-              <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-[#D4AF37]/60 bg-white p-0.5 shadow-xs">
+              <div className="relative w-9 h-9 rounded-none overflow-hidden border border-[#D4AF37]/60 bg-white p-0.5 shadow-xs">
                 <Image
                   src="/NIRAJ_LOGO9.png"
                   alt="Niraj Jewellers Ltd"
@@ -181,7 +181,7 @@ export function AtelierNavbar() {
             {/* High-Contrast Close Button */}
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-[#D4AF37]/50 bg-white hover:bg-[#FAF7F2] text-[#996515] text-xs font-bold uppercase tracking-wider transition-colors min-h-[48px] shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 border border-[#D4AF37]/50 bg-white hover:bg-[#FAF7F2] text-[#996515] text-xs font-bold uppercase tracking-wider transition-colors min-h-[48px] shadow-xs cursor-pointer"
               aria-label="Close menu"
             >
               <span>CLOSE</span>
@@ -216,9 +216,9 @@ export function AtelierNavbar() {
 
             {/* Dual Phone Numbers (Landline + Mobile) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              <div className="p-3 rounded-xl bg-white border border-[#E8DEC8] flex items-center justify-between shadow-xs">
+              <div className="p-3 bg-white border border-[#E8DEC8] flex items-center justify-between shadow-xs">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
+                  <div className="w-8 h-8 bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -228,15 +228,15 @@ export function AtelierNavbar() {
                 </div>
                 <a
                   href="tel:02085739323"
-                  className="px-3 py-1.5 rounded-full bg-[#141416] text-white text-[11px] font-bold uppercase tracking-wider"
+                  className="px-3 py-1.5 bg-[#141416] text-white text-[11px] font-bold uppercase tracking-wider"
                 >
                   Call
                 </a>
               </div>
 
-              <div className="p-3 rounded-xl bg-white border border-[#E8DEC8] flex items-center justify-between shadow-xs">
+              <div className="p-3 bg-white border border-[#E8DEC8] flex items-center justify-between shadow-xs">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
+                  <div className="w-8 h-8 bg-[#FAF7F2] border border-[#D4AF37]/40 flex items-center justify-center text-[#996515]">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -246,7 +246,7 @@ export function AtelierNavbar() {
                 </div>
                 <a
                   href="tel:07955565137"
-                  className="px-3 py-1.5 rounded-full bg-[#C6A75E] text-[#141416] text-[11px] font-bold uppercase tracking-wider"
+                  className="px-3 py-1.5 bg-[#C6A75E] text-[#141416] text-[11px] font-bold uppercase tracking-wider"
                 >
                   Call
                 </a>
@@ -263,7 +263,7 @@ export function AtelierNavbar() {
                     setMobileMenuOpen(false);
                     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
                   }}
-                  className="group flex items-center justify-between py-3.5 px-3.5 rounded-xl hover:bg-white hover:text-[#996515] transition-all min-h-[48px] border border-transparent hover:border-[#E8DEC8]"
+                  className="group flex items-center justify-between py-3.5 px-3.5 rounded-none hover:bg-white hover:text-[#996515] transition-all min-h-[48px] border border-transparent hover:border-[#E8DEC8]"
                 >
                   <div className="flex items-center gap-4">
                     <span className="font-sans text-xs text-[#8C6212] font-semibold">{link.num}</span>

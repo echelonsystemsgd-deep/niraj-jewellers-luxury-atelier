@@ -81,7 +81,7 @@ export function HallmarkGuide() {
         {/* Visual Dual-Pane: Authentic Workshop Verification Photo + 3 Compulsory Marks */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
           {/* Left: Authentic Workshop Imagery */}
-          <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full border border-[#EAE6DF] overflow-hidden bg-[#F5F2EB] group rounded-2xl shadow-xs">
+          <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full border border-[#EAE6DF] overflow-hidden bg-[#F5F2EB] group rounded-none shadow-xs">
             <Image
               src="/images/workshop/goldsmith-bench-order-book-22ct.jpg"
               alt="London Assay Office Hallmarking inspection bench at Niraj Jewellers"
@@ -103,7 +103,7 @@ export function HallmarkGuide() {
           </div>
 
           {/* Right: The 3 Compulsory Marks Hairline Cards */}
-          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-px bg-[#EAE6DF] border border-[#EAE6DF] rounded-2xl overflow-hidden shadow-xs">
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-px bg-[#EAE6DF] border border-[#EAE6DF] rounded-none overflow-hidden shadow-xs">
             {compulsoryMarks.map((mark) => (
               <div
                 key={mark.num}
@@ -160,7 +160,7 @@ export function HallmarkGuide() {
         </div>
 
         {/* 4 Purity Standards Hairline Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#EAE6DF] border border-[#EAE6DF] rounded-2xl overflow-hidden shadow-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#EAE6DF] border border-[#EAE6DF] rounded-none overflow-hidden shadow-xs">
           {purities.map((item, idx) => (
             <div
               key={idx}

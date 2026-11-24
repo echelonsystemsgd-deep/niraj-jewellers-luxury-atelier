@@ -82,7 +82,7 @@ export function BespokeEstimator() {
         {/* 3-Step Grid Interface */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* Step 1 & Step 2 */}
-          <div className="lg:col-span-2 space-y-8 bg-atelier p-6 sm:p-8 rounded-2xl border border-atelier-border shadow-xl">
+          <div className="lg:col-span-2 space-y-8 bg-atelier p-6 sm:p-8 rounded-none border border-atelier-border shadow-xl">
             {/* Step 1: Jewellery Type */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
@@ -96,7 +96,7 @@ export function BespokeEstimator() {
                   <button
                     key={item.id}
                     onClick={() => setSelectedType(item.label)}
-                    className={`p-3.5 rounded-xl text-left border transition-all text-xs flex flex-col justify-between touch-target ${
+                    className={`p-3.5 rounded-none text-left border transition-all text-xs flex flex-col justify-between touch-target ${
                       selectedType === item.label
                         ? "bg-gold-950/40 border-gold-500 text-white shadow-sm"
                         : "bg-obsidian border-atelier-border text-platinum-muted hover:border-gold-600/50 hover:text-white"
@@ -122,7 +122,7 @@ export function BespokeEstimator() {
                   <button
                     key={item.id}
                     onClick={() => setSelectedMetal(item.label)}
-                    className={`p-3.5 rounded-xl text-left border transition-all text-xs flex flex-col justify-between touch-target ${
+                    className={`p-3.5 rounded-none text-left border transition-all text-xs flex flex-col justify-between touch-target ${
                       selectedMetal === item.label
                         ? "bg-gold-950/40 border-gold-500 text-white shadow-sm"
                         : "bg-obsidian border-atelier-border text-platinum-muted hover:border-gold-600/50 hover:text-white"
@@ -145,7 +145,7 @@ export function BespokeEstimator() {
                   <button
                     key={item.id}
                     onClick={() => setSelectedStones(item.label)}
-                    className={`p-3.5 rounded-xl text-left border transition-all text-xs flex flex-col justify-between touch-target ${
+                    className={`p-3.5 rounded-none text-left border transition-all text-xs flex flex-col justify-between touch-target ${
                       selectedStones === item.label
                         ? "bg-gold-950/40 border-gold-500 text-white shadow-sm"
                         : "bg-obsidian border-atelier-border text-platinum-muted hover:border-gold-600/50 hover:text-white"
@@ -207,7 +207,7 @@ export function BespokeEstimator() {
                     key={tier}
                     type="button"
                     onClick={() => setBudgetIndex(idx)}
-                    className={`px-2 py-2 rounded-xl text-[11px] font-medium transition-all text-center border ${
+                    className={`px-2 py-2 rounded-none text-[11px] font-medium transition-all text-center border ${
                       budgetIndex === idx
                         ? "bg-gold-500/20 border-gold-400 text-gold-300 font-bold shadow-md shadow-gold-500/10 scale-[1.02]"
                         : "bg-obsidian/70 border-atelier-border text-platinum-muted hover:text-white hover:border-zinc-700"
@@ -228,7 +228,7 @@ export function BespokeEstimator() {
 
           {/* Right Summary Card & Direct Review Action */}
           <div className="space-y-6">
-            <div className="bg-atelier p-6 sm:p-8 rounded-2xl border border-gold-500/40 shadow-2xl relative overflow-hidden space-y-6">
+            <div className="bg-atelier p-6 sm:p-8 rounded-none border border-gold-500/40 shadow-2xl relative overflow-hidden space-y-6">
               {/* Gold Shimmer border glow */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl pointer-events-none" />
 
@@ -264,7 +264,7 @@ export function BespokeEstimator() {
               </div>
 
               {/* Calculated Turnaround Box */}
-              <div className="p-4 rounded-xl bg-obsidian border border-atelier-border space-y-1">
+              <div className="p-4 rounded-none bg-obsidian border border-atelier-border space-y-1">
                 <span className="text-[11px] text-platinum-muted uppercase tracking-wider block">
                   Estimated Workshop Delivery
                 </span>
@@ -280,7 +280,7 @@ export function BespokeEstimator() {
               {/* Review & Launch Button */}
               <button
                 onClick={handleReview}
-                className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 hover:from-gold-500 hover:to-gold-400 text-obsidian font-bold text-sm uppercase tracking-wider shadow-lg shadow-gold-500/20 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="w-full py-4 px-6 rounded-none bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 hover:from-gold-500 hover:to-gold-400 text-obsidian font-bold text-sm uppercase tracking-wider shadow-lg shadow-gold-500/20 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>Review &amp; Enquire on WhatsApp</span>
                 <ArrowRight className="w-4 h-4 text-obsidian" />
@@ -295,7 +295,7 @@ export function BespokeEstimator() {
             </div>
 
             {/* Workshop Reassurance Card */}
-            <div className="p-5 rounded-xl bg-white border border-[#E8DEC8] text-xs text-[#4A4A52] space-y-2 shadow-sm">
+            <div className="p-5 rounded-none bg-white border border-[#E8DEC8] text-xs text-[#4A4A52] space-y-2 shadow-sm">
               <span className="text-[#8C6212] font-bold block uppercase tracking-wider">
                 Our Master Goldsmith Guarantee:
               </span>

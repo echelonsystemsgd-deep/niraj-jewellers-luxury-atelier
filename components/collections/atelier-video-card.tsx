@@ -72,7 +72,7 @@ export function AtelierVideoCard({
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-[#1C1A17] via-[#2A2620] to-[#141416] flex flex-col items-center justify-center p-4 text-center">
-          <div className="w-12 h-12 rounded-xl bg-white/5 border border-[#D4AF37]/40 flex items-center justify-center mb-2 text-[#D4AF37]">
+          <div className="w-12 h-12 rounded-none bg-white/5 border border-[#D4AF37]/40 flex items-center justify-center mb-2 text-[#D4AF37]">
             <span className="font-serif text-lg font-bold">NJ</span>
           </div>
           <span className="text-[10px] font-bold text-white tracking-widest uppercase">

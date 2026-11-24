@@ -72,7 +72,7 @@ export function SubpageFaq({
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                className={`rounded-none border transition-all duration-300 overflow-hidden ${
                   isOpen
                     ? "bg-white border-[#D4AF37] shadow-md"
                     : "bg-white/80 border-[#E8DEC8] hover:border-[#D4AF37]/60"
@@ -124,13 +124,12 @@ export function SubpageFaq({
           })}
         </div>
 
-        <div className="mt-10 p-6 rounded-2xl bg-white border border-[#D4AF37]/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-sm">
+        <div className="mt-10 p-6 bg-white border border-[#E7E2DA] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xs">
           <div className="space-y-1">
-            <h4 className="text-sm font-bold text-[#141416] flex items-center justify-center sm:justify-start gap-1.5">
-              <Sparkles className="w-4 h-4 text-[#996515]" />
-              <span>Need further technical or pricing guidance?</span>
+            <h4 className="text-sm font-semibold text-[#141416]">
+              Need further technical or pricing guidance?
             </h4>
-            <p className="text-xs text-[#5A5960]">
+            <p className="text-xs text-[#57534E] font-sans">
               Our master goldsmiths are available on WhatsApp for direct answers.
             </p>
           </div>
@@ -139,7 +138,7 @@ export function SubpageFaq({
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#1ebe5b] text-white font-sans text-xs uppercase tracking-wider font-semibold transition-all shadow-xs shrink-0"
           >
             <MessageCircle className="w-4 h-4 fill-white text-transparent" />
             <span>Chat on WhatsApp</span>

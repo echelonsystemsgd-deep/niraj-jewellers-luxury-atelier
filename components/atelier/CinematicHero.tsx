@@ -21,7 +21,7 @@ export function CinematicHero({ onExploreVault }: CinematicHeroProps) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => sound.playTick()}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#D4AF37]/50 bg-white hover:border-[#141416] transition-all shadow-xs mb-6 cursor-pointer group"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 border border-[#D4AF37]/50 bg-white hover:border-[#141416] transition-all shadow-xs mb-6 cursor-pointer group"
           >
             <div className="flex -space-x-1.5 overflow-hidden">
               <div className="w-5 h-5 rounded-full bg-[#141416] text-[#C6A75E] font-bold text-[9px] flex items-center justify-center border border-white">

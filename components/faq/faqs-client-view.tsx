@@ -101,7 +101,7 @@ export function FaqsClientView() {
       {/* FAQ Accordion List */}
       <div className="max-w-3xl mx-auto space-y-3">
         {filteredFaqs.length === 0 ? (
-          <div className="p-8 text-center bg-white border border-[#EAE6DF] space-y-3 rounded-2xl">
+          <div className="p-8 text-center bg-white border border-[#EAE6DF] space-y-3">
             <p className="text-sm text-[#57534E] font-sans">
               No matching questions found for &ldquo;{searchQuery}&rdquo;.
             </p>
@@ -168,7 +168,7 @@ export function FaqsClientView() {
       </div>
 
       {/* Direct Inquiry Help Box */}
-      <div className="max-w-3xl mx-auto p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4 rounded-2xl shadow-xs">
+      <div className="max-w-3xl mx-auto p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4 shadow-xs">
         <span className="font-sans text-xs uppercase tracking-widest text-[#8C6212] block font-semibold">
           UNLISTED INQUIRIES
         </span>

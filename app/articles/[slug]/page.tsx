@@ -252,7 +252,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 href={whatsappInquiryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-[#FAF8F5] border border-[#25D366] text-[#128C7E] font-sans text-xs uppercase tracking-wider font-semibold transition-colors rounded-lg"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-[#FAF8F5] border border-[#25D366] text-[#128C7E] font-sans text-xs uppercase tracking-wider font-semibold transition-colors"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
                 <span>Ask Goldsmith Bench</span>
@@ -261,7 +261,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
           </header>
 
           {/* Featured Hero Image per Captain requirement */}
-          <div className="mb-10 relative aspect-[16/9] w-full overflow-hidden bg-[#F5F2EB] border border-[#EAE6DF] rounded-2xl shadow-xs">
+          <div className="mb-10 relative aspect-[16/9] w-full overflow-hidden bg-[#F5F2EB] border border-[#EAE6DF] shadow-xs">
             <Image
               src={article.coverImage}
               alt={article.title}
@@ -270,17 +270,16 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
               sizes="(max-width: 896px) 100vw, 896px"
               className="object-cover"
             />
-            <div className="absolute bottom-3 left-3 bg-white/95 px-3 py-1 border border-[#EAE6DF] text-xs font-sans uppercase tracking-widest text-[#57534E] font-medium rounded-sm">
+            <div className="absolute bottom-3 left-3 bg-white/95 px-3 py-1 border border-[#EAE6DF] text-xs font-sans uppercase tracking-widest text-[#57534E] font-medium">
               Authentic Hayes Goldsmith Atelier Documentation
             </div>
           </div>
 
           {/* Key Takeaways Executive Summary Block */}
-          <section className="mb-12 p-6 sm:p-8 bg-white border border-[#EAE6DF] rounded-2xl shadow-xs">
-            <div className="flex items-center gap-2 text-xs font-sans font-semibold uppercase tracking-widest text-[#996515] mb-4">
-              <Sparkles className="w-4 h-4" />
-              <span>Key Workshop Takeaways &amp; Facts</span>
-            </div>
+          <section className="mb-12 p-6 sm:p-8 bg-white border border-[#EAE6DF] shadow-xs">
+            <p className="text-xs font-sans font-semibold uppercase tracking-widest text-[#996515] mb-4">
+              Key Workshop Takeaways &amp; Facts
+            </p>
             <ul className="space-y-3 font-sans">
               {article.keyTakeaways.map((takeaway, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#141416] leading-relaxed">
@@ -316,7 +315,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
                 {/* Technical Comparison Table if present */}
                 {section.table && (
-                  <div className="my-6 overflow-x-auto border border-[#EAE6DF] bg-white rounded-xl">
+                  <div className="my-6 overflow-x-auto border border-[#EAE6DF] bg-white">
                     {section.table.caption && (
                       <div className="p-3 bg-[#FAF8F5] border-b border-[#EAE6DF] text-xs font-sans font-semibold text-[#8C6212] uppercase tracking-wider">
                         {section.table.caption}
@@ -349,7 +348,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
                 {/* Master Goldsmith Quote if present */}
                 {section.quote && (
-                  <blockquote className="my-6 p-6 bg-white border-l-2 border-[#996515] border border-[#EAE6DF] rounded-r-xl">
+                  <blockquote className="my-6 p-6 bg-white border-l-2 border-[#996515] border border-[#EAE6DF]">
                     <div className="flex items-start gap-3">
                       <Quote className="w-5 h-5 text-[#996515] shrink-0 mt-1" />
                       <div>
@@ -384,7 +383,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 {article.faqs.map((faq, fIdx) => (
                   <div
                     key={fIdx}
-                    className="p-5 sm:p-6 bg-white border border-[#EAE6DF] rounded-xl"
+                    className="p-5 sm:p-6 bg-white border border-[#EAE6DF]"
                   >
                     <h4 className="font-serif text-base sm:text-lg font-medium text-[#141416] mb-2">
                       {faq.question}
@@ -399,7 +398,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
           )}
 
           {/* Bottom WhatsApp CTA & Back to Articles */}
-          <div className="mt-16 p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4 rounded-2xl shadow-xs">
+          <div className="mt-16 p-8 sm:p-10 bg-white border border-[#EAE6DF] text-center space-y-4 shadow-xs">
             <span className="font-sans text-xs uppercase tracking-widest text-[#8C6212] block font-semibold">
               DIRECT WORKSHOP CONCIERGE
             </span>
@@ -414,7 +413,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
                 href={whatsappInquiryLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white font-sans text-xs uppercase tracking-widest font-semibold transition-colors rounded-xl"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd59] text-white font-sans text-xs uppercase tracking-widest font-semibold transition-colors shadow-xs"
               >
                 <MessageCircle className="w-4 h-4 fill-white text-transparent" />
                 <span>WhatsApp Atelier Concierge</span>
@@ -422,7 +421,7 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
               <Link
                 href="/articles"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-sans text-xs uppercase tracking-widest font-semibold transition-colors rounded-xl"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#FAF8F5] border border-[#EAE6DF] text-[#141416] font-sans text-xs uppercase tracking-widest font-semibold transition-colors shadow-xs"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>All Articles &amp; Guides</span>

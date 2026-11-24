@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { TrendingUp, TrendingDown, Sparkles, RefreshCw, ArrowUpRight } from "lucide-react";
+import { TrendingUp, TrendingDown, RefreshCw, ArrowUpRight } from "lucide-react";
 import { GoldRateData } from "@/app/api/gold-rates/route";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
@@ -47,8 +47,7 @@ export function GoldTicker() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#996515]" />
           </span>
-          <span className="font-bold uppercase tracking-wider text-[#8C6212] flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5" />
+          <span className="font-bold uppercase tracking-wider text-[#8C6212]">
             Indicative Gold Bullion Rates
           </span>
           <span className="text-[#5A5960] hidden md:inline">
@@ -82,7 +81,7 @@ export function GoldTicker() {
       <div className="relative flex overflow-x-hidden group">
         <div className="animate-marquee whitespace-nowrap flex items-center space-x-8 text-xs sm:text-sm">
           {/* Rate 1: 24ct */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-lg border border-[#E8DEC8] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-none border border-[#E8DEC8] shadow-sm">
             <span className="text-[#4A4A52] font-semibold">24ct Pure Bullion (99.9%):</span>
             <span className="text-[#8C6212] font-bold font-sans">£{rates.ct24.perGram.toFixed(2)}/g</span>
             <span className="text-[#7A7880] text-xs">(£{rates.ct24.perTola.toFixed(2)}/tola)</span>
@@ -93,7 +92,7 @@ export function GoldTicker() {
           </div>
 
           {/* Rate 2: 22ct */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-lg border border-[#D4AF37]/50 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-none border border-[#D4AF37]/50 shadow-sm">
             <span className="text-[#8C6212] font-bold">22ct Hallmark (916):</span>
             <span className="text-[#141416] font-bold font-sans">£{rates.ct22.perGram.toFixed(2)}/g</span>
             <span className="text-[#7A7880] text-xs">(£{rates.ct22.perTola.toFixed(2)}/tola)</span>
@@ -104,7 +103,7 @@ export function GoldTicker() {
           </div>
 
           {/* Rate 3: 18ct */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-lg border border-[#E8DEC8] shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-none border border-[#E8DEC8] shadow-sm">
             <span className="text-[#4A4A52] font-semibold">18ct Fine Gold (750):</span>
             <span className="text-[#8C6212] font-bold font-sans">£{rates.ct18.perGram.toFixed(2)}/g</span>
             <span className="text-[#7A7880] text-xs">(£{rates.ct18.perTola.toFixed(2)}/tola)</span>

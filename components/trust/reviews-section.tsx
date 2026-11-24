@@ -128,7 +128,7 @@ export function ReviewsSection() {
           </p>
 
           {/* Official Google Reviews Rating Bar */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-sans text-[#141416] bg-white px-4 sm:px-6 py-2.5 rounded-full border border-[#E7E2DA] shadow-xs">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-sans text-[#141416] bg-white px-4 sm:px-6 py-2.5 border border-[#E7E2DA] shadow-xs">
             <GoogleGIcon className="w-4 h-4 shrink-0" />
             <span className="font-bold">4.9</span>
             <div className="flex items-center gap-0.5">
@@ -172,7 +172,7 @@ export function ReviewsSection() {
           {row1Doubled.map((review, idx) => (
             <article
               key={`r1-${review.id}-${idx}`}
-              className="w-[290px] sm:w-[360px] shrink-0 bg-white rounded-2xl p-5 sm:p-6 border border-[#E7E2DA]/90 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+              className="w-[290px] sm:w-[360px] shrink-0 bg-white p-5 sm:p-6 border border-[#E7E2DA]/90 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
                 {/* Top Row: Avatar + Name + Date on Left, Google G on Right */}
@@ -217,7 +217,7 @@ export function ReviewsSection() {
           {row2Doubled.map((review, idx) => (
             <article
               key={`r2-${review.id}-${idx}`}
-              className="w-[290px] sm:w-[360px] shrink-0 bg-white rounded-2xl p-5 sm:p-6 border border-[#E7E2DA]/90 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+              className="w-[290px] sm:w-[360px] shrink-0 bg-white p-5 sm:p-6 border border-[#E7E2DA]/90 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
             >
               <div>
                 {/* Top Row: Avatar + Name + Date on Left, Google G on Right */}

@@ -7,7 +7,6 @@ import {
   X,
   ShieldCheck,
   MessageSquare,
-  Sparkles,
   MapPin,
   Phone,
   Navigation,
@@ -173,10 +172,9 @@ export function ShowroomDossierModal({ isOpen, onClose, piece }: ShowroomDossier
             <div className="space-y-4">
               {/* Category, Title & Purity */}
               <div>
-                <div className="flex items-center gap-1.5 font-sans text-[11px] tracking-widest text-[#C6A75E] uppercase mb-1 font-semibold">
-                  <Sparkles className="w-3 h-3" />
-                  <span>{piece.category.toUpperCase()}</span>
-                </div>
+                <p className="font-sans text-[11px] tracking-[0.2em] text-[#8C6212] uppercase mb-1 font-semibold">
+                  {piece.category.toUpperCase()}
+                </p>
                 <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#141416] leading-tight">
                   {piece.title}
                 </h2>

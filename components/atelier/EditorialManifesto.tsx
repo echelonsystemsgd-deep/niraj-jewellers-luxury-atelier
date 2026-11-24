@@ -8,7 +8,7 @@ export function EditorialManifesto() {
     <section className="w-full bg-[#FAF9F5] border-b border-[#E7E2DA] py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Editorial Quote Card */}
-        <div className="border border-[#E7E2DA] bg-white rounded-2xl p-8 sm:p-12 lg:p-16 mb-16 shadow-xs">
+        <div className="border border-[#E7E2DA] bg-white p-8 sm:p-12 lg:p-16 mb-16 shadow-xs">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-xs sm:text-sm font-sans uppercase tracking-[0.25em] text-[#8C6212] font-semibold mb-6">
               THE ATELIER PHILOSOPHY
@@ -31,21 +31,22 @@ export function EditorialManifesto() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Visual Showcase */}
           <div className="lg:col-span-5">
-            <div className="relative rounded-2xl overflow-hidden border border-[#E7E2DA] shadow-xs aspect-4/5 bg-[#FAF8F5]">
+            <div className="relative overflow-hidden border border-[#E7E2DA] shadow-xs aspect-[4/5] min-h-[380px] w-full bg-[#FAF8F5]">
               <Image
-                src="/images/cad/bespoke-evil-eye-diamond-cad.jpg"
-                alt="Bespoke Jewellery 3D CAD Craftsmanship at Niraj Jewellers"
+                src="/images/workshop/workshop-bench-velvet-trays.jpg"
+                alt="Master Goldsmith Bench and Consultation Trays at Niraj Jewellers Hayes Atelier"
                 fill
+                unoptimized
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#141416]/80 via-transparent to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-linear-to-t from-[#141416]/85 via-transparent to-transparent flex items-end p-6">
                 <div className="text-white">
                   <p className="text-xs uppercase tracking-widest text-[#C6A75E] font-medium mb-1">
-                    Bespoke Atelier Commission
+                    Hayes Atelier Goldsmith Bench
                   </p>
                   <p className="text-sm font-serif">
-                    Precision 3D CAD modeling paired with hand-finished bench setting
+                    Four decades of master goldsmith benchcraft and consultation trays on Uxbridge Road
                   </p>
                 </div>
               </div>

@@ -224,7 +224,7 @@ export default function ArticlesPage() {
           </div>
 
           {/* In-Person Goldsmith Consultation Plaque */}
-          <div className="mt-12 p-8 sm:p-10 bg-white border border-[#EAE6DF] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl shadow-xs">
+          <div className="mt-12 p-8 sm:p-10 bg-white border border-[#EAE6DF] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
             <div className="max-w-2xl">
               <span className="font-sans text-xs uppercase tracking-widest text-[#996515] block mb-2 font-semibold">
                 DIRECT BENCH CONSULTATION

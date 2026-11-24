@@ -47,7 +47,7 @@ export function LegalModal({ isOpen, initialTab = "privacy", onClose }: LegalMod
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.22, ease: "easeOut" }}
-        className="relative w-full max-w-3xl max-h-[85vh] bg-white border border-[#E8DEC8] rounded-2xl overflow-hidden shadow-2xl z-10 flex flex-col"
+        className="relative w-full max-w-3xl max-h-[85vh] bg-white border border-[#E8DEC8] rounded-none overflow-hidden shadow-2xl z-10 flex flex-col"
       >
         {/* Header */}
         <div className="p-5 sm:p-6 border-b border-[#E8DEC8] flex items-center justify-between bg-[#FAF7F2]">
@@ -158,7 +158,7 @@ export function LegalModal({ isOpen, initialTab = "privacy", onClose }: LegalMod
                 <p>
                   Every precious metal jewellery piece sold by Niraj Jewellers Ltd complies strictly with the <strong>UK Hallmarking Act 1973</strong>. Every article of gold weighing over 1 gram is independently assayed and stamped by the London Assay Office at Goldsmiths&apos; Hall.
                 </p>
-                <div className="p-3 bg-[#FAF7F2] rounded-xl border border-[#E8DEC8] mt-2 space-y-1">
+                <div className="p-3 bg-[#FAF7F2] rounded-none border border-[#E8DEC8] mt-2 space-y-1">
                   <span className="font-bold text-[#8C6212] block">Official UK Compulsory Marks Applied:</span>
                   <p className="text-[11px]">
                     1. Sponsor&apos;s Mark • 2. Millesimal Fineness Mark (916 for 22ct / 750 for 18ct / 950 for Platinum) • 3. Assay Office Mark (London Leopard&apos;s Head)

@@ -103,7 +103,7 @@ export function ConsultationSection() {
 
           {/* Right Column: Clean On-Site Enquiry Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-2xl p-6 sm:p-10 border border-[#E7E2DA] shadow-xs">
+            <div className="bg-white p-6 sm:p-10 border border-[#E7E2DA] shadow-xs">
               {isSubmitted ? (
                 <div className="text-center py-12 space-y-4">
                   <div className="w-16 h-16 mx-auto rounded-full bg-[#FAF8F5] border border-[#C6A75E] flex items-center justify-center text-[#8C6212]">
@@ -143,7 +143,7 @@ export function ConsultationSection() {
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         placeholder="e.g. Jaspreet Kaur"
-                        className="w-full px-4 py-3 rounded-lg border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder-[#A89F91] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder-[#A89F91] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
                       />
                     </div>
 
@@ -157,7 +157,7 @@ export function ConsultationSection() {
                         value={contact}
                         onChange={(e) => setContact(e.target.value)}
                         placeholder="e.g. 07955 565137 or name@domain.com"
-                        className="w-full px-4 py-3 rounded-lg border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder-[#A89F91] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder-[#A89F91] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
                       />
                     </div>
                   </div>
@@ -170,7 +170,7 @@ export function ConsultationSection() {
                       <select
                         value={service}
                         onChange={(e) => setService(e.target.value)}
-                        className="w-full px-4 py-3 rounded-lg border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
                       >
                         <option value="Bespoke Bridal Commission">Bespoke Bridal Commission</option>
                         <option value="Same-Day Workshop Repair">Same-Day Workshop Repair &amp; Sizing</option>
@@ -187,7 +187,7 @@ export function ConsultationSection() {
                       <select
                         value={preferredMethod}
                         onChange={(e) => setPreferredMethod(e.target.value)}
-                        className="w-full px-4 py-3 rounded-lg border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
+                        className="w-full px-4 py-3 border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
                       >
                         <option value="Phone Call">Phone Call</option>
                         <option value="WhatsApp">WhatsApp</option>
@@ -205,7 +205,7 @@ export function ConsultationSection() {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="e.g. Looking for a 22ct bridal choker set for an October wedding, or ring resizing needed this Saturday..."
-                      className="w-full px-4 py-3 rounded-lg border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder-[#A89F91] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 border border-[#E7E2DA] bg-[#FAF9F5] text-sm text-[#141416] placeholder-[#A89F91] focus:outline-hidden focus:border-[#8C6212] focus:bg-white transition-colors"
                     />
                   </div>
 
@@ -213,7 +213,7 @@ export function ConsultationSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 px-6 bg-[#141416] hover:bg-[#8C6212] text-[#FAF9F5] rounded-xl font-sans text-xs uppercase tracking-widest font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-xs"
+                      className="w-full py-4 px-6 bg-[#141416] hover:bg-[#8C6212] text-[#FAF9F5] font-sans text-xs uppercase tracking-widest font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-xs cursor-pointer"
                     >
                       {isSubmitting ? (
                         <span>Submitting to Goldsmith Bench...</span>
